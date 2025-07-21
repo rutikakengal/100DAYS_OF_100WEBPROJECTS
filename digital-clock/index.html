@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cute To-Do List! ✨</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-switcher">
+        <button class="theme-btn" id="themeOcean" data-theme="ocean" title="Ocean Dream"></button>
+        <button class="theme-btn" id="themeSunset" data-theme="sunset" title="Sunset Bliss"></button>
+        <button class="theme-btn" id="themeForest" data-theme="forest" title="Forest Whimsy"></button>
+        <button class="theme-btn" id="themeDefault" data-theme="default" title="Sweet Pastels"></button>
+    </div>
+
+    <div class="container">
+        <h1>What's on your mind? ✨</h1>
+        <div id="digitalClock" class="digital-clock"></div>
+
+        <div class="todo-input-group">
+            <input type="text" id="taskInput" placeholder="Add a new cute task...">
+            <button id="addTaskBtn">
+                <span class="plus-icon">+</span> Add
+            </button>
+        </div>
+        <ul id="taskList">
+            </ul>
+        <button id="clearCompletedBtn" class="hidden">Clear Completed</button>
+    </div>
+
+    <div class="floating-element heart-float-1"></div>
+    <div class="floating-element star-float-1"></div>
+    <div class="floating-element bubble-float-1"></div>
+    <div class="floating-element heart-float-2"></div>
+    <div class="floating-element star-float-2"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
