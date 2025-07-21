@@ -1,0 +1,243 @@
+/* --- Default Theme (Sweet Pastels) --- */
+:root, body.theme-default {
+    --primary-color: #A7DBD8; /* Soft mint green */
+    --secondary-color: #F3E6E3; /* Creamy peach */
+    --accent-color: #FFB3BA; /* Baby pink */
+    --text-color: #5C5B5B; /* Soft grey */
+    --completed-color: #D3D3D3; /* Light grey for completed tasks */
+    --delete-color: #FF6961; /* Soft red for delete */
+    --font-cute: 'Quicksand', sans-serif;
+    --bg-gradient-start: var(--secondary-color);
+    --bg-gradient-end: var(--primary-color);
+    --container-bg: rgba(255, 255, 255, 0.9);
+    --task-item-bg: #FFF;
+    --input-border: var(--primary-color);
+    --input-focus-shadow: rgba(var(--accent-color), 0.3);
+    --button-shadow: rgba(var(--accent-color), 0.2);
+    --clear-button-shadow: rgba(var(--primary-color), 0.2);
+    --floating-heart: var(--accent-color);
+    --floating-star: #FFD700;
+    --floating-bubble: rgba(167, 219, 216, 0.5);
+    --doodle-color-1: var(--primary-color);
+    --doodle-color-2: var(--accent-color);
+    --doodle-line-1: #F5CAC3;
+    --doodle-line-2: #FFE6AA;
+}
+
+/* --- Ocean Dream Theme --- */
+body.theme-ocean {
+    --primary-color: #8FD8D5; /* Lighter Teal */
+    --secondary-color: #B2EBF2; /* Sky Blue */
+    --accent-color: #60BEEB; /* Ocean Blue */
+    --text-color: #3B5F69;
+    --completed-color: #ADD8E6; /* Light Blue */
+    --delete-color: #FF6B6B;
+    --bg-gradient-start: #B2EBF2;
+    --bg-gradient-end: #8FD8D5;
+    --container-bg: rgba(255, 255, 255, 0.95);
+    --floating-heart: #9FE2BF;
+    --floating-star: #FEEFB3;
+    --floating-bubble: rgba(96, 190, 235, 0.5);
+    --doodle-color-1: #8FD8D5;
+    --doodle-color-2: #60BEEB;
+    --doodle-line-1: #AEEEEE;
+    --doodle-line-2: #B0E0E6;
+}
+
+/* --- Sunset Bliss Theme --- */
+body.theme-sunset {
+    --primary-color: #FFB347; /* Warm Orange */
+    --secondary-color: #FFDAC1; /* Light Peach */
+    --accent-color: #FF7043; /* Deep Orange */
+    --text-color: #6F4E37;
+    --completed-color: #FDD8B0;
+    --delete-color: #CC3333;
+    --bg-gradient-start: #FFDAC1;
+    --bg-gradient-end: #FFB347;
+    --container-bg: rgba(255, 255, 255, 0.9);
+    --floating-heart: #FFC0CB;
+    --floating-star: #FFD700;
+    --floating-bubble: rgba(255, 112, 67, 0.5);
+    --doodle-color-1: #FFB347;
+    --doodle-color-2: #FF7043;
+    --doodle-line-1: #FFDAB9;
+    --doodle-line-2: #F0E68C;
+}
+
+/* --- Forest Whimsy Theme --- */
+body.theme-forest {
+    --primary-color: #90EE90; /* Light Green */
+    --secondary-color: #D3F5D3; /* Lighter Green */
+    --accent-color: #6B8E23; /* Olive Green */
+    --text-color: #4B5320;
+    --completed-color: #C0DCC0;
+    --delete-color: #CD5C5C;
+    --bg-gradient-start: #D3F5D3;
+    --bg-gradient-end: #90EE90;
+    --container-bg: rgba(255, 255, 255, 0.92);
+    --floating-heart: #FFB6C1;
+    --floating-star: #FFFACD;
+    --floating-bubble: rgba(107, 142, 35, 0.4);
+    --doodle-color-1: #90EE90;
+    --doodle-color-2: #6B8E23;
+    --doodle-line-1: #E6E6FA;
+    --doodle-line-2: #ADD8E6;
+}
+
+
+/* --- General Styles (use variables) --- */
+body {
+    font-family: var(--font-cute);
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text-color);
+    overflow: hidden;
+    transition: background 0.5s ease; /* Smooth transition for background change */
+}
+
+.container {
+    background-color: var(--container-bg);
+    padding: 30px 40px;
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease; /* Smooth transition */
+}
+
+h1 {
+    color: var(--accent-color);
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+    transition: color 0.5s ease; /* Smooth transition */
+}
+
+#taskInput {
+    border: 2px solid var(--input-border);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+#taskInput::placeholder {
+    color: var(--input-border);
+    opacity: 0.7;
+}
+
+#taskInput:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px var(--input-focus-shadow);
+}
+
+#addTaskBtn {
+    background-color: var(--accent-color);
+    box-shadow: 0 4px 8px var(--button-shadow);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#addTaskBtn:hover {
+    background-color: var(--accent-color); /* Maintain accent for hover, or define a hover var */
+    filter: brightness(1.1); /* Slightly brighter on hover */
+}
+
+.todo-item {
+    background-color: var(--task-item-bg);
+    border: 1px solid var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.action-btn {
+    color: var(--primary-color);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.action-btn.complete-btn:hover {
+    color: #79D279; /* Keep green for checkmark as it's a universal "done" color */
+}
+
+.action-btn.delete-btn {
+    color: var(--delete-color);
+}
+
+#clearCompletedBtn {
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 8px var(--clear-button-shadow);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#clearCompletedBtn:hover {
+    background-color: var(--primary-color); /* Maintain primary for hover */
+    filter: brightness(1.1);
+}
+
+/* Floating Elements - using theme specific colors */
+.heart-float-1 { background-color: var(--floating-heart); }
+.star-float-1 { background-color: var(--floating-star); }
+.bubble-float-1 { background-color: var(--floating-bubble); }
+.heart-float-2 { background-color: var(--floating-heart); } /* Can use different shades if you want */
+.star-float-2 { background-color: var(--floating-star); }
+
+
+/* Background Doodles - using theme specific colors */
+body::before {
+    background: radial-gradient(circle at 30% 30%, var(--doodle-color-1), transparent 70%);
+}
+
+body::after {
+    background: radial-gradient(circle at 70% 70%, var(--doodle-color-2), transparent 70%);
+}
+
+.background-doodle-swirl path:nth-child(1) {
+    stroke: var(--doodle-line-1);
+}
+.background-doodle-swirl path:nth-child(2) {
+    stroke: var(--doodle-line-2);
+}
+
+/* New CSS for Theme Switcher */
+.theme-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 10; /* Ensure it's above other elements */
+}
+
+.theme-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    padding: 0; /* Remove default padding */
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+}
+
+.theme-btn.active {
+    border-color: var(--text-color); /* Highlight active theme */
+    transform: scale(1.15);
+}
+
+/* Assign background colors for each theme button to act as a preview */
+#themeDefault { background-color: var(--primary-color); } /* From default theme */
+#themeOcean { background-color: #8FD8D5; } /* Primary color of Ocean theme */
+#themeSunset { background-color: #FFB347; } /* Primary color of Sunset theme */
+#themeForest { background-color: #90EE90; } /* Primary color of Forest theme */
+
+/* Adjust body padding if theme switcher overlaps */
+body {
+    padding-top: 50px; /* Adjust based on theme switcher height and desired spacing */
+}
