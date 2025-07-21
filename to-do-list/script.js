@@ -3,28 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const addTaskBtn = document.getElementById('addTaskBtn');
     const taskList = document.getElementById('taskList');
     const clearCompletedBtn = document.getElementById('clearCompletedBtn');
-    const themeButtons = document.querySelectorAll('.theme-btn'); // Get all theme buttons
 
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    let currentTheme = localStorage.getItem('theme') || 'default'; // Get saved theme or default
-
-    // --- Theme Functions ---
-    function applyTheme(themeName) {
-        document.body.className = ''; // Clear existing theme classes
-        document.body.classList.add(`theme-${themeName}`);
-        currentTheme = themeName;
-        localStorage.setItem('theme', themeName); // Save selected theme
-
-        // Update active state for buttons
-        themeButtons.forEach(button => {
-            button.classList.remove('active');
-            if (button.dataset.theme === themeName) {
-                button.classList.add('active');
-            }
-        });
-    }
-
-    // --- Task Functions (Existing, but ensure they are inside DOMContentLoaded) ---
 
     // Function to save tasks to Local Storage
     function saveTasks() {
@@ -95,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Event Listeners ---
+    // Event Listeners
     addTaskBtn.addEventListener('click', addTask);
 
     taskInput.addEventListener('keypress', (e) => {
@@ -120,17 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     clearCompletedBtn.addEventListener('click', clearCompletedTasks);
 
-    // Event listeners for theme buttons
-    themeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const theme = button.dataset.theme;
-            applyTheme(theme);
-        });
-    });
-
-    // --- Initializations ---
-    // Apply the saved theme on load
-    applyTheme(currentTheme);
-    // Initial render of tasks
+    // Initial render when the page loads
     renderTasks();
 });
