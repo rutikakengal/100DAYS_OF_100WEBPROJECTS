@@ -26,21 +26,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-      .glass {
-        backdrop-filter: blur(10px);
-        background: rgba(255, 255, 255, 0.1);
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
-      }
-      .btn-3d {
-        transition: transform 0.2s ease-in-out;
-      }
-      .btn-3d:hover {
-        transform: translateY(-4px);
-      }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" href="style.css">
   </head>
   <body class="bg-dark text-white font-sans">
     <!-- Navbar -->
@@ -80,7 +69,7 @@
             </tr>
           </thead>
           <tbody id="tableBody">
-            <!-- Dynamic rows injected here -->
+            <!-- Dynamic rows are injected here by JavaScript -->
           </tbody>
         </table>
         <div id="no-projects" class="text-center text-white mt-4 hidden">No Projects Found</div>
@@ -89,20 +78,38 @@
 
     <!-- Footer -->
     <footer class="bg-black text-white p-6 mt-10">
-      <div class="container mx-auto grid md:grid-cols-2 gap-8">
-        <div>
+      <div class="container mx-auto flex flex-col md:flex-row justify-center items-center text-center md:text-left gap-24">
+        
+        <!-- About Section -->
+        <div class="max-w-md">
           <h2 class="text-lg font-semibold">About</h2>
           <p class="mt-2 text-white/70">This repository contains 100 web projects from basic to intermediate using HTML, CSS, and JS.</p>
-          <p class="mt-1 text-white/50">© <script>document.write(new Date().getFullYear())</script> 100DAYS_WEBPROJECTS by <a href="#" class="underline">Rutika Kengal</a> & Contributors</p>
+          <p class="mt-1 text-white/50">© <script>document.write(new Date().getFullYear())</script> 100DAYS_WEBPROJECTS by <a href="#" class="underline hover:text-pink-500">Rutika Kengal</a> & Contributors</p>
         </div>
+        
+        <!-- Links Section -->
         <div>
           <h2 class="text-lg font-semibold">Links</h2>
-          <div class="flex gap-4 mt-2">
-            <a href="https://www.instagram.com/" target="_blank" class="text-pink-500"><i class="fab fa-instagram fa-lg"></i></a>
-            <a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS" target="_blank" class="text-white"><i class="fab fa-github fa-lg"></i></a>
-            <a href="https://www.linkedin.com/in/rutika-kengal-8085092b7" target="_blank" class="text-blue-400"><i class="fab fa-linkedin fa-lg"></i></a>
+          <div class="flex flex-col md:flex-row justify-center md:justify-start gap-x-6 gap-y-2 mt-2">
+            
+            <!-- Instagram Link -->
+            <a href="https://www.instagram.com/" target="_blank" class="text-pink-500 hover:underline transition-colors">
+              Instagram
+            </a>
+            
+            <!-- GitHub Link -->
+            <a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS" target="_blank" class="text-white hover:underline transition-colors">
+              GitHub
+            </a>
+            
+            <!-- LinkedIn Link -->
+            <a href="https://www.linkedin.com/in/rutika-kengal-8085092b7" target="_blank" class="text-blue-400 hover:underline transition-colors">
+              LinkedIn
+            </a>
+
           </div>
         </div>
+    
       </div>
     </footer>
 
