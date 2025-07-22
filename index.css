@@ -443,7 +443,7 @@ body.light-theme .navbar-item:hover {
 
 /* Footer */
 body.light-theme .footer {
-  color: rgb(0, 0, 0);
+  color: rgba(0, 0, 0, 0.427);
   background: linear-gradient(145deg, #f0f9ff, #dfffd7);
   box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.3);
   text-align: center;
@@ -451,7 +451,7 @@ body.light-theme .footer {
 }
 
 body.light-theme #footer_title {
-  color: rgb(0, 0, 0);
+  color: rgb(208, 114, 114);
   font-family: "Montserrat", sans-serif;
 }
 
