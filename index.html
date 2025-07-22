@@ -4,320 +4,142 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>100_DAYS_100_WEB_PROJECTS</title>
-    <link rel="stylesheet" href="home.css" />
     <link rel="icon" href="public/favv.png" type="image/x-icon" />
-    <meta content="100 Days_100 Web Projects" property="og:title" />
-    <meta
-      content="A collection of 100 web projects from basic to intermediate using html css and js."
-      property="og:description"
-    />
-    <meta content="/" property="og:url" />
-    <meta content="https://i.imgur.com/3cztaa9.png" property="og:image" />
-    <meta content="#c2a3d6" data-react-helmet="true" name="theme-color" />
-    <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- Pushed CSS Code Here and Imported Bulma StyleSheet as well -->
-    <link rel="stylesheet" href="index.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
-    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#ff0077',
+              dark: '#002057',
+            },
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+      .glass {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+      }
+      .btn-3d {
+        transition: transform 0.2s ease-in-out;
+      }
+      .btn-3d:hover {
+        transform: translateY(-4px);
+      }
+    </style>
   </head>
-  <style type="text/css">
-     nav.navbar {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        background-color: #1abc9c;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      #scrollBtn {
-        position: fixed;
-        bottom: 20px; /* Place closer to the bottom */
-        right: 20px; /* Place closer to the right */
-        display: none; /* Initially hidden */
-        background-color: #1abc9c;
-        color: rgb(247, 242, 242);
-        border: none;
-        border-radius: 50%;
-        padding: 15px;
-        font-size: 18px;
-        cursor: pointer;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 1000; /* Ensure visibility above other elements */
-        transition: background-color 0.3s ease, transform 0.3s ease;
-      }
-
-      #scrollBtn:hover {
-        background-color: #000; /* Change color on hover */
-        transform: scale(1.2); /* Slightly enlarge */
-      }
-      .contributors-btn {
-        background: linear-gradient(45deg, #10866f, );
-        color: white;
-        padding: 10px 20px; /* Adjust padding to make the button rectangular */
-        font-size: 0.8rem; /* Font size */
-        font-weight: bold;
-        text-decoration: none;
-        border: none;
-        border-radius: 5px; /* Optional: Rounded corners */
-        position: absolute;
-        top: 60px; /* Shifted slightly upwards */
-        right: 6px;
-        transition: background 0.3s ease, transform 0.2s ease,
-          box-shadow 0.3s ease;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        text-align: center;
-        display: inline-block;
-        z-index: 10; /* Ensures the button stays on top */
-        font-family: "Circular Std", "Arial", sans-serif; /* Circular font */
-      }
-
-      .contributors-btn:hover {
-        background: linear-gradient(45deg, #16a085, #1abc9c);
-        transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-      }
-
-      .contributors-btn:active {
-        transform: translateY(0);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
-
-      #title-heading {
-        margin-top: 3rem;
-        margin-bottom: 3rem;
-        color: white;
-      }
-
-      @media (max-width: 426px) {
-        #title-heading {
-          margin-top: 5rem;
-          margin-bottom: 3rem;
-        }
-      }
-    
-  </style>
-
-  <body>
-    
+  <body class="bg-dark text-white font-sans">
     <!-- Navbar -->
-    <nav
-      class="navbar is-primary"
-      role="navigation"
-      aria-label="main navigation"
-    >
-      <div class="navbar-brand">
-        <a class="navbar-item has-text-weight-bold" href="index.html">
-          <img src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"/>
-          100_DAYS_OF_100_WEB_PROJECTS
+    <nav class="fixed top-0 w-full z-50 bg-primary shadow-xl p-4">
+      <div class="container mx-auto flex items-center justify-between">
+        <a href="#" class="flex items-center gap-2 text-white font-bold text-lg">
+          <img src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg" class="h-10 rounded-full"/>
+          100_DAYS_100_WEB_PROJECTS
         </a>
-       
-        <a
-          role="button"
-          class="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-
-      <div class="navbar-menu is-active" id="navbar-menu">
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              
-            </div>
-          </div>
+        <div>
+          <a href="#projects" class="text-white hover:text-black font-semibold">Projects</a>
+          
+          <a href="#" class="text-white hover:text-black font-semibold">Contributors</a>
         </div>
       </div>
-    </nav><br><br>
-<!-- Main Page Starts Here -->
-    <div class="content" id="projects">
-      <div class="title is-2 has-text-centered" id="title-heading">
-       100_DAYS_OF_100_WEBPROJECTS
-      </div>
-      <p class="subtitle has-text-centered" style="color: black">
-        here are live demos of all the projects
-      </p>
+    </nav>
 
-      <div id="search-bar">
-        <div class="control">
-          <input
-            class="input"
-            type="text"
-            id="searchInput"
-            placeholder="Search for projects..."
-            onkeyup="filterProjects()"
-          />
-        </div>
-        <div class="control">
-          <button
-            id="searchButton"
-            class="mx-4 button is-primary"
-            onclick="filterProjects()"
-          >
-            Go
-          </button>
-        </div>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col justify-center items-center pt-32 text-center">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-primary drop-shadow-2xl animate-bounce">100 DAYS OF 100 WEB PROJECTS</h1>
+      <p class="mt-4 text-white/80 text-lg md:text-xl max-w-xl">Live demos of amazing mini projects crafted in HTML, CSS, and JavaScript!</p>
+      <div class="mt-6">
+        <input type="text" id="searchInput" placeholder="Search for projects..." class="p-3 rounded-l-lg text-black w-64">
+        <button onclick="filterProjects()" class="bg-primary text-white px-4 py-3 rounded-r-lg btn-3d">Search</button>
       </div>
+    </section>
 
-      <div class="links">
-        <table class="table is-fullwidth is-bordered is-striped is-hoverable">
-          <thead>
+    <!-- Projects Table -->
+    <section id="projects" class="container mx-auto px-4 py-10">
+      <div class="overflow-x-auto glass rounded-xl p-4">
+        <table class="w-full text-left text-white">
+          <thead class="text-primary border-b border-white">
             <tr>
-              <th>Day</th>
-              <th>Project Name</th>
-              <th>Demo Link</th>
+              <th class="p-4">Day</th>
+              <th class="p-4">Project Name</th>
+              <th class="p-4">Demo Link</th>
             </tr>
           </thead>
           <tbody id="tableBody">
-            
+            <!-- Dynamic rows injected here -->
           </tbody>
-
         </table>
+        <div id="no-projects" class="text-center text-white mt-4 hidden">No Projects Found</div>
       </div>
+    </section>
 
-      <div id="no-projects" style="display: none">No Projects Found</div>
-    </div>
-
-    <footer class="footer">
-      <div class="content">
-        <div class="columns is-vcentered">
-          <!-- Left Side -->
-          <div class="column has-text-left">
-            <div class="heading">
-              <h2 class="is-size-4">About</h2>
-              <p>
-                This repository contains 100 web projects from basic to
-                intermediate using HTML, CSS, and JS.
-              </p>
-              <p>
-                <strong>
-                  ©
-                  <script>
-                    document.write(new Date().getFullYear());
-                  </script>
-                  100DAYS_WEBPROJECTS
-                </strong>
-                by <a href="#">Rutika Kengal</a> and <a href="#">Contributors</a>.
-              </p>
-            </div>
-          </div>
-
-          <!-- Right Side -->
-          <div class="column ms-4">
-            <div class="heading">
-              <h2 class="is-size-4">Important Links</h2>
-              <!-- Social Media Icons -->
-              <div class="buttons">
-                <a
-                  class="button is-dark is-rounded"
-                  href="https://www.instagram.com/"
-                  target="_blank"
-                  aria-label="Instagram"
-                >
-                  <span class="icon">
-                    <i class="fab fa-instagram"></i>
-                  </span>
-                </a>
-                <a
-                  class="button is-dark is-rounded"
-                  href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS"
-                  target="_blank"
-                  aria-label="GitHub"
-                >
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
-                </a>
-                <a
-                  class="button is-dark is-rounded"
-                  href="www.linkedin.com/in/rutika-kengal-8085092b7"
-                  target="_blank"
-                  aria-label="LinkedIn"
-                >
-                  <span class="icon">
-                    <i class="fab fa-linkedin"></i>
-                  </span>
-                </a>
-              </div>
-              <!-- Navigation Links -->
-              <div class="buttons ms-5">
-                <a class="button is-primary is-rounded" href="#">
-                  <span class="icon">
-                    <i class="fas fa-home"></i>
-                  </span>
-                  <span>Home</span>
-                </a>
-                <a
-                  class="button is-link is-rounded"
-                  href="contributors/contributor.html"
-                >
-                  <span class="icon">
-                    <i class="fas fa-users"></i>
-                  </span>
-                  <span>Contributors</span>
-                </a>
-              </div>
-            </div>
+    <!-- Footer -->
+    <footer class="bg-black text-white p-6 mt-10">
+      <div class="container mx-auto grid md:grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-lg font-semibold">About</h2>
+          <p class="mt-2 text-white/70">This repository contains 100 web projects from basic to intermediate using HTML, CSS, and JS.</p>
+          <p class="mt-1 text-white/50">© <script>document.write(new Date().getFullYear())</script> 100DAYS_WEBPROJECTS by <a href="#" class="underline">Rutika Kengal</a> & Contributors</p>
+        </div>
+        <div>
+          <h2 class="text-lg font-semibold">Links</h2>
+          <div class="flex gap-4 mt-2">
+            <a href="https://www.instagram.com/" target="_blank" class="text-pink-500"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS" target="_blank" class="text-white"><i class="fab fa-github fa-lg"></i></a>
+            <a href="https://www.linkedin.com/in/rutika-kengal-8085092b7" target="_blank" class="text-blue-400"><i class="fab fa-linkedin fa-lg"></i></a>
           </div>
         </div>
       </div>
     </footer>
 
-    <!-- Top scroll button -->
-    <button id="scrollBtn" title="Go to top">
-      <i class="fa-solid fa-arrow-up fa-lg"></i>
+    <!-- Scroll to top button -->
+    <button id="scrollBtn" onclick="scrollToTop()" class="fixed bottom-5 right-5 bg-primary text-white p-4 rounded-full shadow-lg btn-3d hidden">
+      <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Pushed JavaScript Code To Here -->
-    <script src="index.js"></script>
-    <script src="bulma.js"></script>
-
+    <!-- Scripts -->
     <script>
-      // Get the button element
       const scrollBtn = document.getElementById("scrollBtn");
-
-      // Show the button when the user scrolls down 100px from the top
-      window.onscroll = function () {
-        if (
-          document.body.scrollTop > 100 ||
-          document.documentElement.scrollTop > 100
-        ) {
-          scrollBtn.style.display = "block";
-        } else {
-          scrollBtn.style.display = "none";
+      window.onscroll = () => {
+        if (document.documentElement.scrollTop > 100) scrollBtn.classList.remove("hidden");
+        else scrollBtn.classList.add("hidden");
+      };
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      function filterProjects() {
+        const input = document.getElementById("searchInput").value.toLowerCase();
+        const table = document.getElementById("tableBody");
+        const rows = table.getElementsByTagName("tr");
+        let found = false;
+        for (let i = 0; i < rows.length; i++) {
+          const cols = rows[i].getElementsByTagName("td");
+          let match = false;
+          for (let j = 0; j < cols.length; j++) {
+            if (cols[j].innerText.toLowerCase().includes(input)) {
+              match = true;
+              break;
+            }
+          }
+          rows[i].style.display = match ? "" : "none";
+          if (match) found = true;
         }
-      };
-
-      // Scroll to the top of the page when the button is clicked
-      scrollBtn.onclick = function () {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      };
+        document.getElementById("no-projects").style.display = found ? "none" : "block";
+      }
     </script>
   </body>
 </html>
