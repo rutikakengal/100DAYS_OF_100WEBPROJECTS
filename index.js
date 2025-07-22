@@ -69,8 +69,8 @@ function updateNavbar() {
 // Populate the table with project data
 function fillTable() {
     const data = [
-        ["Day 1", "To-Do List", " /public/TO_DO_LIST/todolist.html"],
-        ["Day 2", "Digital Clock", " /public/digital_clock/digitalclock.html"],
+        ["Day 1", "To-Do List", "/100DAYS_OF_100WEBPROJECTS/to-do-list/index.html"],
+        ["Day 2", "Digital Clock", "/100DAYS_OF_100WEBPROJECTS/digital-clock/index.html"],
         ["Day 3", " ",],
         ["Day 4", " ",],
         ["Day 5", " ",],
