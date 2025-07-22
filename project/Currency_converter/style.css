@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 600px) {
+  .dropdown {
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh; /* reduced from 2vh to 1vh */
+  }
+
+  .exchange {
+    order: 2;
+    margin: 0.5vh 0; /* reduced vertical margin */
+  }
+
+  .from {
+    order: 1;
+  }
+
+  .to {
+    order: 3;
+  }
+
+  .exchange i {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+  }
+}
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(250, 246, 190);
+    text-align: center;
+    font-family: Arial, sans-serif;
+
+  background-image: url('money.jpg');
+  background-repeat: repeat;
+  background-size: 1300px;
+
+}
+.container{
+    margin: 5%;
+    padding: 2rem;
+    background-color: #fff;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 1rem;
+    min-height: 50vh;
+    min-width:25vw ;
+    box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.15),
+    0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6vh;
+    margin-top: 3vh;
+    flex-wrap: wrap;
+}
+.exchange i {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+  }
+form{
+    margin: 2rem 0 2rem 0;
+}
+form select,button,input{
+    width: 100%;
+    border: none; 
+    outline: none;
+    border-radius: 0.75%;
+}
+form input{
+    border: 2px solid rgb(187, 184, 184);
+    font-size: 1rem;
+    height: 2.5rem;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 1vh;
+}
+.select-container img{
+    max-width: 3rem;
+    margin-left: 5px;
+}
+.select-container{
+    display: flex;
+    justify-content: space-around;
+    
+    align-items: center;
+    gap: 2vh;
+    border: 1px solid grey;
+    border-radius: 3px;
+    width: 8rem;
+}
+form select{
+    background-color: white;
+    /* border: 1px solid grey; */
+    font-size: 1rem;
+    height: 2.5rem;
+    border-radius: 5px;
+    text-align: center;
+    color: grey;
+    text-align: center;
+    cursor: pointer;
+
+}
+.msg{
+    margin: 2rem 0 2rem 0;
+    border: 2px solid grey;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    border-radius: 15px;
+    transition: 1s;
+    background-color: #fccfde;
+}
+form button{
+    height: 3rem;
+    background-color: #b404ab;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+}
+form button:hover{
+    box-shadow: 5px 2.5px 2.5px rgb(158, 156, 156);
+}
+form input:hover{
+    box-shadow: 5px 2.5px 2.5px rgb(158, 156, 156);
+}
+
+.after{
+    transition: 1s;
+    background-color: #c5f8fc;
+}
+.exchange i {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
