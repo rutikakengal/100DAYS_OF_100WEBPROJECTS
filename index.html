@@ -40,12 +40,12 @@
       }
 
       [data-theme="light"] {
-        --bg-primary: #f8fafc;
+        --bg-primary:#114d49;
         --bg-secondary: #ffffff;
-        --text-primary: #1a202c;
+        --text-primary: #1c1958;
         --text-secondary: #4a5568;
         --accent-color: #ff0077;
-        --glass-bg: rgba(255, 255, 255, 0.8);
+        --glass-bg: rgba(255, 255, 255, 0.088);
         --glass-border: rgba(0, 0, 0, 0.1);
         --hover-bg: rgba(0, 0, 0, 0.05);
       }
@@ -59,7 +59,7 @@
       .glass {
         backdrop-filter: blur(10px);
         background: var(--glass-bg);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        box-shadow: 0 8px 32px 0 rgba(100, 22, 82, 0.37);
         border: 1px solid var(--glass-border);
         transition: all 0.3s ease;
       }
@@ -103,7 +103,17 @@
         background-color: var(--accent-color);
         color: white;
         transform: scale(1.05);
+
       }
+
+      .link-theme {
+        color: var(--text-primary);
+        transition: color 0.3s;
+      }
+      .link-theme:hover {
+        color: var(--accent-color);
+      }
+
 
       .theme-toggle {
         position: fixed;
@@ -139,6 +149,7 @@
         align-items: center;
         max-width: 400px;
         margin: 0 auto;
+        background-color: rgb(115, 13, 135);
       }
 
       .search-input {
@@ -159,7 +170,7 @@
       }
 
       .search-input::placeholder {
-        color: var(--text-secondary);
+        color: white;
       }
 
       .about-section {
@@ -185,9 +196,11 @@
       }
     </style>
   </head>
-  <body class="bg-dark text-white font-sans">
+  <body class="font-sans" style="background-color: var(--bg-primary); color: var(--text-primary);">
+
     <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 bg-primary shadow-xl p-4">
+    <nav class="fixed top-0 w-full z-50 shadow-xl p-4" style="background-color: var(--bg-primary); color: var(--text-primary);">
+
       <div class="container mx-auto flex items-center justify-between">
         <a href="#" class="flex items-center gap-2 text-white font-bold text-lg">
           <img src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg" class="h-10 rounded-full"/>
@@ -196,7 +209,9 @@
         <div class="flex items-center gap-4">
           <a href="#projects" class="text-white hover:text-black font-semibold transition-colors">Projects</a>
           <a href="#about" class="text-white hover:text-black font-semibold transition-colors">About</a>
-          <a href="#" class="text-white hover:text-black font-semibold transition-colors">Contributors</a>
+          <a style="color: var(--text-primary);" onmouseover="this.style.color='var(--accent-color)'" onmouseout="this.style.color='var(--text-primary)'">
+          <a class="link-theme">Projects</a>
+
         </div>
       </div>
     </nav>
@@ -302,7 +317,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black text-white p-6 mt-10">
+    <footer class="p-6 mt-10" style="background-color: var(--bg-primary); color: var(--text-primary);">
+
       <div class="container mx-auto grid md:grid-cols-3 gap-8">
         <div>
           <h2 class="text-lg font-semibold mb-4">100 Days Challenge</h2>
@@ -377,5 +393,35 @@
         document.getElementById("no-projects").style.display = found ? "none" : "block";
       }
     </script>
+    <script>
+  const themeToggle = document.getElementById("themeToggle");
+
+  // Check saved theme on page load
+  if (localStorage.getItem("theme") === "light") {
+    document.documentElement.setAttribute("data-theme", "light");
+    themeToggle.textContent = "☀️";
+  }
+
+  themeToggle.addEventListener("click", () => {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute("data-theme");
+
+    if (currentTheme === "light") {
+      // Switch to dark mode (remove light theme)
+      html.removeAttribute("data-theme");
+      localStorage.setItem("theme", "dark");
+      themeToggle.textContent = "🌙";
+    } else {
+      // Switch to light mode
+      html.setAttribute("data-theme", "light");
+      localStorage.setItem("theme", "light");
+      themeToggle.textContent = "☀️";
+    }
+  });
+</script>
+
+    
+
+
   </body>
 </html>
