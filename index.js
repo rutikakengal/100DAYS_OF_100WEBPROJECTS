@@ -1,30 +1,67 @@
-function filterProjects() {
+// Live search functionality
+function liveSearch() {
     const input = document.getElementById('searchInput');
     const filter = input.value.toLowerCase();
-    const rows = document.querySelector('tbody').querySelectorAll('tr'); // Choose all rows in the table body
+    const rows = document.querySelector('tbody').querySelectorAll('tr');
     let hasResults = false;
 
     rows.forEach(row => {
-        const projectName = row.querySelector('.project-name')?.innerText.toLowerCase();
-
-        if (projectName && projectName.includes(filter)) {
+        const projectName = row.querySelector('.project-name')?.innerText.toLowerCase() || '';
+        const tags = row.getAttribute('data-tags')?.toLowerCase() || '';
+        
+        if (projectName.includes(filter) || tags.includes(filter)) {
             row.style.display = '';
             hasResults = true;
-        } else if (row.id !== 'table-subheader') {
+        } else {
             row.style.display = 'none';
         }
     });
 
-    const subheader = document.querySelector('.subheader');
     const noProjectsMessage = document.getElementById('no-projects');
+    noProjectsMessage.style.display = hasResults ? 'none' : 'block';
+}
 
-    if (hasResults) {
-        subheader.style.display = 'block';
-        noProjectsMessage.style.display = 'none';
+// Tag filtering functionality
+function filterByTag(tag) {
+    const rows = document.querySelector('tbody').querySelectorAll('tr');
+    let hasResults = false;
+
+    rows.forEach(row => {
+        const rowTags = row.getAttribute('data-tags') || '';
+        
+        if (tag === 'all' || rowTags.includes(tag)) {
+            row.style.display = '';
+            hasResults = true;
+        } else {
+            row.style.display = 'none';
+        }
+    });
+
+    const noProjectsMessage = document.getElementById('no-projects');
+    noProjectsMessage.style.display = hasResults ? 'none' : 'block';
+
+    // Update active tag button
+    document.querySelectorAll('.tag-filter').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelector(`[data-tag="${tag}"]`).classList.add('active');
+}
+
+// Random project functionality
+function goToRandomProject() {
+    const projectData = [
+        { name: "To-Do List", url: "/public/TO_DO_LIST/todolist.html" },
+        { name: "Digital Clock", url: "/public/digital_clock/digitalclock.html" },
+        // Add more projects as they are completed
+    ];
+    
+    const availableProjects = projectData.filter(project => project.url && project.url.trim() !== '');
+    
+    if (availableProjects.length > 0) {
+        const randomProject = availableProjects[Math.floor(Math.random() * availableProjects.length)];
+        window.open(randomProject.url, '_blank');
     } else {
-        document.getElementById('table-subheader').style.display = 'none';
-        subheader.style.display = 'none';
-        noProjectsMessage.style.display = 'block';
+        alert('No projects available yet! Check back soon.');
     }
 }
 
@@ -66,72 +103,189 @@ function updateNavbar() {
     }
 }
 
-// Populate the table with project data
+// Enhanced project data with tags
 function fillTable() {
-    const data = [
-        ["Day 1", "To-Do List", " /public/TO_DO_LIST/todolist.html"],
-        ["Day 2", "Digital Clock", " /public/digital_clock/digitalclock.html"],
-        ["Day 3", " ",],
-        ["Day 4", " ",],
-        ["Day 5", " ",],
+    const projectData = [
+        {
+            day: "Day 1",
+            name: "To-Do List",
+            url: "/public/TO_DO_LIST/todolist.html",
+            tags: ["tool", "ui"]
+        },
+        {
+            day: "Day 2",
+            name: "Digital Clock",
+            url: "/public/digital_clock/digitalclock.html",
+            tags: ["clock", "ui"]
+        },
+        {
+            day: "Day 3",
+            name: "Calculator",
+            url: "",
+            tags: ["tool", "ui"]
+        },
+        {
+            day: "Day 4",
+            name: "Weather App",
+            url: "",
+            tags: ["api", "ui"]
+        },
+        {
+            day: "Day 5",
+            name: "Memory Game",
+            url: "",
+            tags: ["game", "ui"]
+        },
     ];
 
-
-
-
     const tbody = document.getElementById('tableBody');
+    tbody.innerHTML = ''; // Clear existing content
 
-    data.forEach(e => {
+    projectData.forEach(project => {
         const row = document.createElement('tr');
-        const days = document.createElement('td');
-        const nameP = document.createElement('td');
-        const link = document.createElement('td');
-        const a = document.createElement('a');
+        row.classList.add('project-row');
+        row.setAttribute('data-tags', project.tags.join(' '));
 
-        days.innerText = e[0];
-        nameP.innerText = e[1];
-        a.href = e[2];
-        a.innerText = 'Here';
-        a.target = '_blank'; // Open link in a new tab
-        nameP.classList.add('project-name');
+        // Day column
+        const dayCell = document.createElement('td');
+        dayCell.classList.add('p-4', 'font-semibold');
+        dayCell.innerText = project.day;
 
-        link.appendChild(a);
-        row.appendChild(days);
-        row.appendChild(nameP);
-        row.appendChild(link);
+        // Project name column
+        const nameCell = document.createElement('td');
+        nameCell.classList.add('p-4', 'project-name');
+        nameCell.innerText = project.name;
+
+        // Tags column
+        const tagsCell = document.createElement('td');
+        tagsCell.classList.add('p-4');
+        const tagsContainer = document.createElement('div');
+        tagsContainer.classList.add('flex', 'gap-1', 'flex-wrap');
+        
+        project.tags.forEach(tag => {
+            const tagSpan = document.createElement('span');
+            tagSpan.classList.add('bg-primary', 'text-white', 'px-2', 'py-1', 'rounded-full', 'text-xs');
+            tagSpan.innerText = tag;
+            tagsContainer.appendChild(tagSpan);
+        });
+        tagsCell.appendChild(tagsContainer);
+
+        // Demo link column
+        const linkCell = document.createElement('td');
+        linkCell.classList.add('p-4');
+        
+        if (project.url && project.url.trim() !== '') {
+            const link = document.createElement('a');
+            link.href = project.url;
+            link.innerText = '🚀 Demo';
+            link.target = '_blank';
+            link.classList.add('bg-primary', 'text-white', 'px-4', 'py-2', 'rounded-lg', 'btn-3d', 'inline-block', 'hover:bg-pink-600', 'transition-colors');
+            linkCell.appendChild(link);
+        } else {
+            const comingSoon = document.createElement('span');
+            comingSoon.innerText = '🚧 Coming Soon';
+            comingSoon.classList.add('text-gray-500', 'italic');
+            linkCell.appendChild(comingSoon);
+        }
+
+        row.appendChild(dayCell);
+        row.appendChild(nameCell);
+        row.appendChild(tagsCell);
+        row.appendChild(linkCell);
 
         tbody.appendChild(row);
     });
+
+    // Update project count in about section
+    const completedProjects = projectData.filter(p => p.url && p.url.trim() !== '').length;
+    const projectCountElement = document.getElementById('projectCount');
+    if (projectCountElement) {
+        projectCountElement.innerText = completedProjects;
+    }
 }
 
+// Theme management
+function initializeTheme() {
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Check for saved theme preference or default to dark
+    let savedTheme = localStorage.getItem('theme');
+    if (!savedTheme) {
+        // Try to respect system preference
+        savedTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    body.setAttribute('data-theme', savedTheme);
+    themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+
+    // Theme toggle functionality
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', newTheme);
+        themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+        localStorage.setItem('theme', newTheme);
+        body.style.transition = 'all 0.3s ease';
+        setTimeout(() => {
+            body.style.transition = '';
+        }, 300);
+    });
+}
+
+
+// Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     updateNavbar();
     fillTable();
+    initializeTheme();
+    
+    // Set up live search
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', liveSearch);
+    
+    // Set up tag filters
+    document.querySelectorAll('.tag-filter').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const tag = e.target.getAttribute('data-tag');
+            filterByTag(tag);
+            
+            // Clear search input when filtering by tag
+            searchInput.value = '';
+        });
+    });
+    
+    // Set default active tag
+    document.querySelector('[data-tag="all"]').classList.add('active');
+    
+    // Set up random project button
+    const randomBtn = document.getElementById('randomProjectBtn');
+    randomBtn.addEventListener('click', goToRandomProject);
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 });
 
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
+// Enhanced scroll functionality
+window.addEventListener('scroll', () => {
+    const scrollBtn = document.getElementById('scrollBtn');
+    if (window.pageYOffset > 100) {
+        scrollBtn.classList.remove('hidden');
+    } else {
+        scrollBtn.classList.add('hidden');
+    }
+});
 
-// Check if the user has a saved theme preference
-if (localStorage.getItem('theme') === 'dark') {
-  body.classList.add('dark-theme');
-  themeToggle.textContent = '☀️';
-} else {
-  body.classList.add('light-theme');  // Explicitly set light theme
-  themeToggle.textContent = '🌙';
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
-// Toggle theme on button click
-themeToggle.addEventListener('click', () => {
-  if (body.classList.contains('dark-theme')) {
-    body.classList.remove('dark-theme');
-    body.classList.add('light-theme');
-    themeToggle.textContent = '🌙';
-    localStorage.setItem('theme', 'light');
-  } else {
-    body.classList.remove('light-theme');
-    body.classList.add('dark-theme');
-    themeToggle.textContent = '☀️';
-    localStorage.setItem('theme', 'dark');
-  }
-});
