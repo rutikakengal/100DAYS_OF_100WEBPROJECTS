@@ -8,7 +8,7 @@ Welcome to **100_days_100_web_project** – a challenge-based repository to **le
 
 ## 🌐 Live Website
 👉 Explore all the projects here:  
-🔗 [Visit Live Demo](https://ruchikakengal.github.io/WebDevIn100_Days/)
+🔗 [Visit Live Demo](100daysof100webprojects.netlify.app)
 
 
 
