@@ -1,0 +1,105 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    background: #f1faee;
+  color: #333;
+    font-family: 'Nunito', sans-serif;
+
+  
+}
+
+h1 {
+    text-align: center;
+    font-size: 37px;
+}
+.balance-card {
+    background-color:  #457b9d;
+    color:#eeeeee;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    width: 70vw;
+    text-align: center;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.total-balance-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.total-balance {
+    margin-bottom: 0px;
+}
+
+.income-expense-div {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.transactions {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.list {
+    padding: 10px;
+}
+
+.list-items {
+    list-style-type: none;
+    border: 1px solid #333;
+    background-color: #a8dadc;
+    padding: 15px 30px 15px 30px;
+    border-radius: 10px;
+    margin: 2px auto;
+    margin-bottom: 6px;
+    width: 70vw;
+    display: flex;
+    justify-content: space-between;
+     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+
+
+#form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+   
+}
+
+
+.input {
+    width: 70vw;
+    padding: 15px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    font-size: 15px;
+    border: 1px solid #333;
+
+}
+
+#save-btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 13px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    background-color: #1d3557;
+    color: #eeeeee;
+    font-size: medium;
+    width: 6vw;
+    cursor: pointer;
+}
+
+#save-btn:hover {
+  background: #0a1321;
+}
