@@ -16,10 +16,6 @@ let totalBalance = 0;
 let totalIncome = 0;
 let totalExpenses = 0;
 
-// plusBtn.addEventListener('click', () => {
-//   form.classList.toggle('hidden');
-// });
-
 
 function addTransaction(description, amount, type){
     const transaction = {

@@ -136,6 +136,12 @@ function fillTable() {
             url: "",
             tags: ["game", "ui"]
         },
+        {
+            day: "Day 6",
+            name: "Expense Tracker",
+            url: "/public/expense-tracker/expensetracker.html",
+            tags: ["tool", "ui"]
+        }
     ];
 
     const tbody = document.getElementById('tableBody');
