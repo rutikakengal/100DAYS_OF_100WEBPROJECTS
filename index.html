@@ -196,7 +196,7 @@
         <div class="flex items-center gap-4">
           <a href="#projects" class="text-white hover:text-black font-semibold transition-colors">Projects</a>
           <a href="#about" class="text-white hover:text-black font-semibold transition-colors">About</a>
-          <a href="#" class="text-white hover:text-black font-semibold transition-colors">Contributors</a>
+          <a href="#contributors" class="text-white hover:text-black font-semibold transition-colors">Contributors</a>
         </div>
       </div>
     </nav>
@@ -301,6 +301,16 @@
       </div>
     </section>
 
+    <!-- Contributors Section -->
+<section id="contributors" class="py-20 bg-dark text-white">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold text-primary mb-8">Contributors</h2>
+    <div id="contributorsList" class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"></div>
+  </div>
+</section>
+
+
+
     <!-- Footer -->
     <footer class="bg-black text-white p-6 mt-10">
       <div class="container mx-auto grid md:grid-cols-3 gap-8">
@@ -377,5 +387,6 @@
         document.getElementById("no-projects").style.display = found ? "none" : "block";
       }
     </script>
+    <script src="index.js"></script>
   </body>
 </html>

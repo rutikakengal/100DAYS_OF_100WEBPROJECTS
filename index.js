@@ -232,6 +232,38 @@ function initializeTheme() {
     });
 }
 
+async function loadContributors() {
+  const contributorsSection = document.getElementById("contributorsList");
+  if (!contributorsSection) return;
+
+  try {const res = await fetch("https://api.github.com/repos/rutikakengal/100DAYS_OF_100WEBPROJECTS/contributors");
+    const contributors = await res.json();
+
+    
+    contributors.forEach(c => {
+      const card = document.createElement("div");
+      card.className = "flex flex-col items-center p-4 bg-gray-100 text-black rounded-xl shadow-md hover:shadow-lg transition-all";
+
+      card.innerHTML = `
+        <img src="${c.avatar_url}" alt="${c.login}" class="w-16 h-16 rounded-full mb-2" />
+        <a href="${c.html_url}" target="_blank" class="text-sm font-semibold text-blue-600 hover:underline">
+          ${c.login}
+        </a>
+        <span class="text-xs text-gray-600">${c.contributions} contributions</span>
+      `;
+
+      contributorsSection.appendChild(card);
+    });
+  } catch (err) {
+    console.error("Failed to load contributors:", err);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const contributorsSection = document.getElementById("contributorsList");
+  if (contributorsSection) {
+    loadContributors();}
+});
 
 // Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
