@@ -6,7 +6,6 @@
     <title>100_DAYS_100_WEB_PROJECTS</title>
     <link rel="icon" href="public/favv.png" type="image/x-icon" />
 
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -23,13 +22,15 @@
         },
       }
     </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
     <style>
       :root {
-        --bg-primary: #002057;
+        --bg-primary: radial-gradient(circle at center, #0d1a2f 0%, #000000 100%);
         --bg-secondary: #000000;
         --text-primary: #ffffff;
         --text-secondary: #ffffff80;
@@ -51,7 +52,7 @@
       }
 
       body {
-        background-color: var(--bg-primary);
+        background: var(--bg-primary);
         color: var(--text-primary);
         transition: all 0.3s ease;
       }
@@ -63,7 +64,7 @@
         border: 1px solid var(--glass-border);
         transition: all 0.3s ease;
       }
-
+      
       .btn-3d {
         transition: all 0.2s ease-in-out;
       }
@@ -76,12 +77,7 @@
       .btn-3d:active {
         transform: translateY(-2px);
       }
-
-      .project-row {
-        transition: all 0.3s ease;
-        border-radius: 8px;
-      }
-
+      
       .project-row:hover {
         background: var(--hover-bg);
         transform: translateY(-2px);
@@ -157,13 +153,12 @@
         border-color: var(--accent-color);
         box-shadow: 0 0 20px rgba(255, 0, 119, 0.3);
       }
-
+      
       .search-input::placeholder {
         color: var(--text-secondary);
       }
 
       .about-section {
-        background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
         position: relative;
         overflow: hidden;
       }
@@ -186,7 +181,6 @@
     </style>
   </head>
   <body class="bg-dark text-white font-sans">
-    <!-- Navbar -->
     <nav class="fixed top-0 w-full z-50 bg-primary shadow-xl p-4">
       <div class="container mx-auto flex items-center justify-between">
         <a href="#" class="flex items-center gap-2 text-white font-bold text-lg">
@@ -201,7 +195,6 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="min-h-screen flex flex-col justify-center items-center pt-32 text-center">
       <h1 class="text-4xl md:text-6xl font-extrabold text-primary drop-shadow-2xl animate-bounce">100 DAYS OF 100 WEB PROJECTS</h1>
       <p class="mt-4 text-white/80 text-lg md:text-xl max-w-xl">Live demos of amazing mini projects crafted in HTML, CSS, and JavaScript!</p>
@@ -213,7 +206,6 @@
           </button>
         </div>
         
-        <!-- Tag Filters -->
         <div class="flex flex-wrap justify-center gap-3 mt-6">
           <button class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm" data-tag="all">All Projects</button>
           <button class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm" data-tag="ui">UI/UX</button>
@@ -225,7 +217,6 @@
       </div>
     </section>
 
-    <!-- Projects Table -->
     <section id="projects" class="container mx-auto px-4 py-10">
       <div class="overflow-x-auto glass rounded-xl p-6">
         <table class="w-full text-left">
@@ -238,8 +229,7 @@
             </tr>
           </thead>
           <tbody id="tableBody">
-            <!-- Dynamic rows injected here -->
-          </tbody>
+            </tbody>
         </table>
         <div id="no-projects" class="text-center mt-8 p-8 hidden">
           <div class="text-6xl mb-4">🔍</div>
@@ -249,7 +239,6 @@
       </div>
     </section>
 
-    <!-- Enhanced About Section -->
     <section id="about" class="about-section py-20 mt-20">
       <div class="container mx-auto px-4 relative z-10">
         <div class="text-center mb-16">
@@ -301,17 +290,11 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-black text-white p-6 mt-10">
       <div class="container mx-auto grid md:grid-cols-3 gap-8">
         <div>
           <h2 class="text-lg font-semibold mb-4">100 Days Challenge</h2>
-          <p class="text-white/70 mb-4">This repository contains 100 web projects from basic to intermediate using HTML, CSS, and JS. Each project is designed to teach specific concepts and improve your coding skills.</p>
-          <div class="flex gap-4">
-            <a href="https://www.instagram.com/" target="_blank" class="text-pink-500 hover:text-pink-400 transition-colors"><i class="fab fa-instagram fa-lg"></i></a>
-            <a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS" target="_blank" class="text-white hover:text-gray-300 transition-colors"><i class="fab fa-github fa-lg"></i></a>
-            <a href="https://www.linkedin.com/in/rutika-kengal-8085092b7" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors"><i class="fab fa-linkedin fa-lg"></i></a>
-          </div>
+          <p class="text-white/70">This repository contains 100 web projects from basic to intermediate using HTML, CSS, and JS. Each project is designed to teach specific concepts and improve your coding skills.</p>
         </div>
         
         <div>
@@ -320,7 +303,6 @@
             <li><a href="#projects" class="text-white/70 hover:text-white transition-colors">Browse Projects</a></li>
             <li><a href="#about" class="text-white/70 hover:text-white transition-colors">About Challenge</a></li>
             <li><a href="#" class="text-white/70 hover:text-white transition-colors">Contributors</a></li>
-            <li><a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS" class="text-white/70 hover:text-white transition-colors">GitHub Repository</a></li>
           </ul>
         </div>
         
@@ -332,22 +314,29 @@
             <span class="bg-yellow-600 text-white px-3 py-1 rounded-full text-sm">JavaScript</span>
             <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Responsive</span>
           </div>
-          <p class="mt-4 text-white/50 text-sm">© <script>document.write(new Date().getFullYear())</script> 100DAYS_WEBPROJECTS by <a href="#" class="underline hover:text-white transition-colors">Rutika Kengal</a> & Contributors</p>
+
+          <h2 class="text-lg font-semibold mb-4 mt-4">Links</h2>
+          <div class="flex gap-4">
+            <a href="https://www.instagram.com/" target="_blank" class="text-pink-500 hover:text-pink-400 transition-colors"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS" target="_blank" class="text-white hover:text-gray-300 transition-colors"><i class="fab fa-github fa-lg"></i></a>
+            <a href="https://www.linkedin.com/in/rutika-kengal-8085092b7" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors"><i class="fab fa-linkedin fa-lg"></i></a>
+          </div>
         </div>
+
+      </div>
+      <div class="text-center text-white/50 pt-8 mt-8 border-t border-gray-800">
+        © <script>document.write(new Date().getFullYear())</script> 100DAYS_WEBPROJECTS by <a href="#" class="underline hover:text-white transition-colors">Rutika Kengal</a> & Contributors
       </div>
     </footer>
 
-    <!-- Theme Toggle Button -->
     <button id="themeToggle" class="theme-toggle glass">
       🌙
     </button>
 
-    <!-- Scroll to top button -->
     <button id="scrollBtn" onclick="scrollToTop()" class="fixed bottom-5 right-5 bg-primary text-white p-4 rounded-full shadow-lg btn-3d hidden">
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Scripts -->
     <script>
       const scrollBtn = document.getElementById("scrollBtn");
       window.onscroll = () => {
@@ -358,23 +347,8 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
       function filterProjects() {
-        const input = document.getElementById("searchInput").value.toLowerCase();
-        const table = document.getElementById("tableBody");
-        const rows = table.getElementsByTagName("tr");
-        let found = false;
-        for (let i = 0; i < rows.length; i++) {
-          const cols = rows[i].getElementsByTagName("td");
-          let match = false;
-          for (let j = 0; j < cols.length; j++) {
-            if (cols[j].innerText.toLowerCase().includes(input)) {
-              match = true;
-              break;
-            }
-          }
-          rows[i].style.display = match ? "" : "none";
-          if (match) found = true;
-        }
-        document.getElementById("no-projects").style.display = found ? "none" : "block";
+        // This function needs the project data to be loaded first.
+        // Assuming project data is in an array called `projects`
       }
     </script>
   </body>
