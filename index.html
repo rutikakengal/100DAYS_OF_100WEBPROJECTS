@@ -377,5 +377,25 @@
         document.getElementById("no-projects").style.display = found ? "none" : "block";
       }
     </script>
+    <script>
+  const projects = [
+    { day: "Day 1", name: "Currency Converter", link: "project/Currency_converter/index.html" },
+    // Add more projects here
+  ];
+
+  const tableBody = document.getElementById("tableBody");
+  projects.forEach(p => {
+    const row = document.createElement("tr");
+    row.className = "border-t border-white";
+    row.innerHTML = `
+      <td class="p-4">${p.day}</td>
+      <td class="p-4">${p.name}</td>
+      <td class="p-4"><a href="${p.link}" target="_blank" class="text-primary underline hover:text-white transition">Currency converter</a></td>
+    `;
+    tableBody.appendChild(row);
+  });
+</script>
+</body>
+
   </body>
 </html>
