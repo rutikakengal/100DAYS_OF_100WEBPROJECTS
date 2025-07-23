@@ -2,7 +2,7 @@ const projects = [
   "Animated Landing Page",
   "To-Do List",
   "Weather App",
-  
+  "jewellery-company landing page"
   // Add more project names as needed
 ];
 
