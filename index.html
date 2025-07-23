@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>100_DAYS_100_WEB_PROJECTS</title>
     <link rel="icon" href="public/favv.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,21 +17,34 @@
         theme: {
           extend: {
             colors: {
-              primary: '#ff0077',
-              dark: '#002057',
+              primary: "#ff0077",
+              dark: "#002057",
             },
             fontFamily: {
-              sans: ['Poppins', 'sans-serif'],
+              sans: ["Poppins", "sans-serif"],
             },
           },
         },
-      }
+      };
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
+      [data-theme="light"] .hero-subtitle {
+        color: #111 !important;
+      }
+      [data-theme="light"] .bg-dark {
+        background-color: #e3eaf6 !important;
+        color: var(--text-primary) !important;
+      }
       :root {
         --bg-primary: #002057;
         --bg-secondary: #000000;
@@ -128,9 +145,15 @@
       }
 
       @keyframes pulse {
-        0% { box-shadow: 0 0 0 0 rgba(255, 0, 119, 0.7); }
-        70% { box-shadow: 0 0 0 10px rgba(255, 0, 119, 0); }
-        100% { box-shadow: 0 0 0 0 rgba(255, 0, 119, 0); }
+        0% {
+          box-shadow: 0 0 0 0 rgba(255, 0, 119, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 10px rgba(255, 0, 119, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(255, 0, 119, 0);
+        }
       }
 
       .search-container {
@@ -163,25 +186,35 @@
       }
 
       .about-section {
-        background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+        background: linear-gradient(
+          135deg,
+          var(--bg-secondary),
+          var(--bg-primary)
+        );
         position: relative;
         overflow: hidden;
       }
 
       .about-section::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23ff0077" opacity="0.1"/></svg>') repeat;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23ff0077" opacity="0.1"/></svg>')
+          repeat;
         animation: float 20s ease-in-out infinite;
       }
 
       @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-20px); }
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
       }
     </style>
   </head>
@@ -189,38 +222,93 @@
     <!-- Navbar -->
     <nav class="fixed top-0 w-full z-50 bg-primary shadow-xl p-4">
       <div class="container mx-auto flex items-center justify-between">
-        <a href="#" class="flex items-center gap-2 text-white font-bold text-lg">
-          <img src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg" class="h-10 rounded-full"/>
+        <a
+          href="#"
+          class="flex items-center gap-2 text-white font-bold text-lg"
+        >
+          <img
+            src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"
+            class="h-10 rounded-full"
+          />
           100_DAYS_100_WEB_PROJECTS
         </a>
         <div class="flex items-center gap-4">
+
           <a href="#projects" class="text-white hover:text-black font-semibold transition-colors">Projects</a>
           <a href="#about" class="text-white hover:text-black font-semibold transition-colors">About</a>
           <a href="#contributors" class="text-white hover:text-black font-semibold transition-colors">Contributors</a>
+
         </div>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center pt-32 text-center">
-      <h1 class="text-4xl md:text-6xl font-extrabold text-primary drop-shadow-2xl animate-bounce">100 DAYS OF 100 WEB PROJECTS</h1>
-      <p class="mt-4 text-white/80 text-lg md:text-xl max-w-xl">Live demos of amazing mini projects crafted in HTML, CSS, and JavaScript!</p>
+    <section
+      class="min-h-screen flex flex-col justify-center items-center pt-32 text-center"
+    >
+      <h1
+        class="text-4xl md:text-6xl font-extrabold text-primary drop-shadow-2xl animate-bounce"
+      >
+        100 DAYS OF 100 WEB PROJECTS
+      </h1>
+      <p class="mt-4 text-white/80 text-lg md:text-xl max-w-xl hero-subtitle">
+        Live demos of amazing mini projects crafted in HTML, CSS, and
+        JavaScript!
+      </p>
       <div class="mt-8 space-y-6">
         <div class="search-container">
-          <input type="text" id="searchInput" placeholder="Search for projects..." class="search-input">
-          <button id="randomProjectBtn" class="random-btn text-white px-6 py-3 rounded-full btn-3d ml-4">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for projects..."
+            class="search-input"
+          />
+          <button
+            id="randomProjectBtn"
+            class="random-btn text-white px-6 py-3 rounded-full btn-3d ml-4"
+          >
             🎲 Random
           </button>
         </div>
-        
+
         <!-- Tag Filters -->
         <div class="flex flex-wrap justify-center gap-3 mt-6">
-          <button class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm" data-tag="all">All Projects</button>
-          <button class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm" data-tag="ui">UI/UX</button>
-          <button class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm" data-tag="game">Games</button>
-          <button class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm" data-tag="api">API</button>
-          <button class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm" data-tag="clock">Clock</button>
-          <button class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm" data-tag="tool">Tools</button>
+          <button
+            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
+            data-tag="all"
+          >
+            All Projects
+          </button>
+          <button
+            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
+            data-tag="ui"
+          >
+            UI/UX
+          </button>
+          <button
+            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
+            data-tag="game"
+          >
+            Games
+          </button>
+          <button
+            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
+            data-tag="api"
+          >
+            API
+          </button>
+          <button
+            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
+            data-tag="clock"
+          >
+            Clock
+          </button>
+          <button
+            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
+            data-tag="tool"
+          >
+            Tools
+          </button>
         </div>
       </div>
     </section>
@@ -244,7 +332,9 @@
         <div id="no-projects" class="text-center mt-8 p-8 hidden">
           <div class="text-6xl mb-4">🔍</div>
           <h3 class="text-xl font-semibold mb-2">No Projects Found</h3>
-          <p class="text-gray-500">Try adjusting your search or filter criteria</p>
+          <p class="text-gray-500">
+            Try adjusting your search or filter criteria
+          </p>
         </div>
       </div>
     </section>
@@ -253,35 +343,56 @@
     <section id="about" class="about-section py-20 mt-20">
       <div class="container mx-auto px-4 relative z-10">
         <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">About the Challenge</h2>
+          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+            About the Challenge
+          </h2>
           <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
         </div>
-        
+
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <div class="glass p-8 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+          <div
+            class="glass p-8 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300"
+          >
             <div class="text-4xl mb-4">🎯</div>
             <h3 class="text-xl font-semibold mb-4">Our Mission</h3>
-            <p class="text-gray-400">Build 100 amazing web projects to master HTML, CSS, and JavaScript through hands-on practice and real-world applications.</p>
+            <p class="text-gray-400">
+              Build 100 amazing web projects to master HTML, CSS, and JavaScript
+              through hands-on practice and real-world applications.
+            </p>
           </div>
-          
-          <div class="glass p-8 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+
+          <div
+            class="glass p-8 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300"
+          >
             <div class="text-4xl mb-4">🚀</div>
             <h3 class="text-xl font-semibold mb-4">Skill Development</h3>
-            <p class="text-gray-400">From basic to intermediate level projects, each designed to challenge and improve your web development skills progressively.</p>
+            <p class="text-gray-400">
+              From basic to intermediate level projects, each designed to
+              challenge and improve your web development skills progressively.
+            </p>
           </div>
-          
-          <div class="glass p-8 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300">
+
+          <div
+            class="glass p-8 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300"
+          >
             <div class="text-4xl mb-4">🌟</div>
             <h3 class="text-xl font-semibold mb-4">Community</h3>
-            <p class="text-gray-400">Join a growing community of developers, contribute to projects, and learn together in this collaborative journey.</p>
+            <p class="text-gray-400">
+              Join a growing community of developers, contribute to projects,
+              and learn together in this collaborative journey.
+            </p>
           </div>
         </div>
-        
+
         <div class="glass p-8 rounded-xl">
-          <h3 class="text-2xl font-semibold mb-6 text-center">Challenge Statistics</h3>
+          <h3 class="text-2xl font-semibold mb-6 text-center">
+            Challenge Statistics
+          </h3>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
-              <div class="text-3xl font-bold text-primary" id="projectCount">5</div>
+              <div class="text-3xl font-bold text-primary" id="projectCount">
+                5
+              </div>
               <div class="text-sm text-gray-400">Projects Completed</div>
             </div>
             <div>
@@ -316,44 +427,109 @@
       <div class="container mx-auto grid md:grid-cols-3 gap-8">
         <div>
           <h2 class="text-lg font-semibold mb-4">100 Days Challenge</h2>
-          <p class="text-white/70 mb-4">This repository contains 100 web projects from basic to intermediate using HTML, CSS, and JS. Each project is designed to teach specific concepts and improve your coding skills.</p>
+          <p class="text-white/70 mb-4">
+            This repository contains 100 web projects from basic to intermediate
+            using HTML, CSS, and JS. Each project is designed to teach specific
+            concepts and improve your coding skills.
+          </p>
           <div class="flex gap-4">
-            <a href="https://www.instagram.com/" target="_blank" class="text-pink-500 hover:text-pink-400 transition-colors"><i class="fab fa-instagram fa-lg"></i></a>
-            <a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS" target="_blank" class="text-white hover:text-gray-300 transition-colors"><i class="fab fa-github fa-lg"></i></a>
-            <a href="https://www.linkedin.com/in/rutika-kengal-8085092b7" target="_blank" class="text-blue-400 hover:text-blue-300 transition-colors"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              class="text-pink-500 hover:text-pink-400 transition-colors"
+              ><i class="fab fa-instagram fa-lg"></i
+            ></a>
+            <a
+              href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS"
+              target="_blank"
+              class="text-white hover:text-gray-300 transition-colors"
+              ><i class="fab fa-github fa-lg"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/rutika-kengal-8085092b7"
+              target="_blank"
+              class="text-blue-400 hover:text-blue-300 transition-colors"
+              ><i class="fab fa-linkedin fa-lg"></i
+            ></a>
           </div>
         </div>
-        
+
         <div>
           <h2 class="text-lg font-semibold mb-4">Quick Links</h2>
           <ul class="space-y-2">
-            <li><a href="#projects" class="text-white/70 hover:text-white transition-colors">Browse Projects</a></li>
-            <li><a href="#about" class="text-white/70 hover:text-white transition-colors">About Challenge</a></li>
-            <li><a href="#" class="text-white/70 hover:text-white transition-colors">Contributors</a></li>
-            <li><a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS" class="text-white/70 hover:text-white transition-colors">GitHub Repository</a></li>
+            <li>
+              <a
+                href="#projects"
+                class="text-white/70 hover:text-white transition-colors"
+                >Browse Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="#about"
+                class="text-white/70 hover:text-white transition-colors"
+                >About Challenge</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-white/70 hover:text-white transition-colors"
+                >Contributors</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS"
+                class="text-white/70 hover:text-white transition-colors"
+                >GitHub Repository</a
+              >
+            </li>
           </ul>
         </div>
-        
+
         <div>
           <h2 class="text-lg font-semibold mb-4">Technologies</h2>
           <div class="flex flex-wrap gap-2">
-            <span class="bg-orange-600 text-white px-3 py-1 rounded-full text-sm">HTML5</span>
-            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">CSS3</span>
-            <span class="bg-yellow-600 text-white px-3 py-1 rounded-full text-sm">JavaScript</span>
-            <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">Responsive</span>
+            <span
+              class="bg-orange-600 text-white px-3 py-1 rounded-full text-sm"
+              >HTML5</span
+            >
+            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm"
+              >CSS3</span
+            >
+            <span
+              class="bg-yellow-600 text-white px-3 py-1 rounded-full text-sm"
+              >JavaScript</span
+            >
+            <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm"
+              >Responsive</span
+            >
           </div>
-          <p class="mt-4 text-white/50 text-sm">© <script>document.write(new Date().getFullYear())</script> 100DAYS_WEBPROJECTS by <a href="#" class="underline hover:text-white transition-colors">Rutika Kengal</a> & Contributors</p>
+          <p class="mt-4 text-white/50 text-sm">
+            ©
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            100DAYS_WEBPROJECTS by
+            <a href="#" class="underline hover:text-white transition-colors"
+              >Rutika Kengal</a
+            >
+            & Contributors
+          </p>
         </div>
       </div>
     </footer>
 
     <!-- Theme Toggle Button -->
-    <button id="themeToggle" class="theme-toggle glass">
-      🌙
-    </button>
+    <button id="themeToggle" class="theme-toggle glass">🌙</button>
 
     <!-- Scroll to top button -->
-    <button id="scrollBtn" onclick="scrollToTop()" class="fixed bottom-5 right-5 bg-primary text-white p-4 rounded-full shadow-lg btn-3d hidden">
+    <button
+      id="scrollBtn"
+      onclick="scrollToTop()"
+      class="fixed bottom-5 right-5 bg-primary text-white p-4 rounded-full shadow-lg btn-3d hidden"
+    >
       <i class="fas fa-arrow-up"></i>
     </button>
 
@@ -361,14 +537,17 @@
     <script>
       const scrollBtn = document.getElementById("scrollBtn");
       window.onscroll = () => {
-        if (document.documentElement.scrollTop > 100) scrollBtn.classList.remove("hidden");
+        if (document.documentElement.scrollTop > 100)
+          scrollBtn.classList.remove("hidden");
         else scrollBtn.classList.add("hidden");
       };
       function scrollToTop() {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
       function filterProjects() {
-        const input = document.getElementById("searchInput").value.toLowerCase();
+        const input = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
         const table = document.getElementById("tableBody");
         const rows = table.getElementsByTagName("tr");
         let found = false;
@@ -384,8 +563,30 @@
           rows[i].style.display = match ? "" : "none";
           if (match) found = true;
         }
-        document.getElementById("no-projects").style.display = found ? "none" : "block";
+        document.getElementById("no-projects").style.display = found
+          ? "none"
+          : "block";
       }
+
+      // Theme toggle logic
+      const themeToggle = document.getElementById("themeToggle");
+      function setTheme(mode) {
+        if (mode === "light") {
+          document.documentElement.setAttribute("data-theme", "light");
+          themeToggle.textContent = "🌞";
+        } else {
+          document.documentElement.removeAttribute("data-theme");
+          themeToggle.textContent = "🌙";
+        }
+      }
+      // Load theme from localStorage or default to dark
+      let currentTheme = localStorage.getItem("theme") || "dark";
+      setTheme(currentTheme);
+      themeToggle.addEventListener("click", function () {
+        currentTheme = currentTheme === "dark" ? "light" : "dark";
+        setTheme(currentTheme);
+        localStorage.setItem("theme", currentTheme);
+      });
     </script>
     <script src="index.js"></script>
   </body>
