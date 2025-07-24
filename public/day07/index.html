@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snake – Tube Style</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🐍 Snake</h1>
+  <div id="settingsBar">
+    <div class="optionGroup" id="modeGroup">
+      <button class="modeBtn" data-mode="classic">Classic</button>
+      <button class="modeBtn" data-mode="wall">Wall</button>
+      <!-- <button class="modeBtn" data-mode="portal">Portal</button> -->
+      <button class="modeBtn" data-mode="nowall">No-Walls</button>
+      <button class="modeBtn" data-mode="slow">Slow</button>
+    </div>
+    <div class="optionGroup" id="skinGroup">
+      <button class="skinBtn" data-skin="retro">Retro Green</button>
+      <button class="skinBtn" data-skin="night">Night Sky</button>
+      <button class="skinBtn" data-skin="neon">Pop Neon</button>
+    </div>
+  </div>
+  <div id="gameWrapper">
+    <canvas id="game" width="400" height="400" tabindex="0"></canvas>
+    <div id="overlay" class="hidden">
+      <p id="overlayText"></p>
+      <button id="restartBtn">⟳ Restart</button>
+    </div>
+  </div>
+  <div id="arrowPad">
+    <button data-dir="up">⬆</button><br>
+    <button data-dir="left">⬅</button>
+    <button data-dir="down">⬇</button>
+    <button data-dir="right">➡</button>
+  </div>
+  <div id="scoreboard">
+    <span>Score: <b id="score">0</b></span>
+    <span>High Score: <b id="highScore">0</b></span>
+    <span>FPS: <b id="fps">0</b></span>
+    <button id="playBtn">▶ Play</button>
+  </div>
+  <audio id="ambience" src="sounds/ambience.mp3" loop></audio>
+  <script src="game.js"></script>
+</body>
+</html>
