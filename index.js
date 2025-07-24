@@ -5,6 +5,7 @@ const projects = [
   "Jewellery-company landing page",
   "Random Image Generator",
   "New Year Countdown",
+  "Stylish Animated loginpage",
   // Add more project names as needed
 ];
 
