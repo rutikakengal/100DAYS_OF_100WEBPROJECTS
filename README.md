@@ -6,15 +6,6 @@ Welcome to **100_days_100_web_project** – a challenge-based repository to **le
 
 ---
 
-## 🌐 Live Website
-👉 Explore all the projects here:  
-🔗 [Visit Live Demo](100daysof100webprojects.netlify.app)
-
-
-
-
----
-
 ## 📁 Project List
 
 | Day | Project Name | Folder Link | Description |
