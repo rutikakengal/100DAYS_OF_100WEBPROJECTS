@@ -6,6 +6,20 @@ let btns= ["yellow","red","purple","green"];
 let started = false;
 let level = 0;
 
+ const sounds = {
+      green: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
+      red: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"),
+      yellow: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"),
+      purple: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"),
+      wrong: new Audio("https://s3.amazonaws.com/adam-recvlohe-sounds/error.wav")
+    };
+
+
+     function playSound(name) {
+      sounds[name].play();
+    }
+
+
 let h2 = document.querySelector("h2");
 
 document.addEventListener("keypress",function(){
@@ -46,6 +60,10 @@ function levelUp(){
     console.log(gameSeq);
     
     gameFlash(randBtn);
+    setTimeout(() => {
+        playSound(randColor);
+      }, 500);
+
 }
 
 function checkAns(idx){
@@ -55,7 +73,8 @@ function checkAns(idx){
           setTimeout(levelUp,1000);
     }
     }else{
-    h2.innerHTML=`game over!your score was <b>${level}</b></br> Press ant key to start`;
+    playSound("wrong");
+    h2.innerHTML=`Game over! Your score was  <b> ${level}</b></br> Press any key to start`;
     document.querySelector("body").style.backgroundColor="red";
     setTimeout(function(){
     document.querySelector("body").style.backgroundColor="rgb(46, 44, 44)";
@@ -74,6 +93,8 @@ function btnPress(){
     userColor= btn.getAttribute("id");
     userSeq.push(userColor);    
     checkAns(userSeq.length-1);
+     playSound(userColor);
+
 }
 
 let allBtns = document.querySelectorAll(".btn");
