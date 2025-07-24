@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="promodoro.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Pomodoro</h1>
+    <div class="main">
+      <div class="timer-section">
+        <div class="timer" id="timer">25:00</div>
+        <div class="mode" id="mode">Focus</div>
+      </div>
+      <div class="control-section">
+        <div class="inputs">
+          <label>Focus (min):
+            <input type="number" id="focusInput" value="25" min="1">
+          </label>
+          <label>Break (min):
+            <input type="number" id="breakInput" value="5" min="1">
+          </label>
+        </div>
+        <div class="buttons">
+          <button id="start">Start</button>
+          <button id="pause">Pause</button>
+          <button id="reset">Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="promodoro.js"></script>
+</body>
+</html>
