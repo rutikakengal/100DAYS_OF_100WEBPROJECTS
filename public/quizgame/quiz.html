@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Quiz Game</title>
+    <link rel="stylesheet" href="quiz-style.css">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="opening-container">
+                    <div class="title-container">
+                        <h1 id="title">How Smart Are You?</h1>
+                        <p class="opening-instructions">Pick a subject to get started.</p>
+                    </div>
+                    <div class="tab-container">
+                        <button class="tab-btn" data-topic="html">HTML</button>
+                        <button class="tab-btn" data-topic="css">CSS</button>
+                        <button class="tab-btn" data-topic="js">JavaScript</button>
+                    </div>
+            </div>
+            <div class="reset-btn-container hide" id="reset-btn-container">
+                <button id="reset-btn">Reset Quiz</button>
+            </div>
+            <div class="quiz-window hide">
+                <h2 id="question-title">The Question is:</h2>
+                <div class="options-container"></div>
+                <div class="next-btn-container">
+                    <button id="next-btn">Next Question</button>
+                </div>
+            </div>
+            <!-- To store and show brownie points on screen -->
+            <div class="brownie-container hide">
+                <div class="brownie-points">Cookie Points: <span id="brownie-points-count">0</span></div>
+                <div id="progress-bar" class="progress-bar"></div>
+           </div>
+           <div class="completion-message hide" style="background-color: pink; padding: 20px; border-radius: 10px;">
+                <h2 id="congrats-message"></h2>
+                <p id="score-message"></p>
+                <div id="cake-emoji" style="font-size: 100px; display: none; text-align: center;"></div>
+           </div>
+           <div class="final-message-container hide" id="final-message-container"></div>
+
+    </main>
+    <script src="quiz-script.js"></script>
+</body>
+</html>

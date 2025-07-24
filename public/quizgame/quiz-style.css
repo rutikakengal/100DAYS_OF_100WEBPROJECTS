@@ -1,0 +1,349 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    background-color: lavender;
+    text-align: center;
+    color:white;
+}
+
+.container{
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+    gap:10px;
+    font-size: 1rem;
+}
+.opening-container{
+  background-color: #001e4d;
+  display:flex;
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:70vh;
+  width:45vw;
+  gap:20px;
+}
+#title{
+  font-size: 2rem;
+}
+.title-container{
+    margin-left:30px;
+}
+.tab-container{
+    margin: 30px auto 10px auto;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:20px;
+    background-color: rgba(255, 255, 255, 0.1); /* transparent white */
+    backdrop-filter: blur(12px); 
+   -webkit-backdrop-filter: blur(12px); /* for Safari */
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+.tab-btn {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  background-color: white;
+  color: #001e4d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab-btn:hover {
+  background-color: teal;
+  color: white;
+}
+
+.reset-btn-container {
+  margin-top: -17px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#reset-btn {
+  background-color: #ff6f61;
+  color: white;
+  padding: 10px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#reset-btn:hover {
+  background-color: #e95d50;
+}
+
+.quiz-window{
+    color:Black;
+    height:70%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: white;
+    width:60%;
+    max-width:600px; /*its width can only go upto 600px and not more than that regardless of anything*/
+    border-radius: 8px;
+    padding:40px;
+    margin-top:20px;
+    border: none;
+    text-align: left;
+}
+#question-title{
+    color: #001e4d;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+.btn{
+    width:100%;
+    padding:10px;
+    border-radius: 5px;
+    margin:5px 0;
+    border:none;
+    text-align:left;
+    border:1px solid black;
+    background-color: white;
+    /* box-shadow:0.2rem 0.1rem 5px 3px rgb(105, 104, 104); */
+    transition:all 0.3s; /*the hover transition does not happen abruptly, the transition duration is 0.3s and it is applicable to all the buttons*/
+}
+#question-title {
+  margin-bottom: 20px;
+}
+.options-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.option-btn {
+  padding: 18px;
+  border-radius: 5px;
+  border: 1px solid #001e4d;
+  background-color: white;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+.option-btn:hover {
+  background-color: teal;
+  color: white;
+}
+
+.btn:hover{
+    background-color:teal; 
+    color:white;
+}
+#next-btn{
+    margin-top:30px;
+    padding:15px;
+    font-size:0.9rem;
+    background-color: #001e4d;
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.next-btn-container{
+    display:flex;
+    justify-content: center;
+}
+#next-btn:hover{
+    background-color: black;
+    color: white;
+}
+
+.brownie-container {
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #f1c40f;
+}
+
+#progress-bar {
+  display: flex;
+  justify-content: center;
+  margin-left: 15px;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.cookie {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+.wrong{
+   font-size: 1.5rem;      
+  color: red;            
+  margin: 0 5px;         
+  transition: transform 0.3s ease;
+}
+.cookie.gained {
+  transform: scale(1.2);
+}
+.option-btn.selected {
+  background-color: #001e4d;
+  color: white;
+}
+
+.completion-message {
+  background-color: #ffcce6; /* Baby pink */
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 30px;
+  width: 80%;
+  max-width: 600px;
+}
+
+#congrats-message {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #001e4d;
+}
+
+#score-message {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4d004d;
+}
+
+#cake-emoji {
+  font-size: 4rem;
+  margin-top: 20px;
+}
+
+.final-message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #ffe6f0;
+  color: #333;
+  font-size: 1.8rem;
+  padding: 30px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  margin: 30px auto;
+  line-height: 1.6;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.final-message-container.show {
+  display: block;
+}
+
+.final-message {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f39c12;
+  line-height: 1.6;
+}
+
+.reward {
+  transition: 0.5s ease;
+}
+
+.hide{
+    display:none;
+}
+
+
+/*ADDING A BIT RESPONSIVENESS*/
+/*THIS IS FOR THE OPENING WINDOW */
+@media screen and (max-width: 768px) {
+  .opening-container {
+    padding: 20px;
+    width: 95%;
+    text-align: center;
+  }
+  .title-container {
+    font-size: 1.5rem;
+    padding: 10px 0;
+  }
+  /* .tab-container {
+    flex-direction: column;
+    align-items: center;
+  } */
+}
+@media screen and (max-width: 1006px) {
+  .tab-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .opening-container {
+    padding: 15px;
+    width: 100%;
+  }
+  .title-container {
+    font-size: 1.2rem;
+    padding: 10px 0;
+  }
+  .tab-btn {
+    width: 90%;
+    margin: 5px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .quiz-window {
+    width: 95%;
+    padding: 20px;
+    font-size: 1rem;
+  }
+  #question-title {
+    font-size: 1.2rem;
+  }
+  .option-btn {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+  #next-btn {
+    font-size: 0.9rem;
+    padding: 12px 18px;
+  }
+}
+
+/*THIS IS FOR THE QUIZ WINDOW AND THE OPTION BUTTONS*/
+@media screen and (max-width: 480px) {
+  .quiz-window {
+    width: 100%;
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+  #question-title {
+    font-size: 1.1rem;
+  }
+  .option-btn {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+  #next-btn {
+    font-size: 0.85rem;
+    padding: 10px 15px;
+  }
+}
