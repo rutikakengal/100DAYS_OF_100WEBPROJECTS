@@ -1,137 +1,61 @@
-function filterProjects() {
-    const input = document.getElementById('searchInput');
-    const filter = input.value.toLowerCase();
-    const rows = document.querySelector('tbody').querySelectorAll('tr'); // Choose all rows in the table body
-    let hasResults = false;
+const projects = [
+  "Animated Landing Page",
+  "To-Do List",
+  "Weather App",
+  "Jewellery-company landing page",
+  "Random Image Generator",
+  "New Year Countdown",
+  // Add more project names as needed
+];
 
-    rows.forEach(row => {
-        const projectName = row.querySelector('.project-name')?.innerText.toLowerCase();
+const tableBody = document.getElementById("tableBody");
+const projectCount = document.getElementById("projectCount");
+projectCount.textContent = projects.length;
 
-        if (projectName && projectName.includes(filter)) {
-            row.style.display = '';
-            hasResults = true;
-        } else if (row.id !== 'table-subheader') {
-            row.style.display = 'none';
-        }
-    });
+// --- Random Project Button Functionality ---
+const randomBtn = document.getElementById("randomProjectBtn");
+let showingRandom = false;
+let lastRandomIndex = null;
 
-    const subheader = document.querySelector('.subheader');
-    const noProjectsMessage = document.getElementById('no-projects');
+randomBtn.addEventListener("click", () => {
+  const rows = tableBody.getElementsByTagName("tr");
 
-    if (hasResults) {
-        subheader.style.display = 'block';
-        noProjectsMessage.style.display = 'none';
-    } else {
-        document.getElementById('table-subheader').style.display = 'none';
-        subheader.style.display = 'none';
-        noProjectsMessage.style.display = 'block';
+  if (showingRandom) {
+    // Restore all rows
+    for (let i = 0; i < rows.length; i++) {
+      rows[i].style.display = "";
     }
-}
+    randomBtn.textContent = " Random";
+    showingRandom = false;
+    lastRandomIndex = null;
+    return;
+  }
 
-// Update Navbar for Login Status
-const buttons = document.getElementsByClassName('buttons')[0]; // Refers to the section on NavBar where buttons will get appended based on login status
-
-function updateNavbar() {
-    const username = localStorage.getItem('username');
-    if (username) {
-        buttons.innerHTML = `
-        <button class="button is-success is-dark has-text-weight-bold">
-            Welcome ${username}
-        </button>
-        <button class="button is-danger is-dark" id='logout'>
-            Logout
-        </button>
-        <a class="button is-primary is-dark" href="https://github.com/ruchikakengal">
-            <strong>GitHub</strong>  
-        </a>
-        <a class="button is-primary is-dark" href="contributors/contributor.html">
-            <strong>Contributors</strong>
-        </a>`;
-
-        document.getElementById('logout').addEventListener('click', () => {
-            localStorage.removeItem('username');
-            updateNavbar();
-        });
-    } else {
-        buttons.innerHTML = `
-        <a class="button is-primary is-dark" href="contributors/contributor.html">
-            <strong>Contributors</strong>
-        </a>
-        <a class="button is-primary is-dark" href="https://github.com/ruchikakengal">
-            <strong>GitHub</strong>
-        </a>
-        <a class="button is-success is-light" href="/public/Login.html">
-            <strong>Log in</strong>
-        </a>`;
-    }
-}
-
-// Populate the table with project data
-function fillTable() {
-    const data = [
-        ["Day 1", "To-Do List", " /public/TO_DO_LIST/todolist.html"],
-        ["Day 2", "Digital Clock", " /public/digital_clock/digitalclock.html"],
-        ["Day 3", " ",],
-        ["Day 4", " ",],
-        ["Day 5", " ",],
-    ];
-
-
-
-
-    const tbody = document.getElementById('tableBody');
-
-    data.forEach(e => {
-        const row = document.createElement('tr');
-        const days = document.createElement('td');
-        const nameP = document.createElement('td');
-        const link = document.createElement('td');
-        const a = document.createElement('a');
-
-        days.innerText = e[0];
-        nameP.innerText = e[1];
-        a.href = e[2];
-        a.innerText = 'Here';
-        a.target = '_blank'; // Open link in a new tab
-        nameP.classList.add('project-name');
-
-        link.appendChild(a);
-        row.appendChild(days);
-        row.appendChild(nameP);
-        row.appendChild(link);
-
-        tbody.appendChild(row);
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    updateNavbar();
-    fillTable();
+  // Pick a random index
+  const randomIndex = Math.floor(Math.random() * projects.length);
+  lastRandomIndex = randomIndex;
+  for (let i = 0; i < rows.length; i++) {
+    rows[i].style.display = i === randomIndex ? "" : "none";
+  }
+  randomBtn.textContent = " Show All";
+  showingRandom = true;
 });
 
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
+projects.forEach((name, index) => {
+  const day = `Day ${String(index + 1).padStart(2, "0")}`;
+  const folder = `day${String(index + 1).padStart(2, "0")}`;
+  const link = `public/${folder}/index.html`;
 
-// Check if the user has a saved theme preference
-if (localStorage.getItem('theme') === 'dark') {
-  body.classList.add('dark-theme');
-  themeToggle.textContent = '☀️';
-} else {
-  body.classList.add('light-theme');  // Explicitly set light theme
-  themeToggle.textContent = '🌙';
-}
+  const row = document.createElement("tr");
+  row.classList.add("project-row");
 
-// Toggle theme on button click
-themeToggle.addEventListener('click', () => {
-  if (body.classList.contains('dark-theme')) {
-    body.classList.remove('dark-theme');
-    body.classList.add('light-theme');
-    themeToggle.textContent = '🌙';
-    localStorage.setItem('theme', 'light');
-  } else {
-    body.classList.remove('light-theme');
-    body.classList.add('dark-theme');
-    themeToggle.textContent = '☀️';
-    localStorage.setItem('theme', 'dark');
-  }
+  row.innerHTML = `
+    <td class="p-4 font-semibold text-primary">${day}</td>
+    <td class="p-4">${name}</td>
+    <td class="p-4">
+      <a href="${link}" target="_blank" class="text-primary underline hover:text-pink-500">Live Demo</a>
+    </td>
+  `;
+
+  tableBody.appendChild(row);
 });
