@@ -1,145 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>100_DAYS_100_WEB_PROJECTS</title>
-    <link rel="icon" href="public/favv.png" type="image/x-icon" />
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: '#ff0077',
-              dark: '#002057',
-            },
-            fontFamily: {
-              sans: ['Poppins', 'sans-serif'],
-            },
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>100_DAYS_100_WEB_PROJECTS</title>
+  <link rel="icon" href="public/favv.png" type="image/x-icon" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#ff0077',
+            dark: '#002057',
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
           },
         },
-      }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-      .glass {
-        backdrop-filter: blur(10px);
-        background: rgba(255, 255, 255, 0.1);
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
-      }
-      .btn-3d {
-        transition: transform 0.2s ease-in-out;
-      }
-      .btn-3d:hover {
-        transform: translateY(-4px);
-      }
-    </style>
-  </head>
-  <body class="bg-dark text-white font-sans">
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 bg-primary shadow-xl p-4">
-      <div class="container mx-auto flex items-center justify-between">
-        <a href="#" class="flex items-center gap-2 text-white font-bold text-lg">
-          <img src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg" class="h-10 rounded-full"/>
-          100_DAYS_100_WEB_PROJECTS
-        </a>
-        <div>
-          <a href="#projects" class="text-white hover:text-black font-semibold">Projects</a>
-          
-          <a href="#" class="text-white hover:text-black font-semibold">Contributors</a>
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    
+    .glass {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .btn-3d {
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .btn-3d:hover {
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+
+<body class="bg-dark text-white font-sans">
+  <!-- Navbar -->
+  <div id="reusable-navbar"></div>
+
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col justify-center items-center pt-32 text-center">
+    <h1 class="text-4xl md:text-6xl font-extrabold text-primary drop-shadow-2xl animate-bounce">100 DAYS OF 100 WEB
+      PROJECTS</h1>
+    <p class="mt-4 text-white/80 text-lg md:text-xl max-w-xl">Live demos of amazing mini projects crafted in HTML, CSS,
+      and JavaScript!</p>
+    <div class="mt-6">
+      <input type="text" id="searchInput" placeholder="Search for projects..." class="p-3 rounded-l-lg text-black w-64">
+      <button onclick="filterProjects()" class="bg-primary text-white px-4 py-3 rounded-r-lg btn-3d">Search</button>
+    </div>
+  </section>
+
+  <!-- Projects Table -->
+  <section id="projects" class="container mx-auto px-4 py-10">
+    <div class="overflow-x-auto glass rounded-xl p-4">
+      <table class="w-full text-left text-white">
+        <thead class="text-primary border-b border-white">
+          <tr>
+            <th class="p-4">Day</th>
+            <th class="p-4">Project Name</th>
+            <th class="p-4">Demo Link</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Dynamic rows injected here -->
+          <tr>
+            <td class="p-4">1</td>
+            <td class="p-4"><a href="https://github.com/Harshu2804/Tic-Tac-Toe.github.io.git">Tic-Tac-Toe</a></td>
+            <td class="p-4"><a href="https://harshu2804.github.io/Tic-Tac-Toe.github.io/"
+                class="text-primary hover:underline">Link</a></td>
+        </tbody>
+      </table>
+      <div id="no-projects" class="text-center text-white mt-4 hidden">No Projects Found</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white p-6 mt-10">
+    <div class="container mx-auto grid md:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-lg font-semibold">About</h2>
+        <p class="mt-2 text-white/70">This repository contains 100 web projects from basic to intermediate using HTML,
+          CSS, and JS.</p>
+        <p class="mt-1 text-white/50">©
+          <script>document.write(new Date().getFullYear())</script> 100DAYS_WEBPROJECTS by <a href="#"
+            class="underline">Rutika Kengal</a> & Contributors
+        </p>
+      </div>
+      <div>
+        <h2 class="text-lg font-semibold">Links</h2>
+        <div class="flex gap-4 mt-2">
+          <a href="https://www.instagram.com/" target="_blank" class="text-pink-500"><i
+              class="fab fa-instagram fa-lg"></i></a>
+          <a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS" target="_blank" class="text-white"><i
+              class="fab fa-github fa-lg"></i></a>
+          <a href="https://www.linkedin.com/in/rutika-kengal-8085092b7" target="_blank" class="text-blue-400"><i
+              class="fab fa-linkedin fa-lg"></i></a>
         </div>
       </div>
-    </nav>
+    </div>
+  </footer>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col justify-center items-center pt-32 text-center">
-      <h1 class="text-4xl md:text-6xl font-extrabold text-primary drop-shadow-2xl animate-bounce">100 DAYS OF 100 WEB PROJECTS</h1>
-      <p class="mt-4 text-white/80 text-lg md:text-xl max-w-xl">Live demos of amazing mini projects crafted in HTML, CSS, and JavaScript!</p>
-      <div class="mt-6">
-        <input type="text" id="searchInput" placeholder="Search for projects..." class="p-3 rounded-l-lg text-black w-64">
-        <button onclick="filterProjects()" class="bg-primary text-white px-4 py-3 rounded-r-lg btn-3d">Search</button>
-      </div>
-    </section>
+  <!-- Scroll to top button -->
+  <button id="scrollBtn" onclick="scrollToTop()"
+    class="fixed bottom-5 right-5 bg-primary text-white p-4 rounded-full shadow-lg btn-3d hidden">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
-    <!-- Projects Table -->
-    <section id="projects" class="container mx-auto px-4 py-10">
-      <div class="overflow-x-auto glass rounded-xl p-4">
-        <table class="w-full text-left text-white">
-          <thead class="text-primary border-b border-white">
-            <tr>
-              <th class="p-4">Day</th>
-              <th class="p-4">Project Name</th>
-              <th class="p-4">Demo Link</th>
-            </tr>
-          </thead>
-          <tbody id="tableBody">
-            <!-- Dynamic rows injected here -->
-          </tbody>
-        </table>
-        <div id="no-projects" class="text-center text-white mt-4 hidden">No Projects Found</div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-black text-white p-6 mt-10">
-      <div class="container mx-auto grid md:grid-cols-2 gap-8">
-        <div>
-          <h2 class="text-lg font-semibold">About</h2>
-          <p class="mt-2 text-white/70">This repository contains 100 web projects from basic to intermediate using HTML, CSS, and JS.</p>
-          <p class="mt-1 text-white/50">© <script>document.write(new Date().getFullYear())</script> 100DAYS_WEBPROJECTS by <a href="#" class="underline">Rutika Kengal</a> & Contributors</p>
-        </div>
-        <div>
-          <h2 class="text-lg font-semibold">Links</h2>
-          <div class="flex gap-4 mt-2">
-            <a href="https://www.instagram.com/" target="_blank" class="text-pink-500"><i class="fab fa-instagram fa-lg"></i></a>
-            <a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS" target="_blank" class="text-white"><i class="fab fa-github fa-lg"></i></a>
-            <a href="https://www.linkedin.com/in/rutika-kengal-8085092b7" target="_blank" class="text-blue-400"><i class="fab fa-linkedin fa-lg"></i></a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Scroll to top button -->
-    <button id="scrollBtn" onclick="scrollToTop()" class="fixed bottom-5 right-5 bg-primary text-white p-4 rounded-full shadow-lg btn-3d hidden">
-      <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Scripts -->
-    <script>
-      const scrollBtn = document.getElementById("scrollBtn");
-      window.onscroll = () => {
-        if (document.documentElement.scrollTop > 100) scrollBtn.classList.remove("hidden");
-        else scrollBtn.classList.add("hidden");
-      };
-      function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-      function filterProjects() {
-        const input = document.getElementById("searchInput").value.toLowerCase();
-        const table = document.getElementById("tableBody");
-        const rows = table.getElementsByTagName("tr");
-        let found = false;
-        for (let i = 0; i < rows.length; i++) {
-          const cols = rows[i].getElementsByTagName("td");
-          let match = false;
-          for (let j = 0; j < cols.length; j++) {
-            if (cols[j].innerText.toLowerCase().includes(input)) {
-              match = true;
-              break;
-            }
+  <!-- Scripts -->
+  <script>
+    const scrollBtn = document.getElementById("scrollBtn");
+    window.onscroll = () => {
+      if (document.documentElement.scrollTop > 100) scrollBtn.classList.remove("hidden");
+      else scrollBtn.classList.add("hidden");
+    };
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    function filterProjects() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const table = document.getElementById("tableBody");
+      const rows = table.getElementsByTagName("tr");
+      let found = false;
+      for (let i = 0; i < rows.length; i++) {
+        const cols = rows[i].getElementsByTagName("td");
+        let match = false;
+        for (let j = 0; j < cols.length; j++) {
+          if (cols[j].innerText.toLowerCase().includes(input)) {
+            match = true;
+            break;
           }
-          rows[i].style.display = match ? "" : "none";
-          if (match) found = true;
         }
-        document.getElementById("no-projects").style.display = found ? "none" : "block";
+        rows[i].style.display = match ? "" : "none";
+        if (match) found = true;
       }
-    </script>
-  </body>
+      document.getElementById("no-projects").style.display = found ? "none" : "block";
+    }
+    // Navbar Fetch
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('reusable-navbar').innerHTML = data;
+      });
+
+  </script>
+</body>
+
 </html>
