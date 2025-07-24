@@ -5,12 +5,13 @@ body {
 h1,h2{
     color:white;
 
+
 }
 .btn{
     height: 200px;
     width: 200px;
     border-radius: 20%;
-    border:10px solid black;
+    border:10px solid rgb(19, 8, 8);
     margin: 2.5rem ;
 }
 
@@ -20,15 +21,19 @@ h1,h2{
 }
 .yellow{
     background-color: rgb(244, 244, 125);
+    box-shadow: 0 0  10px 5px  violet;
 }
 .red{
     background-color: rgb(244, 133, 133);
+     box-shadow: 0 0  10px  5px rgb(244, 244, 125);;
 }
 .green{
     background-color: rgb(144, 235, 144);
+     box-shadow: 0 0  10px 5px rgb(244, 133, 133);
 }
 .purple{
     background-color: rgb(231, 128, 231);
+     box-shadow: 0 0 15px 5px rgb(144, 235, 144);;
 }
 .flash{
     background-color: rgb(19, 8, 8);
