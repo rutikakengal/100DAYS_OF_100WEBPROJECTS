@@ -4,6 +4,8 @@ const projects = [
   "Weather App",
   "Jewellery-company landing page",
   "BMI Calculator",
+  "Random Image Generator",
+  "New Year Countdown",
   // Add more project names as needed
 ];
 
