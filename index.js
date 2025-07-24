@@ -2,15 +2,42 @@ const projects = [
   "Animated Landing Page",
   "To-Do List",
   "Weather App",
-  "Random Image Generator",
-  "New Year Countdown",
-
+  "Jewellery-company landing page",
   // Add more project names as needed
 ];
 
 const tableBody = document.getElementById("tableBody");
 const projectCount = document.getElementById("projectCount");
 projectCount.textContent = projects.length;
+
+// --- Random Project Button Functionality ---
+const randomBtn = document.getElementById("randomProjectBtn");
+let showingRandom = false;
+let lastRandomIndex = null;
+
+randomBtn.addEventListener("click", () => {
+  const rows = tableBody.getElementsByTagName("tr");
+
+  if (showingRandom) {
+    // Restore all rows
+    for (let i = 0; i < rows.length; i++) {
+      rows[i].style.display = "";
+    }
+    randomBtn.textContent = " Random";
+    showingRandom = false;
+    lastRandomIndex = null;
+    return;
+  }
+
+  // Pick a random index
+  const randomIndex = Math.floor(Math.random() * projects.length);
+  lastRandomIndex = randomIndex;
+  for (let i = 0; i < rows.length; i++) {
+    rows[i].style.display = i === randomIndex ? "" : "none";
+  }
+  randomBtn.textContent = " Show All";
+  showingRandom = true;
+});
 
 projects.forEach((name, index) => {
   const day = `Day ${String(index + 1).padStart(2, "0")}`;
