@@ -1,12 +1,14 @@
 body {
     text-align: center;
     background-color: rgb(46, 44, 44);
+    padding: 20px;
 }
 h1,h2{
     color:white;
 
 
 }
+
 .btn{
     height: 200px;
     width: 200px;
@@ -40,4 +42,17 @@ h1,h2{
 }
 .userFlash{
     background-color: rgb(22, 15, 15);
+}
+@media only screen and  (max-width:600px) {
+    .btn{
+    height: 100px;
+    width: 100px;
+    border:5px solid rgb(19, 8, 8);
+    margin:2.5rem ;
+}
+.line-two {
+    margin-right: 15px;
+}
+
+    
 }
