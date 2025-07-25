@@ -13,6 +13,10 @@ Welcome to **100_days_100_web_project** – a challenge-based repository to **le
 | DAY-1 | TODOLIST | [TODOLIST]() | Task manager app |
 | DAY-2 | DIGITAL CLOCK | [DIGITAL CLOCK]() | Real-time digital clock |
 | Day 3  | **Calculator**      | [Link]()       | Basic calculator functionality|
+| Day 4  |Jewellery-company landing page     | [Jewellery-company landing page]()       | Jewellery-company landing page|
+| Day 5  | Random Image Generator      | [Random Image Generator]()       | Random Image Generator|
+| Day 6  | New Year Countdown      | [New Year Countdown]()       | New Year Countdown|
+| Day 7  | Color Picker Tool      | [Color Picker Tool]()       | Color Picker Tool|
 | ...    | ...                 | ...            | ...                         |
 | Day 100+ | **Coming Soon**  | 🚧             | 🚧                           |
 
