@@ -5,7 +5,8 @@ const projects = [
   "Jewellery-company landing page",
   "Random Image Generator",
   "New Year Countdown",
-  "Promodoro Timer"
+  "BMI Calculator",
+   "Promodoro Timer",
   // Add more project names as needed
 ];
 
