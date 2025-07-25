@@ -5,8 +5,7 @@ const projects = [
   "Jewellery-company landing page",
   "Random Image Generator",
   "New Year Countdown",
-  "Snake Game"
-  // Add more project names as needed
+  "BMI Calculator"
 ];
 
 const tableBody = document.getElementById("tableBody");
