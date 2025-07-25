@@ -1,5 +1,4 @@
 # reading-Journal-app
-# Reading Journal Web App
 
 A beautiful, interactive reading journal that lets you track and organize your books visually.
 
