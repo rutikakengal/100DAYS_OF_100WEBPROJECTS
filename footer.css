@@ -28,25 +28,29 @@
   line-height: 1.6;
 }
 
+/* Social Icons (moved under email) */
+.footer-socials {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
 .footer-socials a {
   color: var(--footer-icon, #fff);
   font-size: 1.5rem;
-  margin-right: 10px;
-  position: relative;
-  left: 930px;
-  top: -120px;
   transition: color 0.3s ease, transform 0.3s ease;
-  display: inline-block; 
+  display: inline-block;
 }
 
 .footer-socials a:hover {
   color: var(--footer-accent, #ff0077);
-  transform: translateY(-10px);
+  transform: translateY(-6px);
 }
 
 /* Quick Links */
 .footer-links ul {
   list-style: none;
+  padding: 0;
 }
 
 .footer-links ul li {
@@ -64,10 +68,14 @@
 }
 
 /* Tech Badges */
+.tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 .tech-badges .badge {
   display: inline-block;
   padding: 5px 12px;
-  margin: 5px;
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: bold;
@@ -100,9 +108,10 @@
 }
 
 /* Responsive Footer */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .footer-container {
     grid-template-columns: 1fr 1fr;
+    gap: 30px;
     text-align: center;
   }
   .footer-socials {
@@ -110,11 +119,14 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .footer-container {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 25px;
     text-align: center;
+  }
+  .footer-socials {
+    justify-content: center;
   }
   .tech-badges {
     justify-content: center;
