@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TOI News Stories </title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
+    h1 { text-align: center; }
+    ul { list-style: none; padding: 0; }
+    li { background: white; margin: 10px 0; padding: 15px; border-radius: 8px; }
+    a { text-decoration: none; color: #007bff; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Times of India News </h1>
+  <ul id="newsList">Loading... Wiat for few minutes .... </ul>
+  <script>
+    const rssUrl = 'https://timesofindia.indiatimes.com/rssfeedstopstories.cms';
+    const proxy = 'https://api.allorigins.win/raw?url=';
+
+    fetch(proxy + encodeURIComponent(rssUrl))
+      .then(res => res.text())
+      .then(str => new window.DOMParser().parseFromString(str, 'text/xml'))
+      .then(data => {
+          const items = data.querySelectorAll('item');
+          const ul = document.getElementById('newsList');
+          ul.innerHTML = '';
+          if (items.length === 0) {
+            ul.innerHTML = '<li>No items found.</li>';
+            return;
+          }
+          items.forEach((item, idx) => {
+            if (idx >= 10) return; // limit number of items
+            const title = item.querySelector('title').textContent;
+            const link = item.querySelector('link').textContent;
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="${link}" target="_blank">${title}</a>`;
+            ul.appendChild(li);
+          });
+      })
+      .catch(err => {
+        console.error('Error loading RSS:', err);
+        document.getElementById('newsList').innerHTML = '<li>Failed to load feeds.</li>';
+      });
+  </script>
+</body>
+</html>
