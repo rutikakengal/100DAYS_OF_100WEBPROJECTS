@@ -113,9 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.setProperty('--doodle-offset-y', `0px`);
     });
 
-
-    // --- Custom Cursor (Optional JavaScript logic) ---
-    /*
     const customCursor = document.getElementById('customCursor');
     if (customCursor) {
         document.addEventListener('mousemove', (e) => {
@@ -125,7 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Hide default cursor
         document.body.style.cursor = 'none';
     }
-    */
 
     // --- Event Listeners ---
     themeButtons.forEach(button => {

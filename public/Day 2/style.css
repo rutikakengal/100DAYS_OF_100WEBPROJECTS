@@ -353,7 +353,7 @@ body::after {
     height: 100vh;
     z-index: -3; /* Behind everything else */
     pointer-events: auto; /* It needs to capture mouse events */
-    /* background-color: rgba(255,0,0,0.1); /* For debugging purposes */ */
+    /* background-color: rgba(255,0,0,0.1); /* For debugging purposes */
 }
 
 /* --- Theme Switcher --- */
@@ -394,19 +394,16 @@ body::after {
 #themeSunset { background-color: #FFB347; }
 #themeForest { background-color: #90EE90; }
 
-/* Optional: Custom Cursor Styling */
-/*
 .custom-cursor {
     position: fixed;
     top: 0;
     left: 0;
     width: 32px;
     height: 32px;
-    background-image: url('images/sparkle_cursor.png'); // Your cute cursor image
+    background-image: url('images/sparkle_cursor.png'); 
     background-size: cover;
-    pointer-events: none; // Crucial so it doesn't block clicks
-    z-index: 9999; // Ensure it's on top
-    transform: translate(-50%, -50%); // Center the image
-    transition: transform 0.05s linear; // Smooth follow
+    pointer-events: none; /*/ Crucial so it doesn't block clicks*/
+    z-index: 9999; /*/ Ensure it's on top*/
+    transform: translate(-50%, -50%); /*/ Center the image*/
+    transition: transform 0.05s linear; 
 }
-*/

@@ -8,7 +8,7 @@ Welcome to **100_days_100_web_project** – a challenge-based repository to **le
 
 ## 🌐 Live Website
 👉 Explore all the projects here:  
-🔗 [Visit Live Demo](https://ruchikakengal.github.io/WebDevIn100_Days/)
+🔗 [Visit Live Demo](100daysof100webprojects.netlify.app)
 
 
 
@@ -71,14 +71,14 @@ If you like this project, please consider giving it a ⭐️ on [GitHub](https:/
 ## Stargazers ❤️
 <div align='left'>
 
-[![Stargazers repo roster for @ruchikakengal/WebDevIn100_Days](https://reporoster.com/stars/dark/rutikakengal/100DAYS_OF_100WEBPROJECTS)](https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS/stargazers)
+[![Stargazers](https://reporoster.com/stars/dark/rutikakengal/100DAYS_OF_100WEBPROJECTS)](https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS/stargazers)
 
 
 </div>
 
 ## Forkers ❤️
 
-[![Forkers repo roster for @ruchikakengal/WebDevIn100_Days](https://reporoster.com/forks/dark/rutikakengal/100DAYS_OF_100WEBPROJECTS)](https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS/network/members)
+[![Forkers](https://reporoster.com/forks/dark/rutikakengal/100DAYS_OF_100WEBPROJECTS)](https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS/network/members)
 
 
 <!--line-->
