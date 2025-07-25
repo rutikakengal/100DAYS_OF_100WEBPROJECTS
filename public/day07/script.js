@@ -204,3 +204,4 @@ resetBtn.addEventListener("click", () => {
   questionTitle.textContent = "";
   optionsContainer.innerHTML = "";
 });
+
