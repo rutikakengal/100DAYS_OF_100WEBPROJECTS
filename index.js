@@ -12,7 +12,8 @@ const projects = [
 
 
 
-  "Reading Journal"
+  "Reading Journal",
+  "2048 Game",
 
   // Add more project names as needed
 ];
