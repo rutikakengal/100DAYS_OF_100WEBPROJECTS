@@ -345,7 +345,16 @@
             </tr>
           </thead>
           <tbody id="tableBody">
-            <!-- Dynamic rows injected here -->
+            <tr>
+            <td class="p-4">Day 01</td>
+            <td class="p-4">Simon Memory Game</td>
+            <td class="p-4">Beginner, GSSoC'25</td>
+            <td class="p-4">
+              <a href="https://simon-memory-game-hazel.vercel.app" target="_blank" class="text-blue-400 hover:underline">
+                Play Demo
+              </a>
+            </td>
+          </tr>
           </tbody>
         </table>
         <div id="no-projects" class="text-center mt-8 p-8 hidden">
@@ -429,7 +438,8 @@
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </nav>
 
     <!-- Footer -->
     <footer class="bg-black text-white p-6 mt-10">
@@ -528,7 +538,8 @@
           </p>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
     <!-- Theme Toggle Button -->
     <button id="themeToggle" class="theme-toggle glass">🌙</button>
@@ -569,8 +580,6 @@
               break;
             }
           }
-          rows[i].style.display = match ? "" : "none";
-          if (match) found = true;
         }
         document.getElementById("no-projects").style.display = found
           ? "none"
