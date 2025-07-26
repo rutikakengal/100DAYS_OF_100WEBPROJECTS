@@ -93,16 +93,18 @@
   }
 
   /* Footer social icons hover */
+  /*
   .footer .button.is-dark.is-rounded {
-    background-color: #2c3e50; /* Dark background */
+    background-color: #2c3e50; 
     color: #ecf0f1;
     transition: transform 0.3s ease, background-color 0.3s ease;
   }
 
   .footer .button.is-dark.is-rounded:hover {
-    background-color: #ff01a6; /* Teal on hover */
+    background-color: #ff01a6; 
     transform: scale(1.2);
   }
+  */
 
   /* Navbar title hover */
   .navbar-brand .navbar-item.has-text-weight-bold:hover {
@@ -224,7 +226,7 @@
       text-align: center;
       margin-top: 2rem;
     }
-
+    /*
     footer {
       background-color: #222222;
       color: #f3eeee;
@@ -232,82 +234,71 @@
     }
 
     footer a:hover {
-      color: #ff01a6; /* Teal hover */
+      color: #ff01a6; 
       text-decoration: underline;
     }
+
     #title-heading {
       margin-bottom: 20px;
       background-color: #222222;
       padding: 1rem;
       text-align: center;
-      color: #000000; /* Light gray footer text */
+      color: #000000;
     }
+    */
   }
 }
 
 /* Dark theme styles */
 body.dark-theme {
-  background: linear-gradient(
-    to right,
-    #000000,
-    /* Pure black */ #101010,
-    /* Very dark shade of black */ #1a1a1a,
-    /* Slightly lighter black */ #000000
-      /* Keep it consistent with pure black on the ends */
-  );
-  color: #ffffff; /* Light text color */
-  transition: background 0.5s ease, color 0.5s ease; /* Smooth transition */
+  background: linear-gradient(to right, #000000, #101010, #1a1a1a, #000000);
+  color: #ffffff;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
 /* Navbar */
 body.dark-theme .navbar {
-  background-color: #2c3e50; /* Elegant deep blue-gray */
+  background-color: #2c3e50;
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 body.dark-theme .navbar-item {
-  color: #ffffff; /* Lighter navbar text */
-  font-family: "Orbitron", sans-serif; /* Tech-inspired font */
+  color: #ffffff;
+  font-family: "Orbitron", sans-serif;
 }
 
 body.dark-theme .navbar-item:hover {
-  color: #f39c12; /* Gold accent on hover */
+  color: #f39c12;
 }
-
-/* Footer */
+/*
 body.dark-theme .footer {
   color: rgb(255, 255, 255);
-  background: linear-gradient(
-    145deg,
-    #000000,
-    #2f2f2f
-  ); /* Dark gradient effect */
-  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.3); /* More prominent shadow */ /* Very dark footer with a bluish tint */
-  text-align: center;
+  background: linear-gradient(145deg, #000000, #2f2f2f);
   box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
 }
 
 body.dark-theme #footer_title {
   color: white;
 }
+*/
 
 /* Title */
 body.dark-theme #title-heading {
-  color: #ffffff; /* Soft white for titles */
+  color: #ffffff;
   font-size: 2.5rem;
-  font-weight: 700; /* Bold title */
+  font-weight: 700;
   text-align: center;
   margin-top: 3rem;
   margin-bottom: 2rem;
   letter-spacing: 1px;
-  font-family: "Orbitron", sans-serif; /* Tech-inspired font */
+  font-family: "Orbitron", sans-serif;
   transition: transform 0.2s ease, text-shadow 0.2s ease;
 }
-/* Hover effect */
 body.dark-theme #title-heading:hover {
-  transform: scale(1.05); /* Slightly enlarge the title */
-  text-shadow: 0 0 30px #ff0077; /* Glowing blue text shadow */
+  transform: scale(1.05);
+  text-shadow: 0 0 30px #ff0077;
 }
 
 /* Theme toggle */
@@ -318,7 +309,7 @@ body.dark-theme #theme-toggle {
 }
 
 body.dark-theme #theme-toggle:hover {
-  color: #f39c12; /* Warm gold hover effect */
+  color: #f39c12;
 }
 
 /* Table Styles */
@@ -328,16 +319,6 @@ body.dark-theme table {
   margin-top: 2rem;
 }
 
-body.dark-theme table th {
-  background-color: #34495e; /* Darker header */
-  color: #ffffff; /* Set white color for text */
-  padding: 12px;
-  text-align: left;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  font-family: "Orbitron", sans-serif; /* Tech-inspired font */
-  font-weight: bold; /* Optional: Makes the header bolder */
-}
 body.dark-theme table th {
   background-color: #284a6b;
   padding: 12px;
@@ -353,29 +334,29 @@ body.dark-theme #title-two {
 }
 
 body.dark-theme table td {
-  background-color: #1c2833; /* Darker table rows */
+  background-color: #1c2833;
   color: #ffffff;
   padding: 12px;
 }
 
 body.dark-theme table tr:hover {
-  background-color: #3b4b63; /* Lighter hover effect */
+  background-color: #3b4b63;
   transition: background-color 0.3s ease;
 }
 
 body.dark-theme table td a {
-  color: #f39c12; /* Gold links for contrast */
+  color: #f39c12;
   text-decoration: none;
   font-weight: bold;
 }
 
 body.dark-theme table td a:hover {
-  text-decoration: underline; /* Underline effect on hover */
+  text-decoration: underline;
 }
 
 /* Buttons */
 body.dark-theme .button {
-  background-color: #ff01a6; /* Soft teal buttons */
+  background-color: #ff01a6;
   color: #ffffff;
   border-radius: 5px;
   padding: 10px 20px;
@@ -384,12 +365,12 @@ body.dark-theme .button {
 }
 
 body.dark-theme .button:hover {
-  background-color: #ff01a6; /* Slightly brighter teal on hover */
-  transform: translateY(-2px); /* Hover lift effect */
+  background-color: #ff01a6;
+  transform: translateY(-2px);
 }
 
 body.dark-theme .button:active {
-  transform: translateY(0); /* Button active state */
+  transform: translateY(0);
 }
 
 /* Smooth transitions for interactive elements */
@@ -416,61 +397,59 @@ body.dark-theme #scrollBtn:hover {
 
 /* Light theme styles */
 body.light-theme {
-  background: linear-gradient(
-    145deg,
-    #f0f9ff,
-    #5cff33
-  ); /* Subtle dark grey to dark charcoal gradient */
-  color: #ffffff; /* Soft white text */
-  transition: background 0.5s ease, color 0.5s ease; /* Smooth transition */
+  background: linear-gradient(145deg, #f0f9ff, #5cff33);
+  color: #ffffff;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
 /* Navbar */
 body.light-theme .navbar {
   background: rgb(0, 157, 219);
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 body.light-theme .navbar-item {
-  color: #ffffff; /* Lighter navbar text */
-  font-family: "Orbitron", sans-serif; /* Tech-inspired font */
+  color: #ffffff;
+  font-family: "Orbitron", sans-serif;
 }
 
 body.light-theme .navbar-item:hover {
-  color: #f39c12; /* Gold accent on hover */
+  color: #f39c12;
 }
 
-/* Footer */
+/* ---------------------------
+   LIGHT THEME FOOTER COMMENTED
+--------------------------- */
+
+/*
 body.light-theme .footer {
   color: rgb(0, 0, 0);
   background: linear-gradient(145deg, #f0f9ff, #dfffd7);
   box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.3);
   text-align: center;
-  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.3);
 }
 
 body.light-theme #footer_title {
   color: rgb(0, 0, 0);
   font-family: "Montserrat", sans-serif;
 }
+*/
 
-/* Title */
 body.light-theme #title-heading {
-  color: #000000; /* Soft white for titles */
+  color: #000000;
   font-size: 2.5rem;
-  font-weight: 700; /* Bold title */
+  font-weight: 700;
   text-align: center;
   margin-top: 3rem;
   margin-bottom: 2rem;
   letter-spacing: 1px;
-  font-family: "Orbitron", sans-serif; /* Tech-inspired font */
+  font-family: "Orbitron", sans-serif;
   transition: transform 0.2s ease, text-shadow 0.2s ease;
 }
-/* Hover effect */
 body.light-theme #title-heading:hover {
-  transform: scale(1.05); /* Slightly enlarge the title */
-  text-shadow: 0 0 30px #ff0077; /* Glowing blue text shadow */
+  transform: scale(1.05);
+  text-shadow: 0 0 30px #ff0077;
 }
 
 /* Theme toggle */
@@ -481,7 +460,7 @@ body.light-theme #theme-toggle {
 }
 
 body.light-theme #theme-toggle:hover {
-  color: #f39c12; /* Warm gold hover effect */
+  color: #f39c12;
 }
 
 /* Table Styles */
@@ -492,18 +471,8 @@ body.light-theme table {
 }
 
 body.light-theme table th {
-  background-color: #0080ff; /* Darker header */
-  color: #000000; /* Set white color for text */
-  padding: 12px;
-  text-align: left;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  font-family: "Orbitron", sans-serif; /* Tech-inspired font */
-  font-weight: bold; /* Optional: Makes the header bolder */
-}
-body.light-theme table th {
   background-color: hsl(131, 100%, 42%);
-  color: #000000 !important; /* Force white color */
+  color: #000000 !important;
   padding: 12px;
   text-align: left;
   font-size: 1.1rem;
@@ -529,18 +498,18 @@ body.light-theme table tr:hover {
 }
 
 body.light-theme table td a {
-  color: hsl(200, 100%, 55%); /* Gold links for contrast */
+  color: hsl(200, 100%, 55%);
   text-decoration: none;
   font-weight: bold;
 }
 
 body.light-theme table td a:hover {
-  text-decoration: underline; /* Underline effect on hover */
+  text-decoration: underline;
 }
 
 /* Buttons */
 body.light-theme .button {
-  background-color: #000000; /* Soft teal buttons */
+  background-color: #000000;
   color: #ffffff;
   border-radius: 5px;
   padding: 10px 20px;
@@ -549,12 +518,12 @@ body.light-theme .button {
 }
 
 body.light-theme .button:hover {
-  background-color: #00866b; /* Slightly brighter teal on hover */
-  transform: translateY(-2px); /* Hover lift effect */
+  background-color: #00866b;
+  transform: translateY(-2px);
 }
 
 body.light-theme .button:active {
-  transform: translateY(0); /* Button active state */
+  transform: translateY(0);
 }
 
 /* Smooth transitions for interactive elements */
@@ -584,31 +553,8 @@ body.light-theme #scrollBtn:hover {
 
 /* Default (Light mode) style for the Log in button */
 a[href="/public/Login.html"] {
-  background-color: #000000; /* Green background */
-  color: white; /* White text */
-  padding: 10px 20px; /* Button size */
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 25px;
-  text-decoration: none; /* Remove underline */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
-}
-
-/* Hover effect in light mode */
-a[href="/public/Login.html"]:hover {
-  background-color: #00ff0d; /* Slightly darker green on hover */
-  transform: translateY(-2px); /* Slight lift effect */
-}
-
-/* Active state in light mode */
-a[href="/public/Login.html"]:active {
-  transform: translateY(0); /* Pressed effect */
-}
-
-/* Dark Mode Style */
-body.dark-theme a[href="/public/Login.html"] {
-  background-color: #00fecb; /* Darker teal background */
-  color: #ecf0f1; /* Lighter text */
+  background-color: #000000;
+  color: white;
   padding: 10px 20px;
   font-size: 1rem;
   font-weight: bold;
@@ -617,31 +563,50 @@ body.dark-theme a[href="/public/Login.html"] {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Hover effect in dark mode */
-body.dark-theme a[href="/public/Login.html"]:hover {
-  background-color: #000000; /* Slightly darker teal */
+a[href="/public/Login.html"]:hover {
+  background-color: #00ff0d;
   transform: translateY(-2px);
 }
 
-/* Active state in dark mode */
+a[href="/public/Login.html"]:active {
+  transform: translateY(0);
+}
+
+/* Dark Mode Style */
+body.dark-theme a[href="/public/Login.html"] {
+  background-color: #00fecb;
+  color: #ecf0f1;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+body.dark-theme a[href="/public/Login.html"]:hover {
+  background-color: #000000;
+  transform: translateY(-2px);
+}
+
 body.dark-theme a[href="/public/Login.html"]:active {
   transform: translateY(0);
 }
 
 /* Ensure the body takes full height */
 body {
-  min-height: 100vh; /* Full viewport height */
+  min-height: 100vh;
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  justify-content: space-between; /* Space between header, content, and footer */
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* Keep the footer fixed at the bottom of the page */
 .footer {
-  margin-top: auto; /* Push footer to the bottom of the page */
+  margin-top: auto;
 }
 
 /* Optional: Add more space in the content area if the search bar is large */
 .content {
-  flex: 1; /* This will make sure the content area takes up the remaining space */
+  flex: 1;
 }
