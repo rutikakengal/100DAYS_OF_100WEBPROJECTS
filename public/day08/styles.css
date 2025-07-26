@@ -1,0 +1,162 @@
+body {
+    background: #f9c4d2;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: #fff;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #6a0d45;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 18px;
+}
+
+#searchInput::placeholder {
+    color: #fff;
+    opacity: 0.6;
+}
+
+#searchBtn {
+    background: transparent;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    padding: 0 20px;
+}
+
+.result {
+    margin-top: 40px;
+}
+
+.word-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.word-header h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: #fff;
+}
+
+.word-header p {
+    font-style: italic;
+    color: #ffd4e5;
+}
+
+.audio-section {
+    text-align: center;
+}
+
+.audio-section button {
+    background: #b2035d;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.audio-section small {
+    font-size: 12px;
+    color: #300030;
+}
+
+.definition-box {
+    background: linear-gradient(to bottom, #150113, #370026);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 12px;
+}
+
+.meaning-label,
+.label {
+    font-weight: bold;
+    margin-top: 20px;
+    color: #dba8e2;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin: 8px 0;
+    color: #f7f7f7;
+}
+
+.hidden {
+    display: none;
+}
+/* DARK MODE STYLES */
+body[data-theme="dark"] {
+    background: #1c1c1c;
+    color: #eaeaea;
+}
+
+body[data-theme="dark"] .search-container {
+    background: #333;
+}
+
+body[data-theme="dark"] #searchInput {
+    color: #eaeaea;
+}
+
+body[data-theme="dark"] #searchInput::placeholder {
+    color: #aaa;
+}
+
+body[data-theme="dark"] #searchBtn {
+    color: #eaeaea;
+}
+
+body[data-theme="dark"] .word-header h1 {
+    color: #eaeaea;
+}
+
+body[data-theme="dark"] .word-header p {
+    color: #bbb;
+}
+
+body[data-theme="dark"] .audio-section button {
+    background: #555;
+    color: #fff;
+}
+
+body[data-theme="dark"] .audio-section small {
+    color: #ccc;
+}
+
+body[data-theme="dark"] .definition-box {
+    background: linear-gradient(to bottom, #2c2c2c, #1a1a1a);
+}
+
+body[data-theme="dark"] .meaning-label,
+body[data-theme="dark"] .label {
+    color: #ffb6ff;
+}
+
+body[data-theme="dark"] ul li {
+    color: #eee;
+}
