@@ -1,22 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    
+  <div class="container">
+    <h1>Rock Paper Scissors ✊✋✌️</h1>
 
-    <div class="container">
-        <h2>🎨 Color Picker Tool</h2>
-        <input type="color" id="colorInput" />
-
-        <p>HEX: <span id="hexValue">#ffffff</span></p>
-        <p>RGB: <span id="rgbValue">rgb(255, 255, 255)</span></p>
+    <div class="scoreboard">
+      <p>Player: <span id="player-score">0</span></p>
+      <p>Computer: <span id="computer-score">0</span></p>
     </div>
+
+    <div class="choices">
+      <button class="choice" data-choice="rock">✊ Rock</button>
+      <button class="choice" data-choice="paper">✋ Paper</button>
+      <button class="choice" data-choice="scissors">✌️ Scissors</button>
+    </div>
+
+    <div class="result">
+      <h2 id="winner">Make your move!</h2>
+      <p id="player-choice">You: -</p>
+      <p id="computer-choice">CPU: -</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
 
-<script src="script.js"></script>

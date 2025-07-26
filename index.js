@@ -6,7 +6,9 @@ const projects = [
   "Random Image Generator",
   "New Year Countdown",
   "BMI Calculator",
+  "Rock Paper Scissors Game",
   "Color Picker Tool",
+
   // Add more project names as needed
 ];
 

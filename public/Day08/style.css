@@ -1,32 +1,67 @@
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
 body {
-  font-family: sans-serif;
+  background: #282c34;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   text-align: center;
-  margin-top: 200px;
+
 }
 
 .container {
   max-width: 400px;
-  margin: 0 auto;
-  margin-bottom: 20px;
+
   padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  /* Optional: add a subtle border gradient */
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #1c1f26;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
-#previewBox {
-  width: 200px;
-  height: 100px;
-  margin: 20px auto;
-  border: 2px solid #ccc;
-  line-height: 100px;
-  color: #000;
-  background-color: #ffffff;
-  transition: background-color 0.3s ease;
+h1 {
+  margin-bottom: 20px;
 }
+
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.choices {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.choice {
+  padding: 12px 16px;
+  font-size: 16px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  flex: 1;
+  transition: 0.3s ease;
+}
+
+.choice:hover {
+  background: #45a049;
+}
+
+.result {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
