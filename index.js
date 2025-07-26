@@ -5,10 +5,10 @@ const projects = [
   "Jewellery-company landing page",
   "Random Image Generator",
   "New Year Countdown",
-  "Simon Game"
-  "BMI Calculator",
+  "Simon Game",
   "Rock Paper Scissors Game",
-  "Reading Journal"
+  "Reading Journal",
+ "BMI Calculator",
 
   // Add more project names as needed
 ];
