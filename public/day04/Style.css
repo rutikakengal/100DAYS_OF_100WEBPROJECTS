@@ -49,15 +49,7 @@ header{
     transition: 0.5s ease;
 }
 
-main {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(60vh, 1fr));
-    grid-template-rows:  50vh auto;
-    
-    margin-top: 2rem;
-    gap: 1rem;
-    margin: 1%;
-}    
+
 
 .promotion{
     display: flex;
@@ -209,4 +201,73 @@ footer{
 #scrltotop:active{
     transform: translateY(10px);
 
+}
+.slider-container {
+  position: relative;
+  width: 100vw; /* Full viewport width */
+  max-width: 100%;
+  max-height: 80vh;
+  overflow: hidden;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+
+.slider {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 100%; /* Each slide takes full width */
+  position: relative;
+}
+
+
+
+
+.slide img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+
+.slide .caption {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  color: white;
+  font-size: 2rem;
+  font-family: 'Fasthand';
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 2rem;
+  z-index: 1;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.nav:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
 }
