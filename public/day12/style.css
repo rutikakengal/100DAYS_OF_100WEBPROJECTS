@@ -1,0 +1,75 @@
+/* General body styling */
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Page heading */
+h1 {
+  margin-top: 20px;
+}
+
+/* Section for selecting game mode */
+#modeSelect {
+  margin: 20px;
+  text-align: center;
+}
+
+/* Section for selecting difficulty */
+#difficultySelect {
+  margin: 20px;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+}
+
+/* Button styles */
+button {
+  padding: 10px 25px;
+  margin: 10px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: none;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #666;
+}
+
+/* Difficulty dropdown styles */
+select {
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  font-size: 16px;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+select:hover {
+  background-color: #666;
+}
+
+/* Canvas game area */
+canvas {
+  display: block;
+  margin: 0 auto;
+  background-color: #111;
+  border: 1px solid white;
+}
+
+/* Score display */
+#scoreBoard {
+  font-size: 20px;
+  margin-top: 10px;
+}
