@@ -1,86 +1,58 @@
-const searchBtn = document.getElementById("searchBtn");
-const searchInput = document.getElementById("searchInput");
-const resultContainer = document.getElementById("resultContainer");
+const choices = ["rock", "paper", "scissors"];
+const buttons = document.querySelectorAll(".choice");
+const playerScoreEl = document.getElementById("player-score");
+const computerScoreEl = document.getElementById("computer-score");
+const winnerEl = document.getElementById("winner");
+const playerChoiceEl = document.getElementById("player-choice");
+const computerChoiceEl = document.getElementById("computer-choice");
 
-const wordEl = document.getElementById("word");
-const phoneticEl = document.getElementById("phonetic");
-const playAudio = document.getElementById("playAudio");
-const partOfSpeechEl = document.getElementById("partOfSpeech");
-const definitionList = document.getElementById("definitionList");
-const synonymsList = document.getElementById("synonymsList");
-const examplesList = document.getElementById("examplesList");
+let playerScore = 0;
+let computerScore = 0;
 
-let audioUrl = "";
-
-searchBtn.addEventListener("click", () => {
-  const word = searchInput.value.trim();
-  if (word) {
-    fetchWordData(word);
-  }
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    const playerChoice = button.dataset.choice;
+    const computerChoice = getComputerChoice();
+    const winner = getWinner(playerChoice, computerChoice);
+    updateUI(playerChoice, computerChoice, winner);
+  });
 });
 
-async function fetchWordData(word) {
-  const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    displayWordData(data[0]);
-  } catch (error) {
-    alert("Word not found. Please try another word.");
-    resultContainer.classList.add("hidden");
+function getComputerChoice() {
+  const randomIndex = Math.floor(Math.random() * choices.length);
+  return choices[randomIndex];
+}
+
+function getWinner(player, computer) {
+  if (player === computer) return "draw";
+  if (
+    (player === "rock" && computer === "scissors") ||
+    (player === "paper" && computer === "rock") ||
+    (player === "scissors" && computer === "paper")
+  ) {
+    playerScore++;
+    return "player";
+  } else {
+    computerScore++;
+    return "computer";
   }
 }
 
-function displayWordData(data) {
-  resultContainer.classList.remove("hidden");
+function updateUI(player, computer, winner) {
+  playerScoreEl.textContent = playerScore;
+  computerScoreEl.textContent = computerScore;
+  playerChoiceEl.textContent = `You: ${capitalize(player)}`;
+  computerChoiceEl.textContent = `CPU: ${capitalize(computer)}`;
 
-  wordEl.textContent = data.word;
-  phoneticEl.textContent = data.phonetic || "";
-
-  const meanings = data.meanings[0];
-  const definitions = meanings.definitions;
-  const synonyms = meanings.synonyms || [];
-  const examples = definitions.map(d => d.example).filter(Boolean);
-
-  partOfSpeechEl.textContent = meanings.partOfSpeech;
-
-  definitionList.innerHTML = "";
-  definitions.forEach(def => {
-    const li = document.createElement("li");
-    li.textContent = def.definition;
-    definitionList.appendChild(li);
-  });
-
-  synonymsList.innerHTML = synonyms.length ? "" : "<li>None</li>";
-  synonyms.forEach(syn => {
-    const li = document.createElement("li");
-    li.textContent = syn;
-    li.style.color = "#db4cd2";
-    synonymsList.appendChild(li);
-  });
-
-  examplesList.innerHTML = examples.length ? "" : "<li>None</li>";
-  examples.forEach(example => {
-    const li = document.createElement("li");
-    li.textContent = example;
-    examplesList.appendChild(li);
-  });
-
-  const phonetics = data.phonetics.find(p => p.audio);
-  audioUrl = phonetics ? phonetics.audio : "";
-
-  playAudio.onclick = () => {
-    if (audioUrl) {
-      new Audio(audioUrl).play();
-    }
-  };
+  if (winner === "draw") {
+    winnerEl.textContent = "It's a draw!";
+  } else if (winner === "player") {
+    winnerEl.textContent = "You win! 🎉";
+  } else {
+    winnerEl.textContent = "Computer wins! 🤖";
+  }
 }
-const toggleBtn = document.getElementById("themeToggle");
-toggleBtn.addEventListener("click", () => {
-    const currentTheme = document.body.getAttribute("data-theme");
-    if (currentTheme === "dark") {
-        document.body.removeAttribute("data-theme");
-    } else {
-        document.body.setAttribute("data-theme", "dark");
-    }
-});
+
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}

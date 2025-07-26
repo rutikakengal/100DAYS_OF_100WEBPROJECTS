@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dictionary App</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <button id="themeToggle"
+        style="position: absolute; top: 20px; right: 20px; padding: 10px 15px; border: none; border-radius: 8px; background: #6a0d45; color: white; cursor: pointer;">
+        Switch Theme
+    </button>
+
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Enter any word" />
+            <button id="searchBtn">🔍</button>
+        </div>
+
+        <div id="resultContainer" class="result hidden">
+            <div class="word-header">
+                <div>
+                    <h1 id="word"></h1>
+                    <p id="phonetic"></p>
+                </div>
+                <div class="audio-section">
+                    <button id="playAudio">🔊</button>
+                    <small>(click for pronunciation)</small>
+                </div>
+            </div>
+
+            <div class="definition-box">
+                <h3><em id="partOfSpeech"></em></h3>
+                <hr />
+                <p class="meaning-label">Meaning</p>
+                <ul id="definitionList"></ul>
+
+                <p class="label">Synonyms</p>
+                <ul id="synonymsList"></ul>
+
+                <p class="label">Examples</p>
+                <ul id="examplesList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
