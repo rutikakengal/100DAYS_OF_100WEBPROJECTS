@@ -12,8 +12,47 @@ const projects = [
 
 
 
-  "Reading Journal"
+  "Reading Journal",
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  "Random Quote Generator",
   // Add more project names as needed
 ];
 
