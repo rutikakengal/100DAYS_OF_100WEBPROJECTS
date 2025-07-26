@@ -9,12 +9,9 @@ const projects = [
   "BMI Calculator",
    "QR Generator",
   "Rock Paper Scissors Game",
-
-
-
-  "Reading Journal"
-
-  // Add more project names as needed
+  "Reading Journal",
+  "PAC-MAN",
+// Add more project names as needed
 ];
 
 const tableBody = document.getElementById("tableBody");
