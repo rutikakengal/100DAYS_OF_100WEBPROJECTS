@@ -12,7 +12,9 @@ const projects = [
 
 
 
-  "Reading Journal"
+  "Reading Journal",
+  "Drawing Canvas",
+  "Colour Picker"
 
   // Add more project names as needed
 ];
