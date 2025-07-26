@@ -12,7 +12,7 @@ const projects = [
 
 
 
-  "Reading Journal"
+  "Reading Journal",
 
 
 
