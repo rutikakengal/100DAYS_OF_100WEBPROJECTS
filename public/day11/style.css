@@ -1,0 +1,72 @@
+body {
+    background: linear-gradient(135deg, #1e1e2f, #3e3e5f);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.player {
+    background-color: #2b2b3d;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0 , 0, 0.6);
+    text-align: center;
+    width: 350px;
+    transition: transform 0.3s;
+}
+
+.player:hover {
+    transform: scale(1.03);
+}
+
+.player img {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    box-shadow: 0 4px 20px rgba(0, 0 , 0, 0.5);
+}
+
+#song-title {
+    font-size: 22px;
+    margin: 10px 0;
+    color: #fff;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.controls button {
+    background: #444;
+    border: none;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0 , 0, 0.4);
+    transition: 0.3s;
+}
+
+.controls button:hover {
+    background: #666;
+    transform: scale(1.1);
+}
+
+#progress {
+    width: 100px;
+    height: 5px;
+    border-radius: 3px;;
+    accent-color: #ff9800;
+    cursor: pointer;
+    margin-top: 15px;
+}
