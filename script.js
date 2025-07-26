@@ -115,3 +115,4 @@ window.addEventListener("resize", function () {
 document.getElementById("showMoreBtn").onclick = function(){
   location.href = "blog.html";
 };
+
