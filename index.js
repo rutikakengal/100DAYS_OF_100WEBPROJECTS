@@ -9,6 +9,7 @@ const projects = [
   "BMI Calculator",
    "QR Generator",
   "Rock Paper Scissors Game",
+  "Text to PDF Converter",
 
 
 
@@ -55,10 +56,12 @@ projects.forEach((name, index) => {
   let link;
   if (name === "QR Generator") {
   link = `public/Day 9/index.html`;
-  } else {
+} else if (name === "Text to PDF Converter") {
+  link = `public/Day 10/index.html`;
+} else {
   const folder = `day${String(index + 1).padStart(2, "0")}`;
   link = `public/${folder}/index.html`;
-  }
+}
 
   const row = document.createElement("tr");
   row.classList.add("project-row");
