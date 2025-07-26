@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reading Journal</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/5357c20b05.js" crossorigin="anonymous"></script>
+  
+</head>
+<body>
+
+  <div class="title-editing">
+    <i id="edit-heading" class="fa-solid fa-pen"></i>
+    <input id="input-heading" type="text" placeholder="hiii type something :)">
+    <i id="delete-slide-btn" class="fa-solid fa-xmark close-popup"></i>
+  </div>
+          
+  <div class="feature-buttons">
+        <div id="add-slide-btn">
+          <button><i class="fa-solid fa-layer-group"></i> Add Slide</button>
+        </div>
+        <div class="add-new-book">
+          <button><i class="fa-solid fa-plus"></i>Add book</button>
+        </div>
+        <div class="change-color">
+          <button><i class="fa-solid fa-palette"></i>Change color</button>
+          <input id="change-color" type="color">
+        </div>
+      </div>
+
+      
+      <div class="slide slide-1">
+        <div class="heading">
+          <h1 class="title">my reading journal</h1>
+      </div>
+      <div class="cards-container">
+        <div class="images"></div>
+    </div>
+
+  </div>
+
+  <div class="slider-wrapper">
+  <label id="slider-label">Slide 1</label>
+  <input type="range" id="slide-range" min="1" max="1" step="1" value="1" />
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>

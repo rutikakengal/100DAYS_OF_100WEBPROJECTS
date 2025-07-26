@@ -5,9 +5,12 @@ const projects = [
   "Jewellery-company landing page",
   "Random Image Generator",
   "New Year Countdown",
+  "Stylish Animated loginpage",
   "BMI Calculator",
+   "QR Generator",
   "Rock Paper Scissors Game",
-  "Color Picker Tool",
+  "Reading Journal",
+
 
   // Add more project names as needed
 ];
@@ -47,8 +50,13 @@ randomBtn.addEventListener("click", () => {
 
 projects.forEach((name, index) => {
   const day = `Day ${String(index + 1).padStart(2, "0")}`;
+  let link;
+  if (name === "QR Generator") {
+  link = `public/Day 9/index.html`;
+  } else {
   const folder = `day${String(index + 1).padStart(2, "0")}`;
-  const link = `public/${folder}/index.html`;
+  link = `public/${folder}/index.html`;
+  }
 
   const row = document.createElement("tr");
   row.classList.add("project-row");
