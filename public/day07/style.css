@@ -17,7 +17,7 @@ body{
 }
 .black{
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.381);
+    background-color: rgba(0, 0, 0, 0.34);
     width: 100%;
     height: 100%;
 }
@@ -80,6 +80,9 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 40px;
 }
 .image-gallery .images{
     columns: 5 340px;
@@ -132,4 +135,38 @@ body{
 }
 .download img:hover{
     background-color: rgba(9, 5, 86, 0.579);
+}
+#load{
+    width: 100px;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(9, 5, 86);
+    transition: all 0.2s;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    display: none;
+}
+#load:hover{
+    background-color: rgba(9, 5, 86, 0.579);
+}
+@media (max-width:800px){
+    .content h1{
+        font-size: 5vw;
+    }
+    .content p{
+        font-size: 3vw;
+    }
+    .search-box{
+        width: 80%;
+        height: 10%;    
+    }
+    .btn button{
+        width: 35px;
+        height: 35px;
+    }
+    .btn button img{
+        width: 20px;
+    }
 }
