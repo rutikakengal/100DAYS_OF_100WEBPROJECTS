@@ -7,13 +7,10 @@ const projects = [
   "New Year Countdown",
   "Stylish Animated loginpage",
   "BMI Calculator",
+  "Tic Tac Toe",
    "QR Generator",
   "Rock Paper Scissors Game",
-
-
-
   "Reading Journal"
-
   // Add more project names as needed
 ];
 
