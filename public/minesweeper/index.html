@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Minesweeper Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <h1>Minesweeper 💣</h1>
+    <div class="top-bar">
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium" selected>Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+      <div id="timer">⏱️ 0s</div>
+      <div id="highscore">🏆 No record</div>
+    </div>
+    <div id="status">Click to Start</div>
+    <div id="board"></div>
+    <button id="restart" style="display:none">🔁 Try Again</button>
+  </div>
+  <audio id="click-sound" src="https://www.soundjay.com/button/beep-07.wav"></audio>
+  <audio id="explosion-sound" src="https://www.soundjay.com/button/beep-10.wav"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
