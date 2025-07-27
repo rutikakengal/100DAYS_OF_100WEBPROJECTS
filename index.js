@@ -15,6 +15,13 @@ const projects = [
   // Add more project names as needed
 ];
 
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburgerBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
+
 const tableBody = document.getElementById("tableBody");
 const projectCount = document.getElementById("projectCount");
 projectCount.textContent = projects.length;
