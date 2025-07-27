@@ -15,7 +15,6 @@ const projects = [
   "Drawing Canvas",
   "Nasa Astronomy Picture of the day",
   "World Clock"
-  // Add more project names as needed
 ];
 
 const hamburgerBtn = document.getElementById('hamburger-btn');
@@ -63,6 +62,8 @@ projects.forEach((name, index) => {
   let link;
   if (name === "QR Generator") {
     link = `public/Day 9/index.html`;
+  } else if (name === "To-Do List") {
+    link = `public/Day 2/index.html`;
   } else if (name === "Nasa Astronomy Picture of the day") {
     link = "https://sabaaa01.github.io/NASA-astronomy-photo-of-the-day/";
   } else {
