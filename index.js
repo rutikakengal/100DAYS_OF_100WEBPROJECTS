@@ -10,11 +10,20 @@ const projects = [
   "QR Generator",
   "Rock Paper Scissors Game",
   "Reading Journal",
-  "Nasa Astronomy Picture of the day",
-  "Pong Game"
 
+  "Nasa Astronomy Picture of the day",
+  "Pong Game",
+  "Colour Picker",
+  "Drawing Canvas"
   // Add more project names as needed
 ];
+
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburgerBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
 
 const tableBody = document.getElementById("tableBody");
 const projectCount = document.getElementById("projectCount");
