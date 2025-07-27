@@ -10,7 +10,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -218,15 +217,17 @@
       }
       /* Adds Smooth Scrolling To The Navbar Links */
       html {
-        scroll-behavior: smooth
+        scroll-behavior: smooth;
       }
     </style>
   </head>
   <body class="bg-dark text-white font-sans pt-24">
-    <!-- Navbar -->
     <nav class="fixed top-0 w-full z-50 bg-primary shadow-xl p-4">
       <div class="container mx-auto flex items-center justify-between">
-        <a href="#" class="flex items-center gap-2 text-white font-bold text-lg">
+        <a
+          href="index.html"
+          class="flex items-center gap-2 text-white font-bold text-lg"
+        >
           <img
             src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"
             class="h-10 rounded-full"
@@ -235,23 +236,45 @@
         </a>
 
         <button id="hamburger-btn" class="md:hidden">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+          <svg
+            class="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
         </button>
 
-        <div 
-          id="mobile-menu" 
-          class="hidden md:flex absolute md:static top-16 left-0 w-full bg-primary md:w-auto md:bg-transparent 
-                flex flex-row py-4 
-                md:gap-x-4 md:py-0"
+        <div
+          id="mobile-menu"
+          class="hidden md:flex absolute md:static top-16 left-0 w-full bg-primary md:w-auto md:bg-transparent flex flex-row py-4 md:gap-x-4 md:py-0"
         >
-          <a href="#projects" class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors">Projects</a>
-          <a href="#about" class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors">About</a>
-          <a href="#" class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors">Contributors</a>
+          <a
+            href="#projects"
+            class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors"
+            >Projects</a
+          >
+          <a
+            href="#about"
+            class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors"
+            >About</a
+          >
+          <a
+            href="contributors.html"
+            class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors"
+            >Contributors</a
+          >
         </div>
       </div>
     </nav>
 
-    <!-- Hero Section -->
     <section
       class="min-h-screen flex flex-col justify-center items-center pt-32 text-center"
     >
@@ -280,7 +303,6 @@
           </button>
         </div>
 
-        <!-- Tag Filters -->
         <div class="flex flex-wrap justify-center gap-3 mt-6">
           <button
             class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
@@ -328,7 +350,6 @@
       </div>
     </section>
 
-    <!-- Projects Table -->
     <section id="projects" class="container mx-auto px-4 py-10">
       <div class="overflow-x-auto glass rounded-xl p-6">
         <table class="w-full text-left">
@@ -340,8 +361,7 @@
             </tr>
           </thead>
           <tbody id="tableBody">
-            <!-- Dynamic rows injected here -->
-          </tbody>
+            </tbody>
         </table>
         <div id="no-projects" class="text-center mt-8 p-8 hidden">
           <div class="text-6xl mb-4">🔍</div>
@@ -353,7 +373,6 @@
       </div>
     </section>
 
-    <!-- Enhanced About Section -->
     <section id="about" class="about-section py-20 mt-20">
       <div class="container mx-auto px-4 relative z-10">
         <div class="text-center mb-16">
@@ -426,7 +445,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-black text-white p-6 mt-10">
       <div class="container mx-auto grid md:grid-cols-3 gap-8">
         <div>
@@ -525,10 +543,8 @@
       </div>
     </footer>
 
-    <!-- Theme Toggle Button -->
     <button id="themeToggle" class="theme-toggle glass">🌙</button>
 
-    <!-- Scroll to top button -->
     <button
       id="scrollBtn"
       onclick="scrollToTop()"
@@ -537,7 +553,6 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Scripts -->
     <script>
       const scrollBtn = document.getElementById("scrollBtn");
       window.onscroll = () => {
