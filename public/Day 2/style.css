@@ -1,0 +1,143 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #ffffff;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 34%, rgba(74, 74, 255, 1) 100%, rgba(0, 212, 255, 1) 100%);
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-container {
+  background: #1e188f;
+  background: linear-gradient(90deg, rgba(30, 24, 143, 1) 0%, rgba(9, 9, 121, 1) 65%, rgba(29, 80, 191, 1) 100%);
+  padding: 2rem 1.5rem;
+  border-radius: 13px;
+  box-shadow: 2px 4px 24px rgba(60, 72, 100, 0.12);
+  min-width: 340px;
+  width: 90vw;
+  min-height: 230px;
+  max-width: 450px;
+}
+
+h1 {
+  text-align: center;
+  color: #ff0077;
+  margin-bottom: 1rem;
+  font-size: 2.3rem;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#todo-input {
+  flex: 1;
+  font-size: 2.3rem;
+  padding: 0.7rem;
+ 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+#add-btn {
+  padding: 0 1.2rem;
+  background: #ff0077;
+  color: #fff;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#add-btn:hover {
+  background: #484d74;
+}
+
+#todo-list {
+  margin: 1.3rem 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.todo-item {
+  background: #f4f4f9;
+  padding: 0.8rem;
+  margin-bottom: 0.7rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  justify-content: space-between;
+  transition: background 0.2s;
+}
+
+.todo-item.completed {
+  background: #d2e7d0;
+  text-decoration: line-through;
+  color: #878787;
+}
+
+.todo-title {
+  flex: 1;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #d93e3e;
+  font-size: 3.12rem;
+  cursor: pointer;
+  margin-left: 8px;
+  padding: 0;
+  transition: color 0.2s;
+}
+.delete-btn:hover {
+  color: #b72a2a;
+}
+
+.edit-btn {
+  background: none;
+  border: none;
+  color: #2196f3;
+  font-size: 2.12rem;
+  cursor: pointer;
+  margin-left: 8px;
+  padding: 0;
+  transition: color 0.2s;
+}
+.edit-btn:hover {
+  color: #085394;
+}
+
+.edit-input {
+  flex: 1;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #a0a0a0;
+  border-radius: 4px;
+  overflow-x: hidden;
+}
+
+@media (max-width: 550px) {
+  .todo-container {
+    min-width: unset;
+    width: 97vw;
+    padding: 1rem 0.2rem;
+    max-width: 100vw;
+  }
+  .input-section {
+    flex-direction: column;
+    gap: 8px;
+  }
+  #todo-input, #add-btn {
+    border-radius: 4px;
+  }
+}

@@ -55,7 +55,10 @@ projects.forEach((name, index) => {
   let link;
   if (name === "QR Generator") {
   link = `public/Day 9/index.html`;
-  } else {
+  }else if(name ==="To-Do List"){
+  link = `public/Day 2/index.html`;
+  } 
+  else {
   const folder = `day${String(index + 1).padStart(2, "0")}`;
   link = `public/${folder}/index.html`;
   }
