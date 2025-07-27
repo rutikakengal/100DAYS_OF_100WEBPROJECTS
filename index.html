@@ -10,6 +10,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -275,6 +276,7 @@
       </div>
     </nav>
 
+    <!-- Hero Section -->
     <section
       class="min-h-screen flex flex-col justify-center items-center pt-32 text-center"
     >
@@ -303,6 +305,7 @@
           </button>
         </div>
 
+        <!-- Tag Filters -->
         <div class="flex flex-wrap justify-center gap-3 mt-6">
           <button
             class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
@@ -349,7 +352,8 @@
         </div>
       </div>
     </section>
-
+    
+    <!-- Projects Table -->
     <section id="projects" class="container mx-auto px-4 py-10">
       <div class="overflow-x-auto glass rounded-xl p-6">
         <table class="w-full text-left">
@@ -361,6 +365,7 @@
             </tr>
           </thead>
           <tbody id="tableBody">
+            <!-- Dynamic rows injected here -->
             </tbody>
         </table>
         <div id="no-projects" class="text-center mt-8 p-8 hidden">
@@ -373,6 +378,7 @@
       </div>
     </section>
 
+    <!-- Enhanced About Section -->
     <section id="about" class="about-section py-20 mt-20">
       <div class="container mx-auto px-4 relative z-10">
         <div class="text-center mb-16">
@@ -445,6 +451,7 @@
       </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-black text-white p-6 mt-10">
       <div class="container mx-auto grid md:grid-cols-3 gap-8">
         <div>
@@ -475,7 +482,7 @@
             ></a>
           </div>
         </div>
-
+        
         <div>
           <h2 class="text-lg font-semibold mb-4">Quick Links</h2>
           <ul class="space-y-2">
@@ -543,8 +550,10 @@
       </div>
     </footer>
 
+    <!-- Theme Toggle Button -->
     <button id="themeToggle" class="theme-toggle glass">🌙</button>
 
+    <!-- Scroll to top button --> 
     <button
       id="scrollBtn"
       onclick="scrollToTop()"
@@ -553,6 +562,7 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- Scripts -->
     <script>
       const scrollBtn = document.getElementById("scrollBtn");
       window.onscroll = () => {
