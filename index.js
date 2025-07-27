@@ -10,11 +10,10 @@ const projects = [
   "QR Generator",
   "Rock Paper Scissors Game",
   "Reading Journal",
-
-  "Nasa Astronomy Picture of the day",
   "Pong Game",
   "Colour Picker",
-  "Drawing Canvas"
+  "Drawing Canvas",
+  "Nasa Astronomy Picture of the day"
   // Add more project names as needed
 ];
 
