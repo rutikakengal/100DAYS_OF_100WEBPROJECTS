@@ -5,7 +5,7 @@ const projects = [
   "Jewellery-company landing page",
   "Random Image Generator",
   "New Year Countdown",
-  "Stylish Animated loginpage",
+  "Simon Game",
   "BMI Calculator",
   "QR Generator",
   "Rock Paper Scissors Game",
@@ -13,12 +13,25 @@ const projects = [
   "Pong Game",
   "Colour Picker",
   "Drawing Canvas",
-  "Nasa Astronomy Picture of the day",
+  "Nasa Astronomy Picture of the Day",
   "World Clock",
   "Mood Timer",
-  "text to PDF Convertor",
+  "Text to PDF Converter",
   "Memory Card Game",
-  "Email Validator"
+  "Email Validator",
+  
+
+
+
+
+  "Stylish Animated loginpage",
+ 
+ 
+ 
+  
+ 
+
+
   // Add more project names as needed
 ];
 
