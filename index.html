@@ -218,7 +218,7 @@
       }
       /* Adds Smooth Scrolling To The Navbar Links */
       html {
-        scroll-behavior: smooth
+        scroll-behavior: smooth;
       }
       /* NAVBAR TOGGLE FOR MOBILE */
 .hamburger {
@@ -272,6 +272,7 @@
 
     </style>
   </head>
+
   <body class="bg-dark text-white font-sans">
 <!-- Navbar -->
 <nav class="fixed top-0 w-full z-50 bg-primary shadow-xl p-4">
@@ -299,6 +300,8 @@
 
   </div>
 </nav>
+
+
 
 
     <!-- Hero Section -->
@@ -377,7 +380,7 @@
         </div>
       </div>
     </section>
-
+    
     <!-- Projects Table -->
     <section id="projects" class="container mx-auto px-4 py-10">
       <div class="overflow-x-auto glass rounded-xl p-6">
@@ -391,7 +394,7 @@
           </thead>
           <tbody id="tableBody">
             <!-- Dynamic rows injected here -->
-          </tbody>
+            </tbody>
         </table>
         <div id="no-projects" class="text-center mt-8 p-8 hidden">
           <div class="text-6xl mb-4">🔍</div>
@@ -507,7 +510,7 @@
             ></a>
           </div>
         </div>
-
+        
         <div>
           <h2 class="text-lg font-semibold mb-4">Quick Links</h2>
           <ul class="space-y-2">
@@ -578,11 +581,11 @@
     <!-- Theme Toggle Button -->
     <button id="themeToggle" class="theme-toggle glass">🌙</button>
 
-    <!-- Scroll to top button -->
+    <!-- Scroll to top button --> 
     <button
       id="scrollBtn"
       onclick="scrollToTop()"
-      class="fixed bottom-5 right-5 bg-primary text-white p-4 rounded-full shadow-lg btn-3d hidden"
+      class="fixed bottom-5 right-5 bg-primary text-white p-4 rounded-full shadow-lg z-[60] btn-3d hidden"
     >
       <i class="fas fa-arrow-up"></i>
     </button>
