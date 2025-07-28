@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Tic Tac Toe</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -25,6 +26,42 @@
     <div id="message"></div>
     <button id="reset">Restart Game</button>
   </div>
+
+  <title>Pong Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Pong Game</h1>
+
+  <!-- Game Options -->
+  <div id="options">
+    <div>
+      <p><strong>Select Game Mode:</strong></p>
+      <button onclick="startGame('2p')">2 Player</button>
+      <button onclick="startGame('cpu')">Vs CPU</button>
+    </div>
+
+    <div style="margin-top: 10px;">
+      <p><strong>Select Difficulty:</strong></p>
+      <select id="difficultySelect" onchange="setDifficulty(this.value)">
+        <option value="low">Low</option>
+        <option value="medium" selected>Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Game controls (appear after game starts) -->
+  <div id="controls" style="display: none; margin-top: 10px;">
+    <button id="pauseResumeBtn" onclick="togglePause()">Pause</button>
+    <button onclick="restartGame()">Restart</button>
+  </div>
+
+  <!-- Game Canvas -->
+  <canvas id="gameCanvas"></canvas>
+
+  <p id="gameMsg"></p>
+
 
   <script src="script.js"></script>
 </body>
