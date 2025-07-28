@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF‑8">
+  <meta name="viewport" content="width=device‑width,initial‑scale=1.0">
+  <title>Connect 4</title>
+ 
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 id="game-title">Connect 4</h1>
+   
+  <div id="game-container">
+    
+    <div id="playerNames">
+  <div class="name-box" id="playerBox">
+    <span class="emoji">👤</span> <span id="playerName">You</span>
+  </div>
+  <div class="name-box" id="botBox">
+    <span class="emoji">🤖</span> <span id="botName">Robot</span>
+  </div>
+</div>
+<div id="statusMessage"></div>
+
+    <div id="board"></div>
+   
+    <button id="restart" title="Restart">
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="1 4 1 10 7 10"></polyline>
+    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+  </svg>
+</button>
+  </div>
+  
+  <div id="overlay" class="overlay hidden"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
