@@ -1,0 +1,378 @@
+/* --- Global Variables --- */
+:root {
+    --font-cute: 'Quicksand', sans-serif;
+    --clock-font: 'Orbitron', sans-serif;
+    --default-gradient-angle: 135deg;
+    --particle-base-size: 8px;
+    --doodle-offset-x: 0px;
+    --doodle-offset-y: 0px;
+}
+
+/* --- Theme Definitions (Day Mode) --- */
+
+/* Default Theme (Sweet Pastels) - Day Mode */
+:root, body.theme-default.day-mode {
+    --primary-color: #92DCE5;
+    --secondary-color: #F8B4BB;
+    --accent-color: #FEE188;
+    --text-color: #4C4B5E;
+    --clock-color: #4C4B5E;
+    --date-color: #6C6B7E;
+    --bg-gradient-start: #FCEEF2;
+    --bg-gradient-end: #E2F0F9;
+    --container-bg: rgba(255, 255, 255, 0.95);
+    --container-shadow-color: rgba(0, 0, 0, 0.2);
+    --particle-color: var(--secondary-color);
+    --doodle-color-1: var(--primary-color);
+    --doodle-color-2: var(--secondary-color);
+    --doodle-glow: rgba(255, 255, 255, 0.3);
+}
+
+/* Ocean Dream Theme - Day Mode */
+body.theme-ocean.day-mode {
+    --primary-color: #6DC2E8;
+    --secondary-color: #90E0EF;
+    --accent-color: #C0F2F1;
+    --text-color: #2F5373;
+    --clock-color: #2F5373;
+    --date-color: #5F7F9F;
+    --bg-gradient-start: #E0F2F7;
+    --bg-gradient-end: #C5E9F4;
+    --container-bg: rgba(255, 255, 255, 0.98);
+    --container-shadow-color: rgba(0, 0, 0, 0.15);
+    --particle-color: var(--accent-color);
+    --doodle-color-1: var(--primary-color);
+    --doodle-color-2: var(--secondary-color);
+    --doodle-glow: rgba(255, 255, 255, 0.4);
+}
+
+/* Sunset Bliss Theme - Day Mode */
+body.theme-sunset.day-mode {
+    --primary-color: #FFD47D;
+    --secondary-color: #FF8A65;
+    --accent-color: #FFCC80;
+    --text-color: #8C473E;
+    --clock-color: #8C473E;
+    --date-color: #A06050;
+    --bg-gradient-start: #FFF1E6;
+    --bg-gradient-end: #FFDAB9;
+    --container-bg: rgba(255, 255, 255, 0.9);
+    --container-shadow-color: rgba(0, 0, 0, 0.25);
+    --particle-color: var(--secondary-color);
+    --doodle-color-1: var(--primary-color);
+    --doodle-color-2: var(--secondary-color);
+    --doodle-glow: rgba(255, 255, 255, 0.3);
+}
+
+/* Forest Whimsy Theme - Day Mode */
+body.theme-forest.day-mode {
+    --primary-color: #A3C9A8;
+    --secondary-color: #D8F2D1;
+    --accent-color: #E2F0CB;
+    --text-color: #556B2F;
+    --clock-color: #556B2F;
+    --date-color: #758B4F;
+    --bg-gradient-start: #F0FAF0;
+    --bg-gradient-end: #E0F5E0;
+    --container-bg: rgba(255, 255, 255, 0.95);
+    --container-shadow-color: rgba(0, 0, 0, 0.2);
+    --particle-color: var(--secondary-color);
+    --doodle-color-1: var(--primary-color);
+    --doodle-color-2: var(--secondary-color);
+    --doodle-glow: rgba(255, 255, 255, 0.35);
+}
+
+/* --- Theme Definitions (Night Mode) --- */
+
+/* Default Theme (Sweet Pastels) - Night Mode */
+body.theme-default.night-mode {
+    --primary-color: #4A90E2;
+    --secondary-color: #C079E3;
+    --accent-color: #F7D767;
+    --text-color: #ECF0F1;
+    --clock-color: #ECF0F1;
+    --date-color: #BDC3C7;
+    --bg-gradient-start: #2C3E50;
+    --bg-gradient-end: #34495E;
+    --container-bg: rgba(0, 0, 0, 0.4);
+    --container-shadow-color: rgba(0, 0, 0, 0.4);
+    --particle-color: var(--accent-color);
+    --doodle-color-1: #3498DB;
+    --doodle-color-2: #9B59B6;
+    --doodle-glow: rgba(255, 255, 255, 0.1);
+}
+
+/* Ocean Dream Theme - Night Mode */
+body.theme-ocean.night-mode {
+    --primary-color: #1A5276;
+    --secondary-color: #2874A6;
+    --accent-color: #7FB3D5;
+    --text-color: #D6EAF8;
+    --clock-color: #D6EAF8;
+    --date-color: #A9CCE3;
+    --bg-gradient-start: #1C2833;
+    --bg-gradient-end: #21618C;
+    --container-bg: rgba(0, 0, 0, 0.5);
+    --container-shadow-color: rgba(0, 0, 0, 0.5);
+    --particle-color: var(--accent-color);
+    --doodle-color-1: var(--primary-color);
+    --doodle-color-2: var(--secondary-color);
+    --doodle-glow: rgba(255, 255, 255, 0.2);
+}
+
+/* Sunset Bliss Theme - Night Mode */
+body.theme-sunset.night-mode {
+    --primary-color: #6C3483;
+    --secondary-color: #9B59B6;
+    --accent-color: #F4D03F;
+    --text-color: #FDEBD0;
+    --clock-color: #FDEBD0;
+    --date-color: #FAD7A0;
+    --bg-gradient-start: #34074D;
+    --bg-gradient-end: #4A235A;
+    --container-bg: rgba(0, 0, 0, 0.6);
+    --container-shadow-color: rgba(0, 0, 0, 0.6);
+    --particle-color: var(--accent-color);
+    --doodle-color-1: var(--primary-color);
+    --doodle-color-2: var(--secondary-color);
+    --doodle-glow: rgba(255, 255, 255, 0.25);
+}
+
+/* Forest Whimsy Theme - Night Mode */
+body.theme-forest.night-mode {
+    --primary-color: #2E8B57;
+    --secondary-color: #3CB371;
+    --accent-color: #90EE90;
+    --text-color: #E6FFE6;
+    --clock-color: #E6FFE6;
+    --date-color: #C0E8C0;
+    --bg-gradient-start: #1F6136;
+    --bg-gradient-end: #28B463;
+    --container-bg: rgba(0, 0, 0, 0.55);
+    --container-shadow-color: rgba(0, 0, 0, 0.55);
+    --particle-color: var(--accent-color);
+    --doodle-color-1: var(--primary-color);
+    --doodle-color-2: var(--secondary-color);
+    --doodle-glow: rgba(255, 255, 255, 0.3);
+}
+
+/* --- General Styles (Apply to all themes & modes) --- */
+body {
+    font-family: var(--font-cute);
+    background: linear-gradient(var(--default-gradient-angle), var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text-color);
+    overflow: hidden;
+    transition: background 1s ease-in-out, color 1s ease-in-out;
+    padding-top: 50px;
+    cursor: none; /* Hide default cursor */
+}
+
+.container {
+    background-color: var(--container-bg);
+    padding: 40px 50px;
+    border-radius: 35px;
+    box-shadow: 0 25px 50px var(--container-shadow-color);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 1s ease-in-out, box-shadow 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transform: scale(1);
+    animation: fadeInScale 0.8s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.08);
+    transition: color 1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-icon {
+    font-size: 0.8em;
+    color: var(--accent-color);
+    animation: pulseGlow 2s infinite ease-in-out alternate;
+    filter: drop-shadow(0 0 5px var(--accent-color));
+}
+
+@keyframes pulseGlow {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px var(--accent-color)); }
+    50% { transform: scale(1.1); filter: drop-shadow(0 0 10px var(--accent-color)); }
+}
+
+.digital-clock {
+    font-family: var(--clock-font);
+    font-size: 4.5em;
+    color: var(--clock-color);
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: 5px;
+    transition: color 1s ease-in-out, background-color 1s ease-in-out, box-shadow 0.5s ease-in-out;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.15), 0 0 25px rgba(255,255,255,0.4);
+    display: inline-block;
+    animation: subtleBounce 5s infinite ease-in-out;
+}
+
+@keyframes subtleBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.current-date {
+    font-family: var(--font-cute);
+    font-size: 1.5em;
+    color: var(--date-color);
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+    transition: color 1s ease-in-out;
+    font-weight: 500;
+}
+
+/* --- Particle Container (replaces static floating elements) --- */
+.particle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Base style for individual particles (created by JS) */
+.particle {
+    position: absolute;
+    background-color: var(--particle-color);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleFadeIn 1s ease-out forwards;
+    box-shadow: 0 0 5px var(--particle-color);
+}
+
+@keyframes particleFadeIn {
+    from { opacity: 0; transform: scale(0); }
+    to { opacity: 0.8; transform: scale(1); }
+}
+
+/* --- Background Doodles (now dynamic and interactive) --- */
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    opacity: 0.1;
+    filter: blur(2px) drop-shadow(0 0 15px var(--doodle-glow));
+    transition: transform 0.2s ease-out, opacity 0.5s ease-in-out;
+}
+
+body::before {
+    top: calc(-100px + var(--doodle-offset-y));
+    left: calc(-100px + var(--doodle-offset-x));
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle at 35% 35%, var(--doodle-color-1), transparent 70%);
+    border-radius: 35% 65% 65% 35% / 35% 35% 65% 65%;
+    animation: rotateAndScale 25s linear infinite alternate;
+}
+
+body::after {
+    bottom: calc(-120px - var(--doodle-offset-y));
+    right: calc(-120px - var(--doodle-offset-x));
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle at 65% 65%, var(--doodle-color-2), transparent 70%);
+    border-radius: 65% 35% 35% 65% / 65% 65% 35% 35%;
+    animation: rotateAndScale 30s linear infinite alternate-reverse;
+}
+
+@keyframes rotateAndScale {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(18deg) scale(1.08); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+
+/* --- Theme Switcher --- */
+.theme-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 8px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.theme-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    padding: 0;
+}
+
+.theme-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.theme-btn.active {
+    border-color: var(--text-color);
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(var(--text-color), 0.5);
+}
+
+/* Assign background colors for each theme button to act as a preview */
+#themeDefault { background-color: #A7DBD8; }
+#themeOcean { background-color: #8FD8D5; }
+#themeSunset { background-color: #FFB347; }
+#themeForest { background-color: #90EE90; }
+
+/* Custom Cursor Styling */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    background-image: url('images/sparkle_cursor.png');
+    background-size: cover;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.05s linear;
+}
