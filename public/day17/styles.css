@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at center, #1a0a1a 0%, #0a0a0a 70%, #000000 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(90deg, transparent 98%, rgba(255, 20, 147, 0.1) 100%),
+        linear-gradient(0deg, transparent 98%, rgba(255, 20, 147, 0.05) 100%);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.quote-card {
+    background: linear-gradient(145deg, #1a0a1a, #0d0d0d);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    box-shadow: 
+        0 0 30px rgba(255, 20, 147, 0.3),
+        0 0 60px rgba(255, 20, 147, 0.2),
+        0 0 90px rgba(255, 20, 147, 0.1),
+        inset 0 0 20px rgba(255, 20, 147, 0.1);
+    border: 2px solid #ff1493;
+    animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 
+            0 0 30px rgba(255, 20, 147, 0.3),
+            0 0 60px rgba(255, 20, 147, 0.2),
+            0 0 90px rgba(255, 20, 147, 0.1),
+            inset 0 0 20px rgba(255, 20, 147, 0.1);
+    }
+    100% {
+        box-shadow: 
+            0 0 40px rgba(255, 20, 147, 0.4),
+            0 0 80px rgba(255, 20, 147, 0.3),
+            0 0 120px rgba(255, 20, 147, 0.2),
+            inset 0 0 25px rgba(255, 20, 147, 0.15);
+    }
+}
+
+.title {
+    color: #ff1493;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+    letter-spacing: 2px;
+}
+
+.quote-content {
+    margin-bottom: 40px;
+}
+
+.quote {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.author {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.new-quote-btn {
+    background: linear-gradient(145deg, #ff1493, #e91e63);
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 0 20px rgba(255, 20, 147, 0.4),
+        inset 0 0 10px rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.new-quote-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 0 30px rgba(255, 20, 147, 0.6),
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        inset 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.new-quote-btn:active {
+    transform: translateY(0);
+    box-shadow: 
+        0 0 20px rgba(255, 20, 147, 0.4),
+        inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .quote-card {
+        padding: 30px 20px;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .quote {
+        font-size: 1.1rem;
+    }
+    
+    .author {
+        font-size: 1rem;
+    }
+    
+    .new-quote-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .quote {
+        font-size: 1rem;
+    }
+    
+    .quote-card {
+        padding: 25px 15px;
+    }
+} 
