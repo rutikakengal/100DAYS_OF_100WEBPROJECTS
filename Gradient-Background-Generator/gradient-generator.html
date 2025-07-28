@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gradient Background Generator 🎨</title>
+    <link rel="stylesheet" href="gradient-style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Gradient Background Generator 🎨</h1>
+
+        <div class="controls">
+            <input type="color" id="color1" value="#ff0000" />
+            <input type="color" id="color2" value="#0000ff" />
+            <select id="type">
+                <option value="linear">Linear</option>
+                <option value="radial">Radial</option>
+            </select>
+            <button id="random">🎲 Random</button>
+            <button id="copy">📋 Copy CSS</button>
+        </div>
+
+        <textarea id="css-code" readonly></textarea>
+    </div>
+
+    <script src="gradient-script.js"></script>
+</body>
+
+</html>
