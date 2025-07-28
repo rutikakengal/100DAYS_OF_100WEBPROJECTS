@@ -19,7 +19,7 @@ const projects = [
   "text to PDF Convertor",
   "Memory Card Game",
   "Email Validator",
-  "Digital Clock"
+  "Digital-Clock"
   // Add more project names as needed
 ];
 
