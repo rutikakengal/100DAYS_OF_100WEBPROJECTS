@@ -20,10 +20,15 @@ const projects = [
   "Memory Card Game",
   "Email Validator",
   
+
+
+
+
+  "Stylish Animated loginpage",
  
  
  
-  "Simon Game",
+  
  
 
 
