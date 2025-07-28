@@ -5,7 +5,7 @@ const projects = [
   "Jewellery-company landing page",
   "Random Image Generator",
   "New Year Countdown",
-  "Stylish Animated loginpage",
+  "Simon Game",
   "BMI Calculator",
   "QR Generator",
   "Rock Paper Scissors Game",
@@ -20,16 +20,9 @@ const projects = [
   "Memory Card Game",
   "Email Validator",
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+ 
+ 
+ 
   "Simon Game",
  
 
