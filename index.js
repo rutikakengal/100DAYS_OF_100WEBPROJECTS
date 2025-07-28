@@ -10,12 +10,28 @@ const projects = [
   "Tic Tac Toe",
    "QR Generator",
   "Rock Paper Scissors Game",
-
-
-
   "Reading Journal"
+  "QR Generator",
+  "Rock Paper Scissors Game",
+  "Reading Journal",
+  "Pong Game",
+  "Colour Picker",
+  "Drawing Canvas",
+  "Nasa Astronomy Picture of the day",
+  "World Clock",
+  "Mood Timer",
+  "text to PDF Convertor",
+  "Memory Card Game",
+  "Email Validator"
   // Add more project names as needed
 ];
+
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburgerBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
 
 const tableBody = document.getElementById("tableBody");
 const projectCount = document.getElementById("projectCount");
@@ -53,11 +69,11 @@ randomBtn.addEventListener("click", () => {
 projects.forEach((name, index) => {
   const day = `Day ${String(index + 1).padStart(2, "0")}`;
   let link;
-  if (name === "QR Generator") {
-  link = `public/Day 9/index.html`;
+   if (name === "Nasa Astronomy Picture of the day") {
+    link = "https://sabaaa01.github.io/NASA-astronomy-photo-of-the-day/";
   } else {
-  const folder = `day${String(index + 1).padStart(2, "0")}`;
-  link = `public/${folder}/index.html`;
+    const folder = `day${String(index + 1).padStart(2, "0")}`;
+    link = `public/${folder}/index.html`;
   }
 
   const row = document.createElement("tr");
@@ -73,3 +89,4 @@ projects.forEach((name, index) => {
 
   tableBody.appendChild(row);
 });
+
