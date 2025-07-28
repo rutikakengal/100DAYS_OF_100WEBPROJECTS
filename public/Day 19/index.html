@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Enchanting Digital Clock! ✨</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-switcher">
+        <button class="theme-btn" id="themeOcean" data-theme="ocean" title="Ocean Dream"></button>
+        <button class="theme-btn" id="themeSunset" data-theme="sunset" title="Sunset Bliss"></button>
+        <button class="theme-btn" id="themeForest" data-theme="forest" title="Forest Whimsy"></button>
+        <button class="theme-btn" id="themeDefault" data-theme="default" title="Sweet Pastels"></button>
+    </div>
+
+    <div class="container">
+        <h1>What a delightful time! <span class="header-icon">🌸</span></h1>
+        <div id="digitalClock" class="digital-clock"></div>
+        <div id="currentDate" class="current-date"></div>
+    </div>
+
+    <div id="particle-container" class="particle-container"></div>
+
+    <audio id="chimeSound" src="sounds/chime.mp3" preload="auto"></audio>
+
+    <div id="customCursor" class="custom-cursor"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
