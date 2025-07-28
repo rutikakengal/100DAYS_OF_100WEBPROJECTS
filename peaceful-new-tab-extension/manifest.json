@@ -2,8 +2,12 @@
   "manifest_version": 3,
   "name": "Peaceful New Tab",
   "version": "1.0",
-  "description": "A calm and beautiful new tab experience.",
-  "chrome_url_overrides": {
-    "newtab": "index.html"
-  }
+  "description": "Adds a peaceful ambient bar to your pages.",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["styles.css"],
+      "js": ["script.js"]
+    }
+  ]
 }
