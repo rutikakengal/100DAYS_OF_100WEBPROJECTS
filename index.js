@@ -14,7 +14,8 @@ const projects = [
   "Colour Picker",
   "Drawing Canvas",
   "Nasa Astronomy Picture of the day",
-  "World Clock"
+  "World Clock",
+  "Quote Generator"
   // Add more project names as needed
 ];
 
