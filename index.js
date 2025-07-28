@@ -19,6 +19,13 @@ const projects = [
   "Text to PDF Converter",
   "Memory Card Game",
   "Email Validator",
+  
+  
+  
+  
+  
+  
+  
   "Simon Game",
  
 
