@@ -1,0 +1,93 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f4f8;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  gap: 15px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  background: #ccc;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s;
+}
+
+.card.flipped {
+  background: #fff;
+  border: 2px solid #333;
+}
+
+.card.matched {
+  background: lightgreen;
+  cursor: default;
+}
+
+#message {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+#restart {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.status-bar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+h1 i.icon-brain {
+  color: #EE877C;
+}
+
+p i.icon-clock {
+  color: #3498db;
+}
+
+p i.icon-bullseye {
+  color: #e74c3c; 
+}
+
+p i.icon-medal {
+  color: goldenrod; 
+}
+
+button i.fa-arrows-rotate {
+  color: #2ecc71; 
+}
+
+.icon-html { color: #e44d26; }       
+.icon-css { color: #2965f1; }        
+.icon-js { color: #f0db4f; }          
+.icon-laptop { color: #6c5ce7; }      
+.icon-wand { color: goldenrod; }        
+.icon-bulb { color: #fdcb6e; }        
+.icon-tools { color: #c0c0c0; }       
+.icon-rocket { color: #e44d26; }     
+
