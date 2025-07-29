@@ -12,7 +12,8 @@ Welcome to **100_days_100_web_project** – a challenge-based repository to **le
 |-----|--------------|-------------|-------------|
 | DAY-1 | TODOLIST | [TODOLIST]() | Task manager app |
 | DAY-2 | DIGITAL CLOCK | [DIGITAL CLOCK]() | Real-time digital clock |
-| Day 3  | **Calculator**      | [Link]()       | Basic calculator functionality|
+| DAY-3 | Weather App | [Weather APP]() | Real-time weather information using OpenWeatherMap API |
+| Day 4  | **Calculator**      | [Link]()       | Basic calculator functionality|
 | DAY-10 | MEMORY CARD GAME | [Memory Card Game]() | Memory Card Matching Game |
 
 | Day 100+ | **Coming Soon**  | 🚧             | 🚧                           |
