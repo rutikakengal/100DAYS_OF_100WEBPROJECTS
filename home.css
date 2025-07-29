@@ -275,6 +275,7 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+
 /* Base Navbar Styling */
 .navbar {
   display: flex;
@@ -345,4 +346,5 @@ body::-webkit-scrollbar-thumb {
     display: flex;
   }
 }
+
 

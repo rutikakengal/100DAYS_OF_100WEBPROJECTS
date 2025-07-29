@@ -220,61 +220,89 @@
       html {
         scroll-behavior: smooth;
       }
+      /* NAVBAR TOGGLE FOR MOBILE */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    background-color: #ff2e88;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 0 0 0 10px;
+    z-index: 1000;
+  }
+
+  .mobile-menu.show {
+    display: flex;
+  }
+
+  .mobile-menu a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+  }
+
+  .mobile-menu a:hover {
+    background-color: #ff4e9e;
+    border-radius: 5px;
+  }
+}
+
+
+
     </style>
   </head>
-  <body class="bg-dark text-white font-sans pt-24">
-    <nav class="fixed top-0 w-full z-50 bg-primary shadow-xl p-4">
-      <div class="container mx-auto flex items-center justify-between">
-        <a
-          href="index.html"
-          class="flex items-center gap-2 text-white font-bold text-lg"
-        >
-          <img
-            src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"
-            class="h-10 rounded-full"
-          />
-          100_DAYS_100_WEB_PROJECTS
-        </a>
 
-        <button id="hamburger-btn" class="md:hidden">
-          <svg
-            class="w-6 h-6 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
-          </svg>
-        </button>
+  <body class="bg-dark text-white font-sans">
+<!-- Navbar -->
+<nav class="fixed top-0 w-full z-50 bg-primary shadow-xl p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2 text-white font-bold text-lg">
+      <img
+        src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"
+        class="h-10 rounded-full"
+      />
+      100_DAYS_100_WEB_PROJECTS
+    </a>
 
-        <div
-          id="mobile-menu"
-          class="hidden md:flex absolute md:static top-16 left-0 w-full bg-primary md:w-auto md:bg-transparent flex flex-row py-4 md:gap-x-4 md:py-0"
-        >
-          <a
-            href="#projects"
-            class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors"
-            >Projects</a
-          >
-          <a
-            href="#about"
-            class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors"
-            >About</a
-          >
-          <a
-            href="contributors.html"
-            class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors"
-            >Contributors</a
-          >
-        </div>
-      </div>
-    </nav>
+    <!-- Hamburger icon -->
+    <button id="hamburger" class="hamburger">&#9776;</button>
+
+    <!-- Navigation links -->
+    <ul id="mobileMenu" class="nav-links mobile-menu">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#">Contributors</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+  </div>
+</nav>
+
+
+
 
     <!-- Hero Section -->
     <section
@@ -615,7 +643,19 @@
         currentTheme = currentTheme === "dark" ? "light" : "dark";
         setTheme(currentTheme);
         localStorage.setItem("theme", currentTheme);
+
       });
+      //Navbar toggle 
+    document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  hamburger.addEventListener("click", () => {
+    mobileMenu.classList.toggle("show");
+  });
+});
+
+
     </script>
     <script src="index.js"></script>
     <script src="script.js"></script>
