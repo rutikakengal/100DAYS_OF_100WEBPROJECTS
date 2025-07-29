@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="style/navbar.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <nav>
+    <ul class="sidebar">
+      <li onclick="toggleSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/></svg></a></li>
+      <li><a href="#">XYZ</a></li>
+      <li><a href="#">21RS1A0XYZ</a></li>
+      <li><a href="https://jntuh.ac.in/">About</a></li>
+      <li><a href="htmlfiles/contactus.html">Contact us</a></li>
+      <li><a href="htmlfiles/logout.html" onclick="localStorage.setItem('loggedIn', 'false');">Logout</a></li> <!-- Added Logout button with logout functionality -->
+    </ul>
+    <ul>
+      <li><a href="#">JNTUH</a></li>
+      <li class="hideOnMobile"><a href="#">XYZ</a></li>
+      <li class="hideOnMobile"><a href="#">21RS1A0XYZ</a></li>
+      <li class="hideOnMobile"><a href="https://jntuh.ac.in/">About</a></li>
+      <li class="hideOnMobile"><a href="htmlfiles/contactus.html">Contact us</a></li>
+      <li class="hideOnMobile"><a href="htmlfiles/logout.html" onclick="localStorage.setItem('loggedIn', 'false');">Logout</a></li> <!-- Added Logout button with logout functionality -->
+      <li class="menu-button" onclick="toggleSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+     <div class="top">
+        <div class="schedule"><a href="htmlfiles/schedule.html">Schedule</a><br><br><p id="date"></p></div>
+        <div class="calendar"><a href="htmlfiles/academiccalendar.html">Academic Calendar</a><br><br><BR>IV-I SEM</div>
+     </div>
+     <div class="bottom">
+        <div class="faculty"><a href="htmlfiles/faculty.html">Faculty Feedback</a><BR><br><BR><p style="color: beige;"> AY 2024-2025</p></div>
+        <div class="events"><a href="htmlfiles/events.html">Events</a><br><br><P style="color: beige;">Explore and register for events in your campus</P></div>
+        <div class="clubs"><a href="htmlfiles/clubs.html">Clubs</a><br><br><p style="color: beige;">Explore activity clubs in your campus</p></div>
+     </div>
+  </div>
+
+
+
+
+  
+  <section class="footer">
+    <div class="social">
+           <a href="index.html"><i class="fa fa-home"></i></a>
+           <a href="htmlfiles/noticeboard.html"><i class="fa fa-align-justify"></i></a>
+           <a href="htmlfiles/academics.html"><i class="fa fa-book"></i></a>
+           <a href="htmlfiles/chat.html"><i class="fa fa-comments"></i></a>
+           <a href="htmlfiles/account.html"><i class="fa fa-user"></i></a>
+    </div>
+  </section>
+
+
+  <style>
+    .popup-container {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      display: flex;
+      gap: 15px;
+      z-index: 1000;
+    }
+
+    .popup-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25d366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .popup-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .popup-btn.ai {
+      background: #007bff;
+    }
+
+    .popup-btn img {
+      width: 35px;
+      height: 35px;
+    }
+
+    .chatbot-popup {
+      position: fixed;
+      bottom: 130px;
+      right: 20px;
+      width: 300px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      padding: 20px;
+      display: none;
+      z-index: 999;
+    }
+
+    .chatbot-popup.show {
+      display: block;
+    }
+
+    .faq-item {
+      margin-bottom: 15px;
+      padding: 10px;
+      background: #f8f9fa;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .faq-item:hover {
+      background: #e9ecef;
+    }
+
+    .chat-input-container {
+      position: relative;
+      margin-top: 15px;
+    }
+
+    .chat-input {
+      width: 100%;
+      padding: 10px 40px 10px 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .chat-input:focus {
+      outline: none;
+      border-color: #007bff;
+    }
+
+    .send-arrow {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 20px;
+      color: #007bff;
+    }
+
+    .chat-messages {
+      max-height: 300px;
+      overflow-y: auto;
+      margin-bottom: 15px;
+    }
+
+    .message {
+      padding: 8px 12px;
+      margin: 8px 0;
+      border-radius: 15px;
+      max-width: 80%;
+      animation: messageAppear 0.3s ease-out;
+    }
+
+    .user-message {
+      background: #007bff;
+      color: white;
+      margin-left: auto;
+    }
+
+    .bot-message {
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    @keyframes messageAppear {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .typing-indicator {
+      padding: 8px 12px;
+      background: #f0f0f0;
+      border-radius: 15px;
+      display: none;
+      width: fit-content;
+      margin-bottom: 8px;
+    }
+
+    .typing-indicator span {
+      width: 8px;
+      height: 8px;
+      background: #666;
+      display: inline-block;
+      border-radius: 50%;
+      margin: 0 2px;
+      animation: typing 1s infinite;
+    }
+
+    .typing-indicator span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-indicator span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes typing {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+  </style>
+
+  <div class="popup-container">
+    <a
+      href="https://wa.me/0000000000"
+      target="_blank"
+      class="popup-btn whatsapp"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        alt="WhatsApp"
+      />
+    </a>
+
+    <div class="popup-btn ai" onclick="toggleChatbot()" id="chatbotBtn">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png"
+        alt="AI Chat"
+        id="chatbotIcon"
+      />
+    </div>
+  </div>
+
+  <div class="chatbot-popup" id="chatbotPopup">
+    <h3>Frequently Asked Questions</h3>
+    <div class="chat-messages" id="chatMessages">
+      <div class="typing-indicator">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div
+      class="faq-item"
+      onclick="handleFAQ('How can I check my attendance?', 'You can check your attendance by logging into the student portal and navigating to the attendance section.')"
+    >
+      How can I check my attendance?
+    </div>
+    <div
+      class="faq-item"
+      onclick="handleFAQ('What is the procedure to apply for leave?', 'To apply for leave, please fill out the leave application form available in the student portal and submit it to the concerned department.')"
+    >
+      What is the procedure to apply for leave?
+    </div>
+    <div
+      class="faq-item"
+      onclick="handleFAQ('How can I access my exam results?', 'You can access your exam results by logging into the student portal and navigating to the results section.')"
+    >
+      How can I access my exam results?
+    </div>
+    <div
+      class="faq-item"
+      onclick="handleFAQ('What are the library timings?', 'The library is open from Monday to Friday, 9 AM to 6 PM, and on Saturday from 10 AM to 4 PM. It is closed on Sundays.')"
+    >
+      What are the library timings?
+    </div>
+    <div class="chat-input-container">
+      <input
+        type="text"
+        class="chat-input"
+        placeholder="Ask me anything..."
+      />
+      <span class="send-arrow">➤</span>
+    </div>
+  </div>
+
+ 
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      sidebar.style.display = (sidebar.style.display === 'flex') ? 'none' : 'flex';
+    }
+    const d = new Date();
+    document.getElementById("date").innerHTML = d;
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!localStorage.getItem('loggedIn')) {
+        alert("Please login to access the content.");
+        window.location.href = "login.html"; // Redirect to the login page if not logged in
+      } else {
+        alert("jntuhucer is ready!");
+      }
+    });
+
+
+
+
+
+
+
+
+
+
+    function toggleChatbot() {
+      const popup = document.getElementById("chatbotPopup");
+      const chatbotIcon = document.getElementById("chatbotIcon");
+      popup.classList.toggle("show");
+
+      if (popup.classList.contains("show")) {
+        chatbotIcon.src =
+          "https://cdn-icons-png.flaticon.com/512/1828/1828778.png";
+      } else {
+        chatbotIcon.src =
+          "https://cdn-icons-png.flaticon.com/512/4712/4712027.png";
+      }
+    }
+
+    function handleFAQ(question, answer) {
+      const chatMessages = document.getElementById("chatMessages");
+      const typingIndicator = document.querySelector(".typing-indicator");
+
+      // Add user message
+      const userMessage = document.createElement("div");
+      userMessage.className = "message user-message";
+      userMessage.textContent = question;
+      chatMessages.appendChild(userMessage);
+
+      // Show typing indicator
+      typingIndicator.style.display = "block";
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // Simulate bot typing and response
+      setTimeout(() => {
+        typingIndicator.style.display = "none";
+
+        const botMessage = document.createElement("div");
+        botMessage.className = "message bot-message";
+        botMessage.textContent = answer;
+        chatMessages.appendChild(botMessage);
+
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 1500);
+    }
+
+
+
+  
+  </script>
+</body>
+</html> 

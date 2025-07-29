@@ -1,0 +1,76 @@
+<!-- Start Generation Here -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reset Password</title>
+    <style>
+        body {
+            background-color: #e0f7fa; /* Light blue background for a calming effect */
+            font-family: 'Arial', sans-serif; /* Modern font for better readability */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+        }
+        .reset-container {
+            text-align: center;
+            background-color: #ffffff; /* White background for the container */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        h1 {
+            color: #00796b; /* Teal color for the header */
+        }
+        input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .reset-button {
+            background-color: #00796b; /* Teal background */
+            color: white; /* White text */
+            padding: 10px 20px; /* Padding for button */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+        .reset-button:hover {
+            background-color: #005b4f; /* Darker teal on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="reset-container">
+        <h1>Reset Your Password</h1>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <input type="password" id="newPassword" placeholder="Enter new password" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm new password" required>
+        <button class="reset-button" onclick="resetPassword()">Reset Password</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function resetPassword() {
+            const email = document.getElementById('email').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const message = document.getElementById('message');
+
+            if (newPassword === confirmPassword) {
+                // Here you would typically send the data to the server
+                message.textContent = 'Password reset successfully!';
+                message.style.color = 'green';
+            } else {
+                message.textContent = 'Passwords do not match!';
+                message.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
+<!-- End Generation Here -->

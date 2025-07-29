@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../style/login.css">
+
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-button" href="na">Login</button>
+        </form>
+    </div>
+    <script>
+        // Check if the user is already logged in
+        if (localStorage.getItem('loggedIn') === 'true') {
+            window.location.href = "../index.html"; // Redirect to index.html if already logged in
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Here you can add your login logic (e.g., API call)
+            console.log("Username:", username);
+            console.log("Password:", password);
+            alert("Login successful!"); // Placeholder for successful login
+            
+            // Set the loggedIn flag in local storage
+            localStorage.setItem('loggedIn', 'true');
+            
+                    // Redirect to index.html after successful login
+        window.location.href = "../index.html";
+        });
+    </script>
+</body>
+</html>

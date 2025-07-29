@@ -1,0 +1,54 @@
+body {
+    background-color: #e0f7fa; /* Light blue background */
+    font-family: 'Arial', sans-serif; /* Modern font for better readability */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height */
+    margin: 0;
+}
+
+.login-container {
+    background-color: #ffffff; /* White background for the form */
+    padding: 20px;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 300px; /* Fixed width */
+}
+
+h1 {
+    text-align: center;
+    color: #00796b; /* Teal color for headings */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Space between form elements */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px; /* Space below labels */
+    color: #333; /* Dark text color */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding for inputs */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.login-button {
+    width: 100%; /* Full width */
+    padding: 10px;
+    background-color: #00796b; /* Teal background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.login-button:hover {
+    background-color: #005b4f; /* Darker teal on hover */
+} 

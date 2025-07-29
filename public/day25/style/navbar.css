@@ -1,0 +1,248 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Sets a clean and modern font */
+    line-height: 1.6; /* Improves readability */
+    background-color: #f0f4f8; /* Light background color for a softer look */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #333; /* Darker text color for headings */
+    margin-bottom: 10px; /* Space below headings */
+}
+
+a {
+    text-decoration: none; /* Removes underline from links */
+    color: #00796b; /* Teal color for links */
+    transition: color 0.3s ease; /* Smooth transition for link color */
+}
+
+a:hover {
+    color: #004d40; /* Darker teal on hover */
+}
+  body{
+    min-height: 100vh;
+    height: 100%;
+   display: flex;
+   flex-direction: column;
+
+  }
+  nav{
+    background-color:#8ecae6;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0%;
+    font-size: 20px;
+   font-weight: bold;
+  }
+  nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  nav li{
+    height: 50px;
+  }
+  nav a{
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+  }
+  nav a:hover{
+    background-color:#ffb703;
+  }
+  nav li:first-child{
+    margin-right: auto;
+  }
+  .sidebar{
+    position: fixed;
+    top: 0; 
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .sidebar li{
+    width: 100%;
+  }
+  .sidebar a{
+    width: 100%;
+  }
+  .menu-button{
+    display: none;
+  }
+  @media(max-width: 800px){
+    .hideOnMobile{
+      display: none;
+    }
+    .menu-button{
+      display: block;
+    }
+  }
+  @media(max-width: 400px){
+    .sidebar{
+      width: 100%;
+    }
+  }
+  .footer{
+    padding: 15px 0px;
+    background-color:#8ecae6;
+
+    position: sticky;
+    bottom: 0%;
+
+    
+  }
+  .footer .social{
+    text-align: center;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    
+
+  }
+  .footer .social a{
+    font-size: 20px;
+    color:#023047;
+    
+    width: 40px;
+    height: 30px;
+    line-height: 38px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 8px;
+    opacity: 0.75;
+
+  }
+  .footer .social a:hover{
+    opacity: 0.9;
+    color: #ffb703;
+
+  }
+
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+   gap: 10px;
+   margin: 10px;
+   text-align: center;
+   font-size: 20px;
+   font-weight: bold;
+}
+
+.content .top{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+.content .bottom{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+  .content .top .schedule{
+    height: 150px;
+    width: 300px;
+    background-color:#219ebc;
+    border-radius: 2%;
+    padding: 5px;
+    
+  }
+  .content .top .calendar{
+    height: 150px;
+    width: 300px;
+    background-color:#219ebc;
+    border-radius: 2%;
+    padding: 5px;
+  }
+  .content .bottom .faculty {
+    height: 150px;
+    width: 300px;
+    background-color: #023047;
+    border-radius: 2%;
+    padding: 5px;
+  }
+  .content .bottom .events {
+    height: 150px;
+    width: 300px;
+    background-color: #023047;
+    border-radius: 2%;
+    padding: 5px;
+  }
+  .content .bottom .clubs {
+    height: 150px;
+    width: 300px;
+    background-color: #023047;
+    border-radius: 2%;
+    padding: 5px;
+  }
+
+
+  .content .top .schedule a{
+    text-decoration: none;
+    color: white;
+    
+    
+  }
+  .content .top .schedule:hover{
+    background-color: #ffb703;
+  }
+
+  .content .top .calendar a{
+    text-decoration: none;
+    color: white;
+    
+  }
+  .content .top .calendar:hover{
+    background-color: #ffb703;
+  }
+  .content .bottom .faculty a{
+    text-decoration: none;
+    color: white;
+    
+  }
+  .content .bottom .faculty:hover{
+    background-color: #ffb703;
+  }
+  .content .bottom .events a{
+    text-decoration: none;
+    color: white;
+    
+  }
+  .content .bottom .events:hover{
+    background-color: #ffb703;
+  }
+
+  .content .bottom .clubs a{
+    text-decoration: none;
+    color: white;
+    
+  }
+  .content .bottom .clubs:hover{
+    background-color: #ffb703;
+  }
