@@ -24,7 +24,7 @@ const projects = [
   "Calculator",
   "Promodoro Timer",
   "FAQ Accordion ",
-  " ",
+  "Age Calculator ",
   " ",
   " ",
   " ",
