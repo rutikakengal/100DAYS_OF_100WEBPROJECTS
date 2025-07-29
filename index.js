@@ -7,19 +7,23 @@ const projects = [
   "New Year Countdown",
   "Stylish Animated loginpage",
   "BMI Calculator",
-  "QR Generator",
+   "QR Generator",
   "Rock Paper Scissors Game",
   "Reading Journal",
   "Pong Game",
   "Colour Picker",
   "Drawing Canvas",
   "Nasa Astronomy Picture of the day",
-  "World Clock",
+  "World Clock"
   "Mood Timer",
   "text to PDF Convertor",
   "Memory Card Game",
   "Email Validator",
+ main
   "Hangman Game"
+
+  "Snake And Ladder Game",
+ main
   // Add more project names as needed
 ];
 
