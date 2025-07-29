@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manual Slideshow</title>
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+<body>
+  <div id="main">
+    <div class="slide" id="slide1">
+      <div class="text">
+        <h2>Hey, I'm Developer</h2><br>
+        <p>A passionate Web Developer & Tech Explorer. <br>
+          Currently diving deep into animations, UI/UX,<br>
+          and building awesome things one project at a time!<br><br>
+          This is my journey — <br>
+          One day – One project – Hundred steps closer 💻</p>
+      </div>
+      <div class="image">
+        <img src="https://plus.unsplash.com/premium_photo-1738550163737-ebf87ad50217?q=80&w=1295&auto=format&fit=crop" />
+      </div>
+    </div>
+
+    <div class="slide" id="slide2">
+      <div class="text">
+        <h2>Focus. Learn. Build.</h2><br>
+        <p>With each project, I grow. With each bug, I learn.<br>
+          My goal isn't just to code but to make impactful experiences.<br>
+          And enjoy the journey all along 💫</p>
+      </div>
+      <div class="image">
+         <img src="https://images.unsplash.com/photo-1647320293733-92affa4fa39c?q=80&w=2114&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+      </div>
+    </div>
+
+    <div class="slide" id="slide3">
+      <div class="text">
+        <h2>Let’s Connect!</h2><br>
+        <p>Always open to collaborate, learn & share.<br>
+          Whether it's design, development or debugging —<br>
+          together, we grow better 🌱</p>
+      </div>
+      <div class="image">
+          <img src="https://videos.openai.com/vg-assets/assets%2Ftask_01k1b7d5mne6esemk58mw997eg%2F1753797345_img_0.webp?st=2025-07-29T15%3A24%3A43Z&se=2025-08-04T16%3A24%3A43Z&sks=b&skt=2025-07-29T15%3A24%3A43Z&ske=2025-08-04T16%3A24%3A43Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=aa5ddad1-c91a-4f0a-9aca-e20682cc8969&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=nPwPwrCdxkxZ77UGrTQcanEw08xaPhOkL3%2BoEvkoQL4%3D&az=oaivgprodscus" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!-- Inline JS -->
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    let current = 0;
+
+    function showSlide(index) {
+      gsap.to(slides[current], {
+        opacity: 0,
+        duration: 1,
+        onComplete: () => {
+          slides[current].classList.remove("active");
+          current = index;
+          slides[current].classList.add("active");
+          gsap.fromTo(slides[current], {opacity: 0}, {opacity: 1, duration: 1});
+        }
+      });
+    }
+
+    slides[current].classList.add("active");
+    gsap.to(slides[current], {opacity: 1, duration: 1});
+
+    document.getElementById("main").addEventListener("click", () => {
+      const next = (current + 1) % slides.length;
+      showSlide(next);
+    });
+  </script>
+</body>
+</html>
