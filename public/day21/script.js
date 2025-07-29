@@ -204,4 +204,5 @@ function drawPlatforms(){
     context.fillRect(elem.x,elem.y,elem.width,elem.height);
   }
 }
+
 };
