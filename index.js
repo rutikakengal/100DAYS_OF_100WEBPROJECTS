@@ -23,12 +23,7 @@ const projects = [
   "Space Jumper Game",
   "Calculator",
   "Promodoro Timer",
-  "Quiz app",
-  " ",
-  " ",
-  " ",
-  " ",
-  " ",
+  "Quiz app"
   // Add more project names as needed
 ];
 
