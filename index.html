@@ -220,6 +220,14 @@
       html {
         scroll-behavior: smooth;
       }
+      @keyframes bounce-settle {
+        0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+        40% { transform: translateY(-30px); }
+        60% { transform: translateY(-15px); }
+      }
+      .animate-bounce-settle {
+        animation: bounce-settle 2s ease-in-out 1;
+      }
     </style>
   </head>
   <body class="bg-dark text-white font-sans pt-24">
@@ -281,7 +289,7 @@
       class="min-h-screen flex flex-col justify-center items-center pt-32 text-center"
     >
       <h1
-        class="text-4xl md:text-6xl font-extrabold text-primary drop-shadow-2xl animate-bounce"
+        class="text-4xl md:text-6xl font-extrabold text-primary drop-shadow-2xl animate-bounce-settle"
       >
         100 DAYS OF 100 WEB PROJECTS
       </h1>
