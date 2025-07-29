@@ -82,6 +82,19 @@ header {
     gap: 20px;
 }
 
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 i {
+    margin-right: 10px;
+    color: var(--accent-color);
+}
+
 .theme-toggle {
     background: var(--accent-color);
     border: none;
@@ -110,19 +123,6 @@ header {
 
 [data-theme="dark"] .theme-toggle:hover {
     box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
-}
-
-header h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-header h1 i {
-    margin-right: 10px;
-    color: #ffd700;
 }
 
 .score-board {

@@ -68,6 +68,8 @@ projects.forEach((name, index) => {
   let link;
    if (name === "Nasa Astronomy Picture of the day") {
     link = "https://sabaaa01.github.io/NASA-astronomy-photo-of-the-day/";
+  } else if (name === "Hangman Game") {
+    link = "public/day23/index.html";
   } else {
     const folder = `day${String(index + 1).padStart(2, "0")}`;
     link = `public/${folder}/index.html`;
