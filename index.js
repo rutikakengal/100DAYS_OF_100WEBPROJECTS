@@ -28,7 +28,7 @@ const projects = [
   " ",
   " ",
   " ",
-  " ",
+  "Quote Generator ",
   // Add more project names as needed
 ];
 
