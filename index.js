@@ -21,8 +21,7 @@ const projects = [
   "Email Validator",
   "Snake And Ladder Game",
   "Gradient Background Generator",
-  "Space Jumper Game",
-  // Add more project names as needed
+  "Space Jumper Game"
 ];
 
 
