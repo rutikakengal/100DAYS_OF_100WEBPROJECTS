@@ -19,9 +19,9 @@ const projects = [
   "text to PDF Convertor",
   "Memory Card Game",
   "Email Validator",
-
 "Snake And Ladder Game",
-"Currency Coverter",
+  "Space Jumper Game",
+  "Currency Coverter",
   " ",
   " ",
   " ",
