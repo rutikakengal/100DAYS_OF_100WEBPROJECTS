@@ -21,8 +21,18 @@ const projects = [
   "Email Validator",
   "Snake And Ladder Game",
   "Gradient Background Generator",
+  "Space Jumper Game",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
   // Add more project names as needed
 ];
+
 
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const mobileMenu = document.getElementById('mobile-menu');
