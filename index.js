@@ -22,7 +22,7 @@ const projects = [
   "Snake And Ladder Game",
   "Space Jumper Game",
   "Calculator",
-  " ",
+  "Guess the Number Game",
   " ",
   " ",
   " ",
