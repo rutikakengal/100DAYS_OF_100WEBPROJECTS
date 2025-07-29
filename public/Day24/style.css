@@ -1,0 +1,56 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  background-image: url('images/bg.jpg');
+  background-repeat: repeat-x;
+  background-position: 0 center;
+  background-size: auto 150vh;
+  height: 100vh;
+  margin: 0;
+  animation: bgScroll 30s linear infinite;
+}
+
+@keyframes bgScroll {
+  from {
+    background-position: 0 center;
+  }
+  to {
+    background-position: 100% center;
+  }
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.85);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 10;
+}
+
+.overlay h1, .overlay h2 {
+  font-size: 48px;
+  margin: 0 0 20px;
+}
+
+.overlay button {
+  font-size: 20px;
+  padding: 10px 25px;
+  border: none;
+  background: gold;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.overlay button:hover {
+  background: #ffd700;
+  transform: scale(1.05);
+}
