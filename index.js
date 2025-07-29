@@ -23,7 +23,7 @@ const projects = [
   "Space Jumper Game",
   "Calculator",
   "Promodoro Timer",
-  " ",
+  "Connect 4 game",
   " ",
   " ",
   " ",
