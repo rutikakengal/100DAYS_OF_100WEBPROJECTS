@@ -14,3 +14,5 @@ A responsive, interactive quiz game built using HTML, CSS, and JavaScript.
 🎨 Simple, modern UI design
 
 📱 Mobile responsive
+# Screenshot 
+![image alt](https://github.com/Gauthami07/100DAYS_OF_100WEBPROJECTS/blob/da71b08a6e5e12cc6d2bf1a2eea15097be9e79f9/public/day%2025/Screenshot%202025-07-28%20210221.png)
