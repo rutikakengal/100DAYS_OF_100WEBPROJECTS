@@ -18,7 +18,7 @@ const projects = [
   "Colour Picker",
   "Drawing Canvas",
   "Nasa Astronomy Picture of the day",
-  "World Clock"
+  "World Clock",
   "Mood Timer",
   "text to PDF Convertor",
   "Memory Card Game",
@@ -28,6 +28,18 @@ const projects = [
 =======
   "Email Validator",
   "Snake And Ladder Game",
+
+
+=======
+  "Space Jumper Game",
+  "Calculator",
+  "Promodoro Timer",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
 
   // Add more project names as needed
 ];
