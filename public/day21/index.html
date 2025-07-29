@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-gamepad"></i> Hangman Game</h1>
+            <div class="header-controls">
+                <div class="score-board">
+                    <div class="score-item">
+                        <span class="label">Wins:</span>
+                        <span id="wins" class="value">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="label">Losses:</span>
+                        <span id="losses" class="value">0</span>
+                    </div>
+                </div>
+                <button id="themeToggle" class="theme-toggle" title="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <div class="game-area">
+                <!-- Hangman Drawing -->
+                <div class="hangman-container">
+                    <div class="hangman">
+                        <div class="gallows">
+                            <div class="base"></div>
+                            <div class="pole"></div>
+                            <div class="top"></div>
+                            <div class="rope"></div>
+                        </div>
+                        <div class="figure">
+                            <div class="head" id="head"></div>
+                            <div class="body" id="body"></div>
+                            <div class="left-arm" id="leftArm"></div>
+                            <div class="right-arm" id="rightArm"></div>
+                            <div class="left-leg" id="leftLeg"></div>
+                            <div class="right-leg" id="rightLeg"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Info -->
+                <div class="game-info">
+                    <div class="word-display" id="wordDisplay"></div>
+                    <div class="category" id="category">Category: <span id="categoryText">General</span></div>
+                    <div class="lives">
+                        <span class="label">Lives:</span>
+                        <span id="lives" class="value">6</span>
+                    </div>
+                    <div class="message" id="message"></div>
+                </div>
+            </div>
+
+            <!-- Keyboard -->
+            <div class="keyboard" id="keyboard"></div>
+
+            <!-- Game Controls -->
+            <div class="controls">
+                <button id="newGameBtn" class="btn btn-primary">
+                    <i class="fas fa-play"></i> New Game
+                </button>
+                <button id="hintBtn" class="btn btn-secondary">
+                    <i class="fas fa-lightbulb"></i> Hint
+                </button>
+            </div>
+        </main>
+
+        <!-- Game Over Modal -->
+        <div id="gameOverModal" class="modal">
+            <div class="modal-content">
+                <h2 id="modalTitle">Game Over!</h2>
+                <p id="modalMessage"></p>
+                <div class="modal-buttons">
+                    <button id="playAgainBtn" class="btn btn-primary">
+                        <i class="fas fa-redo"></i> Play Again
+                    </button>
+                    <button id="closeModalBtn" class="btn btn-secondary">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
