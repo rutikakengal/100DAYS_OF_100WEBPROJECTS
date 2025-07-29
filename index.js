@@ -26,10 +26,14 @@ const projects = [
  main
  main
   
-  "Space Jumper Game",
+ main
   "Hangman Game",
   " ",
   " ",
+
+  "Calculator",
+  "Promodoro Timer",
+ main
   " ",
   " ",
   " ",
