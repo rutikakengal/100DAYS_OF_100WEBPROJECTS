@@ -1,623 +1,651 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>100_DAYS_100_WEB_PROJECTS</title>
-    <link rel="icon" href="public/favv.png" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#ff0077",
-              dark: "#002057",
-            },
-            fontFamily: {
-              sans: ["Poppins", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
-    <style>
-      [data-theme="light"] .hero-subtitle {
-        color: #111 !important;
-      }
-      [data-theme="light"] .bg-dark {
-        background-color: #e3eaf6 !important;
-        color: var(--text-primary) !important;
-      }
-      :root {
-        --bg-primary: #002057;
-        --bg-secondary: #000000;
-        --text-primary: #ffffff;
-        --text-secondary: #ffffff80;
-        --accent-color: #ff0077;
-        --glass-bg: rgba(255, 255, 255, 0.1);
-        --glass-border: rgba(255, 255, 255, 0.18);
-        --hover-bg: rgba(255, 255, 255, 0.05);
-      }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevDays100</title>
 
-      [data-theme="light"] {
-        --bg-primary: #f8fafc;
-        --bg-secondary: #ffffff;
-        --text-primary: #1a202c;
-        --text-secondary: #4a5568;
-        --accent-color: #ff0077;
-        --glass-bg: rgba(255, 255, 255, 0.8);
-        --glass-border: rgba(0, 0, 0, 0.1);
-        --hover-bg: rgba(0, 0, 0, 0.05);
-      }
+    <!-- ================ Meta Tags ================ -->
+    <meta name="description"
+        content="DevDays100 is an open source initiative where developers collaborate to build 100 web projects in 100 days. Made for contributors, by contributors. Join the challenge!">
+    <meta name="keywords"
+        content="DevDays100, open source, web projects, 100 days challenge, coding challenge, developers, contributors, GitHub, programming, HTML, CSS, JavaScript">
+    <meta name="author" content="DevDays100 Contributors">
 
-      body {
-        background-color: var(--bg-primary);
-        color: var(--text-primary);
-        transition: all 0.3s ease;
-      }
+    <!-- ================ Open Graph ================ -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DevDays100 | Open Source Challenge for Developers">
+    <meta property="og:description"
+        content="Build, contribute, and grow. DevDays100 brings together developers to create 100 web projects in 100 days. Open source, community-driven.">
 
-      .glass {
-        backdrop-filter: blur(10px);
-        background: var(--glass-bg);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        border: 1px solid var(--glass-border);
-        transition: all 0.3s ease;
-      }
+    <!-- ================ Twitter ================ -->
+    <meta name="twitter:title" content="DevDays100 | Open Source Challenge for Developers">
+    <meta name="twitter:description"
+        content="Join the DevDays100 challenge — 100 days, 100 projects, endless learning. Contribute to open source and sharpen your web development skills.">
 
-      .btn-3d {
-        transition: all 0.2s ease-in-out;
-      }
+    <!-- ================ Favicon ================ -->
+    <link rel="shortcut icon" href="assets/favicon/faviconImg.png" type="image/png">
 
-      .btn-3d:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 25px rgba(255, 0, 119, 0.3);
-      }
+    <!-- ================ Vendor CSS ================ -->
+    <link rel="stylesheet" href="styles/fade-down.css">
+    <link rel="stylesheet" href="styles/webslidemenu.css">
+    <link rel="stylesheet" href="styles/white-red.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/fontawesome.css">
 
-      .btn-3d:active {
-        transform: translateY(-2px);
-      }
+    <!-- ================ Custom CSS ================ -->
+    <link rel="stylesheet" href="styles/main.css">
 
-      .project-row {
-        transition: all 0.3s ease;
-        border-radius: 8px;
-      }
+</head>
 
-      .project-row:hover {
-        background: var(--hover-bg);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      }
+<body>
+    <!-- ========================================== Header Section Start Here ========================================== -->
+    <header>
+        <!-- ==== Mobile Header Start Here ==== -->
+        <div class="wsmobileheader clearfix ">
+            <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
+            <span class="smllogo">
+                <div class="smallLogoContainer">
+                    <img src="assets/images/logo.png" class="img-fluid smallSizeNavLogo" alt="logo">
+                    <a href="#" class="smallSizeNavText">DevDays100</a>
+                </div>
 
-      .tag-filter {
-        transition: all 0.2s ease;
-        cursor: pointer;
-        border: 2px solid transparent;
-      }
-
-      .tag-filter:hover {
-        transform: scale(1.05);
-        border-color: var(--accent-color);
-      }
-
-      .tag-filter.active {
-        background-color: var(--accent-color);
-        color: white;
-        transform: scale(1.05);
-      }
-
-      .theme-toggle {
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        z-index: 1000;
-        width: 60px;
-        height: 30px;
-        border-radius: 15px;
-        border: none;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-      }
-
-      .random-btn {
-        background: linear-gradient(45deg, #ff0077, #ff4081);
-        animation: pulse 2s infinite;
-      }
-
-      @keyframes pulse {
-        0% {
-          box-shadow: 0 0 0 0 rgba(255, 0, 119, 0.7);
-        }
-        70% {
-          box-shadow: 0 0 0 10px rgba(255, 0, 119, 0);
-        }
-        100% {
-          box-shadow: 0 0 0 0 rgba(255, 0, 119, 0);
-        }
-      }
-
-      .search-container {
-        position: relative;
-        display: flex;
-        align-items: center;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-
-      .search-input {
-        flex: 1;
-        padding: 12px 16px;
-        border: 2px solid transparent;
-        border-radius: 25px;
-        background: var(--glass-bg);
-        color: var(--text-primary);
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-      }
-
-      .search-input:focus {
-        outline: none;
-        border-color: var(--accent-color);
-        box-shadow: 0 0 20px rgba(255, 0, 119, 0.3);
-      }
-
-      .search-input::placeholder {
-        color: var(--text-secondary);
-      }
-
-      .about-section {
-        background: linear-gradient(
-          135deg,
-          var(--bg-secondary),
-          var(--bg-primary)
-        );
-        position: relative;
-        overflow: hidden;
-      }
-
-      .about-section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23ff0077" opacity="0.1"/></svg>')
-          repeat;
-        animation: float 20s ease-in-out infinite;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
-      }
-      /* Adds Smooth Scrolling To The Navbar Links */
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
-  </head>
-  <body class="bg-dark text-white font-sans pt-24">
-    <nav class="fixed top-0 w-full z-50 bg-primary shadow-xl p-4">
-      <div class="container mx-auto flex items-center justify-between">
-        <a
-          href="index.html"
-          class="flex items-center gap-2 text-white font-bold text-lg"
-        >
-          <img
-            src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"
-            class="h-10 rounded-full"
-          />
-          100_DAYS_100_WEB_PROJECTS
-        </a>
-
-        <button id="hamburger-btn" class="md:hidden">
-          <svg
-            class="w-6 h-6 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
-          </svg>
-        </button>
-
-        <div
-          id="mobile-menu"
-          class="hidden md:flex absolute md:static top-16 left-0 w-full bg-primary md:w-auto md:bg-transparent flex flex-row py-4 md:gap-x-4 md:py-0"
-        >
-          <a
-            href="#projects"
-            class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors"
-            >Projects</a
-          >
-          <a
-            href="#about"
-            class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors"
-            >About</a
-          >
-          <a
-            href="contributors.html"
-            class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors"
-            >Contributors</a
-          >
+            </span>
         </div>
-      </div>
-    </nav>
+        <!-- ==== Mobile Header End Here ==== -->
 
-    <!-- Hero Section -->
-    <section
-      class="min-h-screen flex flex-col justify-center items-center pt-32 text-center"
-    >
-      <h1
-        class="text-4xl md:text-6xl font-extrabold text-primary drop-shadow-2xl animate-bounce"
-      >
-        100 DAYS OF 100 WEB PROJECTS
-      </h1>
-      <p class="mt-4 text-white/80 text-lg md:text-xl max-w-xl hero-subtitle">
-        Live demos of amazing mini projects crafted in HTML, CSS, and
-        JavaScript!
-      </p>
-      <div class="mt-8 space-y-6">
-        <div class="search-container">
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Search for projects..."
-            class="search-input"
-          />
-          <button
-            id="randomProjectBtn"
-            class="random-btn text-white px-6 py-3 rounded-full btn-3d ml-4"
-          >
-            🎲 Random
-          </button>
-        </div>
+        <div class="wsmainfull clearfix fixed-top">
+            <div class="wsmainwp clearfix">
 
-        <!-- Tag Filters -->
-        <div class="flex flex-wrap justify-center gap-3 mt-6">
-          <button
-            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
-            data-tag="all"
-          >
-            All Projects
-          </button>
-          <button
-            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
-            data-tag="ui"
-          >
-            UI/UX
-          </button>
-          <button
-            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
-            data-tag="game"
-          >
-            Games
-          </button>
-          <button
-            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
-            data-tag="api"
-          >
-            API
-          </button>
-          <button
-            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
-            data-tag="clock"
-          >
-            Clock
-          </button>
-          <button
-            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
-            data-tag="tool"
-          >
-            Tools
-          </button>
-          <button
-            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
-            data-tag="tool"
-          >
-            Journal
-          </button>
+                <div class="logo">
+                    <div class="innerLogo">
+                        <img src="assets/images/logo.png" class="img-fluid logoImg" alt="logo">
+                        <a href="#" class="logoText">DevDays100</a>
+                    </div>
+                </div>
+                <!-- ==== Menu HTML Code Start Here ==== -->
+
+                <nav class="wsmenu clearfix">
+                    <ul class="wsmenu-list">
+                        <li aria-haspopup="true"><a href="#heroSection" class="active">Home</a></li>
+                        <li aria-haspopup="true"><a href="#projectSection">Projects</a></li>
+                        <li aria-haspopup="true"><a href="#contributionStatsSection">Contribution Stats</a></li>
+                    </ul>
+                </nav>
+                <!-- ==== Menu HTML Code End Here ==== -->
+            </div>
         </div>
-      </div>
+    </header>
+
+    <!-- ========================================== Header Section End Here ========================================== -->
+
+
+    <!-- ========================================== Hero Section Start Here ========================================== -->
+    <section id="heroSection">
+        <div class="container">
+            <div class="row heroSectionContainer">
+                <!-- ==== leftsidecontent Text ==== -->
+                <div class="col-12 col-lg-6 leftSideContent">
+
+                    <div class="gssocContainer">
+                        <img src="assets/images/herosectionImg/gssoc_logo.png" class="img-fluid" alt="gssoc logo">
+                        <p>GSSOC 2025</p>
+                    </div>
+
+                    <h1><span class="lightCol">100</span> Days <br> <span class="lightCol">100</span> Projects <br>
+                        Infinite <span class="lightCol">Contributions</span></h1>
+
+                    <p class="paraText">DevDays100 is an open source community where contributors build one project a
+                        day for 100 days as
+                        part of <strong>GirlScript Summer of Code 2025</strong>.</p>
+                    <p class="paraText">Whether you're a beginner, intermediate, or advanced developer, everyone is
+                        welcome.
+                        Start building projects, showcase your skills, and grow through collaboration and open source
+                        contribution.</p>
+
+                    <div class="ctaButtons">
+                        <a href="#projectSection">Explore Projects</a>
+                        <a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS" target="_blank">Start
+                            Contributing</a>
+                    </div>
+                </div>
+
+                <!-- ==== Rightsidecontent Image ==== -->
+                <div class="col-12 col-lg-6 rightSideImg d-none d-lg-block">
+                    <img src="assets/images/herosectionImg/img.png" class="img-fluid astronaut"
+                        alt="hero section image">
+                </div>
+
+            </div>
+        </div>
     </section>
-    
-    <!-- Projects Table -->
-    <section id="projects" class="container mx-auto px-4 py-10">
-      <div class="overflow-x-auto glass rounded-xl p-6">
-        <table class="w-full text-left">
-          <thead class="border-b border-gray-600">
-            <tr>
-              <th class="p-4 text-primary font-semibold">Day</th>
-              <th class="p-4 text-primary font-semibold">Project Name</th>
-              <th class="p-4 text-primary font-semibold">Demo Link</th>
-            </tr>
-          </thead>
-          <tbody id="tableBody">
-            <!-- Dynamic rows injected here -->
-            </tbody>
-        </table>
-        <div id="no-projects" class="text-center mt-8 p-8 hidden">
-          <div class="text-6xl mb-4">🔍</div>
-          <h3 class="text-xl font-semibold mb-2">No Projects Found</h3>
-          <p class="text-gray-500">
-            Try adjusting your search or filter criteria
-          </p>
-        </div>
-      </div>
-    </section>
+    <!-- ========================================== Hero Section End Here ========================================== -->
 
-    <!-- Enhanced About Section -->
-    <section id="about" class="about-section py-20 mt-20">
-      <div class="container mx-auto px-4 relative z-10">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
-            About the Challenge
-          </h2>
-          <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
-        </div>
+    <!-- ========================================== Main Section Start Here ========================================== -->
+    <main>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <div
-            class="glass p-8 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300"
-          >
-            <div class="text-4xl mb-4">🎯</div>
-            <h3 class="text-xl font-semibold mb-4">Our Mission</h3>
-            <p class="text-gray-400">
-              Build 100 amazing web projects to master HTML, CSS, and JavaScript
-              through hands-on practice and real-world applications.
+        <!-- ========================================== Project Section Start Here ========================================== -->
+        <section id="projectSection">
+            <div class="container">
+                <div class="row search-headerContainer">
+
+                    <h2 class="col-10 col-md-5 sectionHeader">100 Days of <span class="lightCol">Contributions</span>
+                    </h2>
+
+                    <div class="search-bar col-10 col-md-5">
+                        <div class="input-group">
+                            <input type="text" id="searchInput" placeholder="Search projects..." class="form-control">
+                            <button id="searchBtn" class="btn searchBtn">Search</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projectScrollContainer">
+                    <div class="row projectContainer">
+
+                        <!-- ==== Project Card 1 ==== -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Day 1: Animated Landing Page</h5>
+                                    <p class="card-text">A visually appealing landing page with smooth animations and
+                                        transitions, designed to enhance user engagement and showcase modern web design
+                                        techniques.</p>
+
+                                    <div class="viewBtnContainer">
+                                        <p class="techStack"><i class="fa-brands fa-html5"></i> <i
+                                                class="fa-brands fa-css3-alt"></i> <i
+                                                class="fa-brands fa-square-js"></i>
+                                        </p>
+                                        <!-- === Add here Page of Day 1: animated landing page === -->
+                                        <a href="#" class="card-link" target="blank">View <i
+                                                class="fa-solid fa-arrow-right arrowIcon"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- ==== Project Card 2 ==== -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Day 2: To do List</h5>
+                                    <p class="card-text">A sleek and user-friendly to-do list application designed to
+                                        improve task management, stay organized, and enhance daily productivity through
+                                        a
+                                        simple interface.</p>
+
+                                    <div class="viewBtnContainer">
+                                        <p class="techStack"><i class="fa-brands fa-html5"></i> <i
+                                                class="fa-brands fa-css3-alt"></i> <i
+                                                class="fa-brands fa-square-js"></i>
+                                        </p>
+
+                                        <!-- === Add here Page of Day 2: To do List === -->
+                                        <a href="#" class="card-link" target="_blank">View <i
+                                                class="fa-solid fa-arrow-right arrowIcon"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- ==== Project Card 3 ==== -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Day 3: Weather App</h5>
+                                    <p class="card-text">A modern weather application that displays real-time weather
+                                        updates and forecasts, designed with a clean interface for easy access to
+                                        location-based information.</p>
+
+                                    <div class="viewBtnContainer">
+                                        <p class="techStack"><i class="fa-brands fa-html5"></i> <i
+                                                class="fa-brands fa-css3-alt"></i> <i
+                                                class="fa-brands fa-square-js"></i>
+                                        </p>
+
+                                        <!-- === Add here Page of Day 3: Weather App === -->
+                                        <a href="#" class="card-link" target="blank">View <i
+                                                class="fa-solid fa-arrow-right arrowIcon"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==== Project Card 4 ==== -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Day 4: Jewellery Company landing page</h5>
+                                    <p class="card-text">A stylish landing page for a jewellery brand, designed to
+                                        highlight
+                                        products with elegant visuals, smooth layout, and a luxurious user experience.
+                                    </p>
+
+                                    <div class="viewBtnContainer">
+                                        <p class="techStack"><i class="fa-brands fa-html5"></i> <i
+                                                class="fa-brands fa-css3-alt"></i> <i
+                                                class="fa-brands fa-square-js"></i>
+                                        </p>
+
+                                        <!-- === Add here Page of Day 4: Jewellery company landing page === -->
+                                        <a href="#" class="card-link" target="blank">View <i
+                                                class="fa-solid fa-arrow-right arrowIcon"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==== Project Card 5 ==== -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Day 5: Random Image Generator</h5>
+                                    <p class="card-text">A dynamic web app that displays random images from an online
+                                        source, designed to entertain users with fresh visual content on each
+                                        interaction.
+                                    </p>
+
+                                    <div class="viewBtnContainer">
+                                        <p class="techStack"><i class="fa-brands fa-html5"></i> <i
+                                                class="fa-brands fa-css3-alt"></i> <i
+                                                class="fa-brands fa-square-js"></i>
+                                        </p>
+
+                                        <!-- === Add here Page of Day 5: Randome Image Generator === -->
+                                        <a href="#" class="card-link" target="blank">View <i
+                                                class="fa-solid fa-arrow-right arrowIcon"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==== Project Card 6 ==== -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Day 6: New Year Countdown</h5>
+                                    <p class="card-text">A festive countdown timer that displays days, hours, minutes,
+                                        and
+                                        seconds remaining, designed to celebrate and welcome the upcoming New Year.</p>
+
+                                    <div class="viewBtnContainer">
+                                        <p class="techStack"><i class="fa-brands fa-html5"></i> <i
+                                                class="fa-brands fa-css3-alt"></i> <i
+                                                class="fa-brands fa-square-js"></i>
+                                        </p>
+
+                                        <!-- === Add here Page of Day 6: New year countdown === -->
+                                        <a href="#" class="card-link" target="blank">View <i
+                                                class="fa-solid fa-arrow-right arrowIcon"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==== Project Card 7 ==== -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Day: 7 Stylish Animated loginpage</h5>
+                                    <p class="card-text">A modern and visually engaging login page featuring smooth
+                                        animations, designed to enhance user experience with an elegant and interactive
+                                        interface.</p>
+
+                                    <div class="viewBtnContainer">
+                                        <p class="techStack"><i class="fa-brands fa-html5"></i> <i
+                                                class="fa-brands fa-css3-alt"></i> <i
+                                                class="fa-brands fa-square-js"></i>
+                                        </p>
+
+                                        <!-- === Add here Page of Day 7: Styling animated loginpage === -->
+                                        <a href="#" class="card-link" target="blank">View <i
+                                                class="fa-solid fa-arrow-right arrowIcon"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==== Project Card 8 ==== -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Day 8: BMI Calculator</h5>
+                                    <p class="card-text">A simple and responsive BMI calculator that helps users
+                                        determine
+                                        their body mass index based on height and weight for health awareness.</p>
+
+                                    <div class="viewBtnContainer">
+                                        <p class="techStack"><i class="fa-brands fa-html5"></i> <i
+                                                class="fa-brands fa-css3-alt"></i> <i
+                                                class="fa-brands fa-square-js"></i>
+                                        </p>
+
+                                        <!-- === Add here Page of Day 8: BMI Calculator === -->
+                                        <a href="#" class="card-link" target="blank">View <i
+                                                class="fa-solid fa-arrow-right arrowIcon"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==== Project Card 9 ==== -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Day 9: QR Generator</h5>
+                                    <p class="card-text">A fast and efficient web app that generates QR codes instantly
+                                        from
+                                        user input, designed for easy sharing of links or text.</p>
+
+                                    <div class="viewBtnContainer">
+                                        <p class="techStack"><i class="fa-brands fa-html5"></i> <i
+                                                class="fa-brands fa-css3-alt"></i> <i
+                                                class="fa-brands fa-square-js"></i>
+                                        </p>
+
+                                        <!-- === Add here Page of Day 9: QR Generator === -->
+                                        <a href="#" class="card-link" target="blank">View <i
+                                                class="fa-solid fa-arrow-right arrowIcon"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==== Project Card 10 ==== -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Day 10: Rock Paper Scissors Game</h5>
+                                    <p class="card-text">An interactive and fun browser-based game where users play rock
+                                        paper scissors against the computer, designed with smooth animations and
+                                        responsive
+                                        design.</p>
+
+                                    <div class="viewBtnContainer">
+                                        <p class="techStack"><i class="fa-brands fa-html5"></i> <i
+                                                class="fa-brands fa-css3-alt"></i> <i
+                                                class="fa-brands fa-square-js"></i>
+                                        </p>
+
+                                        <!-- === Add here Page of Day 10: Rock paper scissor game === -->
+                                        <a href="#" class="card-link" target="blank">View <i
+                                                class="fa-solid fa-arrow-right arrowIcon"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==== Project Card 11 ==== -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Day 11: Reading Journal</h5>
+                                    <p class="card-text">A clean and organized reading journal app that helps users
+                                        track
+                                        books, record notes, and reflect on their reading habits and progress.</p>
+
+                                    <div class="viewBtnContainer">
+                                        <p class="techStack"><i class="fa-brands fa-html5"></i> <i
+                                                class="fa-brands fa-css3-alt"></i> <i
+                                                class="fa-brands fa-square-js"></i>
+                                        </p>
+
+                                        <!-- === Add here Page of Day 11: Reading Journal === -->
+                                        <a href="#" class="card-link" target="blank">View <i
+                                                class="fa-solid fa-arrow-right arrowIcon"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==== Project Card 12 ==== -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Day 12: Pong Game</h5>
+                                    <p class="card-text">A classic arcade-style Pong game recreated for the browser,
+                                        featuring smooth paddle controls and responsive design for a fun, retro gaming
+                                        experience.</p>
+
+                                    <div class="viewBtnContainer">
+                                        <p class="techStack"><i class="fa-brands fa-html5"></i> <i
+                                                class="fa-brands fa-css3-alt"></i> <i
+                                                class="fa-brands fa-square-js"></i>
+                                        </p>
+
+                                        <!-- === Add here Page of Day 12: Pong Game === -->
+                                        <a href="#" class="card-link" target="blank">View <i
+                                                class="fa-solid fa-arrow-right arrowIcon"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==== Project Card 13 ==== -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Day 13: Colour Picker</h5>
+                                    <p class="card-text">A simple and interactive colour picker tool that allows users
+                                        to
+                                        select, copy, and explore colors with real-time preview and hex code display.
+                                    </p>
+
+                                    <div class="viewBtnContainer">
+                                        <p class="techStack"><i class="fa-brands fa-html5"></i> <i
+                                                class="fa-brands fa-css3-alt"></i> <i
+                                                class="fa-brands fa-square-js"></i>
+                                        </p>
+
+                                        <!-- === Add here Page of Day 13: Color Picture === -->
+                                        <a href="#" class="card-link" target="blank">View <i
+                                                class="fa-solid fa-arrow-right arrowIcon"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==== Project Card 14 ==== -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Day 14: Drawing Canvas</h5>
+                                    <p class="card-text">An interactive drawing canvas that allows users to sketch
+                                        freely
+                                        using customizable tools, designed for creativity, fun, and artistic expression
+                                        online.</p>
+
+                                    <div class="viewBtnContainer">
+                                        <p class="techStack"><i class="fa-brands fa-html5"></i> <i
+                                                class="fa-brands fa-css3-alt"></i> <i
+                                                class="fa-brands fa-square-js"></i>
+                                        </p>
+
+                                        <!-- === Add here Page of Day 14: Drawing canvas === -->
+                                        <a href="#" class="card-link" target="blank">View <i
+                                                class="fa-solid fa-arrow-right arrowIcon"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==== Project Card 15 ==== -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Day 15: Nasa Astronomy Picture of the day</h5>
+                                    <p class="card-text">A web app that fetches NASA’s daily astronomy image, displaying
+                                        stunning space visuals with informative descriptions for an educational and
+                                        inspiring experience.</p>
+
+                                    <div class="viewBtnContainer">
+                                        <p class="techStack"><i class="fa-brands fa-html5"></i> <i
+                                                class="fa-brands fa-css3-alt"></i> <i
+                                                class="fa-brands fa-square-js"></i>
+                                        </p>
+
+                                        <!-- === Add here Page of Day 15: Nasa Astronomy Picture of the day === -->
+                                        <a href="#" class="card-link" target="blank">View <i
+                                                class="fa-solid fa-arrow-right arrowIcon"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ==== Project Card 16 ==== -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Day 16: World Clock</h5>
+                                    <p class="card-text">A real-time world clock app that displays current time across
+                                        multiple cities, designed for global time tracking with a clean user interface.
+                                    </p>
+
+                                    <div class="viewBtnContainer">
+                                        <p class="techStack"><i class="fa-brands fa-html5"></i> <i
+                                                class="fa-brands fa-css3-alt"></i> <i
+                                                class="fa-brands fa-square-js"></i>
+                                        </p>
+
+                                        <!-- === Add here Page of Day 16: World Clock === -->
+                                        <a href="#" class="card-link" target="blank">View <i
+                                                class="fa-solid fa-arrow-right arrowIcon"></i></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ========================================== Project Section End Here ========================================== -->
+
+
+        <!-- ========================================== Contribution Stats Section Start Here ========================================== -->
+        <section id="contributionStatsSection">
+            <div class="container">
+                <h2 class="sectionHeader"><span class="lightCol">Contribution</span> Stats</h2>
+                <p class="paraHeader">Our open source community has contributed over 16 projects using 3+ tech stacks,
+                    fostering collaboration, skill-building, and infinite learning throughout the 100-day challenge.</p>
+
+                <div class="row statsContainer">
+                    <!-- ==== Dynamic Counter ==== -->
+                    <div class="statsBox">
+                        <p class="digit" data-count="16">0</p>
+                        <p>Project Contributed</p>
+                    </div>
+                    <div class="statsBox">
+                        <p class="digit" data-count="24">0</p>
+                        <p>GSSoC 2025</p>
+                    </div>
+                    <div class="statsBox">
+                        <p class="digit" data-count="3">0</p>
+                        <p>Tech Stacks</p>
+                    </div>
+                </div>
+
+                <div class="contributingBtnContainer">
+                    <a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS" target="_blank"
+                        class="contributingBtn">Start Contributing</a>
+                </div>
+
+            </div>
+        </section>
+        <!-- ========================================== Contribution Stats Section End Here ========================================== -->
+
+        <!-- ========== Click to Top Button Start Here ========== -->
+        <button class="clicktoTopBtn"><i class="fa-solid fa-arrow-up"></i></button>
+        <!-- ========== Click to Top Button End Here ========== -->
+
+    </main>
+    <!-- ========================================== Main Section End Here ========================================== -->
+
+
+    <!-- ========================================== Footer Section Start Here ========================================== -->
+    <footer>
+        <div class="container">
+
+            <div class="row footerContainer">
+                <div class="col-10 col-lg-3 quickLinks">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="#heroSection" class="footerNavLinks">Home</a></li>
+                        <li><a href="#projectSection" class="footerNavLinks">Projects</a></li>
+                        <li><a href="#contributionStatsSection" class="footerNavLinks">Contribution Stats</a></li>
+                        <li><a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS" target="_blank"
+                                class="footerNavLinks">Start Contribution</a></li>
+                        <li><a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS/graphs/contributors"
+                                target="_blank" class="footerNavLinks">Contributors</a></li>
+                    </ul>
+                </div>
+                <div class="col-10 col-lg-3 followUs">
+                    <h5>Follow Us</h5>
+                    <ul>
+                        <li><a href="https://github.com/rutikakengal" target="_blank" class="footerNavLinks">Github</a>
+                        </li>
+                        <li><a href="https://www.linkedin.com/in/rutika-kengal-8085092b7" target="_blank"
+                                class="footerNavLinks">Linkedin</a></li>
+                        <li><a href="https://www.linkedin.com/in/rutika-kengal-8085092b7" target="_blank"
+                                class="footerNavLinks">Instagram</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-10 col-lg-4">
+                    <div class="footerLogoContainer">
+                        <img src="assets/images/logo.png" class="img-fluid" alt="logo">
+                        <p>DevDays100</p>
+                    </div>
+
+                    <p class="footerPara">DevDays100 is an open source community where contributors build one project a
+                        day for 100 days as part of <strong>GirlScript Summer of Code 2025</strong>.</p>
+
+                    <div class="techIconsContainer">
+                        <p><i class="fa-brands fa-html5"></i></p>
+                        <p><i class="fa-brands fa-css3-alt"></i></p>
+                        <p><i class="fa-brands fa-square-js"></i></p>
+                        <p><i class="fa-brands fa-bootstrap"></i></p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="footerText">&copy; 2025 DevDays100 | Open Source Project Built by Contributors, for Contributors
             </p>
-          </div>
 
-          <div
-            class="glass p-8 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300"
-          >
-            <div class="text-4xl mb-4">🚀</div>
-            <h3 class="text-xl font-semibold mb-4">Skill Development</h3>
-            <p class="text-gray-400">
-              From basic to intermediate level projects, each designed to
-              challenge and improve your web development skills progressively.
-            </p>
-          </div>
-
-          <div
-            class="glass p-8 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300"
-          >
-            <div class="text-4xl mb-4">🌟</div>
-            <h3 class="text-xl font-semibold mb-4">Community</h3>
-            <p class="text-gray-400">
-              Join a growing community of developers, contribute to projects,
-              and learn together in this collaborative journey.
-            </p>
-          </div>
         </div>
-
-        <div class="glass p-8 rounded-xl">
-          <h3 class="text-2xl font-semibold mb-6 text-center">
-            Challenge Statistics
-          </h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-              <div class="text-3xl font-bold text-primary" id="projectCount">
-                5
-              </div>
-              <div class="text-sm text-gray-400">Projects Completed</div>
-            </div>
-            <div>
-              <div class="text-3xl font-bold text-primary">100</div>
-              <div class="text-sm text-gray-400">Total Goal</div>
-            </div>
-            <div>
-              <div class="text-3xl font-bold text-primary">3</div>
-              <div class="text-sm text-gray-400">Technologies</div>
-            </div>
-            <div>
-              <div class="text-3xl font-bold text-primary">∞</div>
-              <div class="text-sm text-gray-400">Learning</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-black text-white p-6 mt-10">
-      <div class="container mx-auto grid md:grid-cols-3 gap-8">
-        <div>
-          <h2 class="text-lg font-semibold mb-4">100 Days Challenge</h2>
-          <p class="text-white/70 mb-4">
-            This repository contains 100 web projects from basic to intermediate
-            using HTML, CSS, and JS. Each project is designed to teach specific
-            concepts and improve your coding skills.
-          </p>
-          <div class="flex gap-4">
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              class="text-pink-500 hover:text-pink-400 transition-colors"
-              ><i class="fab fa-instagram fa-lg"></i
-            ></a>
-            <a
-              href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS"
-              target="_blank"
-              class="text-white hover:text-gray-300 transition-colors"
-              ><i class="fab fa-github fa-lg"></i
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/rutika-kengal-8085092b7"
-              target="_blank"
-              class="text-blue-400 hover:text-blue-300 transition-colors"
-              ><i class="fab fa-linkedin fa-lg"></i
-            ></a>
-          </div>
-        </div>
-        
-        <div>
-          <h2 class="text-lg font-semibold mb-4">Quick Links</h2>
-          <ul class="space-y-2">
-            <li>
-              <a
-                href="#projects"
-                class="text-white/70 hover:text-white transition-colors"
-                >Browse Projects</a
-              >
-            </li>
-            <li>
-              <a
-                href="#about"
-                class="text-white/70 hover:text-white transition-colors"
-                >About Challenge</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-white/70 hover:text-white transition-colors"
-                >Contributors</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS"
-                class="text-white/70 hover:text-white transition-colors"
-                >GitHub Repository</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h2 class="text-lg font-semibold mb-4">Technologies</h2>
-          <div class="flex flex-wrap gap-2">
-            <span
-              class="bg-orange-600 text-white px-3 py-1 rounded-full text-sm"
-              >HTML5</span
-            >
-            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm"
-              >CSS3</span
-            >
-            <span
-              class="bg-yellow-600 text-white px-3 py-1 rounded-full text-sm"
-              >JavaScript</span
-            >
-            <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm"
-              >Responsive</span
-            >
-          </div>
-          <p class="mt-4 text-white/50 text-sm">
-            ©
-            <script>
-              document.write(new Date().getFullYear());
-            </script>
-            100DAYS_WEBPROJECTS by
-            <a href="#" class="underline hover:text-white transition-colors"
-              >Rutika Kengal</a
-            >
-            & Contributors
-          </p>
-        </div>
-      </div>
     </footer>
 
-    <!-- Theme Toggle Button -->
-    <button id="themeToggle" class="theme-toggle glass">🌙</button>
+    <!-- ========================================== Footer Section End Here ========================================== -->
 
-    <!-- Scroll to top button --> 
-    <button
-      id="scrollBtn"
-      onclick="scrollToTop()"
-      class="fixed bottom-5 right-5 bg-primary text-white p-4 rounded-full shadow-lg btn-3d hidden"
-    >
-      <i class="fas fa-arrow-up"></i>
-    </button>
 
-    <!-- Scripts -->
-    <script>
-      const scrollBtn = document.getElementById("scrollBtn");
-      window.onscroll = () => {
-        if (document.documentElement.scrollTop > 100)
-          scrollBtn.classList.remove("hidden");
-        else scrollBtn.classList.add("hidden");
-      };
-      function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-      function filterProjects() {
-        const input = document
-          .getElementById("searchInput")
-          .value.toLowerCase();
-        const table = document.getElementById("tableBody");
-        const rows = table.getElementsByTagName("tr");
-        let found = false;
-        for (let i = 0; i < rows.length; i++) {
-          const cols = rows[i].getElementsByTagName("td");
-          let match = false;
-          for (let j = 0; j < cols.length; j++) {
-            if (cols[j].innerText.toLowerCase().includes(input)) {
-              match = true;
-              break;
-            }
-          }
-          rows[i].style.display = match ? "" : "none";
-          if (match) found = true;
-        }
-        document.getElementById("no-projects").style.display = found
-          ? "none"
-          : "block";
-      }
+    <!-- ================ Vendor JS ================ -->
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/webslidemenu.js"></script>
+    <script src="scripts/bootstrap.bundle.min.js"></script>
 
-      // Theme toggle logic
-      const themeToggle = document.getElementById("themeToggle");
-      function setTheme(mode) {
-        if (mode === "light") {
-          document.documentElement.setAttribute("data-theme", "light");
-          themeToggle.textContent = "🌞";
-        } else {
-          document.documentElement.removeAttribute("data-theme");
-          themeToggle.textContent = "🌙";
-        }
-      }
-      // Load theme from localStorage or default to dark
-      let currentTheme = localStorage.getItem("theme") || "dark";
-      setTheme(currentTheme);
-      themeToggle.addEventListener("click", function () {
-        currentTheme = currentTheme === "dark" ? "light" : "dark";
-        setTheme(currentTheme);
-        localStorage.setItem("theme", currentTheme);
-      });
-    </script>
-    <script src="index.js"></script>
-    <script src="script.js"></script>
-  </body>
+    <!-- ================ Custom JS ================ -->
+    <script src="scripts/main.js"></script>
+
+</body>
+
 </html>

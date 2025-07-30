@@ -1,0 +1,573 @@
+/* ===================== Google Fonts Start Here ===================== */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* ===================== Universal Selector Start Here ===================== */
+* {
+    font-family: "Lato", sans-serif;
+}
+
+html, body {
+    scroll-padding-top: 56px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #00091a;
+
+}
+
+.sectionHeader {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+/* ===================== Navbar Styling Start Here ===================== */
+.wsmainfull,
+.wsmobileheader {
+    background-color: #283b54;
+    margin-top: 0;
+}
+
+.wsmenu>.wsmenu-list>li>a {
+    color: white;
+    opacity: 0.9;
+    font-weight: bold;
+}
+
+.wsmenu>.wsmenu-list>li:hover>a {
+    color: #01ffc3;
+}
+
+.wsmenu>.wsmenu-list>li>a.active {
+    color: #01ffc3;
+}
+
+.wsmenu>.wsmenu-list>li>a:after {
+    background-color: #01ffc3;
+    border-radius: 10px;
+}
+
+.logo {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.innerLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.smallLogoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoImg {
+    height: 50px;
+}
+
+.smallSizeNavLogo {
+    height: 40px;
+}
+
+.logoText {
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 900;
+    margin-left: 10px;
+    color: #01ffc3;
+}
+
+.smallSizeNavText {
+    font-size: 18px;
+    text-decoration: none;
+    color: #01ffc3;
+    font-weight: 900;
+    margin-left: 5px;
+}
+/* ===================== Navbar Styling End Here ===================== */
+
+
+/* ===================== Hero Styling Start Here ===================== */
+#heroSection {
+    padding: 5rem 0 3rem 0;
+
+}
+
+.heroSectionContainer {
+    display: flex;
+    align-items: center;
+}
+
+.leftSideContent {
+    padding: 0 1.5rem;
+}
+
+.gssocContainer {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    display: inline-flex;
+    padding: 4px 20px;
+    border-radius: 30px;
+    background-color: #002057;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.gssocContainer img {
+    height: 21px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.astronaut {
+    animation: float 3s ease-in-out infinite;
+}
+
+.gssocContainer p {
+    font-size: 14px;
+    margin-bottom: 0;
+    opacity: 0.9;
+    color: white;
+}
+
+.leftSideContent h1 {
+    color: white;
+    opacity: 0.8;
+    font-weight: 600;
+    line-height: 5rem;
+    font-size: 3.5rem;
+}
+
+.lightCol {
+    color: #02fbc0;
+}
+
+.paraText {
+    color: white;
+    opacity: 0.8;
+    margin-bottom: 2px;
+}
+
+.ctaButtons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.ctaButtons a {
+    padding: 8px 40px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 14px;
+    background-color: #002057;
+    color: white;
+    opacity: 0.8;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+
+.ctaButtons a:hover {
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+/* ===================== Hero Section Styling End Here ===================== */
+
+
+/* ===================== Project Section Styling Start Here ===================== */
+#projectSection {
+    padding: 3rem 0;
+}
+
+.search-headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.projectScrollContainer {
+    max-height: 600px;
+    overflow-y: scroll;
+    padding: 0 1rem;
+}
+
+.projectScrollContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.projectContainer {
+    display: flex;
+    align-items: center;
+}
+
+.projectContainer .card {
+    margin: 10px;
+}
+
+.projectContainer .card {
+    background-color: #001b4b;
+}
+
+.titleContainer p {
+    color: #01ffc3;
+}
+
+.card-title {
+    color: #02cb9f;
+    opacity: 0.8;
+    font-weight: 600;
+}
+
+.card p {
+    color: white;
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+.card {
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: rgb(9, 48, 83) 3px 3px 6px 0px inset, rgba(8, 25, 52, 0.5) -3px -3px 6px 1px inset;
+}
+
+.viewBtnContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.techStack {
+    margin-bottom: 0;
+}
+
+.techStack i {
+    font-size: 22px;
+    margin-right: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.techStack i:hover {
+    color: #01ffc3;
+}
+
+.card-link {
+    text-decoration: none;
+    border: 1px solid #02cb9f;
+    padding: 4px 25px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    transition: all 0.5s ease-in-out;
+    color: white;
+    opacity: 0.8;
+
+}
+
+.card-link:hover {
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: rgba(1, 255, 195, 0.4) 5px 5px;
+    background-color: white;
+    color: #00091a;
+
+}
+
+.arrowIcon {
+    margin-left: 8px;
+    transition: all 0.4s ease-in-out;
+}
+
+.card-link:hover .arrowIcon {
+    transform: translateX(5px);
+}
+
+.search-bar {
+    max-width: 70%;
+}
+
+.form-control {
+    background-color: #e2e2e2;
+}
+
+.searchBtn {
+    color: white;
+    background: #124090;
+    height: 38px;
+    margin: 0;
+    border: none !important;
+    outline: none !important;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 2px 10px;
+}
+
+.searchBtn:hover {
+    color: white;
+    background-color: #001b4b;
+
+}
+
+.form-control:focus,
+.searchBtn:focus {
+    box-shadow: none;
+}
+/* ===================== Project Section Styling End Here ===================== */
+
+
+/* ===================== Contribution Stats Section Styling Start Here ===================== */
+#contributionStatsSection {
+    padding: 2rem 0;
+}
+
+.paraHeader {
+    text-align: center;
+    color: white;
+    opacity: 0.8;
+    font-size: 15px;
+    padding: 0 20px;
+}
+
+.statsContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.statsBox {
+    text-align: center;
+    width: 150px;
+    height: 130px;
+    margin: 10px;
+}
+
+.statsBox p {
+    color: white;
+    margin-bottom: 0;
+    opacity: 0.8;
+}
+
+.digit {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #01ffc3 !important;
+}
+
+.contributingBtnContainer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.contributingBtn {
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 14px 60px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-size: 14px;
+    transition: all 0.4s ease-in-out;
+    opacity: 0.8;
+    font-weight: normal;
+    border: 1px solid #01ffc3;
+    box-shadow: rgba(1, 255, 195, 0.8) 5px 5px;
+    color: #01ffc3;
+}
+
+.contributingBtn:hover {
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: #01ffc3;
+    color: #001b4b;
+    box-shadow: none;
+}
+
+/* ===================== Contribution Stats Section Styling End Here ===================== */
+
+
+/* ======== Click to Top Button Section Styling Start Here ======== */
+.clicktoTopBtn {
+    background-color: #01ffc3;
+    border: none;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    border-radius: 100%;
+    padding: 10px 15px;
+    z-index: 99999;
+    animation: float 3s ease-in-out infinite;
+}
+
+.clicktoTopBtn i {
+    font-size: 18px;
+}
+/* ======== Click to Top Button Section Styling End Here ======== */
+
+
+/* ===================== Footer Section Styling Start Here ===================== */
+footer {
+    background-color: #050f1d;
+    padding-top: 2rem;
+    margin-top: 2rem;
+}
+
+footer .col-10 {
+    margin: 10px;
+}
+
+.footerContainer {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+.footerLogoContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.footerLogoContainer img {
+    height: 40px;
+}
+
+.footerLogoContainer p {
+    color: white;
+    opacity: 0.8;
+    font-size: 23px;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+.footerPara {
+    color: white;
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+.techIconsContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.techIconsContainer p {
+    margin-bottom: 0;
+}
+
+.techIconsContainer p i {
+    font-size: 20px;
+    color: white;
+    opacity: 0.8;
+}
+
+.techIconsContainer p i:hover {
+    color: #01ffc3;
+    opacity: 1;
+}
+
+.quickLinks h5,
+.followUs h5 {
+    color: white;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.quickLinks ul,
+.followUs ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.quickLinks ul li,
+.followUs ul li {
+    transition: all 0.3s ease-in-out;
+    margin: 5px 0;
+
+}
+
+.quickLinks ul li:hover,
+.followUs ul li:hover {
+    transform: translateX(8px);
+}
+
+.footerNavLinks {
+    text-decoration: none;
+    color: white;
+    opacity: 0.8;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+}
+
+.quickLinks ul li:hover .footerNavLinks,
+.followUs ul li:hover .footerNavLinks {
+    opacity: 1;
+    color: #01ffc3;
+}
+
+.footerText {
+    color: white;
+    opacity: 0.8;
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+/* ===================== Footer Section Styling End Here ===================== */
+
+
+/* ===================== Media Queires for smaller devices Start Here ===================== */
+@media (max-width: 445px) {
+    .ctaButtons a {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+
+    .leftSideContent h1 {
+        line-height: 4rem;
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 335px) {
+    .ctaButtons a {
+        padding: 6px 10px;
+    }
+
+    leftSideContent h1 {
+        line-height: 3.5rem;
+        font-size: 2.8rem;
+    }
+}
+
+/* ===================== Media Queires for smaller devices End Here ===================== */
