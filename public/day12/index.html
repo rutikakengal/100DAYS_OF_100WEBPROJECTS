@@ -1,6 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container"> 
+    <h1>Tic Tac Toe </h1>
+    <div id="status">Current Turn: <span id="player">X</span></div>
+    <div class="board" id="board">
+      
+      <div class="cell" data-index="0"></div>
+      <div class="cell" data-index="1"></div>
+      <div class="cell" data-index="2"></div>
+      <div class="cell" data-index="3"></div>
+      <div class="cell" data-index="4"></div>
+      <div class="cell" data-index="5"></div>
+      <div class="cell" data-index="6"></div>
+      <div class="cell" data-index="7"></div>
+      <div class="cell" data-index="8"></div>
+    </div>
+    <div id="message"></div>
+    <button id="reset">Restart Game</button>
+  </div>
+
+  <title>Pong Game</title>
+  <link rel="stylesheet" href="style.css" />
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Drawing App</title>
@@ -9,6 +38,7 @@
     <style>
         canvas { touch-action: none; }
     </style>
+
 </head>
 <body class="bg-slate-100 flex items-center justify-center min-h-screen font-sans">
     <main class="w-full max-w-4xl mx-auto p-4 text-center">
@@ -40,6 +70,12 @@
             <input type="color" id="color-picker" value="#000000" class="w-10 h-10 p-1 bg-white border border-slate-300 rounded-md cursor-pointer">
         </div>
 
+
+  <p id="gameMsg"></p>
+
+
+  <script src="script.js"></script>
+
         <div class="flex justify-center gap-4">
             <button id="save-png-btn" class="px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 focus:outline-none">Save PNG 🖼️</button>
             <button id="save-pdf-btn" class="px-4 py-2 bg-orange-600 text-white rounded-lg shadow hover:bg-orange-700 focus:outline-none">Save PDF 📄</button>
@@ -52,5 +88,6 @@
 </main>
     
     <script src="script.js"></script>
+
 </body>
 </html>
