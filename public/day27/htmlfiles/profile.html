@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Details</title>
+    <meta name="description" content="Profile details of the student including personal and academic information.">
+    <meta name="keywords" content="student, profile, details, academic, information">
+    <meta name="author" content="University Name">
+    <link rel="stylesheet" href="../style/profile.css">
+
+  
+
+</head>
+<body>
+    <h1>personal details of students</h1>
+    <input type="text" id="searchInput" placeholder="Search for a student..." oninput="searchStudent()">
+    <div id="resultsContainer"></div>
+
+    <script>
+          document.addEventListener('DOMContentLoaded', function() {
+           // Example JavaScript functionality
+           alert("Profile page loaded successfully.");
+           // You can add more interactive features here if needed
+       });
+        const students = [
+            { name: 'Afsha', age: 20, major: 'Computer Science', email: 'john.doe@example.com', fatherName: 'Michael Doe', motherName: 'Sarah Doe', fatherPhone: '123-456-7890', motherPhone: '098-765-4321', bloodGroup: 'A+', studentNumber: 'S12345', attendance: '95%' },
+            { name: 'kavya deshini', age: 22, major: 'Mathematics', email: 'jane.smith@example.com', fatherName: 'Robert Smith', motherName: 'Linda Smith', fatherPhone: '234-567-8901', motherPhone: '876-543-2109', bloodGroup: 'B-', studentNumber: 'S12346', attendance: '90%' },
+            { name: 'navya', age: 21, major: 'Physics', email: 'alice.johnson@example.com', fatherName: 'James Johnson', motherName: 'Patricia Johnson', fatherPhone: '345-678-9012', motherPhone: '765-432-1098', bloodGroup: 'O+', studentNumber: 'S12347', attendance: '92%' },
+            { name: 'prashanthi', age: 23, major: 'Chemistry', email: 'bob.brown@example.com', fatherName: 'William Brown', motherName: 'Elizabeth Brown', fatherPhone: '456-789-0123', motherPhone: '654-321-0987', bloodGroup: 'AB+', studentNumber: 'S12348', attendance: '88%' },
+            { name: 'Vennela', age: 19, major: 'Biology', email: 'charlie.davis@example.com', fatherName: 'David Davis', motherName: 'Jennifer Davis', fatherPhone: '567-890-1234', motherPhone: '543-210-9876', bloodGroup: 'O-', studentNumber: 'S12349', attendance: '94%' },
+            { name: 'Vasavi', age: 19, major: 'Biology', email: 'charlie.davis@example.com', fatherName: 'David Davis', motherName: 'Jennifer Davis', fatherPhone: '567-890-1234', motherPhone: '543-210-9876', bloodGroup: 'O-', studentNumber: 'S12349', attendance: '94%' }
+        ];
+ 
+        function searchStudent() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const results = students.filter(student => 
+                student.name.toLowerCase().includes(searchInput)
+            );
+            displayResults(results);
+        }
+ 
+        function displayResults(results) {
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = ''; // Clear previous results
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<p>No students found.</p>';
+            } else {
+                results.forEach(student => {
+                    const studentInfo = document.createElement('div');
+                    studentInfo.innerHTML = `<p>Name: ${student.name}</p>
+                                             <p>Age: ${student.age}</p>
+                                             <p>Major: ${student.major}</p>
+                                             <p>Email: ${student.email}</p>
+                                             <p>Father's Name: ${student.fatherName}</p>
+                                             <p>Mother's Name: ${student.motherName}</p>
+                                             <p>Father's Phone: ${student.fatherPhone}</p>
+                                             <p>Mother's Phone: ${student.motherPhone}</p>
+                                             <p>Blood Group: ${student.bloodGroup}</p>
+                                             <p>Student Number: ${student.studentNumber}</p>
+                                             <p>Attendance: ${student.attendance}</p>
+                                             <hr>`;
+                    resultsContainer.appendChild(studentInfo);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

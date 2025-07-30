@@ -1,0 +1,59 @@
+<!-- Start Generation Here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout Page</title>
+    <style>
+        body {
+            background-color: #e0f7fa; /* Light blue background */
+            font-family: 'Arial', sans-serif; /* Modern font */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+        }
+        .logout-container {
+            text-align: center;
+            background-color: #ffffff; /* White background for the container */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        h1 {
+            color: #00796b; /* Teal color for the header */
+        }
+        p {
+            color: #333; /* Dark text color */
+        }
+        .logout-button {
+            background-color: #00796b; /* Teal background */
+            color: white; /* White text */
+            padding: 10px 20px; /* Padding for button */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+        .logout-button:hover {
+            background-color: #005b4f; /* Darker teal on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="logout-container">
+        <h1>Logout Successful</h1>
+        <p>You have been logged out. Thank you for using our service!</p>
+        <button class="logout-button" onclick="redirectToLogin()">Go to Login</button>
+    </div>
+
+    <script>
+        function redirectToLogin() {
+            window.location.href = 'login.html'; // Redirect to sign-in page
+        }
+    </script>
+</body>
+</html>
+<!-- End Generation Here -->

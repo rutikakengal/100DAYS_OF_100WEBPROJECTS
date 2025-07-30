@@ -1,0 +1,35 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#resultsContainer {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+#resultsContainer p {
+    margin: 5px 0;
+}
+
+#resultsContainer hr {
+    margin: 10px 0;
+} 
