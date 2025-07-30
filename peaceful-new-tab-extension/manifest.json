@@ -7,8 +7,8 @@
     "newtab": "index.html"
   },
   "permissions": [
-    "bookmarks",
-    "topSites"
+  "bookmarks",
+  "storage"
   ],
   "host_permissions": [
     "https://source.unsplash.com/*"
