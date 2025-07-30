@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
   margin: 0;
   padding:0;
@@ -61,4 +62,83 @@ p{
   p {
     font-size: 1.2rem;
   }
+=======
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #efe8e8;
+    text-align: center;
+    height:50%;
+    padding-top: 30px;
+    background: #EEAECA;
+
+    
+    background-color:#e5e5ee;}
+
+/* Outer container */
+#container {
+    margin:auto;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #22c7dd57;
+    background-color: #e09abaa2;
+    box-shadow:10px rgba(23, 21, 21, 0.1);
+}
+
+/* Inner box */
+#con {
+    
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+input, select, button {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #0e9238;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0f8430;
+}
+
+#display {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+h1{
+    margin-bottom: 20px;
+    color: rgb(0, 0, 0);
+}
+
+label{
+    font-weight: bold;
+}
+
+#reset-btn{
+    background-color: #8c0841;
+>>>>>>> upstream/main
 }

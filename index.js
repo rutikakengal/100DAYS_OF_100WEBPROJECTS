@@ -19,17 +19,26 @@ const projects = [
   "text to PDF Convertor",
   "Memory Card Game",
   "Email Validator",
+<<<<<<< HEAD
   "Doodle Jump Game",
   "Space Jumper Game",
   "Calculator",
   "Promodoro Timer",
   "Snake And Ladder Game",
+=======
+  
+  "Snake And Ladder Game",
+  "Space Jumper Game",
+  "Calculator",
+  "Promodoro Timer",
+  "Temperature Converter",
+  "Space War Game",
+>>>>>>> upstream/main
   " ",
   " ",
   " ",
   " ",
-  " ",
-  " ",
+  " "
   // Add more project names as needed
 ];
 

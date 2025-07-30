@@ -645,3 +645,76 @@ body {
 .content {
   flex: 1; /* This will make sure the content area takes up the remaining space */
 }
+@media screen and (max-width: 599px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo, .nav-links {
+    width: 100%;
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+
+  .nav-links a {
+    display: block;
+    margin: 0.3rem 0;
+  }
+
+  .project-box {
+    width: 100% !important;
+    margin: 1rem 0;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.2rem;
+    text-align: center;
+    word-break: break-word;
+  }
+
+  body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow-x: hidden;
+  }
+
+  html, body {
+    max-width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 599px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .logo {
+    text-align: center;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.3rem 0;
+  }
+}
