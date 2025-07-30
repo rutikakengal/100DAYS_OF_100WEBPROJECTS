@@ -2,12 +2,18 @@
   "manifest_version": 3,
   "name": "Peaceful New Tab",
   "version": "1.0",
-  "description": "Adds a peaceful ambient bar to your pages.",
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "css": ["styles.css"],
-      "js": ["script.js"]
-    }
-  ]
+  "description": "A calm and personalized new tab with greetings, backgrounds, pets, bookmarks, and top sites.",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": [
+    "bookmarks",
+    "topSites"
+  ],
+  "host_permissions": [
+    "https://source.unsplash.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
 }
