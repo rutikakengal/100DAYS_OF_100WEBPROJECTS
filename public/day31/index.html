@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Age Calculator</title>
+
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1 class="page-title">🎂 Age Calculator</h1>
+  <p class="page-desc">Enter your birth date to calculate your age in years, months, and days.</p>
+
+  <div class="container">
+    <div class="input-group">
+      <label>Enter your date of birth:</label>
+      <div class="dob-inputs">
+        <input type="number" id="day" placeholder="DD" min="1" max="31" />
+        <input type="number" id="month" placeholder="MM" min="1" max="12" />
+        <input type="number" id="year" placeholder="YYYY" min="1900" max="2100" />
+      </div>
+      <button id="calculateBtn">Calculate Age</button>
+    </div>
+    <div id="result" class="result-box" style="display: none;"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

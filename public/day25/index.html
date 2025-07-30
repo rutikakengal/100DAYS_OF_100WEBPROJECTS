@@ -1,50 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAQ - Accordion</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-  <!-- ✅ Inter Font from Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <h1 class="page-title">Frequently Asked Questions</h1>
+  <body>
+    <h1>Temperature Converter</h1>
+    <div id="container">
+      <input type="text" placeholder="Enter the input temp" id="temp-ip-el" />
 
-  <div class="container">
-    <div class="accordion">
-      <div class="accordion-item">
-        <button class="accordion-header">What is your return policy?</button>
-        <div class="accordion-body">
-          <p>Returns are accepted within 30 days if the item is in original condition and packaging.</p>
-        </div>
-      </div>
+      <div id="con">
+        <label for="temp-ip">From Temperature:</label>
+        <select name="temp-input" id="temp-ip">
+          <option value="0">Select</option>
+          <option value="C">Celsius(C)</option>
+          <option value="F">Farenheit(F)</option>
+          <option value="K">Kelvin(K)</option>
+        </select>
 
-      <div class="accordion-item">
-        <button class="accordion-header">Do you ship internationally?</button>
-        <div class="accordion-body">
-          <p>Yes, we ship globally with varying delivery times and costs depending on the region.</p>
-        </div>
-      </div>
+        <label for="temp-op">To Temperature:</label>
+        <select name="temp-output" id="temp-op">
+          <option value="0">Select</option>
+          <option value="C">Celsius(C)</option>
+          <option value="F">Farenheit(F)</option>
+          <option value="K">Kelvin(K)</option>
+        </select>
+        <br />
+        <button id="temp-btn">Get Temperature</button>
+        <button id="reset-btn">Reset</button>
 
-      <div class="accordion-item">
-        <button class="accordion-header">How do I track my order?</button>
-        <div class="accordion-body">
-          <p>You’ll receive a tracking link via email once your order has been dispatched.</p>
-        </div>
-      </div>
+        <p id="display"></p>
+        <p id="formula"></p>
 
-      <div class="accordion-item">
-        <button class="accordion-header">Can I update or cancel my order?</button>
-        <div class="accordion-body">
-          <p>Yes, within 2 hours of placing the order. Contact support for assistance.</p>
-        </div>
+
       </div>
     </div>
-  </div>
 
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

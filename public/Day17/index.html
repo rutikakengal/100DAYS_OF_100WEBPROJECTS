@@ -66,19 +66,19 @@
         }
 
         .mood-btn.calm {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+             background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
         }
 
-        .mood-btn.happy {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        .mood-btn.happy { 
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); 
         }
 
-        .mood-btn.sleepy {
-            background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+        .mood-btn.sleepy { 
+            background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); 
         }
 
-        .mood-btn.focus {
-            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+        .mood-btn.focus { 
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%); 
         }
 
         .timer-section {
@@ -137,12 +137,19 @@
             font-weight: 300;
             min-height: 1.5rem;
         }
+        
+         .control-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
 
-        .reset-btn {
+        .control-btn {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            padding: 0.8rem 2rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 25px;
             cursor: pointer;
             font-size: 1rem;
@@ -151,12 +158,12 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .reset-btn:hover {
+        .control-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .reset-btn:disabled {
+        .control-btn:disabled {
             opacity: 0.6;
             cursor: not-allowed;
             transform: none;
@@ -168,7 +175,7 @@
         body.sleepy { background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%); }
         body.focus { background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%); }
 
-        /* Mobile responsiveness */
+         /* Mobile responsiveness */
         @media (max-width: 480px) {
             .container {
                 padding: 1.5rem;
@@ -223,9 +230,17 @@
             </div>
             <div class="message" id="message">Choose your mood to begin ✨</div>
         </div>
-
-        <button class="reset-btn" onclick="resetTimer()" id="resetBtn">Reset Timer</button>
+        
+        <div class="control-buttons">
+             <button class="control-btn" onclick="toggleMusic()" id="musicBtn">🎵 Play Music</button>
+             <button class="control-btn" onclick="resetTimer()" id="resetBtn">Reset Timer</button>
+        </div>
     </div>
+
+    <audio id="calm-audio" src="music\calm-music.mp3" loop></audio>
+    <audio id="happy-audio" src="music\happy-music.mp3" loop></audio>
+    <audio id="sleepy-audio" src="music\sleepy-music.mp3" loop></audio>
+    <audio id="focus-audio" src="music\focus-music.mp3" loop></audio>
 
     <script>
         // Timer variables
@@ -234,6 +249,23 @@
         let timeLeft = 0;
         let currentMood = '';
 
+        // Audio variables
+        let isMusicOn = false;
+        let currentAudio = null;
+
+        // Element references
+        const timerDisplay = document.getElementById('timerDisplay');
+        const messageDisplay = document.getElementById('message');
+        const moodEmojiDisplay = document.getElementById('moodEmoji');
+        const progressCircle = document.getElementById('progressCircle');
+        const musicBtn = document.getElementById('musicBtn');
+        const audioElements = {
+            calm: document.getElementById('calm-audio'),
+            happy: document.getElementById('happy-audio'),
+            sleepy: document.getElementById('sleepy-audio'),
+            focus: document.getElementById('focus-audio')
+        };
+        
         // Mood configurations
         const moods = {
             calm: { emoji: '🧘', message: 'Take deep breaths and relax...', class: 'calm' },
@@ -244,29 +276,30 @@
 
         // Start timer function
         function startTimer(mood, duration) {
-            // Clear any existing timer
             if (currentTimer) {
                 clearInterval(currentTimer);
             }
+            stopAllAudio();
 
-            // Set timer variables
             currentMood = mood;
             totalTime = duration;
             timeLeft = duration;
+            currentAudio = audioElements[mood];
 
-            // Update UI
             updateMoodTheme(mood);
             updateDisplay();
-            document.getElementById('message').textContent = moods[mood].message;
-            document.getElementById('moodEmoji').textContent = moods[mood].emoji;
+            messageDisplay.textContent = moods[mood].message;
+            moodEmojiDisplay.textContent = moods[mood].emoji;
 
-            // Start countdown
+            if (isMusicOn && currentAudio) {
+                currentAudio.play();
+            }
+
             currentTimer = setInterval(() => {
                 timeLeft--;
                 updateDisplay();
                 updateProgress();
 
-                // Timer finished
                 if (timeLeft <= 0) {
                     clearInterval(currentTimer);
                     timerComplete();
@@ -278,52 +311,44 @@
         function updateDisplay() {
             const minutes = Math.floor(timeLeft / 60);
             const seconds = timeLeft % 60;
-            const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            document.getElementById('timerDisplay').textContent = display;
+            timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
 
         // Update progress circle
         function updateProgress() {
             const progress = ((totalTime - timeLeft) / totalTime) * 360;
-            const circle = document.getElementById('progressCircle');
-            circle.style.background = `conic-gradient(#6b73ff ${progress}deg, #e0e7ff ${progress}deg)`;
+            progressCircle.style.background = `conic-gradient(#6b73ff ${progress}deg, #e0e7ff ${progress}deg)`;
         }
 
         // Update mood theme
         function updateMoodTheme(mood) {
-            // Remove all mood classes
             document.body.className = '';
-            // Add current mood class
             document.body.classList.add(moods[mood].class);
         }
 
         // Timer completion
         function timerComplete() {
-            document.getElementById('message').textContent = "Time's up! Well done! 🎉";
-            document.getElementById('moodEmoji').textContent = '🎉';
-            
-            // Reset progress circle
-            document.getElementById('progressCircle').style.background = 'conic-gradient(#6b73ff 360deg, #e0e7ff 360deg)';
-            
-            // Reset timer variables
+            messageDisplay.textContent = "Time's up! Well done! 🎉";
+            moodEmojiDisplay.textContent = '🎉';
+            progressCircle.style.background = 'conic-gradient(#6b73ff 360deg, #e0e7ff 360deg)';
+            stopAllAudio();
             currentTimer = null;
             timeLeft = 0;
         }
 
         // Reset timer function
         function resetTimer() {
-            // Clear timer if running
             if (currentTimer) {
                 clearInterval(currentTimer);
-                currentTimer = null;
             }
+            stopAllAudio();
 
-            // Reset variables
             timeLeft = 0;
             totalTime = 0;
             currentMood = '';
+            currentTimer = null;
+            currentAudio = null;
 
-            // Reset UI
             document.getElementById('timerDisplay').textContent = '00:00';
             document.getElementById('message').textContent = 'Choose your mood to begin ✨';
             document.getElementById('moodEmoji').textContent = '🦋';
@@ -333,10 +358,31 @@
             document.body.className = '';
         }
 
-        // Initialize app
-        document.addEventListener('DOMContentLoaded', function() {
-            resetTimer();
-        });
+        // Toggle music on and off
+        function toggleMusic() {
+            isMusicOn = !isMusicOn;
+            if (isMusicOn) {
+                musicBtn.innerHTML = '🔇 Mute Music';
+                if (currentAudio) {
+                    currentAudio.play();
+                }
+            } else {
+                musicBtn.innerHTML = '🎵 Play Music';
+                stopAllAudio();
+            }
+        }
+        
+        // Stop all audio tracks
+        function stopAllAudio() {
+             Object.values(audioElements).forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+            });
+        }
+
+        // Initialize app on load
+        document.addEventListener('DOMContentLoaded', resetTimer);
     </script>
 </body>
 </html>
+```

@@ -19,7 +19,7 @@ const projects = [
   "text to PDF Convertor",
   "Memory Card Game",
   "Email Validator",
-
+  
   "Snake And Ladder Game",
   "Space Jumper Game",
   "Calculator",
@@ -28,7 +28,9 @@ const projects = [
   "Space War Game",
   " ",
   " ",
+  "FAQ Accordion",
   " ",
+  "Age Calculator",
   "Guess the Number Game",
   " ",
   " ",
@@ -36,8 +38,6 @@ const projects = [
   " ",
   "Doodle Jump Game",
   // Add more project names as needed
-  "FAQ Accordion",
-  "Age Calculator"
 ];
 
 const hamburgerBtn = document.getElementById('hamburger-btn');
