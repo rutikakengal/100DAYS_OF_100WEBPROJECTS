@@ -1,4 +1,3 @@
- main
 * {
     margin: 0;
     padding: 0;
@@ -579,74 +578,3 @@ main {
 .controls {
     animation: fadeIn 0.5s ease 0.4s both;
 } 
-=======
-*{
-    font-family: "Poppins", sans-serif;
-}
-
-.container{
-    width:100%;
-    height:100vh;
-    background:beige;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.calculator{
-    background-color: rgb(242, 191, 190);
-    padding:15px;
-    border-radius: 10px;
-    box-shadow: 10px 10px 2px rgb(85, 85, 85);
-}
-
-.calculator form input{
-    border:0;
-    outline:0;
-    width: 60px;
-    height:60px;
-    border-radius: 10px;
-    background: transparent;
-    font-size: 20px;
-    color:#000000;
-    cursor:pointer;
-    margin: 10px;
-}
-
-form .display{
-    display:flex;
-    justify-content: flex-end;
-    margin: 20px 0;
-    background-color: rgb(0, 134, 252);
-    color: rgb(255, 255, 255);
-}
-
-form .display input{
-    text-align:right;
-    flex:1;
-    font-size:45px;
-    box-shadow:none;
-}
-
-form input.equal{
-    width:40%;
-}
-
-form input.operator{
-    background-color: rgb(204, 140, 144);;
-}
-
-form input.button{
-    border-radius: 50px;
-    border: 0.1px solid #212121;
-    box-shadow: 5px 5px 0 #000000; /* Vertical offset, blur, and color for the "shadow" */
-    transition: all 0.2s ease;
-}
-form input.number{
-    background-color: rgb(255, 229, 229);
-}
-.button:active {
-      transform: translateY(5px); /* Moves the button down on click */
-      box-shadow: 0 0 0 #3e8e41; /* Removes the shadow to complete the "pressed" look */
-}
- main
