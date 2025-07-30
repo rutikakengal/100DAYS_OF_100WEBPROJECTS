@@ -37,3 +37,4 @@ breedFilter.addEventListener("input", () => {
 });
 
 window.onload = loadDogs;
+

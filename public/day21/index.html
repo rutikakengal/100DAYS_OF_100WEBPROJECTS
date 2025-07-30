@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+
+  <body>
+    <h1>Temperature Converter</h1>
+    <div id="container">
+      <input type="text" placeholder="Enter the input temp" id="temp-ip-el" />
+
+      <div id="con">
+        <label for="temp-ip">From Temperature:</label>
+        <select name="temp-input" id="temp-ip">
+          <option value="0">Select</option>
+          <option value="C">Celsius(C)</option>
+          <option value="F">Farenheit(F)</option>
+          <option value="K">Kelvin(K)</option>
+        </select>
+
+        <label for="temp-op">To Temperature:</label>
+        <select name="temp-output" id="temp-op">
+          <option value="0">Select</option>
+          <option value="C">Celsius(C)</option>
+          <option value="F">Farenheit(F)</option>
+          <option value="K">Kelvin(K)</option>
+        </select>
+        <br />
+        <button id="temp-btn">Get Temperature</button>
+        <button id="reset-btn">Reset</button>
+        
+        <p id="display"></p>
+        <p id="formula"></p>
+
+        
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
