@@ -1,0 +1,142 @@
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 1rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .modal-content {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+        .modal-overlay.show .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .hidden {
+            display: none;
+        }
+        /* Custom scrollbar for subject list */
+        #subjects-container {
+            max-height: 300px; /* Limit height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding-right: 10px; /* Space for scrollbar */
+        }
+        #subjects-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        #subjects-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        #subjects-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        #subjects-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        /* Styling for the grade card table */
+        .grade-table {
+            width: 100%;
+            border-collapse: separate; /* Use separate for rounded corners on cells */
+            border-spacing: 0; /* Remove default cell spacing */
+            margin-top: 1rem;
+            overflow: hidden; /* Ensures rounded corners apply to content */
+            border-radius: 0.75rem; /* rounded-lg */
+        }
+        .grade-table th, .grade-table td {
+            padding: 0.85rem 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb; /* Light gray border */
+        }
+        .grade-table th {
+            background-color: #e0e7ff; /* Light blue header */
+            font-weight: 600;
+            color: #374151; /* Darker gray text */
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+        }
+        .grade-table tbody tr:nth-child(even) {
+            background-color: #f9fafb; /* Slightly different background for even rows */
+        }
+        .grade-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .grade-table tfoot td {
+            padding-top: 1.25rem;
+            border-top: 2px solid #3b82f6; /* Blue border for total */
+            font-weight: 700; /* Extra bold */
+            font-size: 1.25rem; /* Larger font for total */
+            color: #1f2937; /* Dark text for total */
+        }
+        /* Rounded corners for table header */
+        .grade-table thead th:first-child {
+            border-top-left-radius: 0.75rem;
+        }
+        .grade-table thead th:last-child {
+            border-top-right-radius: 0.75rem;
+        }
+
+        /* Animations for subject rows */
+        .subject-row-enter {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .subject-row-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+        .subject-row-exit {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .subject-row-exit-active {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+
+        /* Input validation styling */
+        .input-error {
+            border-color: #ef4444; /* red-500 */
+            box-shadow: 0 0 0 1px #ef4444;
+        }
