@@ -70,6 +70,8 @@ const projects = [
  
 
 
+  "Amazon Clone (Web-Page)",
+  "Online Lie Detector",
 ];
 
 const hamburgerBtn = document.getElementById('hamburger-btn');
