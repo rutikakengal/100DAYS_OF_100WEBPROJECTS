@@ -11,7 +11,7 @@
   "storage"
   ],
   "host_permissions": [
-    "https://source.unsplash.com/*"
+    "https://api.pexels.com/*"
   ],
   "background": {
     "service_worker": "background.js"
