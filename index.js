@@ -7,23 +7,20 @@ const projects = [
   "New Year Countdown",
   "Stylish Animated loginpage",
   "BMI Calculator",
-   "QR Generator",
+  "QR Generator",
   "Rock Paper Scissors Game",
   "Reading Journal",
   "Pong Game",
   "Colour Picker",
   "Drawing Canvas",
   "Nasa Astronomy Picture of the day",
-  "World Clock"
+  "World Clock",
   "Mood Timer",
   "text to PDF Convertor",
   "Memory Card Game",
   "Email Validator",
- main
-  "Hangman Game"
-
-  "Snake And Ladder Game",
- main
+  "Hangman Game",
+  "Snake And Ladder Game"
   // Add more project names as needed
 ];
 
@@ -73,7 +70,7 @@ projects.forEach((name, index) => {
    if (name === "Nasa Astronomy Picture of the day") {
     link = "https://sabaaa01.github.io/NASA-astronomy-photo-of-the-day/";
   } else if (name === "Hangman Game") {
-    link = "public/day23/index.html";
+    link = "public/day34/index.html";
   } else {
     const folder = `day${String(index + 1).padStart(2, "0")}`;
     link = `public/${folder}/index.html`;
