@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -242,3 +243,92 @@ body {
         font-size: 0.9rem;
     }
 }
+
+    text-align: center;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #efe8e8;
+    text-align: center;
+    height:50%;
+    padding-top: 30px;
+    background: #EEAECA;
+
+    background-image: url(bg.jpg);
+    background-size: cover;
+    background: #3D7EAA;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFE47A, #3D7EAA);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFE47A, #3D7EAA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+    background-color:#e5e5ee;}
+
+/* Outer container */
+#container {
+    margin:auto;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #ffffffaa;
+    background-color: #f1edef28;
+    box-shadow: 0 4px 15px rgba(14, 12, 12, 0.5); 
+    background-color: #e5e5ee10;
+}
+
+/* Inner box */
+#con {
+    
+
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+input, select, button {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    
+}
+
+button {
+    background-color:#0e71b3;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #1eb2c2;
+}
+
+#display {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+h1{
+    margin-bottom: 20px;
+    color: rgb(10, 64, 151);
+}
+
+label{
+    font-weight: bold;
+}
+
+#reset-btn{
+    background-color: #781b1b;
+}
+
+#reset-btn:hover{
+    background-color: #b21b1b;
+}
+
