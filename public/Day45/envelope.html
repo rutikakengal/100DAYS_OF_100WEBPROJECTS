@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Wish</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="envelope-container">
+        <div class="envelope" id="envelope">
+            <div class="envelope-front">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body"></div>
+            </div>
+            <div class="envelope-back"></div>
+            <div class="open-button" id="open-btn">OPEN</div>
+        </div>
+        
+        <div class="wish-content" id="wish-content" style="display: none;">
+            <div class="wish-message">
+                <h1 id="wish-title">Happy Birthday!</h1>
+                <p id="wish-text">Wishing you a wonderful day filled with joy and happiness!</p>
+                <p class="from-text">From: <span id="from-name-display">Your Name</span></p>
+            </div>
+        </div>
+        
+        <div class="confetti-container" id="confetti-container"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
