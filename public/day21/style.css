@@ -1,78 +1,97 @@
-
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-align: center;
 }
 
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #efe8e8;
-    text-align: center;
-    height:50%;
-    padding-top: 30px;
-    background: #EEAECA;
+#wrapper{
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 
-    
-    background-color:#e5e5ee;}
-
-/* Outer container */
-#container {
-    margin:auto;
-    width: 100%;
-    max-width: 500px;
-    border-radius: 8px;
+.container{
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #22c7dd57;
-    background-color: #e09abaa2;
-    box-shadow:10px rgba(23, 21, 21, 0.1);
 }
 
-/* Inner box */
-#con {
-    
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-input, select, button {
-    padding: 10px;
-    font-size: 16px;
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button {
-    background-color: #0e9238;
-    color: white;
-    border: none;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0f8430;
-}
-
-#display {
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-h1{
+.container h1{
+    margin: 20px 0;
+    text-align: center;
     margin-bottom: 20px;
-    color: rgb(0, 0, 0);
+    font-size: 3rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-label{
-    font-weight: bold;
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-#reset-btn{
-    background-color: #8c0841;
+/* figure{
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+} */
+
+.card{
+    width: 32%;
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
 }
+
+.card img{
+    height: 100%;
+    width: 100%;
+    filter: grayscale(100%);
+    box-shadow: 0 0 20px #333;
+    object-fit: cover;
+}
+
+.card:hover{
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 10px #333);
+    transition: 0.5s;
+
+}
+
+.card:hover img{
+    filter: grayscale(0%);
+}
+
+.card figcaption{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    width: 100%;
+    height: 20%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    opacity: 0;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.5), 0%, rgba(255,255,255,0), 100%);
+    transition: 0.33s;
+
+}
+
+.card:hover figcaption{
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+.mdby{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    
+}
+
+.link{
+    text-decoration: none;

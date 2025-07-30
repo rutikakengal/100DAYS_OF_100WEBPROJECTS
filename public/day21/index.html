@@ -1,45 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Temperature Converter</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>My Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div class="container">
+            <h3 class="mdby"><a href="https://x.com/harshsinghsv" target="_blank" class="link">Made by @harshsinghsv</a></h3>
+            <h1>My Gallery</h1>
+
+            <div class="gallery">
+
+                <figure class="card">
+                    <img src="./images/image1.webp" alt="">
+                    <figcaption>Wild Snake</figcaption>
+                </figure>
+                <figure class="card">
+                    <img src="./images/image2.webp" alt="">
+                    <figcaption>Centipede</figcaption>
+                </figure>
+                <figure class="card">
+                    <img src="./images/image3.webp" alt="">
+                    <figcaption>Lioness</figcaption>
+                </figure>
+                <figure class="card">
+                    <img src="./images/image4.webp" alt="">
+                    <figcaption>Black Feline</figcaption>
+                </figure>
+                <figure class="card">
+                    <img src="./images/image5.webp" alt="">
+                    <figcaption>Lion and Tiger</figcaption>
+                </figure>
+                <figure class="card">
+                    <img src="./images/image6.webp" alt="">
+                    <figcaption>Panda</figcaption>
+                </figure>
+                <figure class="card">
+                    <img src="./images/image7.webp" alt="">
+                    <figcaption>Moth Black And White</figcaption>
+                </figure>
+                <figure class="card">
+                    <img src="./images/image8.webp" alt="">
+                    <figcaption>Ground Skink</figcaption>
+                </figure>
+                <figure class="card">
+                    <img src="./images/image9.webp" alt="">
+                    <figcaption>Scallops Shell</figcaption>
+                </figure>
+    
+            </div>
 
 
-  <body>
-    <h1>Temperature Converter</h1>
-    <div id="container">
-      <input type="text" placeholder="Enter the input temp" id="temp-ip-el" />
-
-      <div id="con">
-        <label for="temp-ip">From Temperature:</label>
-        <select name="temp-input" id="temp-ip">
-          <option value="0">Select</option>
-          <option value="C">Celsius(C)</option>
-          <option value="F">Farenheit(F)</option>
-          <option value="K">Kelvin(K)</option>
-        </select>
-
-        <label for="temp-op">To Temperature:</label>
-        <select name="temp-output" id="temp-op">
-          <option value="0">Select</option>
-          <option value="C">Celsius(C)</option>
-          <option value="F">Farenheit(F)</option>
-          <option value="K">Kelvin(K)</option>
-        </select>
-        <br />
-        <button id="temp-btn">Get Temperature</button>
-        <button id="reset-btn">Reset</button>
+        </div>    
         
-        <p id="display"></p>
-        <p id="formula"></p>
 
         
-      </div>
     </div>
-
-    <script src="script.js"></script>
-  </body>
+</body>
 </html>
