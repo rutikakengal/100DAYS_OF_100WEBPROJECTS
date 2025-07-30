@@ -28,13 +28,15 @@ const projects = [
   "Space War Game",
   " ",
   " ",
+  "FAQ Accordion",
   " ",
+  "Age Calculator",
   "Guess the Number Game",
   " ",
   " ",
   " ",
   " ",
-  "Doodle Jump Game"
+  "Doodle Jump Game",
   // Add more project names as needed
 ];
 
