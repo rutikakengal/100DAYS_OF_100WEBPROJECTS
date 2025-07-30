@@ -24,7 +24,7 @@ const projects = [
   "Calculator",
   " ",
   " ",
-  " ",
+  "Flappy Bird Game ",
   " ",
   " ",
   " ",
