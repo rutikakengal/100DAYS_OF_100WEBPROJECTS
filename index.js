@@ -24,12 +24,14 @@ const projects = [
   "Calculator",
   "Promodoro Timer",
   "",
-  " ",
-  " ",
-  "FAQ Accordion  ",
-  "Age Calculator ",
+  "",
+  "",
+  "",
+  "",
   " ",
   // Add more project names as needed
+  "FAQ Accordion",
+  "Age Calculator"
 ];
 
 const hamburgerBtn = document.getElementById('hamburger-btn');
