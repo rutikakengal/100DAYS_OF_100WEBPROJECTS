@@ -23,11 +23,11 @@ const projects = [
   "Space Jumper Game",
   "Calculator",
   "Promodoro Timer",
-  "FAQ Accordion ",
+  "",
+  " ",
+  " ",
+  "FAQ Accordion  ",
   "Age Calculator ",
-  " ",
-  " ",
-  " ",
   " ",
   // Add more project names as needed
 ];
