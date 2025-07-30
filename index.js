@@ -97,7 +97,6 @@ const projects = [
   " ",
   " ",
   " ",
-  " ",
   "My Gallery",
   // Add more project names as needed
 ];
