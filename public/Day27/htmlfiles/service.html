@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requested Services</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .service-card {
+            margin: 20px;
+        }
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .service-description {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Requested Services </h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card service-card">
+                  <img src="https://bridgeeducation.org.uk/wp-content/uploads/2020/02/shutterstock_653923600-2.png" class="card-img-top" alt="Service 2" height="300px">
+                    <div class="card-body">
+                        <h5 class="service-title">Academic Advising</h5>
+                        <p class="service-description">Get guidance on course selection and academic planning.</p>
+                        <button class="btn btn-primary" onclick="requestService('Academic Advising')">Request Service</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card service-card">
+                    <img src="https://th.bing.com/th/id/OIP.MWcY9539-d1l7vrc7YzyywHaKG?rs=1&pid=ImgDetMain" class="card-img-top" alt="Service 2" height="300px">
+                    <div class="card-body">
+                        <h5 class="service-title">Career Counseling</h5>
+                        <p class="service-description">Explore career options and get help with job placements.</p>
+                        <button class="btn btn-primary" onclick="requestService('Career Counseling')">Request Service</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card service-card">
+                    <img src="https://th.bing.com/th/id/OIP.UFX8RhRe2YnvkvBLvYowVQHaHa?rs=1&pid=ImgDetMain" class="card-img-top" alt="Service 3">
+                    <div class="card-body">
+                        <h5 class="service-title">Mental Health Support</h5>
+                        <p class="service-description">Access resources for mental well-being and counseling.</p>
+                        <button class="btn btn-primary" onclick="requestService('Mental Health Support')">Request Service</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function requestService(serviceName) {
+            alert(`You have requested: ${serviceName}`);
+            // Here you can add more advanced functionality, such as sending a request to a server
+        }
+    </script>
+</body>
+</html>

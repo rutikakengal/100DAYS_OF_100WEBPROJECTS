@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Notice Board</title>
+  <link rel="stylesheet" href="../style/noticeboard.css">
+</head>
+<body>
+  <h2 style="color: orange;font-weight: bolder;font-size: 50px;">Digital Notice Board</h2>
+
+  <div class="search-bar" style="background-color:rgb(130, 195, 218);align-items: center;display: flex;justify-content: center;">
+    <input type="text" placeholder="Search Tags..." style="padding-left: 100px;align-items: center;border: 2px rgb(4, 75, 99) solid;border-radius:8px;height: 30px;" id="searchInput" oninput="searchAnnouncements()">
+  </div>
+
+  <div class="category-buttons">
+    <button class="general-button" onclick="filterAnnouncements('general')">General</button>
+    <button class="academics-button" onclick="filterAnnouncements('academics')">Academics</button>
+    <button class="opportunities-button" onclick="filterAnnouncements('opportunities')">Opportunities</button>
+  </div>
+
+  <div class="announcement-section">
+    <h3 style="font-size: 25px;">Announcements</h3>
+    <div class="no-announcements" id="announcementList">
+      <p id="noAnnouncementsMessage">No Announcements</p>
+      <p>30 September, 2024 10:52 AM</p>
+      <p>Today</p>
+    </div>
+    <button class="view-upcoming-button" onclick="viewUpcomingAnnouncements()">View Upcoming Announcements</button>
+  </div>
+  
+  <script>
+    const announcements = [
+      { category: 'general', text: 'General announcement 1', date: '30 September, 2024 10:52 AM' },
+      { category: 'academics', text: 'Academic announcement 1', date: '29 September, 2024 09:00 AM' },
+      { category: 'opportunities', text: 'Opportunity announcement 1', date: '28 September, 2024 08:30 AM' },
+      { category: 'general', text: 'General announcement 2: Upcoming event on campus.', date: '01 October, 2024 11:00 AM' },
+      { category: 'academics', text: 'Academic announcement 2: Midterm exams schedule released.', date: '02 October, 2024 10:00 AM' },
+      { category: 'opportunities', text: 'Opportunity announcement 2: Internship applications open.', date: '03 October, 2024 09:30 AM' },
+      { category: 'general', text: 'General announcement 3: New library hours starting next week.', date: '04 October, 2024 08:00 AM' }
+    ];
+
+    function filterAnnouncements(category) {
+      const filteredAnnouncements = announcements.filter(announcement => announcement.category === category);
+      displayAnnouncements(filteredAnnouncements);
+    }
+
+    function displayAnnouncements(filteredAnnouncements) {
+      const announcementList = document.getElementById('announcementList');
+      announcementList.innerHTML = ''; // Clear existing announcements
+      if (filteredAnnouncements.length === 0) {
+        announcementList.innerHTML = '<p id="noAnnouncementsMessage">No Announcements</p>';
+      } else {
+        filteredAnnouncements.forEach(announcement => {
+          const announcementItem = document.createElement('div');
+          announcementItem.innerHTML = `<p>${announcement.text}</p><p>${announcement.date}</p>`;
+          announcementList.appendChild(announcementItem);
+        });
+      }
+    }
+
+    function searchAnnouncements() {
+      const searchInput = document.getElementById('searchInput').value.toLowerCase();
+      const filteredAnnouncements = announcements.filter(announcement => 
+        announcement.text.toLowerCase().includes(searchInput)
+      );
+      displayAnnouncements(filteredAnnouncements);
+    }
+
+    function viewUpcomingAnnouncements() {
+      // Logic to display upcoming announcements
+      alert('Viewing upcoming announcements');
+      // Here you would implement the actual display logic
+    }
+  </script>
+</body>
+</html>

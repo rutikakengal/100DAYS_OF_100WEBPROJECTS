@@ -1,0 +1,138 @@
+<!-- Start of Selection -->
+<!-- Start Generation Here -->
+
+<!-- End Generation Here -->
+<!-- Start of Selection -->
+
+  
+<!-- End of Selection -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            border: 5px #101f34 solid;
+            background-color: #e0f7fa; /* Light blue background for a vibrant look */
+        }
+        .feedback {
+            list-style: none;
+            height: 100px;
+            background-color: #ffb703; /* Bright yellow background */
+            margin: 5px;
+            align-items: center;
+            font-size: 40px;
+            color: #023047; /* Dark blue text color */
+            padding-top: 50px;
+            transition: background-color 0.3s;
+            border-radius: 10px; /* Rounded corners for a softer look */
+        }
+        .feedback:hover {
+            background-color: #fb8500; /* Darker orange shade on hover */
+        }
+        .feedback-list {
+            list-style: none;
+            height: 100px;
+            background-color: #219ebc; /* Teal background */
+            margin: 10px;
+            align-items: center;
+            padding-top: 50px;
+            transition: background-color 0.3s;
+            border-radius: 10px; /* Rounded corners for a softer look */
+        }
+        .feedback-list:hover {
+            background-color: #1a7a9c; /* Darker shade on hover */
+        }
+        a {
+            color: #fb8500; /* Bright orange for links */
+            text-decoration: none; /* Remove underline from links */
+        }
+        a:hover {
+            color: #ffb703; /* Change to bright yellow on hover */
+            text-decoration: underline; /* Underline on hover for emphasis */
+        }
+       
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackDiv = document.querySelector('.feedback');
+            feedbackDiv.addEventListener('click', function() {
+                alert('Feedback form clicked!');
+            });
+
+            const feedbackListItems = document.querySelectorAll('.feedback-list li');
+            feedbackListItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const facultyName = this.querySelector('strong').textContent;
+                    alert(`You clicked on feedback for ${facultyName}`);
+                });
+            });
+
+            const feedbackList = document.querySelector('.feedback-list');
+            feedbackList.addEventListener('click', function() {
+                alert('Feedback list clicked!');
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+        // Example JavaScript functionality
+        const feedbackItems = document.querySelectorAll('.feedback, .feedback-list');
+        feedbackItems.forEach(item => {
+            item.addEventListener('click', function() {
+                alert('You clicked on: ' + this.textContent);
+            });
+        });
+    });
+    </script>
+</head>
+<!-- End of Selection -->
+
+<!-- End Generation Here -->
+
+
+<body align="center">
+    <div>
+    <div class="feedback">Feedback form</div>
+    <div>
+        <ul class="feedback-list">
+            <li>
+                <strong>G.SRAVAN KUMAR</strong><br>
+                <span>Advanced Algorithm</span><br>
+                <a href="feedback.html">Pending Submission</a>
+            </li>
+            </ul></div>
+    <div>
+
+            <ul class="feedback-list">
+                <li>
+                    <strong>NAVEEN KUMAR</strong><br>
+                    <span>Cryptogrphy & Network Security</span><br>
+                    <a href="feedback.html">Pending Submission</a>
+                </li>
+                </ul>
+    </div>
+    <div>
+            <ul class="feedback-list">
+                <li>
+                    <strong>VENKATESH</strong><br>
+                    <span>Utilization of Electrical Energy</span><br>
+                    <a href="feedback.html">Pending Submission</a>
+                </li>
+                </ul>
+    </div>
+    <div>
+
+            <ul class="feedback-list">
+                <li>
+                    <strong>SWATHI</strong><br>
+                    <span>Data Mining</span><br>
+                    <a href="feedback.html">Pending Submission</a>
+                </li>
+                </ul>
+    </div>
+    </div>
+   
+</body>
+</html>

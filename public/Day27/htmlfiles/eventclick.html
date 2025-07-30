@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IoT Workshop</title>
+    <style>
+        /* Add your custom CSS styles here */
+        img{
+            height: 400px;
+            width: 500px;
+        
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .poster {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #4a95d2;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2 {
+            color: #555;
+            text-align: center;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const poster = document.querySelector('.poster');
+            poster.addEventListener('click', function() {
+                alert('Thank you for your interest in the IoT Workshop!');
+            });
+        });
+    </script>
+</head>
+<body align="center">
+    
+    <div class="poster">
+        <img src="../images/iot.jpg" align="center">
+        <h1>A Two-Day Workshop on IoT & Its Applications</h1>
+        <h2>Organized by St. Peter's Engineering College</h2>
+
+        <p><strong>Date:</strong> September 1-2, 2023</p>
+        <p><strong>Venue:</strong> F-44</p>
+
+        <h3>Topics and Discussion</h3>
+        <ul>
+            <li>Introduction to IoT</li>
+            <li>Raspberry Pi</li>
+        </ul>
+
+        <p><strong>About the Workshop:</strong></p>
+        <p>This workshop will cover the basics of IoT and its applications. Participants will learn about the Internet of Things, its components, and how to use the Raspberry Pi for IoT projects.</p>
+    </div>
+</body>
+</html>

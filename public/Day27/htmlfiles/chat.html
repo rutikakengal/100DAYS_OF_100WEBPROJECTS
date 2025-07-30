@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><!-- Start Generation Here -->
+    <div class="chatbot-container" style="max-width: 400px; margin: 20px auto; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+        <h2 style="text-align: center; color: #00796b;">Student Chatbot</h2>
+        <div id="chatbox" style="height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; border-radius: 5px; background-color: #f0f0f0;">
+            <div id="messages"></div>
+        </div>
+        <input type="text" id="userInput" placeholder="Ask me a question..." style="width: calc(100% - 22px); padding: 10px; margin-top: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <button id="sendButton" style="width: 100%; padding: 10px; background-color: #00796b; color: white; border: none; border-radius: 5px; cursor: pointer;">Send</button>
+    </div>
+    
+    <script>
+        document.getElementById('sendButton').addEventListener('click', function() {
+            const userInput = document.getElementById('userInput');
+            const userMessage = userInput.value;
+            if (userMessage.trim() === '') return;
+    
+            // Display user message
+            const messagesDiv = document.getElementById('messages');
+            messagesDiv.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
+            userInput.value = '';
+    
+            // Simulate bot response
+            const botResponse = getBotResponse(userMessage);
+            messagesDiv.innerHTML += `<div><strong>Bot:</strong> ${botResponse}</div>`;
+            messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to the bottom
+        });
+    
+        function getBotResponse(input) {
+            // Simple responses based on keywords
+            const responses = {
+                "hello": "Hello! How can I assist you today?",
+                "courses": "We offer various courses including Cloud Computing, Data Mining, and more.",
+                "attendance": "You can check your attendance in the Attendance Calculator.",
+                "assessment": "You can view your assessments in the Course-wise Assessments section.",
+                "help": "I'm here to help! You can ask me about courses, attendance, or assessments."
+            };
+    
+            // Return a response based on the input
+            const lowerInput = input.toLowerCase();
+            for (const key in responses) {
+                if (lowerInput.includes(key)) {
+                    return responses[key];
+                }
+            }
+            return "I'm sorry, I don't understand that. Can you ask something else?";
+        }
+    </script>
+    <!-- End Generation Here -->
+    
+    
+</body>
+</html>
