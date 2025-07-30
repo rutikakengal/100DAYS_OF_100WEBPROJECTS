@@ -1,58 +1,81 @@
-const choices = ["rock", "paper", "scissors"];
-const buttons = document.querySelectorAll(".choice");
-const playerScoreEl = document.getElementById("player-score");
-const computerScoreEl = document.getElementById("computer-score");
-const winnerEl = document.getElementById("winner");
-const playerChoiceEl = document.getElementById("player-choice");
-const computerChoiceEl = document.getElementById("computer-choice");
+import { accessKey } from './config.js';
 
-let playerScore = 0;
-let computerScore = 0;
+let input = document.querySelector(".search-box input");
+let btn = document.querySelector(".btn button");
+let images = document.querySelector(".images");
+let load = document.querySelector("#load");
 
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
-    const playerChoice = button.dataset.choice;
-    const computerChoice = getComputerChoice();
-    const winner = getWinner(playerChoice, computerChoice);
-    updateUI(playerChoice, computerChoice, winner);
-  });
+let page = 1;
+let keyword = "";
+
+function download(imgurl) {
+    fetch(imgurl).then(res => res.blob()).then(file => {
+        let a = document.createElement("a");
+        a.href = URL.createObjectURL(file);
+        a.download = new Date().getTime();
+        a.click();
+    }).catch(() => alert("Failed to download image"));
+}
+
+async function getResponse() {
+    if (!input || !images || !load) {
+        console.error("Required DOM elements are missing");
+        return;
+    }
+
+    keyword = input.value;
+    let url = `https://api.unsplash.com/search/collections?page=${page}&query=${keyword}&client_id=${accessKey}&per_page=25`;
+
+    try {
+        let response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        let data = await response.json();
+        let results = data.results || [];
+
+        if (page === 1) {
+            images.innerHTML = "";
+        }
+        load.style.display = "block";
+
+        results.forEach((result) => {
+            if (result.preview_photos && result.preview_photos.length > 0) {
+                let li = document.createElement("li");
+                li.classList.add("image");
+                let html = `<img src="${result.preview_photos[0].urls.small}" alt="img" class="photo">
+                        <div class="details">
+                            <div class="user">
+                                <img src="camera.svg" alt="img">
+                                <span>${result.title}</span>
+                            </div>
+                            <div class="download" onclick="download('${result.preview_photos[0].urls.small}')">
+                                <img src="download.svg" alt="img">
+                            </div>
+                        </div>`;
+                li.innerHTML = html;
+                images.appendChild(li);
+            }
+        });
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        alert("Failed to load images. Please try again.");
+    }
+}
+
+input?.addEventListener("keyup", (e) => {
+    page = 1;
+    if (e.key === "Enter") {
+        getResponse();
+    }
 });
 
-function getComputerChoice() {
-  const randomIndex = Math.floor(Math.random() * choices.length);
-  return choices[randomIndex];
-}
+btn?.addEventListener("click", () => {
+    page = 1;
+    getResponse();
+});
 
-function getWinner(player, computer) {
-  if (player === computer) return "draw";
-  if (
-    (player === "rock" && computer === "scissors") ||
-    (player === "paper" && computer === "rock") ||
-    (player === "scissors" && computer === "paper")
-  ) {
-    playerScore++;
-    return "player";
-  } else {
-    computerScore++;
-    return "computer";
-  }
-}
-
-function updateUI(player, computer, winner) {
-  playerScoreEl.textContent = playerScore;
-  computerScoreEl.textContent = computerScore;
-  playerChoiceEl.textContent = `You: ${capitalize(player)}`;
-  computerChoiceEl.textContent = `CPU: ${capitalize(computer)}`;
-
-  if (winner === "draw") {
-    winnerEl.textContent = "It's a draw!";
-  } else if (winner === "player") {
-    winnerEl.textContent = "You win! 🎉";
-  } else {
-    winnerEl.textContent = "Computer wins! 🤖";
-  }
-}
-
-function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
+load?.addEventListener("click", () => {
+    page++;
+    getResponse();
+});
