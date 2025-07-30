@@ -3,18 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
+    <title>Enhanced To-Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">          
 </head>
 <body>
     <div class="container">
-        <h1>Task Manager</h1>
+        <h1><i class="fas fa-tasks"></i> Task Manager</h1>
         <div class="task-input">
-            <input type="text" id="taskInput" placeholder="Enter task">
-            <button onclick="addTask()">Add Task</button>
+            <input type="text" id="taskInput" placeholder="Enter task..." autocomplete="off">
+            <button id="addTaskBtn"><i class="fas fa-plus"></i> Add Task</button>
+        </div>
+        <div class="task-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+        <div class="task-stats">
+            <span id="totalTasks">0 tasks</span>
+            <span id="completedTasks">0 completed</span>
         </div>
         <ol id="taskList"></ol>
+        <div class="empty-state" id="emptyState">
+            <i class="fas fa-clipboard-list"></i>
+            <p>No tasks yet. Add one above!</p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
