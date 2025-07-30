@@ -22,14 +22,19 @@ const projects = [
   "Digital Clock"
   "Snake And Ladder Game",
   "Space Jumper Game",
+  "Calculator",
+  "Promodoro Timer",
+  "Temperature Converter",
+  "Space War Game",
+  " ",
+  " ",
+  " ",
+  "Guess the Number Game",
   " ",
   " ",
   " ",
   " ",
-  " ",
-  " ",
-  " ",
-  " ",
+  "Doodle Jump Game"
   // Add more project names as needed
 ];
 
