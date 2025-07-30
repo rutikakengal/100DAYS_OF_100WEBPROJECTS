@@ -34,20 +34,27 @@ const projects = [
   " ",
   " ",
   " ",
-  "Doodle Jump Game"
+  "Doodle Jump Game",
+  "Hangman Game",  
   // Add more project names as needed
 ];
 
-const hamburgerBtn = document.getElementById('hamburger-btn');
-const mobileMenu = document.getElementById('mobile-menu');
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
 
-hamburgerBtn.addEventListener('click', () => {
-  mobileMenu.classList.toggle('hidden');
-});
+  if (hamburgerBtn && mobileMenu) {
+    hamburgerBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
 
-const tableBody = document.getElementById("tableBody");
-const projectCount = document.getElementById("projectCount");
-projectCount.textContent = projects.length;
+  const tableBody = document.getElementById("tableBody");
+  const projectCount = document.getElementById("projectCount");
+  
+  if (projectCount) {
+    projectCount.textContent = projects.length;
+  }
 
 // --- Random Project Button Functionality ---
 const randomBtn = document.getElementById("randomProjectBtn");
@@ -83,6 +90,8 @@ projects.forEach((name, index) => {
   let link;
    if (name === "Nasa Astronomy Picture of the day") {
     link = "https://sabaaa01.github.io/NASA-astronomy-photo-of-the-day/";
+  } else if (name === "Hangman Game") {
+    link = "public/day36/index.html";
   } else {
     const folder = `day${String(index + 1).padStart(2, "0")}`;
     link = `public/${folder}/index.html`;
@@ -101,4 +110,4 @@ projects.forEach((name, index) => {
 
   tableBody.appendChild(row);
 });
-
+});
