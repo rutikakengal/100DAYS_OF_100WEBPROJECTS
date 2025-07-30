@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b, #ff6a88, #d5a6e2); 
+    font-family: Arial, sans-serif;
+}
+.game-container {
+    position: relative;
+    text-align: center;
+    width: 400px;
+    height: 300px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.9); 
+}
