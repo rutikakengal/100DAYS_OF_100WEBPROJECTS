@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43968945-3"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-43968945-3');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript Game - The Spelling Bee</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="splash">
+        <div class="splash-content">
+            <h1>The Spelling Bee</h1>
+            <p>This game requires sound. Turn it up!</p>
+            <a class="btn btn-remove-splash"
+            id="btn-remove-splash" 
+            href="#h1" onclick="start.play()">Start Game</a>
+        </div>
+    </div> <!--end splash-->
+    <div class="wrapper">
+        <div class="game-board">
+            <div class="gb-content">
+                <h1 id="h1">The Spelling Bee</h1>
+                <button class="play-sound" id="playsound" >Get word</button>
+                <p class="def-p">Definition: </p>
+                <div class="definition" id="definition"></div>
+                <form>
+                    <label for="typeword">Answer:</label>
+                    <input type="text" id="typeword" name="typeword" /><br />
+                    <button class="submit">Submit</button>
+                </form>
+            </div>
+            <div class="card-container">
+                <div class="endgame" id="endgame">
+                    <div class="text" id="text"></div>
+                    <div class="btn-container">
+                        <button class="nextword" id="nextword"></button>
+                    </div>
+                </div><!--end endgame-->
+            </div><!--end card-container-->
+        </div><!--end game-board-->
+
+    </div><!--end wrapper-->
+<script src="scripts/game.js"></script>
+<footer>
+    <p>All definitions from <a href="https://www.merriam-webster.com/" target="_blank">Merriam Webster</a> dictionary.</p></footer>
+</footer>
+</body>
+</html>

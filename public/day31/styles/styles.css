@@ -1,0 +1,321 @@
+@charset "utf-8";
+
+/* Resets */
+
+/* Box Sizing Reset */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*  Responsive Image Reset  */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Type Styles */
+
+@font-face {
+    font-family: 'Grobold';
+    src: url(../fonts/GROBOLD.ttf);
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    src: url(../fonts/Comfortaa-Bold.ttf);
+} 
+
+.splash {
+    /* Background image courtesy of: <a href='https://www.freepik.com/free-photos-vectors/pattern'>Pattern vector created by freepik - www.freepik.com</a> */
+    display: flex;
+    height: 100vh;
+    background-image: url(../images/bee-bg.jpg);
+    background-size: cover;
+    justify-content: center;
+    background-position: center center;
+    align-items: center;
+    text-align: center;
+    transition: transform 1.2s ease-out;
+}
+
+.show-game-screen {
+    transform: translateY(-100%);
+}
+
+.splash-content {
+    background-color: #fed420;
+    padding: 20px 50px 50px 50px;
+    box-shadow: 5px 10px 20px black;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.splash-content h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: 60px;
+}
+
+.splash-content p {
+    max-width: 400px;
+    margin: 0 auto;
+    font-family: 'Comfortaa';
+    font-size: 16px;
+    padding-bottom: 35px;
+    padding-top: 20px;
+    color: black;
+}
+
+.btn-remove-splash {
+    padding: 15px;
+    background-color: #fed420;
+    box-shadow: 5px 10px 20px black;
+    border-radius: 5px;
+}
+
+.btn-remove-splash:hover, .btn-remove-splash:focus {
+    outline: none;
+    background-color: black;
+    color: white;
+}
+
+.splash-content a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Grobold';
+    letter-spacing: 1px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+ 
+body {
+    background-color: black;
+}
+
+.wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h1 {
+    font-family: 'Grobold';
+    letter-spacing: 4px;
+    font-size: 50px;
+    color: black;
+    text-align: center;
+    margin: 30px 0 40px 0;
+}
+
+.game-board {
+    background-color: black;
+    padding: 10px 30px;
+    border-radius: 5px;
+    /* height: 100vh; */
+    width: 100%;
+    margin-top: 15px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.gb-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.game-board h1 {
+    color: #fed420;
+    line-height: 60px;
+    padding-top: 40px;
+}
+
+.play-sound {
+    background: transparent;
+    outline: none;
+    border: 0;
+    background-color: #fed420;
+    color: black;
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Comfortaa';
+    font-size: 20px;
+    box-shadow: 5px 5px 1px white;
+    cursor: pointer;
+}
+
+.def-p {
+    font-family: 'Comfortaa';
+    font-size: 16px;
+    color: #fed420;
+    margin-top: 30px;
+    display: none;
+    margin-bottom: 0;
+}
+
+#definition {
+    font-family: 'Comfortaa';
+    font-size: 16px;
+    color: black;
+    margin-top: 5px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    border: 2px solid #fed420;
+    display: none;
+}
+
+form {
+    margin-top: 30px;
+    width: 100%;
+}
+
+form label {
+    color: #fed420;
+    font-family: 'Comfortaa';
+}
+
+#typeword {
+    margin-top: 5px;
+    width: 100%;
+    padding: 10px;
+    padding-left: 15px;
+    outline: none;
+    border: 2px solid #fed420;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Comfortaa';
+    color: black;
+}
+
+.submit {
+    background: transparent;
+    font-family: 'Grobold';
+    border: 0;
+    outline: none;
+    font-size: 20px;
+    background-color: #fed420;
+    color: black;
+    border-radius: 5px;
+    padding: 15px 25px;
+    margin-top: 5px;
+    width: 100%;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 5px 5px 1px white;
+}
+
+.card-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin: 0 auto;
+    /* width: 300px; */
+}
+
+.endgame {
+    display: block;
+    margin: 0 auto;
+    background-color: #fed420;
+    box-shadow: 5px 10px 20px black;
+    z-index: 9999;
+    border-radius: 5px;
+    display: none;
+    padding: 50px;
+}
+
+.text {
+    color: black;
+    font-size: 20px;
+    max-width: 300px;
+    margin: 0 auto;
+    font-family: 'Comfortaa';
+    line-height: 1.1em;
+    text-align: center;
+    padding-top: 20px;
+    line-height: 30px;
+    padding-bottom: 20px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.nextword {
+    width: 150px;
+    height: 70px;
+    margin: 0 auto;
+    border: none;
+    background-color: #fed420;
+    box-shadow: 5px 10px 20px black;
+    font-family: 'Grobold';
+    letter-spacing: 1px;
+    font-size: 20px;
+    color: black;
+    border-radius: 5px;
+}
+
+button:focus, button:hover {
+    transition: all .2s ease-in-out;
+    transform: scale(1.02);
+    outline: none;
+}
+
+footer p {
+    color: white;
+    font-family: 'Comfortaa';
+    font-size: 14px;
+    text-align: center;
+}
+
+footer p a {
+    color: #fed420;
+    text-decoration: none;
+}
+
+footer p a:hover {
+    color: white;
+}
+
+@media (min-width: 600px) {
+    .card-container {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 620px) {
+    .splash-content {
+        padding-top: 50px;
+        padding-bottom: 70px;
+    }
+}
+
+@media (min-width: 800px) {
+    .card-container {
+        max-width: 500px;
+    }
+}
+
+@media (min-width: 650px) {
+    .game-board {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
