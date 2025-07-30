@@ -7,7 +7,8 @@ const projects = [
   "New Year Countdown",
   "BMI Calculator",
   "Rock Paper Scissors Game",
-  "Reading Journal"
+  "Reading Journal",
+  "Music Player"
   // Add more project names as needed
 ];
 
