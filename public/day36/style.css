@@ -1,0 +1,94 @@
+body {
+  background: #232323;
+  color: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+.form-section, .preview-section {
+  background: #1a1a1a;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #0005;
+  padding: 2rem 1.5rem;
+  min-width: 340px;
+  max-width: 400px;
+  flex: 1 1 350px;
+}
+.form-section h2, .preview-section h2 {
+  color: #1ecfff;
+  border-bottom: 2px solid #1ecfff;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+input, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  margin-top: 0.3rem;
+  background: #232323;
+  color: #fff;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+input:focus, textarea:focus {
+  outline: 2px solid #1ecfff;
+}
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+button {
+  background: #1ecfff;
+  color: #232323;
+  border: none;
+  border-radius: 5px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:hover {
+  background: #17b3e6;
+}
+.preview-section {
+  min-width: 400px;
+  max-width: 500px;
+}
+.resume-preview {
+  background: #232323;
+  border: 1px dashed #444;
+  border-radius: 8px;
+  min-height: 350px;
+  padding: 1.5rem;
+  color: #fff;
+}
+.placeholder {
+  color: #888;
+  text-align: center;
+  margin-top: 2rem;
+}
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-section, .preview-section {
+    max-width: 100%;
+    min-width: 260px;
+  }
+}
