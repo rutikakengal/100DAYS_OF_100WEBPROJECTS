@@ -7,7 +7,7 @@ const projects = [
   "New Year Countdown",
   "Stylish Animated loginpage",
   "BMI Calculator",
-   "QR Generator",
+  "QR Generator",
   "Rock Paper Scissors Game",
   "Reading Journal",
   "Pong Game",
@@ -27,6 +27,7 @@ const projects = [
   "Temperature Converter",
   "Space War Game",
   " ",
+  "PawPics Viewer",
   " ",
   " ",
   "Guess the Number Game",
@@ -37,6 +38,7 @@ const projects = [
   "Doodle Jump Game"
   // Add more project names as needed
 ];
+
 
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const mobileMenu = document.getElementById('mobile-menu');
