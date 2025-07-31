@@ -31,7 +31,11 @@ const projects = [
   " ",
   " ",
   "Guess the Number Game",
-  " "
+  " ",
+  " ",
+  " ",
+  " ",
+  "Doodle Jump Game"
   // Add more project names as needed
 ];
 
