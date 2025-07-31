@@ -26,7 +26,7 @@ const projects = [
   "Promodoro Timer",
   "Temperature Converter",
   "Space War Game",
-  " ",
+  "Wishes Website ",
   " ",
   " ",
   "Guess the Number Game",
