@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-section">
+      <h2>Resume Builder</h2>
+      <form id="resume-form">
+        <label>Name:<input type="text" id="name" required></label>
+        <label>Email:<input type="email" id="email" required></label>
+        <label>Phone:<input type="text" id="phone" required></label>
+        <label>Education:<input type="text" id="education" required></label>
+        <label>Summary:<textarea id="summary" rows="2"></textarea></label>
+        <label>Projects:<textarea id="projects" rows="2"></textarea></label>
+        <label>Skills:<input type="text" id="skills" placeholder="e.g. HTML, CSS, JS"></label>
+        <label>Experience:<textarea id="experience" rows="2"></textarea></label>
+        <div class="form-buttons">
+          <button type="button" id="preview-btn">Live Preview</button>
+          <button type="button" id="download-btn">Download PDF</button>
+        </div>
+      </form>
+    </div>
+    <div class="preview-section">
+      <h2>Live Preview</h2>
+      <div id="resume-preview" class="resume-preview">
+        <p class="placeholder">Fill the form to see live preview...</p>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
