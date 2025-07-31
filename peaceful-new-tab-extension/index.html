@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>New Tab</title>
 </head>
+
 <body>
     <div class="greetingContainer">
         <h1 id="greeting"></h1>
         <button id="resetNameBtn">Change Name</button>
-         <p id="quote">Practice like you never won, Perform like your never Lost!</p>
+        <p id="quote">Practice like you never won, Perform like your never Lost!</p>
     </div>
 
     <div class="bookMarksContainer">
+        <div id="bookmarks-section">
+            <h2>Your Bookmarks</h2>
+            <div id="bookmarks"></div>
+        </div>
 
     </div>
 
     <div class="topSitesContainer">
+        <div id="top-sites-section">
+            <h2>Your Top Sites</h2>
+            <form id="add-site-form">
+                <input type="text" id="site-name" placeholder="Site Name" required>
+                <input type="url" id="site-url" placeholder="https://example.com" required>
+                <button type="submit">Add Site</button>
+            </form>
+            <ul id="top-sites-list"></ul>
+        </div>
+
+
 
     </div>
-    
+
     <div class="petsContainer">
 
     </div>
     <script src="script.js" defer></script>
 </body>
+
 </html>

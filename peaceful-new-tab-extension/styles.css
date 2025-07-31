@@ -8,5 +8,51 @@ body {
   height: 100vh;
   width: 100vw;
   font-family: Arial, sans-serif;
-  overflow: hidden;
+  /* overflow: hidden; */
+}
+
+#bookmarks a, #topsites a {
+  display: block;
+  color: #4a90e2;
+  margin-bottom: 8px;
+  text-decoration: none;
+}
+#bookmarks a:hover, #topsites a:hover {
+  text-decoration: underline;
+}
+
+.customTopSitesContainer {
+    margin: 20px;
+}
+
+#custom-topsites-section input {
+    margin: 5px;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+#custom-topsites a {
+    display: block;
+    color: #4a90e2;
+    margin-bottom: 6px;
+    text-decoration: none;
+}
+
+#custom-topsites a:hover {
+    text-decoration: underline;
+}
+
+#top-sites-section {
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+}
+
+#top-sites-list a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin: 6px 0;
 }

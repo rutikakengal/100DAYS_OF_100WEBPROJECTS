@@ -74,3 +74,92 @@ document.addEventListener("DOMContentLoaded", () => {
     // Load background image on tab load
     fetchRandomBackground();
 });
+
+function displayBookmarks() {
+  chrome.bookmarks.getTree((bookmarkTreeNodes) => {
+    const bookmarksContainer = document.getElementById('bookmarks');
+    bookmarksContainer.innerHTML = '';
+
+    function renderBookmarks(nodes) {
+      nodes.forEach(node => {
+        if (node.url) {
+          const link = document.createElement('a');
+          link.href = node.url;
+          link.textContent = node.title || node.url;
+          link.target = '_blank';
+          link.className = 'bookmark-link';
+          bookmarksContainer.appendChild(link);
+        }
+        if (node.children) {
+          renderBookmarks(node.children);
+        }
+      });
+    }
+
+    renderBookmarks(bookmarkTreeNodes);
+  });
+}
+
+displayBookmarks();
+
+
+function displayTopSites() {
+  chrome.topSites.get((sites) => {
+    const topSitesContainer = document.getElementById('topsites');
+    topSitesContainer.innerHTML = '';
+
+    sites.forEach(site => {
+      const link = document.createElement('a');
+      link.href = site.url;
+      link.textContent = site.title;
+      link.target = '_blank';
+      link.className = 'topsites-link';
+      topSitesContainer.appendChild(link);
+    });
+  });
+}
+
+displayTopSites();
+
+
+// --------- Custom Top Sites Section -----------
+
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("add-site-form");
+    const siteNameInput = document.getElementById("site-name");
+    const siteUrlInput = document.getElementById("site-url");
+    const list = document.getElementById("top-sites-list");
+
+    // Load stored top sites from localStorage
+    function loadSites() {
+        const sites = JSON.parse(localStorage.getItem("topSites")) || [];
+        list.innerHTML = ""; // Clear list
+        sites.forEach(site => {
+            const li = document.createElement("li");
+            li.innerHTML = `<a href="${site.url}" target="_blank">${site.name}</a>`;
+            list.appendChild(li);
+        });
+    }
+
+    // Add new site
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = siteNameInput.value.trim();
+        const url = siteUrlInput.value.trim();
+        if (!name || !url) return;
+
+        const newSite = { name, url };
+
+        const storedSites = JSON.parse(localStorage.getItem("topSites")) || [];
+        storedSites.push(newSite);
+        localStorage.setItem("topSites", JSON.stringify(storedSites));
+
+        // Clear form
+        siteNameInput.value = "";
+        siteUrlInput.value = "";
+
+        loadSites();
+    });
+
+    loadSites();
+});
