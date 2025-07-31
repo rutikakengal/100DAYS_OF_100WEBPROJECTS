@@ -35,7 +35,17 @@ const projects = [
   "Snake Game ",
   " ",
   "Doodle Jump Game",
-  "BrainBuzz Quizz Website"
+  "BrainBuzz Quizz Website",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  "Wishes Website",
+  " ",
   // Add more project names as needed
 ];
 
