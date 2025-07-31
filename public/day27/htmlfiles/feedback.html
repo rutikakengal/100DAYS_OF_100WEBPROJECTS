@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Faculty Feedback Form</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa; /* Light cyan background */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.feedback-form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #ffe0b2; /* Light orange background */
+}
+
+.feedback-form-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #6d4c41; /* Dark brown text */
+}
+
+.feedback-form-section {
+    margin-bottom: 20px;
+}
+
+.feedback-form-section-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #5d4037; /* Slightly darker brown text */
+}
+
+.feedback-form-question {
+    margin-bottom: 10px;
+}
+
+.feedback-form-rating {
+    display: flex;
+    align-items: center;
+}
+
+.feedback-form-rating-star {
+    font-size: 20px;
+    margin-right: 5px;
+    color: #ffb300; /* Gold color for stars */
+}
+
+.feedback-form-rating-value {
+    margin-right: 10px;
+}
+
+.feedback-form-rating-comment {
+    margin-left: 10px;
+}
+
+.feedback-form-additional-feedback {
+    margin-top: 20px;
+}
+
+.feedback-form-submit-button {
+    display: block;
+    padding: 10px 20px;
+    background-color: #64b5f6; /* Light blue background */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.feedback-form-submit-button:hover {
+    background-color: #42a5f5; /* Slightly darker blue on hover */
+}
+</style>
+<script>
+function handleSubmit(event) {
+    event.preventDefault(); // Prevent the default form submission
+    const overallRating = document.querySelector('input[name="overall_course_rating"]:checked');
+    const communicationRating = document.querySelector('input[name="teacher_communication_style"]:checked');
+
+    if (!overallRating || !communicationRating) {
+        alert("Please rate both questions before submitting.");
+        return;
+    }
+
+    const feedbackData = {
+        overallCourseRating: overallRating.value,
+        teacherCommunicationStyle: communicationRating.value
+    };
+
+    console.log("Feedback submitted:", feedbackData);
+    alert("Thank you for your feedback!");
+}
+</script>
+</head>
+<body>
+<div class="container">
+<h1 class="feedback-form-title">Faculty Feedback Form</h1>
+
+<form class="feedback-form" onsubmit="handleSubmit(event)">
+<div class="feedback-form-section">
+<h2 class="feedback-form-section-title">General Feedback</h2>
+<div class="feedback-form-question">
+<p>How do you rate the overall course?</p>
+<div class="feedback-form-rating">
+<input type="radio" name="overall_course_rating" value="1">
+<label class="feedback-form-rating-star">★</label>
+<input type="radio" name="overall_course_rating" value="2">
+<label class="feedback-form-rating-star">★</label>
+<input type="radio" name="overall_course_rating" value="3">
+<label class="feedback-form-rating-star">★</label>
+<input type="radio" name="overall_course_rating" value="4">
+<label class="feedback-form-rating-star">★</label>
+<input type="radio" name="overall_course_rating" value="5">
+<label class="feedback-form-rating-star">★</label>
+</div>
+</div>
+
+<div class="feedback-form-question">
+<p>How is the teacher's communication style?</p>
+<div class="feedback-form-rating">
+<input type="radio" name="teacher_communication_style" value="1">
+<label class="feedback-form-rating-star">★</label>
+<input type="radio" name="teacher_communication_style" value="2">
+<label class="feedback-form-rating-star">★</label>
+<input type="radio" name="teacher_communication_style" value="3">
+<label class="feedback-form-rating-star">★</label>
+<input type="radio" name="teacher_communication_style" value="4">
+<label class="feedback-form-rating-star">★</label>
+<input type="radio" name="teacher_communication_style" value="5">
+<label class="feedback-form-rating-star">★</label>
+</div>
+</div>
+
+</div>
+
+<div class="feedback-form-section">
+<h2 class="feedback-form-section-title">Course Content</h2>
+</div>
+
+<button type="submit" class="feedback-form-submit-button">Submit</button>
+</form>
+</div>
+</body>
+</html>

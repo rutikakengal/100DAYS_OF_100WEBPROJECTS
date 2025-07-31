@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Calculator</title>
+    <style>
+        body {
+            background-color: #e0f7fa; /* Light blue background for a calming effect */
+            font-family: 'Arial', sans-serif; /* Modern font for better readability */
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff; /* White background for the container */
+            border-radius: 10px; /* Rounded corners for a softer look */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+        h1 {
+            text-align: center;
+            color: #00796b; /* Teal color for the header */
+        }
+        .attendance-list {
+            list-style: none;
+            padding: 0;
+        }
+        .attendance-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            cursor: pointer; /* Change cursor to pointer for clickable items */
+        }
+        .subject {
+            font-weight: bold;
+        }
+        .percentage {
+            color: #dc0404; /* Red color for percentages */
+        }
+        .holiday {
+            color: #ff9800; /* Orange color for holidays */
+        }
+        .input-container {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #00796b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005b52;
+        }
+        .absence-details {
+            display: none; /* Initially hide absence details */
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f8bbd0; /* Light pink background for details */
+            border-radius: 5px; /* Rounded corners for details */
+        }
+    </style>
+   
+</head>
+<body bgcolor="#a0e1a0" align="center">
+    <div class="container">
+        <h1 style="color: #00796b;">Overall Attendance</h1>
+        <p style="color: #333;">Total Attendance: <span style="color: #dc0404;">69.39%</span></p>
+        <ul class="attendance-list">
+            <li>
+                <span class="subject" style="color: #00796b;">BUSINESS ECONOMICS & FINANCIAL ANALYSIS</span>
+                <span class="percentage" style="color: #dc0404;">68.00%</span>
+            </li>
+            <li>
+                <span class="subject" style="color: #00796b;">DATA MINING</span>
+                <span class="percentage" style="color: #4caf50;">65.00%</span>
+            </li>
+            <li>
+                <span class="subject" style="color: #00796b;">CLOUD COMPUTING</span>
+                <span class="percentage" style="color: #4caf50;">60.50%</span>
+            </li>
+            <li>
+                <span class="subject" style="color: #00796b;">ADVANCED ALGORITHMS</span>
+                <span class="percentage" style="color: #388e3c;">50.00%</span>
+            </li>
+            <li>
+                <span class="subject" style="color: #00796b;">UTILIZATION OF ELECTRICAL ENERGY</span>
+                <span class="percentage" style="color: #388e3c;">85.00%</span>
+            </li>
+        </ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const attendanceItems = document.querySelectorAll('.attendance-list li');
+            attendanceItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.toggle('highlight');
+                    // Adding data to show absence details
+                    const absenceDetails = document.createElement('div');
+                    absenceDetails.className = 'absence-details';
+                    absenceDetails.innerHTML = 'Absences: 2 classes missed';
+                    this.appendChild(absenceDetails);
+                    absenceDetails.style.display = absenceDetails.style.display === 'none' ? 'block' : 'none';
+                });
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const attendanceItems = document.querySelectorAll('.attendance-list li');
+            attendanceItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const details = this.querySelector('.absence-details');
+                    if (details) {
+                        details.style.display = details.style.display === 'none' ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+    
+    </script>
+</body>
+</html>

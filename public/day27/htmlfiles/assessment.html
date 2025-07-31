@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3rd Semester Course-wise Assessments</title>
+    <style>
+        body {
+            background-color: #fce4ec; /* Light pink background for the entire page */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff; /* White background for the container */
+            border-radius: 10px; /* Rounded corners for the container */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+
+        h1 {
+            text-align: center;
+            color: #d81b60; /* Dark pink color for the main heading */
+        }
+
+        h2 {
+            text-align: center;
+            color: #c2185b; /* Slightly lighter pink for the subheading */
+        }
+
+        .course-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .course-list li {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f8bbd0; /* Light pink background for each course */
+            border-radius: 5px; /* Rounded corners for course items */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        .course-list li:hover {
+            background-color: #f48fb1; /* Darker pink on hover */
+        }
+
+        .course-list li h3 {
+            margin-bottom: 10px;
+            color: #880e4f; /* Darker shade for course titles */
+        }
+
+        .assessment-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .assessment-list li {
+            margin-bottom: 5px;
+            color: #4a148c; /* Dark purple for assessment items */
+        }
+    </style>
+</head>
+<body bgcolor="pink">
+    <div class="container">
+        <h1>3rd Semester</h1>
+        <h2>Course-wise Assessments</h2>
+        <ul class="course-list">
+            <li>
+                <a href="b.html">BUSINESS ECONOMICS & FINANCIAL ANALYSIS</a>
+                <ul class="assessment-list">
+                    <li>Midterm Exam - 20%</li>
+                    <li>Final Exam - 40%</li>
+                    <li>Project - 30%</li>
+                    <li>Class Participation - 10%</li>
+                </ul>
+            </li>
+            <li>
+                <h3>DISCRETE MATHEMATICS</h3>
+                <ul class="assessment-list" >
+                    <li>Homework Assignments - 25%</li>
+                    <li>Midterm Exam - 25%</li>
+                    <li>Final Exam - 50%</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const courseItems = document.querySelectorAll('.course-list li');
+            courseItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const assessments = this.querySelector('.assessment-list');
+                    assessments.style.display = assessments.style.display === 'none' ? 'block' : 'none';
+                });
+            });
+        });
+        
+    </script>
+</body>
+</html>

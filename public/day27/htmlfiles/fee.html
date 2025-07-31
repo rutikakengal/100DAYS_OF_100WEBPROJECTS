@@ -1,0 +1,139 @@
+<!-- Start Generation Here -->
+
+<!-- End Generation Here -->
+
+<!-- Start of Selection -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Structure</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #e0f7fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .icon {
+            font-size: 50px;
+            color: #00796b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Fee Structure</h1>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fas fa-university icon"></i> College Fees</h2>
+            </div>
+            <div class="card-body">
+                <p>Regular Students: ₹00,000 per year</p>
+                <p>Government Employees: ₹35,000 per year</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fas fa-utensils icon"></i> Mess Fees</h2>
+            </div>
+            <div class="card-body">
+                <p>Monthly Fee: ₹3,000</p>
+                <p>Annual Fee: ₹30,000</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fas fa-bed icon"></i> Hostel Fees</h2>
+            </div>
+            <div class="card-body">
+                <p>Single Occupancy: ₹10,000 per month</p>
+                <p>Double Occupancy: ₹7,000 per month</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fas fa-money-bill-wave icon"></i> Total Fees</h2>
+            </div>
+            <div class="card-body">
+                <p>Total Fee for Regular Students: ₹80,000 per year</p>
+                <p>Total Fee for Government Employees: ₹60,000 per year</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+          <h2><i class="fas fa-credit-card icon"></i> Payment Details</h2>
+      </div>
+      <div class="card-body">
+          <p>Account Number: 1234567890</p>
+          <p>IFSC Code: ABC1234567</p>
+          <p>Please ensure to use the correct details for payments.</p>
+      </div>
+  </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                alert(`You clicked on: ${this.querySelector('h2').textContent}`);
+            });
+        });
+    });
+    
+    // JavaScript for internal purposes, not for display
+    function calculateTotalFees(regularStudents, governmentEmployees, messMonthly, messAnnual) {
+        const totalRegular = regularStudents * 100000; // Assuming ₹100,000 per regular student
+        const totalGovernment = governmentEmployees * 35000; // Assuming ₹35,000 per government employee
+        const totalMessMonthly = messMonthly * 3000; // Monthly mess fee
+        const totalMessAnnual = messAnnual * 30000; // Annual mess fee
+
+        return {
+            totalRegular,
+            totalGovernment,
+            totalMessMonthly,
+            totalMessAnnual
+        };
+    }
+
+    // Example usage
+    const fees = calculateTotalFees(100, 50, 12, 1); // 100 regular students, 50 government employees, 12 months, 1 year
+    console.log(fees); // This will log the total fees calculated
+
+    // Scanner functionality
+    function scanner() {
+        const input = prompt("Please enter the fee type you want to scan (e.g., College Fees, Mess Fees, Hostel Fees):");
+        const cards = document.querySelectorAll('.card');
+        let found = false;
+
+        cards.forEach(card => {
+            if (card.querySelector('h2').textContent.includes(input)) {
+                alert(`Found: ${card.querySelector('h2').textContent}`);
+                found = true;
+            }
+        });
+
+        if (!found) {
+            alert("No matching fee type found.");
+        }
+    }
+
+    // Call the scanner function
+    scanner();
+
+    </script>
+</body>
+</html>
+<!-- End Generation Here -->

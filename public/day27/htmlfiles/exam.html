@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exam Performance</title>
+    <style>
+        body {
+            background-color: aquamarine;
+            font-family: Arial, sans-serif; /* Added font family for better readability */
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px; /* Rounded corners for the container */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+        h1 {
+            text-align: center;
+            color: #333; /* Darker color for better contrast */
+        }
+        .s {
+            background-color: rgb(247, 209, 247);
+            border-radius: 5px; /* Rounded corners for list items */
+        }
+        .semester-list {
+            list-style: none;
+            padding: 0;
+        }
+        .semester-list li {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+        }
+        .semester-list li:hover {
+            background-color: #e0f7fa; /* Change background on hover */
+            transform: scale(1.02); /* Slightly enlarge on hover */
+        }
+        .semester-list li h2 {
+            margin-bottom: 5px;
+            color: #00796b; /* Teal color for titles */
+        }
+        .semester-list li button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px; /* Rounded corners for buttons */
+            cursor: pointer;
+            transition: background-color 0.3s; /* Smooth transition for button hover */
+        }
+        .semester-list li button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.semester-list li button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const semester = this.parentElement.querySelector('h2').textContent;
+                    alert(`You clicked on ${semester}`);
+                });
+            });
+
+            // Additional feature: Show a confirmation before navigating
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const semester = this.parentElement.querySelector('h2').textContent;
+                    const confirmNavigation = confirm(`Are you sure you want to view details for ${semester}?`);
+                    if (confirmNavigation) {
+                        document.location = 'assessment.html'; // Navigate only if confirmed
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Exam Performance</h1>
+        <ul class="semester-list">
+            <li class="s">
+                <h2>3rd Semester</h2>
+                <p>Ongoing</p>
+                <button>View</button>
+            </li>
+            <li class="s">
+                <h2>2nd Semester</h2>
+                <p>Completed</p>
+                <button>View</button>
+            </li>
+            <li class="s">
+                <h2>1st Semester</h2>
+                <p>Completed</p>
+                <button>View</button>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>3rd Semester Assessments</title>
+  <style>
+  /* General Styles */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Updated font for a modern look */
+    margin: 0;
+    padding: 0;
+    background-color: #eaeaea; /* Softer light background color */
+    color: #444; /* Slightly lighter text color for better readability */
+    line-height: 1.6; /* Improved line height for better text spacing */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Added shadow for better header visibility */
+  }
+
+  h1 {
+    color: #34495e; /* Richer color for the header */
+    text-align: center; /* Center the header */
+    margin-top: 30px; /* Increased space above the header */
+    font-size: 2.5em; /* Larger font size for the header */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+
+  /* Additional styles for links */
+  a {
+    text-decoration: none; /* Remove underline from links */
+    color: #3498db; /* Brighter link color */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+
+  a:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #2980b9; /* Darker shade on hover */
+  }
+
+  /* Style for the main content area */
+  main {
+    padding: 30px; /* Increased padding around the main content */
+    background-color: #ffffff; /* White background for main content */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+
+  /* Header Styles */
+  header {
+    display: flex;
+    align-items: center;
+    padding: 20px; /* Increased padding for header */
+    background-color: #f7f7f7; /* Light gray background for header */
+    border-bottom: 2px solid #ccc; /* Bottom border for separation */
+  }
+
+  .back-arrow {
+    width: 25px; /* Slightly larger back arrow */
+    height: 25px;
+    margin-right: 15px; /* Increased margin for spacing */
+  }
+
+  .course-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .course-list li {
+    margin-bottom: 15px; /* Increased margin for better spacing */
+    padding: 10px; /* Padding for list items */
+    background-color: #f9f9f9; /* Light background for list items */
+    border-radius: 5px; /* Rounded corners for list items */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+  }
+
+  .course-list li:hover {
+    background-color: #f1f1f1; /* Darker background on hover */
+  }
+
+  .course-list h3 {
+    margin: 0;
+    font-size: 20px; /* Increased font size for course titles */
+    color: #2c3e50; /* Darker color for course titles */
+  }
+
+  .expand-arrow {
+    width: 20px; /* Slightly larger expand arrow */
+    height: 20px;
+    float: right;
+    margin-left: 5px;
+    cursor: pointer; /* Pointer cursor for better UX */
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Semester Courses</h1>
+  </header>
+
+  <main>
+    <ul class="course-list">
+      <li>
+        <a href="b.html">BUSINESS ECONOMICS & FINANCIAL ANALYSIS</a>
+        <div class="expand-arrow" onclick="toggleExpand(this)"></div>
+      </li>
+      <li>
+        <a href="b.html">DATA STRUCTURES</a>
+        <div class="expand-arrow" onclick="toggleExpand(this)"></div>
+      </li>
+      <li>
+        <a href="b.html">DATABASE MANAGEMENT SYSTEMS</a>
+        <div class="expand-arrow" onclick="toggleExpand(this)"></div>
+      </li>
+      <li>
+        <a href="b.html">OBJECT ORIENTED PROGRAMMING</a>
+        <div class="expand-arrow" onclick="toggleExpand(this)"></div>
+      </li>
+      <li>
+        <a href="b.html">COMPUTER NETWORKS</a>
+        <div class="expand-arrow" onclick="toggleExpand(this)"></div>
+      </li>
+      <li>
+        <a href="b.html">SOFTWARE ENGINEERING</a>
+        <div class="expand-arrow" onclick="toggleExpand(this)"></div>
+      </li>
+      <li>
+        <a href="b.html">WEB TECHNOLOGIES</a>
+        <div class="expand-arrow" onclick="toggleExpand(this)"></div>
+      </li>
+      <li>
+        <a href="i.html">MOBILE APPLICATION DEVELOPMENT</a>
+        <div class="expand-arrow" onclick="toggleExpand(this)"></div>
+      </li>
+    </ul>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const expandArrows = document.querySelectorAll('.expand-arrow');
+      expandArrows.forEach(arrow => {
+        arrow.addEventListener('click', function() {
+          const parentLi = this.parentElement;
+          const isExpanded = parentLi.classList.toggle('expanded');
+          this.innerHTML = isExpanded ? '▼' : '▲'; // Change to down or up arrow
+        });
+      });
+    });
+  </script>
+</body>
+</html>

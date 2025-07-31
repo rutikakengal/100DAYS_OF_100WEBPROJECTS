@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+   <style>
+    body {
+        background-color: #e0f7fa; /* Light blue background for a calming effect */
+        font-family: 'Arial', sans-serif; /* Modern font for better readability */
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff; /* White background for the container */
+        border-radius: 10px; /* Rounded corners for a softer look */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    }
+    
+    header {
+        text-align: center;
+        font-size: 30px; /* Increased font size for the header */
+        color: #00796b; /* Teal color for the header */
+        margin-bottom: 20px; /* Space below the header */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        text-align: center; /* Center the navigation items */
+    }
+    
+    nav ul li {
+        display: inline-block;
+        margin-right: 30px; /* Increased spacing between nav items */
+    }
+    
+    nav ul li a {
+        text-decoration: none;
+        color: #00796b; /* Teal color for links */
+        padding: 10px 15px; /* Added horizontal padding */
+        border-radius: 5px; /* Rounded corners for links */
+        transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+        background-color: #e0f7fa; /* Light blue background for links */
+    }
+    
+    nav ul li a:hover {
+        background-color: #007bff; /* Blue background on hover */
+        color: #ffffff; /* White text on hover */
+        font-size: larger;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+    }
+    
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    
+    section {
+        border: 2px solid #e0f7fa; /* Light color border for sections */
+        padding: 15px; /* Increased padding for sections */
+        border-radius: 8px; /* Rounded corners for sections */
+        background-color: #f9f9f9; /* Light gray background for sections */
+        transition: transform 0.3s, background-color 0.3s; /* Smooth transition for hover effect */
+    }
+
+    section:hover {
+        transform: scale(1.02); /* Slightly enlarge section on hover */
+        background-color: #ffe0b2; /* Light orange background on hover */
+    }
+
+    img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%; /* Circular image */
+        border: 2px solid #e0f7fa; /* Light color border around the image */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow around the image */
+    }
+
+    footer {
+        padding-top: 20px;
+        text-align: center; /* Center footer text */
+        color: #555; /* Dark gray color for footer text */
+        font-size: 14px; /* Smaller font size for footer */
+        background-color: #f1f1f1; /* Light gray background for footer */
+        padding: 10px; /* Padding for footer */
+        border-radius: 5px; /* Rounded corners for footer */
+    }
+
+    button {
+        border: 2px solid #e0f7fa; /* Light color border for buttons */
+        border-radius: 5px; /* Rounded corners for buttons */
+        background-color: #ffffff; /* White background for buttons */
+        color: #fb8500; /* Orange text for buttons */
+        padding: 10px 15px; /* Padding for buttons */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+    }
+
+    button:hover {
+        background-color: #fb8500; /* Orange background on hover */
+        color: #ffffff; /* White text on hover */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+    }
+   </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const attendanceSection = document.querySelector('.attendance p');
+            const examsSection = document.querySelector('.exams nav ul');
+            const feePaymentsSection = document.querySelector('.fee-payments nav ul');
+
+            // Dynamic data
+            const attendanceData = '69.39%';
+            const examsData = ['Midterm Exam', 'Final Exam'];
+            const feePaymentsData = ['Tuition Fee', 'Library Fee'];
+
+            // Update attendance
+            attendanceSection.textContent = attendanceData;
+
+            // Add exams dynamically
+            examsData.forEach(exam => {
+                const li = document.createElement('li');
+                li.textContent = exam;
+                examsSection.appendChild(li);
+            });
+
+            // Add fee payments dynamically
+            feePaymentsData.forEach(fee => {
+                const li = document.createElement('li');
+                li.textContent = fee;
+                feePaymentsSection.appendChild(li);
+            });
+        });
+    </script>
+</head>
+<body bgcolor="skyblue">
+    <div class="container">
+        <header>
+            <h1>Account</h1>
+        </header>
+        <main>
+            <section class="student-info">
+                <img src="../images/sender.png" style="width:100%;">
+                <p>user name</p>
+                <p>23BK1A0589</p>
+            </section>
+            <section class="attendance">
+                 <nav>
+                    <ul>
+                        <li><a href="attendence.html">Attendance</a></li>
+                        </ul>
+                </nav>
+                <p></p> <!-- Attendance percentage will be dynamically added here -->
+            </section>
+            <section class="exams">
+                <nav>
+                    <ul>
+                        <li><a href="exam.html">Exams</a></li>
+                        </ul>
+                </nav>
+                <ul></ul> <!-- Exams will be dynamically added here -->
+            </section>
+            <section class="fee-payments">
+                <nav>
+                    <ul>
+                        <li><a href="fee.html">Fee Payments</a></li>
+                        </ul>
+                </nav>
+                <ul></ul> <!-- Fee payments will be dynamically added here -->
+            </section>
+            <section class="profile">
+                <nav>
+                    <ul>
+                        <li><a href="profile.html">Profile</a></li>
+                        </ul>
+                </nav>
+                </section>
+            <section class="student-services">
+                <nav>
+                    <ul>
+                        <li><a href="service.html">Student Services</a></li>
+                        </ul>
+                </nav>
+                </section>
+        </main>
+        <footer class="footer">
+            <button onclick="window.location.href='logout.html'">Logout</button>
+            <button onclick="window.location.href='reset.html'">Reset Password</button>
+        </footer>
+       
+    </div>
+</body>
+</html>
