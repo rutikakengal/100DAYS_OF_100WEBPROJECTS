@@ -35,8 +35,10 @@ const projects = [
   "Snake Game ",
   " ",
   "Doodle Jump Game",
+
   "BrainBuzz Quizz Website",
   "Travel dream Spinner"
+
   // Add more project names as needed
 ];
 
@@ -106,4 +108,5 @@ projects.forEach((name, index) => {
   `;
 
   tableBody.appendChild(row);
+
 });
