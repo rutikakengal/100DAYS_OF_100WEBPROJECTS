@@ -31,11 +31,11 @@ const projects = [
   " ",
   "Guess the Number Game",
   "",
-  " ",
-  "Snake Game ",
-  " ",
+  "Photo-Booth",
+  "Snake Game ", 
+  "Photo-Booth  ",
   "Doodle Jump Game",
-  "BrainBuzz Quizz Website"
+  
   // Add more project names as needed
 ];
 
@@ -82,12 +82,8 @@ randomBtn.addEventListener("click", () => {
 projects.forEach((name, index) => {
   const day = `Day ${String(index + 1).padStart(2, "0")}`;
   let link;
-  
-  // Dynamic link generation for specific projects
-  if (name === "Nasa Astronomy Picture of the day") {
+   if (name === "Nasa Astronomy Picture of the day") {
     link = "https://sabaaa01.github.io/NASA-astronomy-photo-of-the-day/";
-  } else if (name === "BrainBuzz Quizz Website") {
-    link = "https://brain-buzz-six.vercel.app/";
   } else {
     const folder = `day${String(index + 1).padStart(2, "0")}`;
     link = `public/${folder}/index.html`;
