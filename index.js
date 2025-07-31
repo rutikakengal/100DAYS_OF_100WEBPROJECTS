@@ -7,7 +7,7 @@ const projects = [
   "New Year Countdown",
   "Stylish Animated loginpage",
   "BMI Calculator",
-   "QR Generator",
+  "QR Generator",
   "Rock Paper Scissors Game",
   "Reading Journal",
   "Pong Game",
@@ -19,7 +19,7 @@ const projects = [
   "text to PDF Convertor",
   "Memory Card Game",
   "Email Validator",
-  
+
   "Snake And Ladder Game",
   "Space Jumper Game",
   "Calculator",
@@ -34,15 +34,16 @@ const projects = [
   " ",
   " ",
   " ",
-  "Doodle Jump Game"
+  "Doodle Jump Game",
+  "Simon Game",
   // Add more project names as needed
 ];
 
-const hamburgerBtn = document.getElementById('hamburger-btn');
-const mobileMenu = document.getElementById('mobile-menu');
+const hamburgerBtn = document.getElementById("hamburger-btn");
+const mobileMenu = document.getElementById("mobile-menu");
 
-hamburgerBtn.addEventListener('click', () => {
-  mobileMenu.classList.toggle('hidden');
+hamburgerBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
 });
 
 const tableBody = document.getElementById("tableBody");
@@ -81,7 +82,7 @@ randomBtn.addEventListener("click", () => {
 projects.forEach((name, index) => {
   const day = `Day ${String(index + 1).padStart(2, "0")}`;
   let link;
-   if (name === "Nasa Astronomy Picture of the day") {
+  if (name === "Nasa Astronomy Picture of the day") {
     link = "https://sabaaa01.github.io/NASA-astronomy-photo-of-the-day/";
   } else {
     const folder = `day${String(index + 1).padStart(2, "0")}`;
@@ -101,4 +102,3 @@ projects.forEach((name, index) => {
 
   tableBody.appendChild(row);
 });
-
