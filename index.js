@@ -35,7 +35,9 @@ const projects = [
   "Snake Game ",
   " ",
   "Doodle Jump Game",
-  "BrainBuzz Quizz Website"
+  "BrainBuzz Quizz Website",  
+  "Inspirational Quote Signature Maker"
+
   // Add more project names as needed
 ];
 
