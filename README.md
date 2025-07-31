@@ -54,6 +54,7 @@ const projects = [
   "To-Do List",
   "Weather App",
   "Your New Project", // 👈 Add your title like this
+  "BrainBuzz Quizz Website"
 ];
 ```
 

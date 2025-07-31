@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Buzz</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="light-mode">
+    <div class="theme-toggle">
+        <button id="themeToggle" class="theme-btn">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <div class="user-level">
+        <span id="userLevel">Level 1</span>
+    </div>
+
+    <div class="sound-controls">
+        <button id="soundToggle" class="sound-btn" title="Toggle Sound">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
+
+    <div id="welcomeScreen" class="screen active">
+        <div class="container">
+            <div class="welcome-content">
+                <h1 class="title">Brain Buzz</h1>
+                <p class="subtitle">Test your knowledge with our interactive quiz</p>
+                
+                <div class="category-selector">
+                    <h3>Choose Category:</h3>
+                    <div class="category-options">
+                        <button class="category-btn active" data-category="general">
+                            <i class="fas fa-globe"></i>
+                            General Knowledge
+                        </button>
+                        <button class="category-btn" data-category="science">
+                            <i class="fas fa-flask"></i>
+                            Science
+                        </button>
+                        <button class="category-btn" data-category="history">
+                            <i class="fas fa-landmark"></i>
+                            History
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="leaderboard-section">
+                    <h3>🏆 Top Scores</h3>
+                    <div id="leaderboard" class="leaderboard">
+                        <div class="loading">Loading...</div>
+                    </div>
+                </div>
+                
+                <button id="startQuizBtn" class="btn btn-primary glow-btn">
+                    <span>Start Quiz</span>
+                    <div class="glow"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="instructionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Quiz Instructions</h2>
+                <button class="close-btn" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="instruction-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3>Time Limit</h3>
+                        <p>Each question has a 30-second time limit</p>
+                    </div>
+                </div>
+                <div class="instruction-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <h3>Multiple Choice</h3>
+                        <p>Select the best answer from 4 options</p>
+                    </div>
+                </div>
+                <div class="instruction-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h3>Hints & Lifelines</h3>
+                        <p>Use hints (3 available) and 50:50 lifeline (1 available)</p>
+                    </div>
+                </div>
+                <div class="instruction-item">
+                    <i class="fas fa-fire"></i>
+                    <div>
+                        <h3>Streak Bonuses</h3>
+                        <p>Build streaks for bonus points and experience</p>
+                    </div>
+                </div>
+                <div class="instruction-item">
+                    <i class="fas fa-arrow-left"></i>
+                    <div>
+                        <h3>Navigation</h3>
+                        <p>Use Previous/Next buttons or swipe on mobile</p>
+                    </div>
+                </div>
+                <div class="instruction-item">
+                    <i class="fas fa-trophy"></i>
+                    <div>
+                        <h3>Scoring</h3>
+                        <p>Get points for correct answers + time & streak bonuses</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="startNowBtn" class="btn btn-primary">
+                    Start Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="quizScreen" class="screen">
+        <div class="container">
+            <div class="quiz-header">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                    <span id="progressText" class="progress-text">1/10</span>
+                </div>
+                <div class="timer-container">
+                    <div class="timer">
+                        <i class="fas fa-clock"></i>
+                        <span id="timer">30</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-content">
+                <div class="question-container">
+                    <h2 id="questionText" class="question">What is the capital of France?</h2>
+                </div>
+
+                <div class="options-container">
+                    <button class="option-btn" data-option="0">
+                        <span class="option-text">London</span>
+                        <div class="option-glow"></div>
+                    </button>
+                    <button class="option-btn" data-option="1">
+                        <span class="option-text">Berlin</span>
+                        <div class="option-glow"></div>
+                    </button>
+                    <button class="option-btn" data-option="2">
+                        <span class="option-text">Paris</span>
+                        <div class="option-glow"></div>
+                    </button>
+                    <button class="option-btn" data-option="3">
+                        <span class="option-text">Madrid</span>
+                        <div class="option-glow"></div>
+                    </button>
+                </div>
+
+                <div class="quiz-navigation">
+                    <button id="prevBtn" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i>
+                        Previous
+                    </button>
+                    <button id="nextBtn" class="btn btn-primary">
+                        Next
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button id="submitBtn" class="btn btn-success" style="display: none;">
+                        Submit Quiz
+                        <i class="fas fa-check"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="resultScreen" class="screen">
+        <div class="container">
+            <div class="result-content">
+                <div class="result-header">
+                    <div class="result-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h1>Quiz Complete!</h1>
+                    <p>Here's how you performed</p>
+                </div>
+
+                <div class="score-container">
+                    <div class="score-circle">
+                        <svg class="score-svg" viewBox="0 0 120 120">
+                            <circle class="score-bg" cx="60" cy="60" r="54"></circle>
+                            <circle id="scoreProgress" class="score-progress" cx="60" cy="60" r="54"></circle>
+                        </svg>
+                        <div class="score-text">
+                            <span id="scorePercentage">85%</span>
+                            <span id="scoreFraction">8/10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-stats">
+                    <div class="stat-item correct">
+                        <i class="fas fa-check"></i>
+                        <div>
+                            <span class="stat-number" id="correctCount">8</span>
+                            <span class="stat-label">Correct</span>
+                        </div>
+                    </div>
+                    <div class="stat-item incorrect">
+                        <i class="fas fa-times"></i>
+                        <div>
+                            <span class="stat-number" id="incorrectCount">2</span>
+                            <span class="stat-label">Incorrect</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <button id="retryBtn" class="btn btn-primary glow-btn">
+                        <span>Retry Quiz</span>
+                        <div class="glow"></div>
+                    </button>
+                    <button id="exitBtn" class="btn btn-secondary">
+                        Exit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
