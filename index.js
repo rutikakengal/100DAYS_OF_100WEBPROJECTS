@@ -31,7 +31,7 @@ const projects = [
   " ",
   "Guess the Number Game",
   "",
-  " ",
+  "Photo-Booth",
   "Snake Game ", 
   "Photo-Booth  ",
   "Doodle Jump Game",
