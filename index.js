@@ -37,6 +37,7 @@ const projects = [
   "Doodle Jump Game",
   "BrainBuzz Quizz Website"
   // Add more project names as needed
+  "Amazon Clone (Web-Page)",
 ];
 
 const hamburgerBtn = document.getElementById('hamburger-btn');
