@@ -26,16 +26,23 @@ const projects = [
   "Promodoro Timer",
   "Temperature Converter",
   "Space War Game",
-  " ",
+  "CHESS GAME",
   " ",
   " ",
   "Guess the Number Game",
+  "",
+  " ",
+  "Snake Game ",
+  " ",
+
   " ",
   " ",
-  " ",
-  " ",
+  
+
   "Doodle Jump Game",
+  "BrainBuzz Quizz Website",
   "Simon Game",
+
   // Add more project names as needed
 ];
 
@@ -82,8 +89,15 @@ randomBtn.addEventListener("click", () => {
 projects.forEach((name, index) => {
   const day = `Day ${String(index + 1).padStart(2, "0")}`;
   let link;
+<<<<<<< HEAD
+=======
+  
+  // Dynamic link generation for specific projects
+>>>>>>> upstream/main
   if (name === "Nasa Astronomy Picture of the day") {
     link = "https://sabaaa01.github.io/NASA-astronomy-photo-of-the-day/";
+  } else if (name === "BrainBuzz Quizz Website") {
+    link = "https://brain-buzz-six.vercel.app/";
   } else {
     const folder = `day${String(index + 1).padStart(2, "0")}`;
     link = `public/${folder}/index.html`;
