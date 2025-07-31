@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const response = await fetch(`https://api.pexels.com/v1/search?query=${randomCategory}&per_page=1&page=${Math.floor(Math.random() * 100)}`, {
             headers: {
-                Authorization: "[REDACTED_PEXELS_KEY]"
+                Authorization:"YOUR_PEXELS_API_KEY"
             }
         });
         if (response.ok) {
