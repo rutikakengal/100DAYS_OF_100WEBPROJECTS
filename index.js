@@ -5,10 +5,15 @@ const projects = [
   "Jewellery-company landing page",
   "Random Image Generator",
   "New Year Countdown",
-  "Stylish Animated loginpage",
   "BMI Calculator",
+  "Stylish Animated loginpage",
+  "Reading Journal",
+  "Tic Tac Toe",
    "QR Generator",
   "Rock Paper Scissors Game",
+
+  "SLiding Puzzle"
+
   "Reading Journal",
   "Pong Game",
   "Colour Picker",
@@ -34,8 +39,15 @@ const projects = [
   " ",
   "Snake Game ",
   " ",
+
+  " ",
+  " ",
+  "Doodle Jump Game"
+
+
   "Doodle Jump Game",
   "BrainBuzz Quizz Website"
+
   // Add more project names as needed
 ];
 

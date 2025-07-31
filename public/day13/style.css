@@ -1,0 +1,76 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+  text-align: center;
+  margin: 0;
+  padding: 30px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px #ccc;
+}
+
+.controls {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+select, button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.board {
+  display: grid;
+  gap: 5px;
+  margin: 0 auto;
+  width: max-content;
+}
+
+.tile {
+  width: 80px;
+  height: 80px;
+  font-size: 26px;
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.tile.empty {
+  background: #dcdcdc;
+  border: 2px dashed #aaa;
+  cursor: default;
+}
+
+.tile:hover {
+  transform: scale(1.05);
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  padding: 30px;
+  border: 3px solid #007bff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
