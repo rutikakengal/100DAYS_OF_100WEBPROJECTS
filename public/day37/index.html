@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor: HTML | CSS | JS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="code-editor-container">
+        <div class="code-editor" id="html-section">
+             <div class="head-editor html-section">
+                <div class="left-part">
+                    <img src="icons/html.svg" alt="" width="30px">
+                    <span>HTML</span>
+                </div>
+                <div class="right-part">
+                    <img src="icons/copy.svg" alt="" class="copy copy1">
+                </div>
+             </div>
+             <textarea class="code-area" spellcheck="false"></textarea>
+        </div>
+        <div class="code-editor" id="css-section">
+            <div class="head-editor css-section">
+                <div class="left-part">
+                    <img src="icons/css.svg" alt="" width="30px">
+                    <span>CSS</span>
+                </div>
+                <div class="right-part">
+                    <img src="icons/copy.svg" alt="" class="copy copy2">
+                </div>
+             </div>
+             <textarea class="code-area" spellcheck="false"></textarea>
+        </div>
+        <div class="code-editor" id="js-section">
+            <div class="head-editor js-section">
+                <div class="left-part">
+                    <img src="icons/javascript.svg" alt="" width="30px">
+                    <span>JS</span>
+                </div>
+                <div class="right-part">
+                    <img src="icons/copy.svg" alt="" class="copy copy3">
+                </div>
+             </div>
+             <textarea class="code-area" spellcheck="false"></textarea>
+        </div>
+    </div>
+    <div class="output-container">
+        <div class="output-head">
+        <span>OUTPUT</span>
+        <img src="icons/save.svg" alt="" id="save">
+        <img src="icons/fullscreen.svg" alt="" id="full-screen">
+        </div>
+        <iframe id="output">
+        </iframe>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
