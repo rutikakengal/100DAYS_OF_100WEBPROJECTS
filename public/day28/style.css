@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #e0f7fa, #80deea);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #00695c;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Main content */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Game container */
+#game-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#gameCanvas {
+    border: 2px solid #004d40;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background: #ffffff;
+    display: block;
+}
+
+/* Game over text */
+#game-over {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    font-weight: bold;
+    color: #d32f2f;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: pulse 1.5s infinite;
+}
+
+/* Pulse animation for game-over text */
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Score display */
+#score-display {
+    margin-top: 10px;
+    font-size: 1.5em;
+    color: #004d40;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Instructions section */
+#instructions {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#instructions h2 {
+    font-size: 1.8em;
+    color: #00695c;
+    margin-bottom: 10px;
+}
+
+#instructions ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+#instructions li {
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #555;
+    text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 850px) {
+    #gameCanvas {
+        width: 100%;
+        height: auto;
+        max-width: 600px;
+        max-height: 450px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    #game-over {
+        font-size: 2em;
+    }
+
+    #instructions {
+        padding: 15px;
+    }
+
+    #instructions h2 {
+        font-size: 1.5em;
+    }
+
+    #score-display {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 600px) {
+    #gameCanvas {
+        max-width: 400px;
+        max-height: 300px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    #game-over {
+        font-size: 1.5em;
+    }
+
+    #instructions li {
+        font-size: 1em;
+    }
+}
