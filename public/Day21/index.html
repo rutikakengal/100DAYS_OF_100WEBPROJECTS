@@ -2,6 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute Digital Clock</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Interactive Zone -->
+    <div class="background-interaction-zone"></div>
+    
+    <!-- Floating Elements - NOW OUTSIDE CONTAINER -->
+    <div class="floating-element heart-float-1"></div>
+    <div class="floating-element star-float-1"></div>
+    <div class="floating-element bubble-float-1"></div>
+    <div class="floating-element heart-float-2"></div>
+    <div class="floating-element star-float-2"></div>
+    <div class="floating-element cloud-float-1"></div>
+    <div class="floating-element sparkle-float-1"></div>
+    
+    <!-- Flip Button -->
+    <button id="flipToStopwatch" class="flip-btn">⏱️</button>
+    
+    <!-- Theme Switcher -->
+    <div class="theme-switcher">
+        <button class="theme-btn" id="themeDefault" data-theme="default"></button>
+        <button class="theme-btn" id="themeOcean" data-theme="ocean"></button>
+        <button class="theme-btn" id="themeSunset" data-theme="sunset"></button>
+        <button class="theme-btn" id="themeForest" data-theme="forest"></button>
+    </div>
+
+    <!-- Main Clock Container -->
+    <div class="container" id="clockContainer">
+        <h1>
+            <span class="header-icon">🕐</span>
+            Digital Clock
+            <span class="header-icon">✨</span>
+        </h1>
+        <div class="digital-clock" id="digitalClock">12:00:00 AM</div>
+        <div class="current-date" id="currentDate">Loading...</div>
+    </div>
+
+    <!-- Stopwatch Container -->
+    <div class="container stopwatch-container" id="stopwatchContainer" style="display: none;">
+        <h1>
+            <span class="header-icon">⏱️</span>
+            Stopwatch
+            <span class="header-icon">⚡</span>
+        </h1>
+        <div class="stopwatch-display" id="stopwatchDisplay">00:00:00</div>
+        <div class="stopwatch-controls">
+            <button class="control-btn start-btn" id="startBtn">Start</button>
+            <button class="control-btn reset-btn" id="resetBtn">Reset</button>
+            <button class="control-btn back-btn" id="backToClockBtn">Back</button>
+        </div>
+    </div>
+
+    <!-- Audio -->
+    <audio id="chimeSound" preload="auto">
+        <source src="sounds/chime.mp3" type="audio/mpeg">
+        <source src="sounds/chime.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+
+
+    <script src="script.js"></script>
+</body>
+=======
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -325,4 +392,5 @@
     <img src="snake ladder.png" alt="">
 </body>
 <script src="script.js"></script>
+>>>>>>> upstream/main
 </html>

@@ -18,8 +18,7 @@ const projects = [
   "Mood Timer",
   "text to PDF Convertor",
   "Memory Card Game",
-  "Email Validator",
-  
+  "Email Validator",  
   "Snake And Ladder Game",
   "Space Jumper Game",
   "Calculator",
@@ -34,8 +33,14 @@ const projects = [
   " ",
   "Snake Game ",
   " ",
+  " ",
+  " ",
   "Doodle Jump Game",
-  "BrainBuzz Quizz Website"
+  " ",
+  " ",
+  "Digital Clock",
+  "Doodle Jump Game",
+  "BrainBuzz Quizz Website",
   // Add more project names as needed
 ];
 
