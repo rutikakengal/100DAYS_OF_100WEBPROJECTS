@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+}
+h1 {
+  margin: 20px 0 10px 0;
+  color: #5af158;
+  text-shadow: 0 0 10px #5af158;
+  letter-spacing: 1px;
+}
+#settingsBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: #222;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 14px 18px;
+  box-shadow: 0 0 12px #0f0;
+  justify-content: center;
+}
+.optionGroup { display: flex; gap: 8px; }
+.modeBtn, .skinBtn {
+  padding: 7px 16px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.15s;
+}
+.modeBtn.selected, .skinBtn.selected {
+  background: #5af158;
+  color: #161616;
+  font-weight: bold;
+  box-shadow: 0 0 8px #84ff57;
+}
+.modeBtn:focus, .skinBtn:focus {
+  outline: 2px solid #fff857;
+}
+#gameWrapper { position: relative; }
+canvas {
+  background: #000;
+  border: 2px solid #5af158;
+  box-shadow: 0 0 24px #0f0;
+  display: block;
+  margin-bottom: 5px;
+  border-radius: 18px;
+  cursor: none;
+}
+canvas:focus { outline: none !important; }
+#overlay {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(3px);
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+#overlay.hidden { display: none; }
+#overlayText {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 16px;
+  color: #fff857;
+}
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.15s;
+}
+#playBtn { background: #5af158; color: #000; }
+#restartBtn { background: #f33; color: #fff; }
+button:hover { filter: brightness(1.2); }
+#scoreboard {
+  margin: 14px 0;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+  user-select: none;
+}
+#arrowPad {
+  display: inline-block;
+  margin: 10px 0 0 0;
+  user-select: none;
+}
+#arrowPad button {
+  margin: 2px 1px;
+  width: 48px;
+  height: 48px;
+  font-size: 1.7rem;
+  background: #444;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  transition: 0.12s;
+}
+#arrowPad button:active, #arrowPad button:focus {
+  background: #fffb96;
+  color: #161616;
+}
+.retro { --snake: #5af158; --head: #b6ff00; }
+.night { --snake: #3ec4ff; --head: #fff857; }
+.neon  { --snake: #ff2d95; --head: #fffb96; }
