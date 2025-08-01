@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('background.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    height: 100vh;
+}
+.container {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 80px;
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;           
+    transition: transform 0.2s ease-in-out;
+}
+.container:hover {
+    transform: scale(1.02);
+}
+.task-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.task-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.task-input button {
+    background-color: #667eea;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+    text-align: center;
+}
+.task-input button:hover {
+    background-color: #5641a6;
+    transform: scale(1.01);
+}
+ol {           
+    padding: 0;
+    counter-reset: task-counter;
+}
+li {
+    background: #f8f9fa;
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    word-break: break-word;            
+    counter-increment: task-counter;
+}
+li::before {
+    content: counter(task-counter);
+}
+li:hover {
+    transform: scale(1.02);
+}
+.task-text {
+    flex-grow: 1;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 16px;
+}
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+button.edit, button.delete, button.complete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: gray;
+    transition: all 0.3s ease-in-out;
+    padding: 5px;
+    border-radius: 5px;
+}
+button.complete {
+    border: 2px solid gray;
+}
+button.edit:hover, button.delete:hover {
+    color: black;
+}
+.completed {
+    color: green !important;
+    font-weight: bold;
+}
+.completed-btn {
+    background-color: green !important;
+    color: white !important;
+    border-color: green !important;
+}
+@media (max-width: 500px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+    .task-input {
+        margin-left: 5px;
+        margin-right: 5px;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .task-input input, .task-input button {
+        width: 100%;
+    }
+    .task-text {
+        font-size: 14px;
+    }
+    .task-actions {
+        gap: 5px;
+    }
+    button.edit, button.delete, button.complete {
+        font-size: 16px;
+    }
+}

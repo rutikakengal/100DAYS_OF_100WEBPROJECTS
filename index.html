@@ -216,36 +216,65 @@
           transform: translateY(-20px);
         }
       }
+      /* Adds Smooth Scrolling To The Navbar Links */
+      html {
+        scroll-behavior: smooth;
+      }
     </style>
   </head>
-  <body class="bg-dark text-white font-sans">
-    <!-- Navbar -->
+  <body class="bg-dark text-white font-sans pt-24">
     <nav class="fixed top-0 w-full z-50 bg-primary shadow-xl p-4">
-      <div class="container mx-auto flex items-center justify-between">
-        <a
-          href="#"
-          class="flex items-center gap-2 text-white font-bold text-lg"
-        >
+      <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
+      
+          
+          <a href="index.html" class="flex items-center gap-2 text-white font-bold text-lg mb-2 sm:mb-0">
+           
+         
           <img
             src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"
-            class="h-10 rounded-full"
+            class="h-10 rounded-full" alt="Logo"
           />
-          100_DAYS_100_WEB_PROJECTS
+         <span class="whitespace-nowrap"> 100_DAYS_100_WEB_PROJECT </span>
         </a>
-        <div class="flex items-center gap-4">
+
+        <div class="flex gap-4">
+
+
+        <button id="hamburger-btn" class="md:hidden">
+          <svg
+            class="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+
+        <div
+          id="mobile-menu"
+          class="hidden md:flex absolute md:static top-16 left-0 w-full bg-primary md:w-auto md:bg-transparent flex flex-row py-4 md:gap-x-4 md:py-0"
+        >
+
           <a
             href="#projects"
-            class="text-white hover:text-black font-semibold transition-colors"
+            class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors"
             >Projects</a
           >
           <a
             href="#about"
-            class="text-white hover:text-black font-semibold transition-colors"
+            class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors"
             >About</a
           >
           <a
-            href="#"
-            class="text-white hover:text-black font-semibold transition-colors"
+            href="contributors.html"
+            class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors"
             >Contributors</a
           >
         </div>
@@ -328,7 +357,7 @@
         </div>
       </div>
     </section>
-
+    
     <!-- Projects Table -->
     <section id="projects" class="container mx-auto px-4 py-10">
       <div class="overflow-x-auto glass rounded-xl p-6">
@@ -342,7 +371,7 @@
           </thead>
           <tbody id="tableBody">
             <!-- Dynamic rows injected here -->
-          </tbody>
+            </tbody>
         </table>
         <div id="no-projects" class="text-center mt-8 p-8 hidden">
           <div class="text-6xl mb-4">🔍</div>
@@ -458,7 +487,7 @@
             ></a>
           </div>
         </div>
-
+        
         <div>
           <h2 class="text-lg font-semibold mb-4">Quick Links</h2>
           <ul class="space-y-2">
@@ -529,11 +558,11 @@
     <!-- Theme Toggle Button -->
     <button id="themeToggle" class="theme-toggle glass">🌙</button>
 
-    <!-- Scroll to top button -->
+    <!-- Scroll to top button --> 
     <button
       id="scrollBtn"
       onclick="scrollToTop()"
-      class="fixed bottom-5 right-5 bg-primary text-white p-4 rounded-full shadow-lg btn-3d hidden"
+      class="fixed bottom-5 right-5 bg-primary text-white p-4 rounded-full shadow-lg z-[60] btn-3d hidden"
     >
       <i class="fas fa-arrow-up"></i>
     </button>
@@ -612,5 +641,9 @@
     <script src="script.js"></script>
  
   </body>
+<<<<<<< HEAD
 </html>
 1
+=======
+</html>
+>>>>>>> 45aebe97a55507aafa970b578df2e598fee3f004
