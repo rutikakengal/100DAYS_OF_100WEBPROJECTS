@@ -1,0 +1,78 @@
+<html>
+<head>
+
+    <script type="text/javascript" src="script.js"></script>
+    <title>Try to escape!</title>
+    
+</head>
+
+<body>
+    <h1 align="center">Try to escape!</h1>
+    
+<div>
+    <p>You wake up in a dark room. The only thing you can see are two rooms in front of you. What do you do?</p>
+</div>
+
+<div id="result"></div>
+<div id="result2"></div>
+<div id="result3"></div>
+<div id="result4"></div>
+<div id="result5"></div>
+<div id="result6"></div>
+<br>
+<img src="https://media.tenor.co/images/ee9312e65b300f7fcfee5d05f62d56d7/tenor.gif" id="loseGif1"/>
+<img src="http://reactiongifs.me/wp-content/uploads/2013/10/i-wingman-successfully-leonardo-dicaprio.gif" id="winGif"/> <!-- The gifs that are showing when lost/won -->
+
+<iframe src="https://www.youtube.com/embed/7JIdJLkJ0S4?autoplay=1" id="music"></iframe> <!-- The Youtube video -->
+
+<div>
+    <button id="left1"  onclick="Direction('left')">Open the left door</button>
+    <button id="right1" onclick="Direction('right')">Open the right door</button>
+    <button id="escape1"  onclick="Direction('escape')">Try to escape</button>
+</div>
+<!-- the first buttons run the function Direction() when clicked --> 
+
+<br>
+
+<div>
+    <button id="left2" style="display: none" onclick="Direction2('left2')">Pfft my puppy growls scarier</button>
+    <button id="right2" style="display: none" onclick="Direction2('right2')">A man... Good or evil?</button>
+    <button id="escape2" style="display: none" onclick="Direction2('escape2')">Try to escape</button>
+</div>
+
+<div>
+    <button id="A" style="display: none" onclick="Direction3('A')">A</button>
+    <button id="B" style="display: none" onclick="Direction3('B')">B</button>
+    <button id="C" style="display: none" onclick="Direction3('C')">C</button>
+</div>
+
+<div>
+    <button id="red" style="display: none" onclick="Direction4('red')">Red</button>
+    <button id="blue" style="display: none" onclick="Direction4('blue')">Blue</button>
+    <button id="pink" style="display: none" onclick="Direction4('pink')">Pink</button>
+    <button id="yellow" style="display: none" onclick="Direction4('yellow')">Yellow</button>
+    <button id="green" style="display: none" onclick="Direction4('green')">Green</button>
+    
+</div>
+
+<div>
+    <button id="blue2" style="display: none" onclick="Direction5('blue2')">Blue</button>
+    <button id="yellow2" style="display: none" onclick="Direction5('yellow2')">Yellow</button>
+    <button id="green2" style="display: none" onclick="Direction5('green2')">Green</button>
+    <button id="red2" style="display: none" onclick="Direction5('red2')">Red</button>
+    <button id="pink2" style="display: none" onclick="Direction5('pink2')">Pink</button>
+</div>
+
+<div>
+    <button id="yes" style="display: none" onclick="Direction6('yes')">Yes</button>
+    <button id="no" style="display: none" onclick="Direction6('no')">No</button>
+</div>
+
+<div>
+    <button id="tryagain" style="display: none" onclick="TryAgain()">Try Again!</button>
+</div>
+
+<div id="again"></div>
+
+</body>
+</html>

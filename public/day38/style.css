@@ -1,0 +1,48 @@
+h1{
+    font-family: fantasy;
+    font-size: 60px;
+}
+
+div{
+    font-family: monospace;
+    text-align: center;
+}
+
+button {
+  border-radius: 15px;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 12px;
+  background: #3498db;
+  padding: 10px 20px 10px 20px;
+}
+
+body {
+    background-color: powderblue;
+}
+
+#winGif{
+    display: none;
+    position: absolute;
+    left: 0; right:0;
+    margin: auto;
+}
+
+#loseGif1{
+display: none;
+    left: 0; right:0;
+    margin: auto;
+    max-width: 50%;
+    height: auto;
+} 
+
+#tryagain {
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+}
+
+#music{
+   display: none; 
+   autoplay: true;
+}
