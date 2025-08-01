@@ -1,70 +1,51 @@
-let num = parseInt((Math.random()*10+1));
-console.log(num);
-const submit = document.querySelector('#submit');
-const input = document.querySelector('#guess');
-const msg = document.querySelector('.msg');
-const prev = document.querySelector('.prev');
-const rem = document.querySelector('.rem');
-const res_box = document.querySelector('.res_box');
+let secretNumber = Math.floor(Math.random() * 100) + 1;
+let score = 10;
+let guesses = [];
 
-let playGame = true;
-let rem_val=3;
-let guess;
-let p;
+function checkGuess() {
+  const guess = Number(document.getElementById("guessInput").value);
+  const message = document.getElementById("message");
+  const scoreDisplay = document.getElementById("score");
+  const lastGuess = document.getElementById("lastGuess");
+  const guessHistory = document.getElementById("guessHistory");
 
-if (playGame){
-    submit.addEventListener('click', function(e){
-        e.preventDefault();
-        guess = parseInt(input.value);
-        input.value='';
-        if(validateGuess(guess)){
-            prev.innerHTML +=`${guess}  `;
-            if(guess === num){
-                msg.innerHTML = "Congratulations! Your answer is correct :)";
-                rem.innerHTML = --rem_val;
-                endGame();
-            }
-            else{
-                msg.innerHTML = "Wrong Answer! Better Luck Next Time :("
-                rem.innerHTML = --rem_val;
-            }
-        }
-    })
-};
-function validateGuess(val){
-    if(val<1 || isNaN(val) || val>10){
-        msg.innerHTML = "Invalid value!";
-        endGame();
+  if (!guess || guess < 1 || guess > 100) {
+    message.textContent = "Please enter a number between 1 and 100!";
+    lastGuess.textContent = "";
+    return;
+  }
+
+  guesses.push(guess);
+  lastGuess.textContent = `You guessed: ${guess}`;
+  guessHistory.textContent = `Previous guesses: ${guesses.join(", ")}`;
+
+  if (guess === secretNumber) {
+    message.textContent = "🎉 Correct! You guessed the number!";
+    document.body.style.background =
+      "linear-gradient(to right, #00b09b, #96c93d)";
+  } else {
+    score--;
+    if (score === 0) {
+      message.textContent = `💀 Game Over! The number was ${secretNumber}`;
+      document.getElementById("guessInput").disabled = true;
+    } else {
+      message.textContent =
+        guess > secretNumber ? "📉 Too high!" : "📈 Too low!";
     }
-    else if(rem_val==1 && guess!=num){
-        msg.innerHTML = `Game Over! Answer was ${num}!`;
-        prev.innerHTML +=`${guess}  `;
-        rem.innerHTML = --rem_val;
-        endGame();
-    }
-    else
-        return true;
-};
-function endGame(){
-    input.value = '';
-    input.setAttribute('disabled', '');
-    p = document.createElement('button');
-    p.innerHTML = `<h2 id="new_game">Start New Game</h2>`;
-    res_box.appendChild(p);
-    playGame = false;
-    p.addEventListener('click', newGame);
-};
-
-function newGame() {
-    num = parseInt((Math.random()*10+1));
-    console.log(num);
-    rem_val=3;
-    rem.innerHTML = rem_val;
-    prev.innerHTML = '';
-    msg.innerHTML = '';
-    input.removeAttribute('disabled');
-    res_box.removeChild(p);
-    playGame = true;
+    scoreDisplay.textContent = `Score: ${score}`;
+  }
 }
 
-
+function restartGame() {
+  secretNumber = Math.floor(Math.random() * 100) + 1;
+  score = 10;
+  guesses = [];
+  document.getElementById("message").textContent = "";
+  document.getElementById("score").textContent = "Score: 10";
+  document.getElementById("lastGuess").textContent = "";
+  document.getElementById("guessHistory").textContent = "";
+  document.getElementById("guessInput").value = "";
+  document.getElementById("guessInput").disabled = false;
+  document.body.style.background =
+    "linear-gradient(to right, #667eea, #764ba2)";
+}
