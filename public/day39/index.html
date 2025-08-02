@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Builder App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Portfolio Builder</h1>
+    <p>Create your personal portfolio instantly</p>
+    <div class="header-controls">
+      <button onclick="toggleTheme()">🌗 Toggle Dark Mode</button>
+      <select id="themeSelector" onchange="changeTheme()">
+        <option value="default">Default</option>
+        <option value="themes/theme-pastel.css">Pastel</option>
+        <option value="themes/theme-modern.css">Modern</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Form Section -->
+    <section class="form-section">
+      <h2>Enter Your Details</h2>
+      <form id="portfolioForm">
+        <label>Name:
+          <input type="text" id="name" placeholder="Your Name">
+        </label>
+
+        <label>Bio:
+          <textarea id="bio" placeholder="Write a short bio"></textarea>
+        </label>
+
+        <label>Skills (comma separated):
+          <input type="text" id="skills" placeholder="e.g. HTML, CSS, JS">
+        </label>
+
+        <label>Projects (comma separated):
+          <input type="text" id="projects" placeholder="e.g. Portfolio Website, App Clone">
+        </label>
+
+        <label>Profile Image:
+          <input type="file" id="profileImg" accept="image/*">
+        </label>
+
+        <label>Social Links:
+          <input type="text" id="social" placeholder="e.g. https://github.com/username">
+        </label>
+
+        <button type="button" onclick="savePortfolio()">💾 Save</button>
+        <button type="button" onclick="exportPortfolio()">📤 Export HTML</button>
+        <button type="button" onclick="clearPortfolio()">🗑 Clear Data</button>
+      </form>
+    </section>
+
+    <!-- Live Preview Section -->
+    <section class="preview-section">
+      <h2>Live Preview</h2>
+      <div class="preview-card" id="previewCard">
+        <img id="previewImg" src="assets/default-avatar.png" alt="Profile">
+        <h3 id="previewName">Your Name</h3>
+        <p id="previewBio">Your bio will appear here.</p>
+
+        <h4>Skills</h4>
+        <ul id="previewSkills"></ul>
+
+        <h4>Projects</h4>
+        <ul id="previewProjects"></ul>
+
+        <div id="previewSocial"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
