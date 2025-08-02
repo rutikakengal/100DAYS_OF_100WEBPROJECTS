@@ -1,0 +1,15 @@
+body {
+  background: #fff7f5;
+}
+header {
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+}
+button {
+  background: #f78ca0;
+}
+button:hover {
+  background: #f9748f;
+}
+.preview-card img {
+  border-color: #f78ca0;
+}
