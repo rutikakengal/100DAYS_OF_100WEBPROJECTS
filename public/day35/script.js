@@ -225,18 +225,12 @@ function checkPlatformCollision() {
   }
 }
 
-
-
-
-
-
 function drawPlatforms(){
   context.fillStyle="green";
   for(let elem of platforms){
     context.fillRect(elem.x,elem.y,elem.width,elem.height);
   }
 }
-
 
 };
 window.onload = () => {
@@ -465,11 +459,6 @@ function checkPlatformCollision() {
     }
   }
 }
-
-
-
-
-
 
 function drawPlatforms(){
   context.fillStyle="green";

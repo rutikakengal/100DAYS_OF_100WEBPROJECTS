@@ -26,7 +26,7 @@ const projects = [
   "Promodoro Timer",
   "Temperature Converter",
   "Space War Game",
-  " ",
+  "hangman Game",
   " ",
   " ",
   "Guess the Number Game",
@@ -67,6 +67,7 @@ randomBtn.addEventListener("click", () => {
     lastRandomIndex = null;
     return;
   }
+
 
   // Pick a random index
   const randomIndex = Math.floor(Math.random() * projects.length);
