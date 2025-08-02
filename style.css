@@ -1,0 +1,38 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right,#fefcea,#f1da36);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container{
+  text-align: center;
+}
+h1{
+  margin-bottom: 10px;
+  color: #444;
+}
+
+canvas{
+  background: #c74ec7;
+  border: 3px solid #333;
+  border-radius: 10px;
+  max-width: 90vw;
+  max-height: 80vh;
+  width: 400px;
+  height: 600px;
+}
+
+#scoreDisplay{
+  font-size: 20px;
+  margin-top: 10px;
+  color: #222;
+}

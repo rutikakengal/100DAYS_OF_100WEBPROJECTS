@@ -18,8 +18,7 @@ const projects = [
   "Mood Timer",
   "text to PDF Convertor",
   "Memory Card Game",
-  "Email Validator",
-  
+  "Catch the Falling Object",
   "Snake And Ladder Game",
   "Space Jumper Game",
   "Calculator",
