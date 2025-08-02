@@ -1,0 +1,29 @@
+.bg{
+    color: black;
+    background-image: url(bg-img.jpg);
+    background-size: cover;
+}
+.parent{
+    display: block;
+    text-align: center;
+    padding: 150px;
+}
+.title{
+    padding-bottom: 25px;
+}
+#guess{
+    border-radius: 10px;
+}
+#submit{
+    border-radius: 10px;
+    margin-top: 10px;
+    background-color: #D5759A;
+    padding: 5px;
+}
+.res_box button{
+    border-radius: 20px;
+    /* border: solid black; */
+    background-color: transparent;
+    color: beige;
+    width: 200px;
+}
