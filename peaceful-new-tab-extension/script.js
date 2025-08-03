@@ -1,4 +1,4 @@
-const API_KEY = "0OCrYqmXs8bmWIyqHJjy2WImjMnEbv9GfFkArnaL67D5vNZEvduTBPCl"; // <-- Replace this
+const API_KEY = "YOUR_API_KEY"; // <-- Replace this
 
 // Greeting and Name
 function getName() {
