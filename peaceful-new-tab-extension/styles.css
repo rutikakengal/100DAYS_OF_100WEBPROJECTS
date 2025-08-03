@@ -241,37 +241,7 @@ body {
     border-bottom: none;
 }
 
-/* Toggle switch */
-.toggle-switch {
-    position: relative;
-    width: 60px;
-    height: 30px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
 
-.toggle-switch::after {
-    content: '';
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 24px;
-    height: 24px;
-    background: white;
-    border-radius: 50%;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.toggle-switch.active {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-}
-
-.toggle-switch.active::after {
-    transform: translateX(30px);
-}
 
 /* Pets container */
 .pets-container {
