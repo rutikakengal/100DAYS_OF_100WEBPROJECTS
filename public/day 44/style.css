@@ -1,0 +1,178 @@
+:root {
+  --bg-color: #ffeef5;
+  --text-color: #3a3a3a;
+  --card-color: #fff0f6;
+  --primary: #e91e63;
+  --button-hover: #c2185b;
+  --shadow: rgba(233, 30, 99, 0.15);
+}
+
+body.dark {
+  --bg-color: #2c2c2c;
+  --text-color: #f5f5f5;
+  --card-color: #3a3a3a;
+  --primary: #ff4081;
+  --button-hover: #ff79a6;
+  --shadow: rgba(255, 64, 129, 0.3);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #ffdce1, #ffe0ed);
+  color: var(--text-color);
+  margin: 0;
+  padding: 2rem;
+  transition: background 0.4s ease, color 0.3s ease;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.theme-label {
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px; width: 14px;
+  left: 3px; bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--primary);
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.container, .output-container {
+  background: var(--card-color);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px var(--shadow);
+  border: 2px solid #ffc1d9;
+  transition: background 0.3s ease, color 0.3s ease;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+input, select {
+  padding: 0.6rem;
+  margin: 0.5rem 0;
+  width: 90%;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 2px solid #ffc1d9;
+  background: #fff0f6;
+  color: var(--text-color);
+  box-shadow: 0 3px 8px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+select option {
+  background: #ffe4ec;
+  color: #3a3a3a;
+  font-size: 0.95rem;
+  padding: 0.5rem;
+}
+
+button {
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  transition: background 0.3s ease, transform 0.2s;
+  box-shadow: 0 4px 10px var(--shadow);
+  margin: 0.5rem;
+}
+
+button:hover {
+  background: var(--button-hover);
+  transform: scale(1.05);
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.signature-preview {
+  border: 2px dashed #ffa1c2;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  background-color: #fffafd;
+}
+
+.signature-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.4rem;
+  color: var(--primary);
+  margin-bottom: 0.2rem;
+}
+
+.signature-quote {
+  font-style: italic;
+  color: var(--text-color);
+}
+
+.custom-quote-input {
+  display: none;
+  margin-top: 1rem;
+}
+
+.custom-quote-input input {
+  width: 80%;
+  display: block;
+  margin: 0.5rem auto;
+}
