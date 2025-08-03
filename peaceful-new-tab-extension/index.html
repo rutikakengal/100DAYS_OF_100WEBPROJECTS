@@ -1,47 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>New Tab</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>New Tab</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
-
 <body>
-    <div class="greetingContainer">
-        <h1 id="greeting"></h1>
-        <button id="resetNameBtn">Change Name</button>
-        <p id="quote">Practice like you never won, Perform like your never Lost!</p>
-    </div>
+  <div class="overlay"></div>
 
-    <div class="bookMarksContainer">
-        <div id="bookmarks-section">
-            <h2>Your Bookmarks</h2>
-            <div id="bookmarks"></div>
+  <div class="container">
+    <header class="header glass-card">
+      <div class="greeting-section">
+        <h1 id="greeting" class="greeting-text">Loading...</h1>
+        <button id="resetNameBtn" class="btn">✨ Change Name</button>
+      </div>
+    </header>
+
+    <section class="quote-section glass-card">
+      <div class="quote-container">
+        <p id="quote" class="quote-text">Loading quote...</p>
+        <button id="refreshQuote" class="btn">🔄 New Quote</button>
+      </div>
+    </section>
+
+    <section class="sites-section glass-card">
+      <h2 class="section-title">🚀 Quick Sites</h2>
+      <div class="sites-container">
+        <ul id="top-sites-list" class="sites-grid"></ul>
+        <form id="add-site-form" class="add-site-form">
+          <input type="text" id="site-name" class="form-input" placeholder="Site name" required/>
+          <input type="url" id="site-url" class="form-input" placeholder="https://example.com" required/>
+          <button type="submit" class="btn">➕ Add Site</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="settings-section glass-card">
+      <h2 class="section-title">⚙️ Settings</h2>
+      <div class="settings-container">
+        <div class="setting-item">
+          <span><h3>Show pets on all websites</h3></span>
+          <div>
+            <input type="checkbox" id="petsToggle" checked/>
+          </div>
         </div>
-
-    </div>
-
-    <div class="topSitesContainer">
-        <div id="top-sites-section">
-            <h2>Your Top Sites</h2>
-            <form id="add-site-form">
-                <input type="text" id="site-name" placeholder="Site Name" required>
-                <input type="url" id="site-url" placeholder="https://example.com" required>
-                <button type="submit">Add Site</button>
-            </form>
-            <ul id="top-sites-list"></ul>
-        </div>
+        <button id="clearData" class="btn">🗑️ Clear All Data</button>
+      </div>
+    </section>
+  </div>
 
 
-
-    </div>
-
-    <div class="petsContainer">
-
-    </div>
-    <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
