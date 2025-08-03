@@ -27,7 +27,7 @@ const projects = [
   "Space War Game",
   "CHESS GAME",
   "Bubble Shooter Game",
-  " ",
+  "Live Mock Interview",
   "Guess the Number Game",
 
   "Typing Speed Test webapp ",
