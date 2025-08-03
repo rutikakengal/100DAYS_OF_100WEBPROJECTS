@@ -1,0 +1,1 @@
+- 🌌 [Peaceful New Tab](https://peacefulnewtabchromeextension.vercel.app/) – A calm and customizable Chrome new tab extension with greetings, motivational quotes, nature-themed backgrounds, and emoji pets.
