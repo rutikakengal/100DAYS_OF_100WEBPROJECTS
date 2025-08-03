@@ -224,17 +224,21 @@
   </head>
   <body class="bg-dark text-white font-sans pt-24">
     <nav class="fixed top-0 w-full z-50 bg-primary shadow-xl p-4">
-      <div class="container mx-auto flex items-center justify-between">
-        <a
-          href="index.html"
-          class="flex items-center gap-2 text-white font-bold text-lg"
-        >
+      <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
+      
+          
+          <a href="index.html" class="flex items-center gap-2 text-white font-bold text-lg mb-2 sm:mb-0">
+           
+         
           <img
             src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"
-            class="h-10 rounded-full"
+            class="h-10 rounded-full" alt="Logo"
           />
-          100_DAYS_100_WEB_PROJECTS
+         <span class="whitespace-nowrap"> 100_DAYS_100_WEB_PROJECT </span>
         </a>
+
+        <div class="flex gap-4">
+
 
         <button id="hamburger-btn" class="md:hidden">
           <svg
@@ -257,6 +261,7 @@
           id="mobile-menu"
           class="hidden md:flex absolute md:static top-16 left-0 w-full bg-primary md:w-auto md:bg-transparent flex flex-row py-4 md:gap-x-4 md:py-0"
         >
+
           <a
             href="#projects"
             class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors"
@@ -557,7 +562,7 @@
     <button
       id="scrollBtn"
       onclick="scrollToTop()"
-      class="fixed bottom-5 right-5 bg-primary text-white p-4 rounded-full shadow-lg btn-3d hidden"
+      class="fixed bottom-5 right-5 bg-primary text-white p-4 rounded-full shadow-lg z-[60] btn-3d hidden"
     >
       <i class="fas fa-arrow-up"></i>
     </button>

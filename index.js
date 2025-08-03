@@ -13,8 +13,34 @@ const projects = [
   "Pong Game",
   "Colour Picker",
   "Drawing Canvas",
-
-
+  "Nasa Astronomy Picture of the day",
+  "World Clock",
+  "Mood Timer",
+  "text to PDF Convertor",
+  "Memory Card Game",
+  "Email Validator",  
+  "Snake And Ladder Game",
+  "Space Jumper Game",
+  "Calculator",
+  "Promodoro Timer",
+  "Temperature Converter",
+  "Space War Game",
+  "CHESS GAME",
+  " ",
+  " ",
+  "Guess the Number Game",
+  "",
+  " ",
+  "Snake Game ",
+  " ",
+  " ",
+  " ",
+  "Doodle Jump Game",
+  " ",
+  " ",
+  "Digital Clock",
+  "Doodle Jump Game",
+  "BrainBuzz Quizz Website",
   // Add more project names as needed
 ];
 
@@ -61,11 +87,15 @@ randomBtn.addEventListener("click", () => {
 projects.forEach((name, index) => {
   const day = `Day ${String(index + 1).padStart(2, "0")}`;
   let link;
-  if (name === "QR Generator") {
-  link = `public/Day 9/index.html`;
+  
+  // Dynamic link generation for specific projects
+  if (name === "Nasa Astronomy Picture of the day") {
+    link = "https://sabaaa01.github.io/NASA-astronomy-photo-of-the-day/";
+  } else if (name === "BrainBuzz Quizz Website") {
+    link = "https://brain-buzz-six.vercel.app/";
   } else {
-  const folder = `day${String(index + 1).padStart(2, "0")}`;
-  link = `public/${folder}/index.html`;
+    const folder = `day${String(index + 1).padStart(2, "0")}`;
+    link = `public/${folder}/index.html`;
   }
 
   const row = document.createElement("tr");
@@ -81,3 +111,4 @@ projects.forEach((name, index) => {
 
   tableBody.appendChild(row);
 });
+
