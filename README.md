@@ -54,6 +54,7 @@ const projects = [
   "To-Do List",
   "Weather App",
   "Your New Project", // 👈 Add your title like this
+  "BrainBuzz Quizz Website"
 ];
 ```
 
@@ -86,9 +87,6 @@ public/
 🔗 4. Demo Link
 The live demo link is auto-generated as:
 ```
-bash
-Copy
-Edit
 public/dayXX/index.html
 ```
 So make sure your index.html is correctly placed in that folder.

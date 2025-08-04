@@ -7,7 +7,7 @@ const projects = [
   "New Year Countdown",
   "Stylish Animated loginpage",
   "BMI Calculator",
-   "QR Generator",
+  "QR Generator",
   "Rock Paper Scissors Game",
   "Reading Journal",
   "Pong Game",
@@ -18,25 +18,43 @@ const projects = [
   "Mood Timer",
   "text to PDF Convertor",
   "Memory Card Game",
-  "Email Validator",
-  
+  "Email Validator",  
   "Snake And Ladder Game",
   "Space Jumper Game",
   "Calculator",
   "Promodoro Timer",
   "Temperature Converter",
   "Space War Game",
-  " ",
-  " ",
+  "CHESS GAME",
+
+  "Bubble Shooter Game",
   " ",
   "Guess the Number Game",
+
+  "Typing Speed Test webapp ",
+  "Startup Name Generator Web App",
+
+  "",
   " ",
+  "Snake Game ",
+ "Hangman Game",
   " ",
   " ",
   " ",
   "Doodle Jump Game",
+  " ",
+  " ",
+
+  "Doodle Jump Game",
   "Hangman Game",  
+
+  "Digital Clock",
+  "Doodle Jump Game",
+  "BrainBuzz Quizz Website",
+  "Code Editor"
+ main
   // Add more project names as needed
+
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -88,10 +106,17 @@ randomBtn.addEventListener("click", () => {
 projects.forEach((name, index) => {
   const day = `Day ${String(index + 1).padStart(2, "0")}`;
   let link;
-   if (name === "Nasa Astronomy Picture of the day") {
+  
+  // Dynamic link generation for specific projects
+  if (name === "Nasa Astronomy Picture of the day") {
     link = "https://sabaaa01.github.io/NASA-astronomy-photo-of-the-day/";
+ main
   } else if (name === "Hangman Game") {
     link = "public/day36/index.html";
+
+  } else if (name === "BrainBuzz Quizz Website") {
+    link = "https://brain-buzz-six.vercel.app/";
+ main
   } else {
     const folder = `day${String(index + 1).padStart(2, "0")}`;
     link = `public/${folder}/index.html`;
