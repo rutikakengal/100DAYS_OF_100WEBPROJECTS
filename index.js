@@ -26,11 +26,8 @@ const projects = [
   "Temperature Converter",
   "Space War Game",
   "CHESS GAME",
-  "",
   "Bubble Shooter Game",
-  "Random Quote Generator",
   "Guess the Number Game",
-
   "Typing Speed Test webapp ",
   "Startup Name Generator Web App",
 
@@ -43,7 +40,7 @@ const projects = [
   " ",
   "Doodle Jump Game",
   " ",
-  " ",
+  "Random Quote Generator",
   "Digital Clock",
   "Doodle Jump Game",
   "BrainBuzz Quizz Website",
