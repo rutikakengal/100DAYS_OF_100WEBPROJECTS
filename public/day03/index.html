@@ -3,43 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>Weather Forecast App</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <div class="gif-background">
+        <img src="https://i.pinimg.com/originals/18/83/de/1883de5bfee36b043b973bef00c561e0.gif" alt="Weather background">
+    </div>
 
-    <div class="card">
-        <div class="search">
-            <input type="text" placeholder="Enter city name" spellcheck="false">
-            <button><img src="images/search.png" alt="search"></button>
-        </div>
-
-        <div class="error">
-            <h2>Invalid City Name</h2>
-        </div>
-        <div class="weather">
-            <img src="images/rain.png" alt="rain" class="weather_info">
-            <h1 class="temp">22°C</h1>
-            <h2 class="city">Mathura</h2>
-            <div class="details">
-                <div class="col">
-                    <img src="images/humidity.png" alt="humidity">
-                    <div>
-                        <p class="humidity">50%</p>
-                        <p class="text">Humidity</p>
+    <div class="container">
+        <div class="glass-card">
+            <div class="card-dots" id="card-dots"></div>
+            
+            <div class="weather-info">
+                <h1 class="app-title">
+                    <span id="typewriter"></span><span class="cursor"></span>
+                </h1>
+                <p class="app-subtitle">Your personal weather assistant...</p>
+                <p class="app-prompt">Enter a location to get current weather</p>
+                
+                <div class="search-container">
+                    <input type="text" id="location-input" placeholder="Search for a city...">
+                    <button id="search-btn" class="send-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                
+                <div class="weather-details">
+                    <img class="weather-icon" src="" alt="Weather icon">
+                    <h1 class="city">Loading...</h1>
+                    <h2 class="temp">--°C</h2>
+                    <div class="details">
+                        <div class="col">
+                            <i class="fas fa-tint"></i>
+                            <div>
+                                <p class="humidity">--%</p>
+                                <p>Humidity</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <i class="fas fa-wind"></i>
+                            <div>
+                                <p class="wind">-- km/h</p>
+                                <p>Wind Speed</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <img src="images/wind.png" alt="wind">
-                    <div>
-                        <p class="wind">50 km/h</p>
-                        <p class="text">Wind</p>
-                    </div>
-                </div>
+                
+                <p class="developer-credit">Developed by Saikat </p>
             </div>
         </div>
     </div>
-    
+
+    <div class="sound-control">
+        <button id="soundToggle" class="sound-on">
+            <i class="fas fa-volume-up"></i>
+            <i class="fas fa-volume-mute"></i>
+        </button>
+    </div>
+
+    <audio id="bgSound" loop>
+        <source src="https://cdn.pixabay.com/audio/2024/12/17/audio_58b917ac11.mp3" type="audio/mpeg">
+    </audio>
+
     <script src="script.js"></script>
 </body>
 </html>
