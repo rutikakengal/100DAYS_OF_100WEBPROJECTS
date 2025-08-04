@@ -28,6 +28,7 @@ const projects = [
   "CHESS GAME",
   "Bubble Shooter Game",
   " ",
+  "Student Grade Calculator ",
   "Guess the Number Game",
 
   "Typing Speed Test webapp ",
@@ -35,7 +36,6 @@ const projects = [
   "",
   " ",
   "Snake Game ",
-
   " ",
   " ",
   " ",
