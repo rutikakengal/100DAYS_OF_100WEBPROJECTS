@@ -26,11 +26,9 @@ const projects = [
   "Temperature Converter",
   "Space War Game",
   "CHESS GAME",
-
   "Bubble Shooter Game",
   " ",
   "Guess the Number Game",
-
   "Typing Speed Test webapp ",
   "Startup Name Generator Web App",
   "",
@@ -46,7 +44,6 @@ const projects = [
   "Digital Clock",
   "Doodle Jump Game",
   "BrainBuzz Quizz Website",
-
  "Hangman Game",
   " ",
   " ",
@@ -54,15 +51,13 @@ const projects = [
   "Doodle Jump Game",
   " ",
   " ",
+
+  "3d Solar System",
   "Digital Clock",
   "Doodle Jump Game",
   "BrainBuzz Quizz Website",
   "Code Editor",
-
-
-
-
-  "3d Solar System",
+  "",
   "Code Editor"
   // Add more project names as needed
 
