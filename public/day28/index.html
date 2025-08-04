@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Play Bubble Shooter, a fun match-3 puzzle game where you shoot bubbles to clear the board!">
+    <title>Bubble Shooter Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Bubble Shooter Game</h1>
+    </header>
+    <main>
+        <section id="game-container">
+            <canvas id="gameCanvas" width="800" height="600" aria-label="Bubble Shooter game canvas"></canvas>
+            <div id="game-over" aria-live="polite">Game Over</div>
+            <div id="score-display">Score: <span id="score">0</span></div>
+        </section>
+        <section id="instructions">
+            <h2>How to Play</h2>
+            <ul>
+                <li>Move your mouse to aim the cannon.</li>
+                <li>Click to shoot a bubble.</li>
+                <li>Match 3 or more bubbles of the same color to clear them.</li>
+                <li>Clear all bubbles or avoid letting them reach the bottom!</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Bubble Shooter. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

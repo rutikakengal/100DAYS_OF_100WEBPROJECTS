@@ -18,8 +18,7 @@ const projects = [
   "Mood Timer",
   "text to PDF Convertor",
   "Memory Card Game",
-  "Email Validator",
-  
+  "Email Validator",  
   "Snake And Ladder Game",
   "Space Jumper Game",
   "Calculator",
@@ -27,12 +26,18 @@ const projects = [
   "Temperature Converter",
   "Space War Game",
   "CHESS GAME",
-  " ",
+  "Bubble Shooter Game",
   " ",
   "Guess the Number Game",
+
+  "Typing Speed Test webapp ",
+
   "",
   " ",
   "Snake Game ",
+
+  " ",
+  " ",
   " ",
 
   " ",
@@ -46,9 +51,16 @@ const projects = [
   "currencyConverter",
 
   "Doodle Jump Game",
-  "BrainBuzz Quizz Website"
+
+
+  " ",
+  " ",
+  "Digital Clock",
+  "Doodle Jump Game",
+  "BrainBuzz Quizz Website",
 
   // Add more project names as needed
+
 ];
 
 const hamburgerBtn = document.getElementById('hamburger-btn');
