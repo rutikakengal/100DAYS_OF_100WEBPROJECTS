@@ -33,12 +33,10 @@ const projects = [
 
   "Typing Speed Test webapp ",
   "Startup Name Generator Web App",
-
-
   "",
   " ",
   "Snake Game ",
-
+ "Hangman Game",
   " ",
   "3d Solar System ",
   " ",
@@ -65,7 +63,7 @@ const projects = [
 
 
   "3d Solar System",
-
+  "Code Editor"
   // Add more project names as needed
 
 ];
