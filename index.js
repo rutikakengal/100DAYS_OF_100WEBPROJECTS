@@ -7,7 +7,7 @@ const projects = [
   "New Year Countdown",
   "Stylish Animated loginpage",
   "BMI Calculator",
-   "QR Generator",
+  "QR Generator",
   "Rock Paper Scissors Game",
   "Reading Journal",
   "Pong Game",
@@ -27,19 +27,17 @@ const projects = [
   "Space War Game",
   "CHESS GAME",
   "Bubble Shooter Game",
-  " ",
   "Guess the Number Game",
   "Typing Speed Test webapp ",
-  "",
-  " ",
+  
+  "Startup Name Generator Web App",
   "Snake Game ",
-  " ",
-  " ",
-  " ",
+ "Hangman Game",
   "Doodle Jump Game",
-  "Travel dream Spinner"
+  "Travel dream Spinner",
   "Digital Clock",
   "BrainBuzz Quizz Website",
+  "Code Editor",
   // Add more project names as needed
 
 ];
