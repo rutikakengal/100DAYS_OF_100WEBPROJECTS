@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject List</title>
+    <link rel="stylesheet" href="../style/styles.css"> <!-- External CSS for better organization -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const subjectItems = document.querySelectorAll('.subject-item');
+            subjectItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    
+    
+    
+    <ul class="subject-list">
+        <li style="text-align: center;font-size: 50px;font-weight: bolder;padding: 30px;">ACADEMICS</li>
+        <li class="subject-item">
+            <div class="subject-icon">📘</div>
+            <div class="subject-title"><a href="CNSsyllabus.html">CRYPTOGRAPHY & NETWORK SECURITY</a></div>
+        </li>
+        <li class="subject-item">
+            <div class="subject-icon">📗</div>
+            <div class="subject-title"><a href="DMsyllabus.html" >DATA MINING</a></div>
+        </li>
+        <li class="subject-item">
+            <div class="subject-icon">📘</div>
+            <div class="subject-title"><a href="CCsyllabus.html">CLOUD COMPUTING</a></div>
+        </li>
+        <li class="subject-item">
+            <div class="subject-icon">📗</div>
+            <div class="subject-title"><a href="AAsyllabus.html">ADAVANCED ALGORITHMS</a></div>
+        </li>
+        <li class="subject-item">
+            <div class="subject-icon">📘</div>
+            <div class="subject-title"><a href="UEEsyllabus.html">UTILIZATION OF ELECTRICAL ENERGY</a></div>
+        </li>
+        <!-- Add more subjects as needed -->
+    </ul>
+</body>
+</html>

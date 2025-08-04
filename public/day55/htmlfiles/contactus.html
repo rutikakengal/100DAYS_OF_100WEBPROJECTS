@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 20px;
+            padding: 10px;
+            text-align: center;
+            font-size: 30px;
+        }
+        button {
+            border: 5px #fb8500 solid;
+            border-radius: 5px;
+        }
+        .help-content {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+            padding: 15px;
+            border: 2px solid #219ebc; /* Light blue border */
+            background-color: #e0f7fa; /* Light blue background */
+            font-size: 20px; /* Slightly smaller font */
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const helpButton = document.querySelector('button');
+            const helpContent = document.createElement('div');
+            helpContent.className = 'help-content';
+            helpContent.innerHTML = `
+                <p>Here are some tips to help you:</p>
+                <ul>
+                    <li>Check your internet connection.</li>
+                    <li>Ensure your browser is up to date.</li>
+                    <li>Provide as much detail as possible in your report.</li>
+                </ul>
+            `;
+            document.body.appendChild(helpContent);
+
+            helpButton.addEventListener('click', function() {
+                helpContent.style.display = helpContent.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>Need Help?</h3>
+    <br><br>
+    click the button below to raise a ticket.
+    <br>
+    <br>
+    Our support team will contact you 
+    <br>if additional information is needed.
+    <br><br>
+    Make sure to tick the checkbox <br>"include data about your current environment, like the browser and page URL.<br>
+    this helps us understand your feedback better"
+    <br>
+    <br>
+    <br>
+    <button>REPORT AN ISSUE</button>
+</body>
+</html>

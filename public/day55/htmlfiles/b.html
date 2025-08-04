@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BEFA Assessment</title>
+  <style>
+    body {
+        display: inline;
+        background-color: #e0f7fa; /* Light blue background for a calming effect */
+        font-family: 'Arial', sans-serif; /* Modern font for better readability */
+        color: #333; /* Dark text color for better contrast */
+        margin: 0; /* Remove default margin */
+        padding: 20px; /* Add padding for spacing */
+    }
+
+    h2 {
+        color: #00796b; /* Teal color for headings */
+        text-align: center; /* Center align headings */
+    }
+
+    ul {
+        list-style-type: none; /* Remove bullet points from list */
+        padding: 0; /* Remove padding */
+    }
+
+    li {
+        background-color: #ffffff; /* White background for list items */
+        margin: 10px 0; /* Space between list items */
+        padding: 10px; /* Padding inside list items */
+        border-radius: 5px; /* Rounded corners for list items */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    }
+  </style>
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const assessments = [
+            { title: "Midterm Exam", weight: "20%" },
+            { title: "Final Exam", weight: "40%" },
+            { title: "Project", weight: "30%" },
+            { title: "Class Participation", weight: "10%" }
+        ];
+
+        const assessmentContainer = document.createElement('div');
+        assessmentContainer.innerHTML = '<h2>Assessments</h2>';
+        const ul = document.createElement('ul');
+
+        assessments.forEach(assessment => {
+            const li = document.createElement('li');
+            li.textContent = `${assessment.title} - ${assessment.weight}`;
+            ul.appendChild(li);
+        });
+
+        assessmentContainer.appendChild(ul);
+        document.body.appendChild(assessmentContainer);
+    });
+  </script>
+</head>
+<body  bgcolor="skyblue">
+  assesments are under correction
+</body>
+</html>
