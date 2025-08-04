@@ -41,11 +41,10 @@ const projects = [
   " ",
   " ",
   "Doodle Jump Game",
-  " ",
-  " ",
-  "Digital Clock",
-  "Doodle Jump Game",
-  "BrainBuzz Quizz Website",
+"BrainBuzz Quizz Website",
+"Step Wizard",
+"Digital Clock",
+"Doodle Jump Game",
   // Add more project names as needed
 
 ];
