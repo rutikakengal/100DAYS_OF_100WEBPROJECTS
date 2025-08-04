@@ -1,98 +1,229 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*{
+* {
     margin: 0;
     padding: 0;
-    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
-    background: #000;
-    color: white;
+body {
+    overflow: hidden;
+    height: 100vh;
 }
 
-.card{
-    width: 90%;
-    max-width: 470px;
-    background: linear-gradient(135deg, #00feba, #5b548a);
-    margin: 70px auto 0;
-    border-radius: 20px;
-    padding: 40px 35px;
-    text-align: center;
-}
-.search{
+.gif-background {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
 }
-.search input{
-    border: 0;
-    outline: 0;
+
+.gif-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.glass-card {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    min-height: 500px;
+    background: rgba(8, 8, 8, 0.15);
+    backdrop-filter: blur(10px);
     border-radius: 20px;
-    background: #ebfffc;
-    color: #555;
-    height: 25px;
-    width: 50%;
-    padding: 10px;
-    flex: 1;
-    margin-right: 20px;
-    font-size: 18px;
-    text-align:center ;
-}
-.search button{
-    border: 0;
-    outline: 0;
-    border-radius: 50%;
-    background: none;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-}
-.search button img{
-    filter: invert(1);
-    width: 35px;
-}
-.weather_info{
-    width: 180px;
-    margin-top: 20px;
-}
-.weather h1{
-    font-size: 60px;
-    font-weight: 500;
-    margin-top: -10px;
-}
-.weather h2{
-    margin-top: -10px;
-    font-size: 50px;
-    font-weight: 500;
-}
-.details{
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(52, 2, 57, 0.37);
+    overflow: hidden;
+    padding: 40px;
+    color: rgb(135, 244, 204);
+    text-align: center;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
-    padding: 0 40px;
-    margin-top: 30px;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.col{
+
+.glass-card:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.05);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.card-dots {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.dot {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(100, 255, 218, 0.6);
+    filter: blur(1px);
+    animation: float 15s infinite linear;
+    z-index: 0;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(20px, 20px); }
+    50% { transform: translate(40px, -20px); }
+    75% { transform: translate(-20px, 40px); }
+    100% { transform: translate(-40px, -20px); }
+}
+
+.app-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 300;
+    position: relative;
+}
+
+#typewriter {
+    display: inline-block;
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    height: 40px;
+    background: rgb(86, 227, 138);
+    margin-left: 4px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.app-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.app-prompt {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.search-container {
+    display: flex;
+    margin: 30px 0;
+    position: relative;
+}
+
+#location-input {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    padding-right: 50px;
+}
+
+#location-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.send-btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(100, 255, 218, 0.3);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    text-align: left;
+    justify-content: center;
 }
-.col img{
-    width: 50px;
-    margin-right: 20px;
+
+.send-btn:hover {
+    background: rgba(100, 255, 218, 0.5);
+    transform: scale(1.1);
 }
-.humidity, .wind{
-    font-size: 28px;
-    margin-top: -6px;
+
+.developer-credit {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    opacity: 0.7;
 }
-.text{
-    font-size: 19px;
+
+.weather-info {
+    transition: all 0.5s ease;
 }
-.weather{
+
+.hidden {
+    display: none !important;
+}
+.sound-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.sound-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#soundToggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+#soundToggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+#soundToggle .fa-volume-up {
     display: none;
 }
-.error{
-    margin-top: 10px;
+
+#soundToggle.sound-on .fa-volume-up {
+    display: block;
+}
+
+#soundToggle.sound-on .fa-volume-mute {
     display: none;
 }
