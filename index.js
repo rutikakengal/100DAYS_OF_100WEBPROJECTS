@@ -1,6 +1,6 @@
 const projects = [
   "Animated Landing Page",
-  "To-Do List",
+  "Advanced To-Do List",
   "Weather App",
   "Jewellery-company landing page",
   "Random Image Generator",
@@ -39,7 +39,7 @@ const projects = [
   "Snake Game ",
  "Hangman Game",
   " ",
-  " ",
+  "3d Solar System ",
   " ",
   "Doodle Jump Game",
   " ",
