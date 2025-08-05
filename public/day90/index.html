@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Barcode Decoder</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="script.js" defer></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Barcode-Decoder</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      
+      <a href="https://github.com/mitaliiiiii" target="_blank">GitHub</a>
+    </div>
+  </nav>
+
+  <main class="main-container">
+    <h1>BARCODE ? LET ME DECODE IT!!</h1>
+
+    <div class="upload-decode">
+      <label for="file-upload" class="upload-box">
+        <span id="upload-msg">Drop the Barcode , Get the Text!</span>
+        <img src="input.png" alt="Upload Icon" />
+        <input type="file" accept="image/*" id="file-upload" hidden />
+      </label>
+      <button id="decode-btn">DECODE</button>
+    </div>
+
+    <div class="output-box" id="output-box">OUTPUT</div>
+  </main>
+
+  <footer class="footer">
+    <span>Note:: this App only Decodes Code-39 barcodes for now. Want more? Let us know!</span>
+    <span>meenalsoni0505@gmail.com</span>
+  </footer>
+</body>
+</html>
