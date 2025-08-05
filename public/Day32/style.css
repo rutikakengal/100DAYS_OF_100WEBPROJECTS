@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color : #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
+}
+.container{
+    background:rgba(255, 255, 255, 0.1) ;
+    backdrop-filter : blur(8px);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+
+}
+h1{
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.display-area {
+  background-color: #ffffff20;
+  border: 2px dashed #fff;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  min-height: 60px;
+  transition: all 0.3s ease;
+}
+.buttons button {
+  padding: 10px 18px;
+  margin: 8px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #ff8c00;
+  color: white;
+  transition: 0.2s ease;
+}
+.buttons button:hover {
+  background-color: #ffa733;
+}
+.favorites-list {
+  list-style: none;
+  margin-top: 15px;
+  text-align: left;
+  padding-left: 0;
+}
+.favorites-list li {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
