@@ -1,0 +1,39 @@
+<!-- Start of Selection -->
+<div class="unit" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9;">
+    <h2 style="color: #333; font-size: 24px;">UNIT - I</h2>
+</div>
+<!-- End of Selection -->
+   <h3> Introduction: Role of Algorithms in computing, Order Notation, Recurrences, Probabilistic Analysis 
+    and Randomized Algorithms. Sorting and Order Statistics: Heap sort, Quick sort and Sorting in Linear 
+    Time. 
+    Advanced Design and Analysis Techniques: Dynamic Programming- Matrix chain Multiplication, 
+    Longest common Subsequence and optimal binary Search trees.<BR> <h3></h3>
+    
+        <div class="unit" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9;">
+            <h2 style="color: #333; font-size: 24px;">UNIT - II</h2>
+        </div>
+    <h3>Greedy Algorithms - Huffman Codes, Activity Selection Problem. Amortized Analysis. 
+    Graph Algorithms: Topological Sorting, Minimum Spanning trees, Single Source Shortest Paths, 
+    Maximum Flow algorithms.<BR> 
+    ,</h3>
+        <div class="unit" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9;">
+            <h2 style="color: #333; font-size: 24px;">UNIT - III</h2>
+        </div>
+   <h3> Sorting Networks: Comparison Networks, Zero-one principle, bitonic Sorting Networks, Merging 
+    Network, Sorting Network.  
+    Matrix Operations- Strassen's Matrix Multiplication, Inverting matrices, Solving system of linear 
+    Equations<BR> 
+    </h3>
+        <div class="unit" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9;">
+            <h2 style="color: #333; font-size: 24px;">UNIT - Iv</h2>
+        </div>
+    <h3> String Matching: Naive String Matching, Rabin-Karp algorithm, matching with finite Automata, Knuth- 
+    Morris - Pratt algorithm.<BR> </h3>
+    
+        <div class="unit" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9;">
+            <h2 style="color: #333; font-size: 24px;">UNIT - v</h2>
+        </div>
+    <h3> NP-Completeness and Approximation Algorithms: Polynomial time, polynomial time verification, 
+    NP-Completeness and reducibility, NP-Complete problems. Approximation Algorithms- Vertex cover 
+    Problem, Travelling Sales person problem<BR> </h3>
+    

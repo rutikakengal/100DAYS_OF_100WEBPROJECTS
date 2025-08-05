@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Time Table</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin: 5%;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f1e497;
+        }
+        caption {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: 100px;
+            width: 100px;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        const timetableData = {
+            Mon: [
+                { time: "1:30-2:30 pm", subject: "DM" },
+                { time: "2:30-3:30 pm", subject: "UEE" },
+                { time: "3:30-4:30 pm", subject: "CNS LAB" },
+                { time: "4:30-5:30 pm", subject: "CNS LAB" }
+            ],
+            
+            Tue: [
+                { time: "1:30-2:30 pm", subject: "DM" },
+                { time: "2:30-3:30 pm", subject: "UEE" },
+                { time: "3:30-4:30 pm", subject: "UEE" },
+                { time: "4:30-5:30 pm", subject: "CNS" }
+            ],
+            Wed: [
+                { time: "1:30-2:30 pm", subject: "DM" },
+                { time: "2:30-3:30 pm", subject: "UEE" },
+                { time: "3:30-4:30 pm", subject: "UEE" },
+                { time: "4:30-5:30 pm", subject: "CNS" }
+            ],
+            Thu: [
+                { time: "1:30-2:30 pm", subject: "DM" },
+                { time: "2:30-3:30 pm", subject: "UEE" },
+                { time: "3:30-4:30 pm", subject: "UEE" },
+                { time: "4:30-5:30 pm", subject: "CNS" }
+            ],
+            Fri: [
+                { time: "1:30-2:30 pm", subject: "CC" },
+                { time: "2:30-3:30 pm", subject: "UEE" },
+                { time: "3:30-4:30 pm", subject: "UEE" },
+                { time: "4:30-5:30 pm", subject: "CNS" }
+            ],
+            Sat: [
+                { time: "1:30-2:30 pm", subject: "AA" },
+                { time: "2:30-3:30 pm", subject: "AA" },
+                { time: "3:30-4:30 pm", subject: "UEE" },
+                { time: "4:30-5:30 pm", subject: "CNS" }
+            ],
+            // Add data for other days...
+        };
+
+        function updateTimetable() {
+            const selectedDay = document.getElementById('daySelect').value;
+            const timetableBody = document.getElementById('timetableBody');
+            timetableBody.innerHTML = ''; // Clear previous content
+
+            timetableData[selectedDay].forEach(entry => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${entry.time}</td><td>${entry.subject}</td>`;
+                timetableBody.appendChild(row);
+            });
+        }
+    </script>
+</head>
+<body>
+    <img src="jntuhlogo" alt="JNTUH Logo">
+    <br>
+    <div>
+        <label for="daySelect">Select Day:</label>
+        <select id="daySelect" onchange="updateTimetable()">
+            <option value="Mon">Monday</option>
+            <option value="Tue">Tuesday</option>
+            <option value="Wed">Wednesday</option>
+            <option value="Thu">Thursday</option>
+            <option value="Fri">Friday</option>
+            <option value="Sat">Saturday</option>
+        </select>
+    </div>
+    <table id="timetable">
+        <caption>
+            <p style="background-color: #8ecae6;">
+            JAWAHARLAL NEHRU TECHNOLOGICAL UNIVERSITY HYDERABAD<br>
+            UNIVERSITY COLLEGE OF ENGINEERING RAJANNA SIRCILLA<br>
+            Govt. Degree College, Agraharam, RajannaSircilla Dist. Telangana State-505302<br></p>
+            <br>
+            <p style="background-color:#1d6d95; color: beige;">
+            DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING<br>
+            <br>
+            TIME TABLE (W.E.F: 05-08-2024)<br>
+            IV-B.TECH (I-SEMESTER)<br>
+            A.Y. 2024-2025<br>
+            LECTURE HALL-III & I
+            </p>
+        </caption>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Subject</th>
+            </tr>
+        </thead>
+        <tbody id="timetableBody">
+            <!-- Dynamic content will be inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Call the function to populate the timetable for the default selected day
+        updateTimetable();
+    </script>
+</body>
+</html>

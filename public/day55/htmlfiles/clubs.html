@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clubs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgb(144, 182, 224);
+      border: 2px rgb(10,43,69) solid;
+    }
+    .c {
+      margin-top: 0.2px;
+      color: #ccc;
+      font-size: 60px;
+      background-color: rgb(10, 43, 69);
+      padding: 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .c:hover {
+      background-color: rgb(10, 43, 69, 0.8);
+      color: #ffffff;
+    }
+
+    .img {
+      height: 200px;
+      width: 200px;
+      transition: transform 0.3s;
+    }
+
+    .img:hover {
+      transform: scale(1.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: rgb(10, 43, 69);
+    }
+
+    .club-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .club-item {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #ccc;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .club-item:hover {
+      background-color: rgba(10, 43, 69, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .club-name {
+      flex-grow: 1;
+      font-weight: bold;
+      color: rgb(10, 43, 69);
+    }
+
+    .club-count {
+      margin-left: 10px;
+      color: rgb(10, 43, 69);
+    }
+
+    /* Dynamic light colors */
+    .light {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-left: 10px;
+      transition: background-color 0.3s;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const clubItems = document.querySelectorAll('.club-item');
+      clubItems.forEach(item => {
+        const light = document.createElement('div');
+        light.className = 'light';
+        item.appendChild(light);
+
+        // Randomly change light color
+        setInterval(() => {
+          const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+          light.style.backgroundColor = randomColor;
+        }, 1000);
+      });
+    });
+  </script>
+</head>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgb(144, 182, 224);
+      border: 2px rgb(10,43,69) solid;
+    }
+    .c {
+      margin-top: 0.2px;
+      color: #ccc;
+      font-size: 60px;
+      background-color: rgb(10, 43, 69);
+      padding: 20px;
+    }
+
+    .img {
+      height: 200px;
+      width: 200px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .club-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .club-item {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #ccc;
+      transition: background-color 0.3s;
+    }
+
+    .club-item:hover {
+      background-color: rgba(10, 43, 69, 0.1);
+    }
+
+    .club-name {
+      flex-grow: 1;
+      font-weight: bold;
+    }
+
+    .club-count {
+      margin-right: 20px;
+    }
+
+    .club-icon {
+      display: flex;
+      gap: 10px;
+    }
+
+    .quote {
+      text-align: center;
+      font-style: italic;
+      margin-top: 20px;
+      color: #00796b;
+    }
+
+    .join-button {
+      margin-left: 20px;
+      padding: 10px 15px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .join-button:hover {
+      background-color: #3d005b;
+    }
+  </style>
+  <script>
+    function joinClub(clubName) {
+      alert("You have successfully joined the " + clubName + " club!");
+    }
+
+    const quotes = [
+      "Active participation is the key to success!",
+      "Engage, learn, and grow together!",
+      "Your involvement makes a difference!",
+      "Together we can achieve more!",
+      "Join us and be part of something great!"
+    ];
+
+    function displayRandomQuote() {
+      const quoteElement = document.createElement('div');
+      quoteElement.className = 'quote';
+      quoteElement.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+      document.body.appendChild(quoteElement);
+    }
+
+    document.addEventListener('DOMContentLoaded', displayRandomQuote);
+    
+    function joinClub(clubName) {
+      const confirmation = confirm(`Do you want to join the ${clubName}?`);
+      if (confirmation) {
+        alert(`You have joined the ${clubName}!`);
+      } else {
+        alert(`You did not join the ${clubName}.`);
+      }
+    }
+  
+  </script>
+</head>
+<body>
+ 
+
+    <h1 class="c">Clubs</h1>
+
+    <div class="club-list">
+      <div class="club-item">
+        <div class="club-name"><h1>Sports</h1><p align="center">1 club</p></div>
+      
+        <div class="club-icon">
+          <img src="../images/sport.jpg" alt="Basketball" class="img" onclick="joinClub('sports Club')">
+        </div>
+      </div>
+
+      <div class="club-item">
+        <div class="club-name"><h1>Arts</h1><p align="center">6 clubs</p></div>
+      
+        <div class="club-icon">
+          <img src="../images/art.jpg" alt="Palette" class="img" onclick="joinClub('Art Club')">
+        </div>
+      </div>
+
+      <div class="club-item">
+        <div class="club-name"><h1>Technical</h1><p align="center">2 clubs</p></div>
+       
+        <div class="club-icon">
+          <img src="../images/technical.jpg" alt="Books" class="img" onclick="joinClub('technical Club')">
+        </div>
+      </div>
+
+      <div class="club-item">
+        <div class="club-name"><h1>Community Service</h1><p align="center">1 club</p></div>
+        
+        <div class="club-icon">
+          <img src="../images/cs.webp" alt="Heart" class="img" onclick="joinClub('community services Club')" > 
+        </div>
+      </div>
+
+      <div class="club-item">
+        <div class="club-name"><h1>Professional Societies</h1><p align="center">1 club</p></div>
+       
+        <div class="club-icon">
+          <img src="../images/ps.jpeg" alt="Handshake" class="img" onclick="joinClub('Professional Societies Club')">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

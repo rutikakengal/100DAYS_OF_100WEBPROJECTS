@@ -1,0 +1,148 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Campus Events</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa; /* Light blue background for a calming effect */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(241, 213, 161);
+    border-radius: 8px; /* Rounded corners for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.event-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: skyblue;
+    border-radius: 5px; /* Rounded corners for event cards */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+.event-card:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+.event-image {
+    max-width: 100%;
+    border-radius: 5px; /* Rounded corners for images */
+}
+
+.event-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00796b; /* Teal color for titles */
+}
+
+.event-details {
+    margin-top: 10px;
+}
+
+.event-location, .event-date, .event-time, .event-entry-fee {
+    margin-bottom: 5px;
+    color: #333; /* Dark text color for better contrast */
+}
+
+.event-button {
+    display: block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+    transition: background-color 0.3s; /* Smooth transition for button hover */
+}
+
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    width: 80%;
+    background: #f1f1f1;
+    border-radius: 5px; /* Rounded corners for input */
+}
+
+.event-button:hover {
+    background-color: #d90016;
+    border: 2px #007bff solid;
+}
+
+a:hover {
+    color: rgb(163, 88, 27);
+}
+</style>
+</style>
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.querySelector('input[name="search"]');
+    searchInput.addEventListener('input', function() {
+        const filter = searchInput.value.toLowerCase();
+        const eventCards = document.querySelectorAll('.event-card');
+
+        eventCards.forEach(card => {
+            const title = card.querySelector('.event-title a').textContent.toLowerCase();
+            if (title.includes(filter)) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+searchInput.addEventListener('focus', function() {
+                const suggestions = document.querySelector('.suggestions');
+                suggestions.style.display = 'block';
+                suggestions.innerHTML = '<p>Suggestions: IoT, Workshop, Industry 4.0</p>';
+            });
+            searchInput.addEventListener('blur', function() {
+                const suggestions = document.querySelector('.suggestions');
+                suggestions.style.display = 'none';
+            });
+</script>
+</head>
+<body align="center">
+<div class="container">
+    <form class="example" action="action_page.php">
+        <input type="text" placeholder="Search.." name="search" aria-label="Search Events" required>
+        <button type="submit" class="search-button">🔍</button>
+        <div class="suggestions" style="display:none;"></div>
+      
+      </form>
+<h1>Campus Events</h1>
+
+<div class="event-card">
+        <img src="../images/iot.jpg" alt="Event Image" class="event-image">
+<h2 class="event-title"><a href="eventclick.html"> 2 day workshop on IoT and its applications</a></h2>
+<div class="event-details">
+<p class="event-location">F-44</p>
+<p class="event-date">Sep 1, 2023</p>
+<p class="event-time">9:00 AM</p>
+<p class="event-entry-fee">Entry Fee: ₹100</p>
+<button class="event-button">Register Now</button>
+</div>
+</div>
+
+<div class="event-card">
+        <img src="../images/indu.jpg" alt="Event Image" class="event-image">
+<h2 class="event-title"><a href="eventclick1.html"> Lecture on industry 4.0, IoT and HVAC</a></h2>
+<div class="event-details">
+<p class="event-location">F-36</p>
+<p class="event-date">Aug 19, 2023</p>
+<p class="event-time">2:00 PM</p>
+<p class="event-entry-fee">Free</p>
+<button class="event-button">Register Now</button>
+</div>
+</div>
+</div>
+</body>
+</html>
