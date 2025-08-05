@@ -3,17 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD
         <title>100_DAYS_100_WEB_PROJECTS</title>
     <link rel="icon" href="public/favv.png" type="image/png" />
     <link rel="shortcut icon" href="public/favv.png" type="image/png" />
     <link
       rel="stylesheet"
+=======
+    <title>100_DAYS_100_WEB_PROJECTS</title>
+    <link rel="icon" href="100-days-100-webdev-projects-LOGO.png" type="image/png">
+>>>>>>> upstream/main
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
 
@@ -22,12 +26,20 @@
         theme: {
           extend: {
             colors: {
-              primary: "#ff0077",
-              dark: "#002057",
+              primary: "#6366f1",
+              secondary: "#8b5cf6",
+              accent: "#06b6d4",
+              dark: "#0f172a",
+              surface: "#1e293b",
             },
             fontFamily: {
-              sans: ["Poppins", "sans-serif"],
+              sans: ["Inter", "sans-serif"],
             },
+            animation: {
+              'gradient': 'gradient 8s linear infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate',
+            }
           },
         },
       };
@@ -35,7 +47,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <script
@@ -44,87 +56,158 @@
     ></script>
     <style>
       [data-theme="light"] .hero-subtitle {
-        color: #111 !important;
+        color: #374151 !important;
       }
       [data-theme="light"] .bg-dark {
-        background-color: #e3eaf6 !important;
-        color: var(--text-primary) !important;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+        /* Removed color: var(--text-primary) !important; as it was causing issues for child elements */
       }
       :root {
-        --bg-primary: #002057;
-        --bg-secondary: #000000;
-        --text-primary: #ffffff;
-        --text-secondary: #ffffff80;
-        --accent-color: #ff0077;
-        --glass-bg: rgba(255, 255, 255, 0.1);
-        --glass-border: rgba(255, 255, 255, 0.18);
-        --hover-bg: rgba(255, 255, 255, 0.05);
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        --accent-color: #6366f1;
+        --glass-bg: rgba(255, 255, 255, 0.08);
+        --glass-border: rgba(255, 255, 255, 0.12);
+        --hover-bg: rgba(99, 102, 241, 0.1);
+        --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
       }
 
       [data-theme="light"] {
-        --bg-primary: #f8fafc;
-        --bg-secondary: #ffffff;
-        --text-primary: #1a202c;
-        --text-secondary: #4a5568;
-        --accent-color: #ff0077;
-        --glass-bg: rgba(255, 255, 255, 0.8);
-        --glass-border: rgba(0, 0, 0, 0.1);
-        --hover-bg: rgba(0, 0, 0, 0.05);
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8fafc;
+        --text-primary: #1e293b; /* Changed from light slate to dark for visibility */
+        --text-secondary: #64748b;
+        --accent-color: #6366f1;
+        --glass-bg: rgba(255, 255, 255, 0.9);
+        --glass-border: rgba(0, 0, 0, 0.08);
+        --hover-bg: rgba(99, 102, 241, 0.08);
       }
 
       body {
-        background-color: var(--bg-primary);
+        background: var(--bg-primary);
         color: var(--text-primary);
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-x: hidden;
       }
 
-      .glass {
-        backdrop-filter: blur(10px);
+      .hero-bg {
+        background: linear-gradient(135deg, 
+          rgba(99, 102, 241, 0.1) 0%, 
+          rgba(139, 92, 246, 0.1) 50%, 
+          rgba(6, 182, 212, 0.1) 100%);
+        position: relative;
+      }
+
+      .hero-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.3) 0%, transparent 50%);
+        animation: float 8s ease-in-out infinite;
+      }
+
+      .glass-card {
+        backdrop-filter: blur(20px);
         background: var(--glass-bg);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         border: 1px solid var(--glass-border);
-        transition: all 0.3s ease;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Ensure text in glass-card is visible in light mode */
+        color: var(--text-primary);
       }
 
-      .btn-3d {
-        transition: all 0.2s ease-in-out;
+      .glass-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        border-color: var(--accent-color);
       }
 
-      .btn-3d:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 25px rgba(255, 0, 119, 0.3);
+      .btn-modern {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
       }
 
-      .btn-3d:active {
-        transform: translateY(-2px);
+      .btn-modern::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s;
+      }
+
+      .btn-modern:hover::before {
+        left: 100%;
+      }
+
+      .btn-modern:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.4);
       }
 
       .project-row {
-        transition: all 0.3s ease;
-        border-radius: 8px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 12px;
+        border-left: 3px solid transparent;
       }
 
       .project-row:hover {
         background: var(--hover-bg);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transform: translateX(8px);
+        border-left-color: var(--accent-color);
+        box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
       }
 
       .tag-filter {
-        transition: all 0.2s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         cursor: pointer;
         border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+        /* Ensure tag filter text is visible in light mode before hover */
+        color: var(--text-primary);
+      }
+
+      .tag-filter::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: var(--accent-color);
+        transition: width 0.3s ease;
+        z-index: -1;
+      }
+
+      .tag-filter:hover::before {
+        width: 100%;
       }
 
       .tag-filter:hover {
-        transform: scale(1.05);
-        border-color: var(--accent-color);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
       }
 
       .tag-filter.active {
-        background-color: var(--accent-color);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
-        transform: scale(1.05);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
       }
 
       .theme-toggle {
@@ -133,57 +216,163 @@
         right: 20px;
         z-index: 1000;
         width: 60px;
-        height: 30px;
-        border-radius: 15px;
+        height: 60px;
+        border-radius: 50%;
         border: none;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 18px;
+        font-size: 24px;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        color: var(--text-primary); /* Ensure toggle icon color is visible */
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.1) rotate(180deg);
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
       }
 
       .random-btn {
-        background: linear-gradient(45deg, #ff0077, #ff4081);
-        animation: pulse 2s infinite;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        animation: glow 2s ease-in-out infinite alternate;
+        position: relative;
+        overflow: hidden;
       }
 
-      @keyframes pulse {
-        0% {
-          box-shadow: 0 0 0 0 rgba(255, 0, 119, 0.7);
+      .random-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: left 0.5s;
+      }
+
+      .random-btn:hover::before {
+        left: 100%;
+      }
+
+      @keyframes glow {
+        from {
+          box-shadow: 0 0 20px rgba(240, 147, 251, 0.5);
         }
-        70% {
-          box-shadow: 0 0 0 10px rgba(255, 0, 119, 0);
+        to {
+          box-shadow: 0 0 30px rgba(245, 87, 108, 0.8);
         }
-        100% {
-          box-shadow: 0 0 0 0 rgba(255, 0, 119, 0);
+      }
+
+      @keyframes gradient {
+        0%, 100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        33% {
+          transform: translateY(-20px) rotate(2deg);
+        }
+        66% {
+          transform: translateY(-10px) rotate(-1deg);
         }
       }
 
       .search-container {
         position: relative;
         display: flex;
+        flex-direction: column; /* Stack vertically on small screens */
         align-items: center;
-        max-width: 400px;
-        margin: 0 auto;
+        max-width: 500px;
+        margin: 2rem 0rem 3rem 35rem ;
+      }
+      /* ... your existing CSS ... */
+
+@media (max-width: 767px) { /* Adjust for screens smaller than medium (768px) */
+  .hero-bg {
+      padding-top: 5rem; /* Add some top padding for smaller screens */
+      padding-bottom: 5rem; /* Add some bottom padding for smaller screens */
+  }
+
+  .hero-bg h1 {
+      font-size: 3.5rem; /* Adjust heading size for smaller screens */
+  }
+
+  .hero-bg p {
+      font-size: 1.125rem; /* Adjust paragraph size for smaller screens */
+  }
+
+  .search-container {
+      margin: 2rem auto 3rem auto; /* Center the search container */
+      max-width: 90%; /* Make it take up more width on smaller screens */
+  }
+
+  .random-btn {
+      margin-left: 0 !important; /* Remove left margin on small screens */
+  }
+
+  .tag-filter {
+      width: calc(50% - 0.5rem); /* Make tags two per row on smaller screens, accounting for gap */
+      text-align: center;
+  }
+  .theme-toggle {
+    top: 110px; /* Adjust top position for smaller screens */
+    right: 20px; /* Move to the left side for better accessibility on small screens */
+    left: auto; /* Remove right positioning */
+    width: 50px; /* Slightly smaller button for small screens */
+    height: 50px; /* Slightly smaller button for small screens */
+    font-size: 20px; /* Smaller icon size */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) { /* Adjust for medium screens */
+  .search-container {
+      margin: 2rem auto 3rem auto; /* Center on medium screens as well */
+      max-width: 80%; /* Adjust max-width for tablets */
+  }
+}
+
+/* You already have this for medium screens and up, which is good: */
+/* @media (min-width: 768px) {
+  .search-container {
+      flex-direction: row;
+  }
+} */
+      
+      @media (min-width: 768px) { /* On medium screens and up, make it a row */
+        .search-container {
+          flex-direction: row;
+        }
       }
 
       .search-input {
         flex: 1;
-        padding: 12px 16px;
+        padding: 16px 24px;
         border: 2px solid transparent;
-        border-radius: 25px;
+        border-radius: 50px;
         background: var(--glass-bg);
         color: var(--text-primary);
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(20px);
+        font-size: 16px;
+        width: 100%; /* Full width on small screens */
       }
 
       .search-input:focus {
         outline: none;
         border-color: var(--accent-color);
-        box-shadow: 0 0 20px rgba(255, 0, 119, 0.3);
+        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        transform: scale(1.02);
       }
 
       .search-input::placeholder {
@@ -191,11 +380,7 @@
       }
 
       .about-section {
-        background: linear-gradient(
-          135deg,
-          var(--bg-secondary),
-          var(--bg-primary)
-        );
+        background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
         position: relative;
         overflow: hidden;
       }
@@ -207,315 +392,396 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23ff0077" opacity="0.1"/></svg>')
-          repeat;
-        animation: float 20s ease-in-out infinite;
+        background: 
+          radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        animation: float 12s ease-in-out infinite;
       }
 
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
+      .navbar-glass {
+        backdrop-filter: blur(20px);
+        background: rgba(15, 23, 42, 0.8);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
-      /* Adds Smooth Scrolling To The Navbar Links */
+
+      [data-theme="light"] .navbar-glass {
+        background: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      /* Specifically target text within navbar-glass for light mode */
+      [data-theme="light"] .navbar-glass .text-white {
+        color: var(--text-primary) !important; /* Force dark text in light mode */
+      }
+      [data-theme="light"] .navbar-glass svg {
+        color: var(--text-primary) !important; /* Force dark icon in light mode */
+      }
+
+
+      .nav-link {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 50%;
+        background: var(--accent-color);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .stat-card {
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 25px rgba(99, 102, 241, 0.15);
+      }
+
       html {
         scroll-behavior: smooth;
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      /* Ensure text in the project showcase and about sections is visible */
+      [data-theme="light"] .text-white {
+        color: var(--text-primary) !important;
+      }
+      [data-theme="light"] .text-slate-300 {
+          color: var(--text-secondary) !important;
+      }
+      [data-theme="light"] .text-slate-500 {
+          color: var(--text-secondary) !important;
+      }
+      [data-theme="light"] .text-slate-400 {
+          color: var(--text-secondary) !important;
+      }
+
+      /* Specific fix for the "No Projects Found" text */
+      [data-theme="light"] #no-projects .text-slate-300,
+      [data-theme="light"] #no-projects .text-slate-500 {
+        color: var(--text-primary) !important;
+      }
+
+      /* Specific fix for the footer text */
+      [data-theme="light"] footer .text-slate-300,
+      [data-theme="light"] footer .text-slate-400 {
+        color: var(--text-secondary) !important;
+      }
+      /* Adjust footer background in light mode */
+      [data-theme="light"] footer {
+        background: var(--bg-secondary) !important;
+        border-top-color: var(--glass-border) !important;
       }
     </style>
   </head>
   <body class="bg-dark text-white font-sans pt-24">
-    <nav class="fixed top-0 w-full z-50 bg-primary shadow-xl p-4">
-      <div class="container mx-auto flex items-center justify-between">
-        <a
-          href="index.html"
-          class="flex items-center gap-2 text-white font-bold text-lg"
-        >
+    <nav class="fixed top-0 w-full z-50 navbar-glass shadow-xl p-4">
+      <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3 text-white font-bold text-lg mb-2 sm:mb-0">
           <img
             src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"
-            class="h-10 rounded-full"
+            class="h-12 w-12 rounded-full object-cover ring-2 ring-primary/30" alt="Logo"
           />
-          100_DAYS_100_WEB_PROJECTS
+         <span class="whitespace-nowrap gradient-text text-xl font-extrabold"> 100_DAYS_100_WEB_PROJECT </span>
         </a>
 
-        <button id="hamburger-btn" class="md:hidden">
-          <svg
-            class="w-6 h-6 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
-          </svg>
-        </button>
+        <div class="flex gap-4">
+          <button id="hamburger-btn" class="md:hidden">
+            <svg
+              class="w-6 h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+          </button>
 
-        <div
-          id="mobile-menu"
-          class="hidden md:flex absolute md:static top-16 left-0 w-full bg-primary md:w-auto md:bg-transparent flex flex-row py-4 md:gap-x-4 md:py-0"
-        >
-          <a
-            href="#projects"
-            class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors"
-            >Projects</a
+          <div
+            id="mobile-menu"
+            class="hidden md:flex absolute md:static top-16 left-0 w-full navbar-glass md:w-auto md:bg-transparent flex flex-col md:flex-row py-4 md:gap-x-6 md:py-0"
           >
-          <a
-            href="#about"
-            class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors"
-            >About</a
-          >
-          <a
-            href="contributors.html"
-            class="flex-grow md:flex-grow-0 text-center text-white hover:text-black font-semibold transition-colors"
-            >Contributors</a
-          >
+            <a
+              href="#projects"
+              class="nav-link flex-grow md:flex-grow-0 text-center text-white hover:text-primary font-semibold transition-colors px-4 py-2"
+              >Projects</a
+            >
+            <a
+              href="#about"
+              class="nav-link flex-grow md:flex-grow-0 text-center text-white hover:text-primary font-semibold transition-colors px-4 py-2"
+              >About</a
+            >
+            <a
+              href="contributors.html"
+              class="nav-link flex-grow md:flex-grow-0 text-center text-white hover:text-primary font-semibold transition-colors px-4 py-2"
+              >Contributors</a
+            >
+          </div>
         </div>
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section
-      class="min-h-screen flex flex-col justify-center items-center pt-32 text-center"
-    >
-      <h1
-        class="text-4xl md:text-6xl font-extrabold text-primary drop-shadow-2xl animate-bounce"
-      >
-        100 DAYS OF 100 WEB PROJECTS
-      </h1>
-      <p class="mt-4 text-white/80 text-lg md:text-xl max-w-xl hero-subtitle">
-        Live demos of amazing mini projects crafted in HTML, CSS, and
-        JavaScript!
-      </p>
-      <div class="mt-8 space-y-6">
-        <div class="search-container">
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Search for projects..."
-            class="search-input"
-          />
-          <button
-            id="randomProjectBtn"
-            class="random-btn text-white px-6 py-3 rounded-full btn-3d ml-4"
-          >
-            🎲 Random
-          </button>
-        </div>
+    <section class="min-h-screen flex flex-col justify-center items-center pt-100 text-center hero-bg relative px-4">
+      <div class="container mx-auto relative z-10 ">
+        <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+          <span class="gradient-text">100 DAYS</span>
+          <br>
+          <span class="text-white">OF WEB MAGIC</span>
+        </h1>
+        <p class="mt-6 text-slate-300 text-xl md:text-2xl max-w-2xl mx-auto hero-subtitle font-light leading-relaxed">
+          Discover amazing mini projects crafted with modern web technologies. 
+          <span class="text-primary font-medium">HTML</span>, 
+          <span class="text-secondary font-medium">CSS</span>, and 
+          <span class="text-accent font-medium">JavaScript</span> at their finest!
+        </p>
+        
+        <div class="mt-12 space-y-4 md:space-y-0">
+          <div class="search-container">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search for amazing projects..."
+              class="search-input"
+            />
+            <button
+              id="randomProjectBtn"
+              class="random-btn text-white px-8 py-4 rounded-full btn-modern mt-4 md:mt-0 md:ml-6 font-semibold text-lg w-full md:w-auto"
+            >
+              🎲 Surprise Me
+            </button>
+          </div>
 
-        <!-- Tag Filters -->
-        <div class="flex flex-wrap justify-center gap-3 mt-6">
-          <button
-            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
-            data-tag="all"
-          >
-            All Projects
-          </button>
-          <button
-            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
-            data-tag="ui"
-          >
-            UI/UX
-          </button>
-          <button
-            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
-            data-tag="game"
-          >
-            Games
-          </button>
-          <button
-            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
-            data-tag="api"
-          >
-            API
-          </button>
-          <button
-            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
-            data-tag="clock"
-          >
-            Clock
-          </button>
-          <button
-            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
-            data-tag="tool"
-          >
-            Tools
-          </button>
-          <button
-            class="tag-filter bg-gray-700 text-white px-4 py-2 rounded-full text-sm"
-            data-tag="tool"
-          >
-            Journal
-          </button>
+          <div class="flex flex-wrap justify-center gap-4 mt-8">
+            <button
+              class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium"
+              data-tag="all"
+            >
+              All Projects
+            </button>
+            <button
+              class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium"
+              data-tag="ui"
+            >
+              UI/UX
+            </button>
+            <button
+              class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium"
+              data-tag="game"
+            >
+              Games
+            </button>
+            <button
+              class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium"
+              data-tag="api"
+            >
+              API
+            </button>
+            <button
+              class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium"
+              data-tag="clock"
+            >
+              Clock
+            </button>
+            <button
+              class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium"
+              data-tag="tool"
+            >
+              Tools
+            </button>
+            <button
+              class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium"
+              data-tag="journal"
+            >
+              Journal
+            </button>
+          </div>
         </div>
       </div>
     </section>
     
-    <!-- Projects Table -->
-    <section id="projects" class="container mx-auto px-4 py-10">
-      <div class="overflow-x-auto glass rounded-xl p-6">
-        <table class="w-full text-left">
-          <thead class="border-b border-gray-600">
-            <tr>
-              <th class="p-4 text-primary font-semibold">Day</th>
-              <th class="p-4 text-primary font-semibold">Project Name</th>
-              <th class="p-4 text-primary font-semibold">Demo Link</th>
-            </tr>
-          </thead>
-          <tbody id="tableBody">
-            <!-- Dynamic rows injected here -->
-            </tbody>
-        </table>
-        <div id="no-projects" class="text-center mt-8 p-8 hidden">
-          <div class="text-6xl mb-4">🔍</div>
-          <h3 class="text-xl font-semibold mb-2">No Projects Found</h3>
-          <p class="text-gray-500">
+    <section id="projects" class="container mx-auto px-4 py-20">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+          <span class="gradient-text">Project</span> <span class="text-white">Showcase</span>
+        </h2>
+        <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+      </div>
+      
+      <div class="glass-card rounded-2xl p-8 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead class="border-b border-slate-700/50 mb-6">
+              <tr>
+                <th class="p-6 text-primary font-bold text-lg">Day</th>
+                <th class="p-6 text-primary font-bold text-lg">Project Name</th>
+                <th class="p-6 text-primary font-bold text-lg">Demo Link</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              </tbody>
+          </table>
+        </div>
+        
+        <div id="no-projects" class="text-center mt-12 p-12 hidden">
+          <div class="text-8xl mb-6 opacity-50">🔍</div>
+          <h3 class="text-2xl font-bold mb-4 text-slate-300">No Projects Found</h3>
+          <p class="text-slate-500 text-lg">
             Try adjusting your search or filter criteria
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Enhanced About Section -->
-    <section id="about" class="about-section py-20 mt-20">
+    <section id="about" class="about-section py-24 mt-20">
       <div class="container mx-auto px-4 relative z-10">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-6">
-            About the Challenge
+        <div class="text-center mb-20">
+          <h2 class="text-5xl md:text-6xl font-bold mb-6">
+            <span class="gradient-text">About the</span> <span class="text-white">Challenge</span>
           </h2>
-          <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+          <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-8"></div>
+          <p class="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Embark on an incredible journey of creativity and skill development through 100 unique web projects.
+          </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <div
-            class="glass p-8 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300"
-          >
-            <div class="text-4xl mb-4">🎯</div>
-            <h3 class="text-xl font-semibold mb-4">Our Mission</h3>
-            <p class="text-gray-400">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          <div class="glass-card p-10 rounded-2xl text-center group">
+            <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🎯</div>
+            <h3 class="text-2xl font-bold mb-6 gradient-text">Our Mission</h3>
+            <p class="text-slate-300 leading-relaxed text-lg">
               Build 100 amazing web projects to master HTML, CSS, and JavaScript
               through hands-on practice and real-world applications.
             </p>
           </div>
 
-          <div
-            class="glass p-8 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300"
-          >
-            <div class="text-4xl mb-4">🚀</div>
-            <h3 class="text-xl font-semibold mb-4">Skill Development</h3>
-            <p class="text-gray-400">
+          <div class="glass-card p-10 rounded-2xl text-center group">
+            <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🚀</div>
+            <h3 class="text-2xl font-bold mb-6 gradient-text">Skill Development</h3>
+            <p class="text-slate-300 leading-relaxed text-lg">
               From basic to intermediate level projects, each designed to
               challenge and improve your web development skills progressively.
             </p>
           </div>
 
-          <div
-            class="glass p-8 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300"
-          >
-            <div class="text-4xl mb-4">🌟</div>
-            <h3 class="text-xl font-semibold mb-4">Community</h3>
-            <p class="text-gray-400">
+          <div class="glass-card p-10 rounded-2xl text-center group">
+            <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🌟</div>
+            <h3 class="text-2xl font-bold mb-6 gradient-text">Community</h3>
+            <p class="text-slate-300 leading-relaxed text-lg">
               Join a growing community of developers, contribute to projects,
               and learn together in this collaborative journey.
             </p>
           </div>
         </div>
 
-        <div class="glass p-8 rounded-xl">
-          <h3 class="text-2xl font-semibold mb-6 text-center">
+        <div class="glass-card p-10 rounded-2xl">
+          <h3 class="text-3xl font-bold mb-8 text-center gradient-text">
             Challenge Statistics
           </h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-              <div class="text-3xl font-bold text-primary" id="projectCount">
-                5
-              </div>
-              <div class="text-sm text-gray-400">Projects Completed</div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="stat-card p-6 rounded-xl">
+              <div class="text-4xl font-black text-primary mb-2" id="projectCount">5</div>
+              <div class="text-sm text-slate-400 uppercase tracking-wider">Projects Completed</div>
             </div>
-            <div>
-              <div class="text-3xl font-bold text-primary">100</div>
-              <div class="text-sm text-gray-400">Total Goal</div>
+            <div class="stat-card p-6 rounded-xl">
+              <div class="text-4xl font-black text-secondary mb-2">100</div>
+              <div class="text-sm text-slate-400 uppercase tracking-wider">Total Goal</div>
             </div>
-            <div>
-              <div class="text-3xl font-bold text-primary">3</div>
-              <div class="text-sm text-gray-400">Technologies</div>
+            <div class="stat-card p-6 rounded-xl">
+              <div class="text-4xl font-black text-accent mb-2">3</div>
+              <div class="text-sm text-slate-400 uppercase tracking-wider">Technologies</div>
             </div>
-            <div>
-              <div class="text-3xl font-bold text-primary">∞</div>
-              <div class="text-sm text-gray-400">Learning</div>
+            <div class="stat-card p-6 rounded-xl">
+              <div class="text-4xl font-black gradient-text mb-2">∞</div>
+              <div class="text-sm text-slate-400 uppercase tracking-wider">Learning</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-black text-white p-6 mt-10">
-      <div class="container mx-auto grid md:grid-cols-3 gap-8">
+    <footer class="bg-slate-900 text-white p-8 mt-20 border-t border-slate-800">
+      <div class="container mx-auto grid md:grid-cols-3 gap-12">
         <div>
-          <h2 class="text-lg font-semibold mb-4">100 Days Challenge</h2>
-          <p class="text-white/70 mb-4">
+          <h2 class="text-2xl font-bold mb-6 gradient-text">100 Days Challenge</h2>
+          <p class="text-slate-300 mb-6 leading-relaxed text-lg">
             This repository contains 100 web projects from basic to intermediate
             using HTML, CSS, and JS. Each project is designed to teach specific
             concepts and improve your coding skills.
           </p>
-          <div class="flex gap-4">
+          <div class="flex gap-6">
             <a
               href="https://www.instagram.com/"
               target="_blank"
-              class="text-pink-500 hover:text-pink-400 transition-colors"
-              ><i class="fab fa-instagram fa-lg"></i
+              class="text-pink-400 hover:text-pink-300 transition-colors text-2xl hover:scale-110 transform duration-300"
+              ><i class="fab fa-instagram"></i
             ></a>
             <a
               href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS"
               target="_blank"
-              class="text-white hover:text-gray-300 transition-colors"
-              ><i class="fab fa-github fa-lg"></i
+              class="text-slate-300 hover:text-white transition-colors text-2xl hover:scale-110 transform duration-300"
+              ><i class="fab fa-github"></i
             ></a>
             <a
               href="https://www.linkedin.com/in/rutika-kengal-8085092b7"
               target="_blank"
-              class="text-blue-400 hover:text-blue-300 transition-colors"
-              ><i class="fab fa-linkedin fa-lg"></i
+              class="text-blue-400 hover:text-blue-300 transition-colors text-2xl hover:scale-110 transform duration-300"
+              ><i class="fab fa-linkedin"></i
             ></a>
           </div>
         </div>
         
         <div>
-          <h2 class="text-lg font-semibold mb-4">Quick Links</h2>
-          <ul class="space-y-2">
-            <li>
-              <a
-                href="#projects"
-                class="text-white/70 hover:text-white transition-colors"
-                >Browse Projects</a
-              >
-            </li>
+          <h2 class="text-2xl font-bold mb-6 gradient-text">Quick Links</h2>
+          <ul class="space-y-4">
+          
             <li>
               <a
                 href="#about"
-                class="text-white/70 hover:text-white transition-colors"
+                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
                 >About Challenge</a
               >
             </li>
             <li>
               <a
+                href="#projects"
+                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
+                >Browse Projects</a
+              >
+            </li>
+            <li>
+              <a
                 href="#"
-                class="text-white/70 hover:text-white transition-colors"
+                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
                 >Contributors</a
               >
             </li>
             <li>
               <a
                 href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS"
-                class="text-white/70 hover:text-white transition-colors"
+                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
                 >GitHub Repository</a
               >
             </li>
@@ -523,30 +789,20 @@
         </div>
 
         <div>
-          <h2 class="text-lg font-semibold mb-4">Technologies</h2>
-          <div class="flex flex-wrap gap-2">
-            <span
-              class="bg-orange-600 text-white px-3 py-1 rounded-full text-sm"
-              >HTML5</span
-            >
-            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm"
-              >CSS3</span
-            >
-            <span
-              class="bg-yellow-600 text-white px-3 py-1 rounded-full text-sm"
-              >JavaScript</span
-            >
-            <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm"
-              >Responsive</span
-            >
+          <h2 class="text-2xl font-bold mb-6 gradient-text">Technologies</h2>
+          <div class="flex flex-wrap gap-3 mb-8">
+            <span class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium">HTML5</span>
+            <span class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">CSS3</span>
+            <span class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-4 py-2 rounded-full text-sm font-medium">JavaScript</span>
+            <span class="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-full text-sm font-medium">Responsive</span>
           </div>
-          <p class="mt-4 text-white/50 text-sm">
+          <p class="text-slate-400 text-lg">
             ©
             <script>
               document.write(new Date().getFullYear());
             </script>
             100DAYS_WEBPROJECTS by
-            <a href="#" class="underline hover:text-white transition-colors"
+            <a href="#" class="underline hover:text-white transition-colors gradient-text font-medium"
               >Rutika Kengal</a
             >
             & Contributors
@@ -555,19 +811,16 @@
       </div>
     </footer>
 
-    <!-- Theme Toggle Button -->
-    <button id="themeToggle" class="theme-toggle glass">🌙</button>
+    <button id="themeToggle" class="theme-toggle">🌙</button>
 
-    <!-- Scroll to top button --> 
     <button
       id="scrollBtn"
       onclick="scrollToTop()"
-      class="fixed bottom-5 right-5 bg-primary text-white p-4 rounded-full shadow-lg btn-3d hidden"
+      class="fixed bottom-8 right-8 bg-gradient-to-r from-primary to-secondary text-white p-4 rounded-full shadow-2xl z-[60] btn-modern hidden hover:scale-110 transition-all duration-300"
     >
-      <i class="fas fa-arrow-up"></i>
+      <i class="fas fa-arrow-up text-xl"></i>
     </button>
 
-    <!-- Scripts -->
     <script>
       const scrollBtn = document.getElementById("scrollBtn");
       window.onscroll = () => {

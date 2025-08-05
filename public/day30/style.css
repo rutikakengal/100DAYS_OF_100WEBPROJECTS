@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #ff00cc, #6666df, #a50a98, #ff00cc);
+  background-size: 400% 400%;
+  animation: borderMove 5s linear infinite;
+  z-index: -1;
+  filter: blur(4px);
+}
+
+@keyframes borderMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} 
+/* header contains heading of site */
+header {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+header h1 {
+  font-size: 3rem;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: all 3s ease;
+  width: 0;
+  animation: typing 2s steps(31, end) forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 31ch;
+  }
+}
+/* main game  */
+.game-container {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 50%;
+  min-width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+  transition: transform 0.3s ease;
+}
+.game-container:hover {
+  transform: scale(1.05);
+}
+.game-container h1 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 2.3rem;
+}
+.game-container p {
+  font-size: 1.5rem;
+}
+
+input[type="number"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 10px;
+  width: 100px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 15px;
+  border: none;
+  background-color: #00c9a7;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #00b493;
+}
+
+.message {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.score,
+.last-guess,
+.guess-history {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.restart {
+  background-color: #ff5e5e;
+  margin-top: 10px;
+}
+
+.restart:hover {
+  background-color: #e84e4e;
+}

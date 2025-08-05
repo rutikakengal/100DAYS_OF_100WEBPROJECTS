@@ -1,7 +1,7 @@
 const projects = [
   "Animated Landing Page",
-  "To-Do List",
-  "Weather App",
+  "Advanced To-Do List",
+  "Weather Forecast App",
   "Jewellery-company landing page",
   "Random Image Generator",
   "New Year Countdown",
@@ -14,8 +14,45 @@ const projects = [
   "Colour Picker",
   "Drawing Canvas",
   "Nasa Astronomy Picture of the day",
-  "World Clock"
+  "World Clock",
+  "Mood Timer",
+  "text to PDF Convertor",
+  "Memory Card Game",
+  "Email Validator",  
+  "Snake And Ladder Game",
+  "Space Jumper Game",
+  "Calculator",
+  "Promodoro Timer",
+  "Temperature Converter",
+  "Space War Game",
+  "CHESS GAME",
+
+  "Bubble Shooter Game",
+  " ",
+  "Guess the Number Game",
+
+  "Typing Speed Test webapp ",
+  "Startup Name Generator Web App",
+
+  "",
+  " ",
+  "Snake Game ",
+ "Hangman Game",
+  " ",
+  " ",
+  " ",
+  "Doodle Jump Game",
+  " currency Converter",
+  " ",
+  " ",
+  "",
+  "Digital Clock",
+  "Random Password Generator",
+  "Doodle Jump Game",
+  "BrainBuzz Quizz Website",
+  "Code Editor"
   // Add more project names as needed
+
 ];
 
 const hamburgerBtn = document.getElementById('hamburger-btn');
@@ -61,10 +98,12 @@ randomBtn.addEventListener("click", () => {
 projects.forEach((name, index) => {
   const day = `Day ${String(index + 1).padStart(2, "0")}`;
   let link;
-  if (name === "QR Generator") {
-    link = `public/Day 9/index.html`;
-  } else if (name === "Nasa Astronomy Picture of the day") {
+  
+  // Dynamic link generation for specific projects
+  if (name === "Nasa Astronomy Picture of the day") {
     link = "https://sabaaa01.github.io/NASA-astronomy-photo-of-the-day/";
+  } else if (name === "BrainBuzz Quizz Website") {
+    link = "https://brain-buzz-six.vercel.app/";
   } else {
     const folder = `day${String(index + 1).padStart(2, "0")}`;
     link = `public/${folder}/index.html`;
