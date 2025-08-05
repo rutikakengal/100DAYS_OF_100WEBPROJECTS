@@ -1,60 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Editor: HTML | CSS | JS</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+  <!-- Aaqeeb Pinjari -->
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="./pass.jpg">
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="code-editor-container">
-        <div class="code-editor" id="html-section">
-             <div class="head-editor html-section">
-                <div class="left-part">
-                    <img src="icons/html.svg" alt="" width="30px">
-                    <span>HTML</span>
-                </div>
-                <div class="right-part">
-                    <img src="icons/copy.svg" alt="" class="copy copy1">
-                </div>
-             </div>
-             <textarea class="code-area" spellcheck="false"></textarea>
-        </div>
-        <div class="code-editor" id="css-section">
-            <div class="head-editor css-section">
-                <div class="left-part">
-                    <img src="icons/css.svg" alt="" width="30px">
-                    <span>CSS</span>
-                </div>
-                <div class="right-part">
-                    <img src="icons/copy.svg" alt="" class="copy copy2">
-                </div>
-             </div>
-             <textarea class="code-area" spellcheck="false"></textarea>
-        </div>
-        <div class="code-editor" id="js-section">
-            <div class="head-editor js-section">
-                <div class="left-part">
-                    <img src="icons/javascript.svg" alt="" width="30px">
-                    <span>JS</span>
-                </div>
-                <div class="right-part">
-                    <img src="icons/copy.svg" alt="" class="copy copy3">
-                </div>
-             </div>
-             <textarea class="code-area" spellcheck="false"></textarea>
-        </div>
+  <div class="password-generator">
+    <U><h2>Password Generator</h2></U>
+    <div class="output-group">
+      <input type="text" id="passwordOutput" class="password-output" readonly placeholder="Your password will appear here">
     </div>
-    <div class="output-container">
-        <div class="output-head">
-        <span>OUTPUT</span>
-        <img src="icons/save.svg" alt="" id="save">
-        <img src="icons/fullscreen.svg" alt="" id="full-screen">
-        </div>
-        <iframe id="output">
-        </iframe>
+
+    <div class="settings-group">
+      <label for="passwordLength" class="label">Password Length: <span id="lengthDisplay">6</span></label>
+      <input type="range" id="passwordLength" class="range-slider" min="6" max="32" value="6">
     </div>
-    <script src="script.js"></script>
+
+    <div class="strength-box">
+        <p class="strength-label">Password Strength: <span id="passwordStrength">Medium</span></p>
+          <div class="strength-bar">
+            <div id="strengthLevel" class="strength-fill medium"></div>
+          </div>
+    </div>
+<!-- password sesssion -->
+        <div class="checkbox-box">
+        <h2>Customize your Password</h2>
+        <div class="checkbox-grid">
+        <label class="checkbox-item">
+          <input type="checkbox" id="includeUppercase" checked>
+          Uppercase
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" id="includeLowercase" checked>
+          Lowercase
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" id="includeNumbers" checked>
+          Numbers
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" id="includeSymbols">
+          Symbols
+        </label>
+      </div>
+    </div>
+
+    <button id="copyBtn" class="Btn-copy">Copy Password</button>
+    <button id="generateBtn" class="btn-generate">Generate Password</button>
+    
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
