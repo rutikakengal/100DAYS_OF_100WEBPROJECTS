@@ -45,9 +45,11 @@ body {
 }
 
 canvas {
-  background: #e8feff;
+  background: #a2cdf9ec;
   border: 4px solid #fff;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
   display: none;
+  
+  
 }
