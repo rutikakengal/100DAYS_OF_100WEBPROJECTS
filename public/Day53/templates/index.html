@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Vibe Study Groups{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h2>Find Your Study Crew!</h2>
+    <p>Connect with students who share your subjects, goals, and exam timelines.</p>
+    <a href="{{ url_for('register') }}" class="button">Get Started Now</a>
+</section>
+
+<section class="features">
+    <h3>Why Join Vibe Study Groups?</h3>
+    <div class="feature-item">
+        <h4>Smart Matching</h4>
+        <p>Our tool intelligently connects you with compatible study partners.</p>
+    </div>
+    <div class="feature-item">
+        <h4>Real-time Chat</h4>
+        <p>Communicate instantly within your micro study groups.</p>
+    </div>
+    <div class="feature-item">
+        <h4>Daily Accountability</h4>
+        <p>Stay on track with shared goals and daily progress updates.</p>
+    </div>
+</section>
+{% endblock %}
