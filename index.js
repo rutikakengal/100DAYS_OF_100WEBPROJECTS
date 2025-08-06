@@ -47,7 +47,8 @@ const projects = [
   "Digital Clock",
   "Doodle Jump Game",
   "BrainBuzz Quizz Website",
-  "Code Editor"
+  "Code Editor",
+  "Astrology Horoscope",
   // Add more project names as needed
 
 ];
