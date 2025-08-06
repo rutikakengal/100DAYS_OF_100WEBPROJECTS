@@ -98,9 +98,7 @@ The application should now be running at `http://127.0.0.1:5000/`.
         * *Warning: This action is irreversible and deletes all group data, members, and messages.*
 
 
-## 🤝 Contributing
 
-Feel free to fork the repository and contribute!
 
 ## 📄 License
 
