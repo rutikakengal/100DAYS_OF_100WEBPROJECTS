@@ -1,41 +1,87 @@
-let html_input = document.querySelector("#html-section textarea");
-let css_input = document.querySelector("#css-section textarea");
-let js_input = document.querySelector("#js-section textarea");
-let save = document.querySelector("#save");
-let output = document.querySelector("#output");
+// Character sets
+const UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
+const NUMBERS = "0123456789";
+const SYMBOLS = "!@#$%^&*()_+[]{}|;:,.<>?/~";
 
-save.addEventListener("click",() => {
-    output.contentDocument.body.innerHTML = html_input.value;
-    output.contentDocument.head.innerHTML = `<style>${css_input.value}</style>`;
-    const script = document.createElement("script");
-    script.textContent = js_input.value;
-    output.contentDocument.body.appendChild(script);
-})
+// DOM Elements
+const passwordOutput = document.getElementById("passwordOutput");
+const passwordLengthSlider = document.getElementById("passwordLength");
+const lengthDisplay = document.getElementById("lengthDisplay");
+const includeUppercase = document.getElementById("includeUppercase");
+const includeLowercase = document.getElementById("includeLowercase");
+const includeNumbers = document.getElementById("includeNumbers");
+const includeSymbols = document.getElementById("includeSymbols");
+const generateBtn = document.getElementById("generateBtn");
+const copyBtn = document.getElementById("copyBtn");
+const strengthText = document.getElementById("passwordStrength");
+const strengthBar = document.getElementById("strengthLevel");
 
-let full = document.querySelector("#full-screen");
-let output_container = document.querySelector(".output-container");
-full.addEventListener("click" , () => {
-    output_container.classList.toggle("output-full-screen");
-    if( output_container.classList.contains("output-full-screen")){
-        full.style.transform = "rotate(180deg)";
-    }else{
-         full.style.transform = "rotate(0deg)";
-    }
-})
+// Update password length label
+passwordLengthSlider.addEventListener("input", () => {
+  lengthDisplay.textContent = passwordLengthSlider.value;
+});
 
-let copy = document.querySelectorAll(".copy");
-copy.forEach((e) => {
-    e.addEventListener("click" , () => {
-        if(e.classList.contains("copy1")){
-        navigator.clipboard.writeText(html_input.value);
-        }else if(e.classList.contains("copy2")){
-        navigator.clipboard.writeText(css_input.value);
-        }else if(e.classList.contains("copy3")){
-        navigator.clipboard.writeText(js_input.value);
-        }
-    })
-})
+// Generate password on click
+generateBtn.addEventListener("click", () => {
+  const length = +passwordLengthSlider.value;
+  const hasUpper = includeUppercase.checked;
+  const hasLower = includeLowercase.checked;
+  const hasNumber = includeNumbers.checked;
+  const hasSymbol = includeSymbols.checked;
 
+  const password = generatePassword(length, hasUpper, hasLower, hasNumber, hasSymbol);
+  passwordOutput.value = password;
+  updateStrengthIndicator(password);
+});
 
+// Copy password to clipboard
+copyBtn.addEventListener("click", () => {
+  if (passwordOutput.value !== "") {
+    navigator.clipboard.writeText(passwordOutput.value);
+    copyBtn.textContent = "Copied!";
+    setTimeout(() => {
+      copyBtn.textContent = "Copy Password";
+    }, 1500);
+  }
+});
 
+// Generate Password Logic
+function generatePassword(length, upper, lower, number, symbol) {
+  let charSet = "";
+  if (upper) charSet += UPPERCASE;
+  if (lower) charSet += LOWERCASE;
+  if (number) charSet += NUMBERS;
+  if (symbol) charSet += SYMBOLS;
 
+  if (charSet.length === 0) return "Please select at least one option";
+
+  let password = "";
+  for (let i = 0; i < length; i++) {
+    const randomChar = charSet[Math.floor(Math.random() * charSet.length)];
+    password += randomChar;
+  }
+  return password;
+}
+
+// Strength Indicator Logic
+function updateStrengthIndicator(password) {
+  let strength = 0;
+  const length = password.length;
+
+  if (/[A-Z]/.test(password)) strength++;
+  if (/[a-z]/.test(password)) strength++;
+  if (/[0-9]/.test(password)) strength++;
+  if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+  if (length >= 12 && strength >= 3) {
+    strengthBar.className = "strength-fill strong";
+    strengthText.textContent = "Strong";
+  } else if (length >= 8 && strength >= 2) {
+    strengthBar.className = "strength-fill medium";
+    strengthText.textContent = "Medium";
+  } else {
+    strengthBar.className = "strength-fill weak";
+    strengthText.textContent = "Weak";
+  }
+}

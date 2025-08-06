@@ -3,54 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Drawing App</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <style>
-        canvas { touch-action: none; }
-    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="logo.png">
+    <title>Spotify - Web player: Music for everyone</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-100 flex items-center justify-center min-h-screen font-sans">
-    <main class="w-full max-w-4xl mx-auto p-4 text-center">
-    <h1 class="text-3xl font-bold text-slate-800 mb-4">Freehand Drawing Canvas 🎨</h1>
-    <p class="text-slate-600 mb-6">Select a tool, brush, size, and color, then draw on the canvas.</p>
-    
-    <div class="controls mb-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
-        <div class="flex justify-center gap-4">
-            <button id="pencil-btn" class="px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 focus:outline-none">Pencil</button>
-            <button id="eraser-btn" class="px-4 py-2 bg-slate-500 text-white rounded-lg shadow hover:bg-slate-600 focus:outline-none">Eraser</button>
-            <button id="clear-btn" class="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 focus:outline-none">Clear 🗑️</button>
-        </div>
+<body>
+    <div class="main">
+
+        <!-- side bar -->
+        <div class="sidebar">
+            <div class="nav">
+                <div class="nav-option" style="opacity: 1;">
+                   <i class="fa-solid fa-house"></i>
+                    <a href="#" >Home</a>
+                </div>
+                <div class="nav-option">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <a href="#">Search</a>
+                </div>
+            </div>
+
+            <div class="library">
+                <div class="options">
+                    <div class="lib-option nav-option">
+                      <img src="library_icon.png" alt="">
+                      <a href="#" >Your Library</a> 
+                    </div>
+                    <div class="icons">
+                        <i class="fa-solid fa-plus"></i>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="lib-box">
+                    <div class="box">
+                        <p class="box-p1">Create your first playlist</p>
+                        <p class="box-p2">It's easy,we'll help you</p>
+                        <button class="badge">Create playlist</button>
+                    </div>
+                     <div class="box">
+                        <p class="box-p1">Let's find some podcasts to follow</p>
+                        <p class="box-p2">We'll keep you updated on new episodes</p>
+                        <button class="badge">Browse podcasts</button>
+                    </div>
+                </div>
+            </div>
         
-        <div class="flex items-center justify-center gap-2 text-slate-700">
-            <span class="font-medium">Brush:</span>
-            <button id="brush-round-btn" class="px-3 py-1 bg-white border border-slate-300 rounded-lg shadow-sm hover:bg-slate-100">Line</button>
-            <button id="brush-circle-btn" class="px-3 py-1 bg-white border border-slate-300 rounded-lg shadow-sm hover:bg-slate-100">Circle</button>
-            <button id="brush-square-btn" class="px-3 py-1 bg-white border border-slate-300 rounded-lg shadow-sm hover:bg-slate-100">Square</button>
+        
         </div>
 
-        <div class="flex items-center justify-center gap-2 text-slate-700">
-            <label for="size-slider" class="font-medium">Size:</label>
-            <input type="range" id="size-slider" min="1" max="50" value="5" class="w-32 sm:w-40 cursor-pointer">
-            <span id="size-display" class="font-bold w-8 text-left">5</span>
-        </div>
+        <!-- main body -->
+        <div class="main-content">
+            <!-- nav bar sticky -->
+             <div class="sticky-nav">
+                <div class="nav-left">
+                <img src="backward_icon.png" alt="">
+                <img src="forward_icon.png" alt="" class="hide">
+            </div>
+            <div class="nav-right">
+                <button class="badge nav-item hide">Explore Premium</button>
+                <button class="badge nav-item dark-badge" style="background-color: #000; color: #fff;"><i class="fa-solid fa-circle-down" style="margin-right:5px ;"></i> Install App</button>
+                <i class="fa-regular fa-user nav-item"></i>
+            </div>    
+             </div>
+            <!-- card section -->
+             <div class="cards">
+                <h2>Recently played</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="card1img.jpeg" alt="" class="card-img">
+                        <p class="card-title">Top 50 - Global</p>
+                        <p class="card-info">Your daily updates of most played tracks ...</p>
+                    </div>
+                </div>
+             </div>
 
-        <div class="flex items-center justify-center gap-2 text-slate-700">
-            <label for="color-picker" class="font-medium">Color:</label>
-            <input type="color" id="color-picker" value="#000000" class="w-10 h-10 p-1 bg-white border border-slate-300 rounded-md cursor-pointer">
-        </div>
+             <h2>Trending now near you</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="card2img.jpeg" alt="" class="card-img">
+                        <p class="card-title">Mahiye Jinna Sohna</p>
+                        <p class="card-info">Darshan Raval</p>
+                    </div>
 
-        <div class="flex justify-center gap-4">
-            <button id="save-png-btn" class="px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 focus:outline-none">Save PNG 🖼️</button>
-            <button id="save-pdf-btn" class="px-4 py-2 bg-orange-600 text-white rounded-lg shadow hover:bg-orange-700 focus:outline-none">Save PDF 📄</button>
+                    <div class="card">
+                        <img src="card3img.jpeg" alt="" class="card-img">
+                        <p class="card-title">Mere Paas Tum Ho</p>
+                        <p class="card-info">Silent Ocean</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="card4img.jpeg" alt="" class="card-img">
+                        <p class="card-title">Naa Ready</p>
+                        <p class="card-info">Anirudh Ravichander</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="card2img.jpeg" alt="" class="card-img">
+                        <p class="card-title">Mahiye Jinna Sohna</p>
+                        <p class="card-info">Darshan Raval</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="card4img.jpeg" alt="" class="card-img">
+                        <p class="card-title">Naa Ready</p>
+                        <p class="card-info">Anirudh Ravichander</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="card3img.jpeg" alt="" class="card-img">
+                        <p class="card-title">Mere Paas Tum Ho</p>
+                        <p class="card-info">Silent Ocean</p>
+                    </div>
+                </div>
+
+            <h2>Featured Charts</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="card5img.jpeg" alt="" class="card-img">
+                        <p class="card-title">Top Songs Global</p>
+                        <p class="card-info">Your daily updates of most played tracks ...</p>
+                    </div>
+
+                     <div class="card">
+                        <img src="card6img.jpeg" alt="" class="card-img">
+                        <p class="card-title">Top Songs India</p>
+                        <p class="card-info">Your daily updates of most played tracks ...</p>
+                    </div>
+
+                     <div class="card">
+                        <img src="card1img.jpeg" alt="" class="card-img">
+                        <p class="card-title">Top 50 - Global</p>
+                        <p class="card-info">Your daily updates of most played tracks ...</p>
+                    </div>
+                </div>   
+                <div class="footer">
+                    <div class="line"></div>
+                </div> 
+        </div>
+        <!-- Music player -->
+        <div class="music-player">
+            <div class="album">
+                <img src="album_picture.jpeg" alt="" class="album-pic">
+                <div>
+                    <p class="album-title">Daylight</p>
+                    <p class="album-info">Edvin Fresher</p>
+                </div>
+                <img src="album_icon1.png" alt="" class="album-icon">
+                <img src="album_icon2.png" alt="" class="album-icon" style="background-color: #fff; color: #000;">
+            </div>
+
+            <div class="player">
+                <div class="player-control">
+                    <img src="player_icon1.png" alt="" class="player-controll-icon">
+                    <img src="player_icon2.png" alt=""  class="player-controll-icon">
+                    <img src="player_icon3.png" alt=""  class="player-controll-icon" style="opacity: 1;height: 2rem; margin-top:1rem;">
+                    <img src="player_icon4.png" alt=""   class="player-controll-icon">
+                    <img src="player_icon5.png" alt=""  class="player-controll-icon">
+                    </div>
+                <div class="progress-bar">
+                        <span class="current-time">00.00</span>
+                        <input type="range" min="0" max="100" class="progress-bar" step="1">
+                        <span class="tot-time">3.33</span>
+                </div>
+            </div>
+
+
+            <div class="controls">
+                  <img src="controls_icon1.png" alt="" class="control-icon">
+                  <img src="controld_icon2.png" alt="" class="control-icon">
+                  <img src="controls_icon3.png" alt="" class="control-icon">
+                  <img src="controls_icon4.png" alt="" class="control-icon">
+                  <img src="controls_icon5.png" alt="" class="control-icon">
+                  <input type="range" class="range">
+                </div>
+                
+            
+           
         </div>
     </div>
-    
-    <div class="canvas-container w-full h-[60vh] sm:h-[70vh] md:h-[75vh]">
-        <canvas id="drawing-canvas" class="bg-white rounded-lg shadow-lg w-full h-full cursor-crosshair"></canvas>
-    </div>
-</main>
-    
-    <script src="script.js"></script>
 </body>
 </html>

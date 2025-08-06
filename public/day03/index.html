@@ -3,40 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>Weather Forecast</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
     <div class="card">
-        <div class="search">
-            <input type="text" placeholder="Enter city name" spellcheck="false">
-            <button><img src="images/search.png" alt="search"></button>
+        <div class="search animate__animated animate__fadeIn">
+            <input type="text" placeholder="Enter city name" spellcheck="false" id="search-input">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
         </div>
 
-        <div class="error">
-            <h2>Invalid City Name</h2>
+        <div class="error animate__animated animate__fadeIn">
+            <div class="error-content">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h2>City Not Found</h2>
+                <p>Please check the spelling or try another location</p>
+            </div>
         </div>
-        <div class="weather">
-            <img src="images/rain.png" alt="rain" class="weather_info">
-            <h1 class="temp">22°C</h1>
-            <h2 class="city">Mathura</h2>
+
+        <div class="weather animate__animated animate__fadeIn">
+            <div class="weather-header">
+                <img src="images/rain.png" alt="Weather icon" class="weather-icon">
+                <div class="temp-container">
+                    <h1 class="temp">22°C</h1>
+                    <div class="feels-like">Feels like: 24°C</div>
+                </div>
+            </div>
+
+            <div class="location">
+                <h2 class="city">Mathura</h2>
+                <div class="date-time">
+                    <span class="date">Monday, June 10</span>
+                    <span class="time">14:30</span>
+                </div>
+                <div class="weather-desc">Moderate Rain</div>
+            </div>
+
             <div class="details">
-                <div class="col">
-                    <img src="images/humidity.png" alt="humidity">
+                <div class="col humidity">
+                    <i class="fas fa-tint"></i>
                     <div>
-                        <p class="humidity">50%</p>
+                        <p class="value">50%</p>
                         <p class="text">Humidity</p>
                     </div>
                 </div>
-                <div class="col">
-                    <img src="images/wind.png" alt="wind">
+                <div class="col wind">
+                    <i class="fas fa-wind"></i>
                     <div>
-                        <p class="wind">50 km/h</p>
+                        <p class="value">15 km/h</p>
                         <p class="text">Wind</p>
                     </div>
                 </div>
+                <div class="col pressure">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <div>
+                        <p class="value">1012 hPa</p>
+                        <p class="text">Pressure</p>
+                    </div>
+                </div>
             </div>
+
+            <div class="forecast-toggle">
+                <button id="toggle-forecast">Show 5-Day Forecast <i class="fas fa-chevron-down"></i></button>
+            </div>
+
+            <div class="forecast" id="forecast-container">
+                <!-- Forecast items will be added here by JavaScript -->
+            </div>
+        </div>
+
+        <div class="loader">
+            <div class="loader-spinner"></div>
+            <p>Loading weather data...</p>
         </div>
     </div>
     
