@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Global Reset & Background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e0e7ff, #f5f7fa);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container Glass Effect */
+.container {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* Heading */
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #111827;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+/* Textarea */
+textarea {
+    width: 100%;
+    height: 140px;
+    padding: 1rem;
+    border: 1px solid rgba(209, 213, 219, 0.6);
+    border-radius: 1rem;
+    resize: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    transition: border 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+textarea:focus {
+    outline: none;
+    border: 1px solid #6366F1;
+}
+
+/* Controls Buttons */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    gap: 1rem;
+}
+
+button {
+    flex: 1;
+    padding: 0.75rem;
+    font-size: 1rem;
+    background: linear-gradient(135deg, #6366F1, #4F46E5);
+    color: #ffffff;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(99, 102, 241, 0.4);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Tone Options */
+.tone-options {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    animation: fadeSlideDown 0.4s ease forwards;
+}
+
+@keyframes fadeSlideDown {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+#toneSelect {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(209, 213, 219, 0.6);
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+#applyToneBtn {
+    padding: 0.6rem 1.2rem;
+}
+
+/* Output Section */
+.output-section {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 1rem;
+    border: 1px solid rgba(209, 213, 219, 0.6);
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
+    backdrop-filter: blur(5px);
+}
+
+.output-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #111827;
+}
+
+#output {
+    font-size: 1rem;
+    color: #374151;
+    white-space: pre-wrap;
+}

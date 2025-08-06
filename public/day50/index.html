@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Writing Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AI Writing Assistant</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>AI Writing Assistant</h1>
+            <textarea id="userInput" placeholder="Type your text here..."></textarea>
+
+            <div class="controls">
+                <button id="grammarCheckBtn">Grammar Check</button>
+                <button id="paraphraseBtn">Paraphrase</button>
+                <button id="toneAdjustBtn">Tone Adjust</button>
+            </div>
+
+            <div class="tone-options" id="toneOptions">
+                <select id="toneSelect">
+                    <option value="" disabled selected>Select Tone</option>
+                    <option value="formal">Formal</option>
+                    <option value="informal">Informal</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="professional">Professional</option>
+                    <option value="enthusiastic">Enthusiastic</option>
+                    <option value="persuasive">Persuasive</option>
+                    <option value="witty">Witty</option>
+                </select>
+                <button id="applyToneBtn">Apply Tone</button>
+            </div>
+
+            <div class="output-section">
+                <h2>AI Suggestions</h2>
+                <div id="output"></div>
+            </div>
+        </div>
+
+        <script src="./script.js"></script>
+    </body>
+
+    </html>
+
+</body>
+
+</html>
