@@ -26,7 +26,8 @@ const projects = [
   "Temperature Converter",
   "Space War Game",
   "CHESS GAME",
-
+  " ",
+  "SODUKO",
   "Bubble Shooter Game",
   " ",
   "Guess the Number Game",
