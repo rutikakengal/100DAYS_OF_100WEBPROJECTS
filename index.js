@@ -1,7 +1,7 @@
 const projects = [
   "Animated Landing Page",
-  "To-Do List",
-  "Weather App",
+  "Advanced To-Do List",
+  "Weather Forecast App",
   "Jewellery-company landing page",
   "Random Image Generator",
   "New Year Countdown",
@@ -19,7 +19,7 @@ const projects = [
   "text to PDF Convertor",
   "Memory Card Game",
   "Email Validator",
-
+  
   "Snake And Ladder Game",
   "Space Jumper Game",
   "Calculator",
@@ -27,12 +27,18 @@ const projects = [
   "Temperature Converter",
   "Space War Game",
   "CHESS GAME",
-  " ",
+
+  "Bubble Shooter Game",
   " ",
   "Guess the Number Game",
-  "",
+  "Typing Speed Test webapp ",
+  "Startup Name Generator Web App",
+  "Simon Game",
   " ",
   "Snake Game ",
+ "Hangman Game",
+  "Simon Say Game ",
+  " ",
   " ",
 
   " ",
@@ -41,11 +47,9 @@ const projects = [
   
 
   "Doodle Jump Game",
-  "BrainBuzz Quizz Website",
-  "Simon Game",
-
-
+  "BrainBuzz Quizz Website"
   // Add more project names as needed
+
 ];
 
 const hamburgerBtn = document.getElementById("hamburger-btn");

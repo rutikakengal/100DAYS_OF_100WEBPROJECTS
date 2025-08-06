@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
+    <title>Advanced Task Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">          
 </head>
 <body>
     <div class="container">
-        <h1>Task Manager</h1>
+        <h1><i class="fas fa-tasks"></i> Task Manager</h1>
         <div class="task-input">
-            <input type="text" id="taskInput" placeholder="Enter task">
-            <button onclick="addTask()">Add Task</button>
+            <input type="text" id="taskInput" placeholder="Enter task...">
+            <select id="prioritySelect">
+                <option value="low">Low Priority</option>
+                <option value="medium" selected>Medium Priority</option>
+                <option value="high">High Priority</option>
+            </select>
+            <input type="date" id="dueDate">
+            <button id="addTaskBtn"><i class="fas fa-plus"></i> Add Task</button>
+        </div>
+        <div class="filter-options">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
         </div>
         <ol id="taskList"></ol>
+        <div class="stats">
+            <span id="taskCount">0 tasks</span>
+            <button id="clearCompleted">Clear Completed</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
