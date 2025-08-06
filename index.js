@@ -30,19 +30,22 @@ const projects = [
   "Bubble Shooter Game",
   " ",
   "Guess the Number Game",
-
   "Typing Speed Test webapp ",
   "Startup Name Generator Web App",
-
   "",
   " ",
   "Snake Game ",
  "Hangman Game",
-  " ",
+  "Simon Say Game ",
   " ",
   " ",
   "Doodle Jump Game",
+
+  "BrainBuzz Quizz Website",
+  "",
+
   " currency Converter",
+
   " ",
   " ",
   "",
@@ -50,7 +53,9 @@ const projects = [
   "Random Password Generator",
   "Doodle Jump Game",
   "BrainBuzz Quizz Website",
-  "Code Editor"
+  "Code Editor",
+  "Spotify Clone"
+
   // Add more project names as needed
 
 ];
