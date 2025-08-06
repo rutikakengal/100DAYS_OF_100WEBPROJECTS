@@ -30,19 +30,22 @@ const projects = [
   "Bubble Shooter Game",
   " ",
   "Guess the Number Game",
-
   "Typing Speed Test webapp ",
   "Startup Name Generator Web App",
-
   "",
   " ",
   "Snake Game ",
  "Hangman Game",
-  " ",
+  "Simon Say Game ",
   " ",
   " ",
   "Doodle Jump Game",
+
+  "BrainBuzz Quizz Website",
+  "",
+
   " currency Converter",
+
   " ",
   " ",
   "",
@@ -51,13 +54,16 @@ const projects = [
   "Doodle Jump Game",
   "BrainBuzz Quizz Website",
   "Code Editor",
-  "AI Writing Assistant"
+
+  "AI Writing Assistant",
+  "Spotify Clone"
+
   // Add more project names as needed
 
 ];
 
 const hamburgerBtn = document.getElementById('hamburger-btn');
-const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenu = docume.getElementById('mobile-menu');
 
 hamburgerBtn.addEventListener('click', () => {
   mobileMenu.classList.toggle('hidden');
