@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hack The Bank | Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="login-box">
+      <h2><i class="fas fa-university"></i> Hack The Bank</h2>
+      <form action="login.php" method="POST">
+        <div class="input-box">
+          <i class="fas fa-user"></i>
+          <input type="text" name="username" placeholder="Username" required />
+        </div>
+        <div class="input-box">
+          <i class="fas fa-lock"></i>
+          <input type="password" name="password" placeholder="Password" required />
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <p class="hack-tip">💻 Tip: Can you break the system? Try SQL Injection 😏</p>
+    </div>
+  </div>
+</body>
+</html>
