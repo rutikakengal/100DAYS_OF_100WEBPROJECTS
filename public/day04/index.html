@@ -74,7 +74,7 @@
           margin: 1%;
       }    
 
-      /* Carousel Full Wrapper */
+      /* Enhanced Carousel Styling */
       .carousel-wrapper {
           position: relative;
           width: 100vw;
@@ -84,17 +84,17 @@
           z-index: 1;
           grid-column: 1/-1;
           margin-bottom: 2rem;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          border-radius: 0;
       }
 
-      /* Container holding the slides */
       .carousel {
           position: relative;
           width: 100%;
-          height: 50vh;
+          height: 60vh;
           overflow: hidden;
       }
 
-      /* Tracks all slides */
       .carousel-track {
           display: flex;
           transition: transform 0.5s ease-in-out;
@@ -102,72 +102,215 @@
           width: 100%;
       }
 
-      /* Each slide is full width and vertically centered */
       .carousel-slide {
           flex: 0 0 100%;
           display: flex;
-          align-items: center;     /* Vertically center image */
-          justify-content: center; /* Horizontally center image */
+          align-items: center;
+          justify-content: center;
           height: 100%;
           box-sizing: border-box;
-          background-color: #F5F5FC;
+          position: relative;
       }
 
-      /* Actual image inside slide */
       .carousel-slide img {
-          max-height: 100%;
-          max-width: 100%;
-          object-fit: contain;
-          display: block;
-          margin: 0 auto;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0.4;
+          transition: opacity 0.5s ease;
       }
 
-      /* Navigation buttons */
+      .slide-content {
+          position: relative;
+          z-index: 10;
+          text-align: center;
+          color: #333;
+          padding: 3rem;
+          max-width: 800px;
+          background: rgba(255, 255, 255, 0.9);
+          border-radius: 1rem;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          transform: translateY(0);
+      }
+
+      .slide-content h2 {
+          font-family: 'Fasthand', cursive;
+          font-size: clamp(2rem, 4vw, 3.5rem);
+          margin-bottom: 1rem;
+          color: #333;
+          font-weight: bold;
+      }
+
+      .slide-content .subtitle {
+          font-family: 'Fasthand', cursive;
+          font-size: clamp(1.2rem, 2.5vw, 2rem);
+          margin-bottom: 1rem;
+          color: #333;
+          font-weight: lighter;
+      }
+
+      .slide-content p {
+          font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+          line-height: 1.6;
+          color: #333;
+          margin-bottom: 2rem;
+          font-weight: lighter;
+      }
+
+      .slide-cta {
+          display: inline-block;
+          padding: 0.5rem 1rem;
+          background: transparent;
+          color: rgb(6, 86, 112);
+          text-decoration: none;
+          border-radius: 1rem;
+          font-weight: lighter;
+          font-size: 2vh;
+          font-family: 'Fasthand';
+          border: solid 1px black;
+          transition: all 0.5s ease;
+      }
+
+      .slide-cta:hover {
+          transform: scale(1.1);
+      }
+
+      /* Enhanced Navigation Buttons */
       .carousel-btn {
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          background-color: rgba(0, 0, 0, 0.3);
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(15px);
           color: white;
-          border: none;
-          font-size: 2rem;
+          border: 2px solid rgba(255, 255, 255, 0.2);
+          font-size: 1.8rem;
           cursor: pointer;
-          padding: 0.5rem 1rem;
-          z-index: 10;
+          padding: 1rem 1.2rem;
+          z-index: 15;
+          border-radius: 50%;
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .carousel-btn:hover {
+          background: rgba(255, 215, 0, 0.2);
+          border-color: #FFD700;
+          transform: translateY(-50%) scale(1.1);
+          box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+      }
+
+      .carousel-btn:active {
+          transform: translateY(-50%) scale(0.95);
       }
 
       .carousel-btn.prev {
-          left: 10px;
+          left: 30px;
       }
 
       .carousel-btn.next {
-          right: 10px;
+          right: 30px;
       }
 
-      /* Carousel Indicators */
+      /* Enhanced Carousel Indicators */
       .carousel-indicators {
           position: absolute;
-          bottom: 20px;
+          bottom: 30px;
           left: 50%;
           transform: translateX(-50%);
           display: flex;
-          gap: 10px;
-          z-index: 10;
+          gap: 15px;
+          z-index: 15;
       }
 
       .carousel-indicator {
-          width: 12px;
-          height: 12px;
+          width: 15px;
+          height: 15px;
           border-radius: 50%;
-          background: rgba(255, 255, 255, 0.5);
+          background: rgba(255, 255, 255, 0.3);
           cursor: pointer;
-          transition: all 0.3s ease;
-          border: 2px solid rgba(255, 255, 255, 0.8);
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          border: 2px solid rgba(255, 255, 255, 0.5);
+          position: relative;
+          overflow: hidden;
+      }
+
+      .carousel-indicator::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, #FFD700, #FFA500);
+          border-radius: 50%;
+          transform: scale(0);
+          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .carousel-indicator.active::before {
+          transform: scale(1);
       }
 
       .carousel-indicator.active {
-          background: rgba(255, 255, 255, 1);
+          border-color: #FFD700;
+          box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+          transform: scale(1.3);
+      }
+
+      .carousel-indicator:hover {
           transform: scale(1.2);
+          border-color: rgba(255, 215, 0, 0.8);
+      }
+
+      /* Slide-specific backgrounds */
+      .slide-1 {
+          background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.8)), url('slide1.jpg');
+          background-size: cover;
+          background-position: center;
+      }
+
+      .slide-2 {
+          background: linear-gradient(135deg, rgba(46, 26, 46, 0.8), rgba(62, 22, 62, 0.8)), url('slide2.jpg');
+          background-size: cover;
+          background-position: center;
+      }
+
+      .slide-3 {
+          background: linear-gradient(135deg, rgba(26, 46, 26, 0.8), rgba(22, 62, 22, 0.8)), url('slide3.jpg');
+          background-size: cover;
+          background-position: center;
+      }
+
+      .slide-4 {
+          background: linear-gradient(135deg, rgba(46, 26, 26, 0.8), rgba(62, 22, 22, 0.8)), url('slide4.jpg');
+          background-size: cover;
+          background-position: center;
+      }
+
+      /* Progress bar animation */
+      .carousel-progress {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 4px;
+          background: linear-gradient(90deg, #FFD700, #FFA500);
+          z-index: 20;
+          transform-origin: left;
+          animation: progressSlide 5s linear infinite;
+      }
+
+      @keyframes progressSlide {
+          0% { transform: scaleX(0); }
+          100% { transform: scaleX(1); }
       }
 
       .promotion{
@@ -338,35 +481,40 @@
     </nav>
 
     <main>
-      <!-- Carousel Section -->
+      <!-- Enhanced Carousel Section -->
       <div class="carousel-wrapper">
         <div class="carousel">
           <div class="carousel-track">
-            <div class="carousel-slide">
-              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(245, 245, 252, 0.95), rgba(245, 245, 252, 0.8)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 400%22><rect width=%221200%22 height=%22400%22 fill=%22%23F5F5FC%22/><circle cx=%22200%22 cy=%22150%22 r=%2280%22 fill=%22%23FFD700%22 opacity=%220.3%22/><circle cx=%22300%22 cy=%22180%22 r=%2260%22 fill=%22%23FFA500%22 opacity=%220.2%22/><circle cx=%22900%22 cy=%22120%22 r=%2270%22 fill=%22%23FFD700%22 opacity=%220.25%22/><circle cx=%221000%22 cy=%22200%22 r=%2250%22 fill=%22%23FFA500%22 opacity=%220.3%22/></svg>'); background-size: cover; display: flex; align-items: center; justify-content: center; position: relative;">
-                <div style="text-align: center; color: #333; z-index: 2;">
-                  <h2 style="font-family: 'Fasthand', cursive; font-size: 3.5rem; margin-bottom: 1rem; color: #B8860B;">✨ New Arrivals ✨</h2>
-                  <p style="font-family: 'Fasthand', cursive; font-size: 1.8rem; margin-bottom: 1.5rem;">Shine Every Day</p>
-                  <p style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto;">Discover our latest collection of handcrafted jewelry pieces that celebrate life's most precious moments.</p>
-                </div>
+            <div class="carousel-slide slide-1">
+              <div class="slide-content">
+                <h2>✨ Exquisite Elegance ✨</h2>
+                <p class="subtitle">New Arrivals Collection</p>
+                <p>Discover our latest collection of handcrafted jewelry pieces that celebrate life's most precious moments. Each piece tells a story of timeless beauty and exceptional artistry.</p>
+                <a href="#1" class="slide-cta">Explore Collection</a>
               </div>
             </div>
-            <div class="carousel-slide">
-              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(245, 245, 252, 0.95), rgba(245, 245, 252, 0.8)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 400%22><rect width=%221200%22 height=%22400%22 fill=%22%23F5F5FC%22/><path d=%22M100,200 Q300,100 500,200 T900,200%22 stroke=%22%23FFB6C1%22 stroke-width=%223%22 fill=%22none%22 opacity=%220.4%22/><circle cx=%22150%22 cy=%22180%22 r=%2225%22 fill=%22%23FF69B4%22 opacity=%220.3%22/><circle cx=%22450%22 cy=%22160%22 r=%2230%22 fill=%22%23FF1493%22 opacity=%220.2%22/><circle cx=%22750%22 cy=%22190%22 r=%2235%22 fill=%22%23FFB6C1%22 opacity=%220.25%22/><circle cx=%221050%22 cy=%22170%22 r=%2228%22 fill=%22%23FF69B4%22 opacity=%220.3%22/></svg>'); background-size: cover; display: flex; align-items: center; justify-content: center; position: relative;">
-                <div style="text-align: center; color: #333; z-index: 2;">
-                  <h2 style="font-family: 'Fasthand', cursive; font-size: 3.5rem; margin-bottom: 1rem; color: #C71585;">💍 Engagement Special 💍</h2>
-                  <p style="font-family: 'Fasthand', cursive; font-size: 1.8rem; margin-bottom: 1.5rem;">Up to 30% Off</p>
-                  <p style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto;">Begin your forever story with our exquisite engagement rings, crafted to capture every heartbeat.</p>
-                </div>
+            <div class="carousel-slide slide-2">
+              <div class="slide-content">
+                <h2>💍 Forever Begins Here 💍</h2>
+                <p class="subtitle">Engagement Special - Up to 30% Off</p>
+                <p>Begin your forever story with our exquisite engagement rings, crafted to capture every heartbeat and promise. Where love meets luxury in perfect harmony.</p>
+                <a href="#2" class="slide-cta">Find Your Ring</a>
               </div>
             </div>
-            <div class="carousel-slide">
-              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(245, 245, 252, 0.95), rgba(245, 245, 252, 0.8)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 400%22><rect width=%221200%22 height=%22400%22 fill=%22%23F5F5FC%22/><polygon points=%22200,100 220,160 280,160 235,200 255,260 200,220 145,260 165,200 120,160 180,160%22 fill=%22%2387CEEB%22 opacity=%220.3%22/><polygon points=%22600,80 620,140 680,140 635,180 655,240 600,200 545,240 565,180 520,140 580,140%22 fill=%22%234682B4%22 opacity=%220.25%22/><polygon points=%22950,120 970,180 1030,180 985,220 1005,280 950,240 895,280 915,220 870,180 930,180%22 fill=%22%2387CEEB%22 opacity=%220.3%22/></svg>'); background-size: cover; display: flex; align-items: center; justify-content: center; position: relative;">
-                <div style="text-align: center; color: #333; z-index: 2;">
-                  <h2 style="font-family: 'Fasthand', cursive; font-size: 3.5rem; margin-bottom: 1rem; color: #4682B4;">💎 Luxury Collection 💎</h2>
-                  <p style="font-family: 'Fasthand', cursive; font-size: 1.8rem; margin-bottom: 1.5rem;">Premium Diamonds</p>
-                  <p style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto;">Unmatched in purity, unrivaled in artistry — our hand-cut diamonds are made for moments that matter.</p>
-                </div>
+            <div class="carousel-slide slide-3">
+              <div class="slide-content">
+                <h2>💎 Luxury Redefined 💎</h2>
+                <p class="subtitle">Premium Diamond Collection</p>
+                <p>Unmatched in purity, unrivaled in artistry — our hand-cut diamonds are made for moments that matter. Experience the brilliance of perfection.</p>
+                <a href="#1" class="slide-cta">View Diamonds</a>
+              </div>
+            </div>
+            <div class="carousel-slide slide-4">
+              <div class="slide-content">
+                <h2>🌟 Artisan Crafted 🌟</h2>
+                <p class="subtitle">Bespoke Jewelry Design</p>
+                <p>Where every stone tells a story of elegance and eternity. Custom designs that reflect your unique style and celebrate your special moments.</p>
+                <a href="#5" class="slide-cta">Order Custom</a>
               </div>
             </div>
           </div>
@@ -376,7 +524,9 @@
             <div class="carousel-indicator active"></div>
             <div class="carousel-indicator"></div>
             <div class="carousel-indicator"></div>
+            <div class="carousel-indicator"></div>
           </div>
+          <div class="carousel-progress"></div>
         </div>
       </div>
 
@@ -463,10 +613,13 @@
       const prevBtn = document.querySelector('.carousel-btn.prev');
       const nextBtn = document.querySelector('.carousel-btn.next');
       const indicators = document.querySelectorAll('.carousel-indicator');
+      const progressBar = document.querySelector('.carousel-progress');
 
       let currentIndex = 0;
       let autoSlideInterval;
+      let progressInterval;
       const totalSlides = slides.length;
+      const slideDuration = 5000;
 
       function updateCarousel() {
         // Update track position
@@ -476,6 +629,15 @@
         indicators.forEach((indicator, index) => {
           indicator.classList.toggle('active', index === currentIndex);
         });
+
+        // Reset progress animation
+        resetProgressBar();
+      }
+
+      function resetProgressBar() {
+        progressBar.style.animation = 'none';
+        progressBar.offsetHeight; // Trigger reflow
+        progressBar.style.animation = `progressSlide ${slideDuration}ms linear`;
       }
 
       function nextSlide() {
@@ -492,18 +654,6 @@
         currentIndex = index;
         updateCarousel();
       }
-
-      // Ensure images are vertically centered inside the slide
-      slides.forEach(slide => {
-        const img = slide.querySelector('img');
-        if (img) {
-          img.style.objectFit = 'contain';
-          img.style.height = '100%';
-          img.style.width = '100%';
-          img.style.display = 'block';
-          img.style.margin = '0 auto';
-        }
-      });
 
       // Button event listeners
       prevBtn.addEventListener('click', () => {
@@ -526,7 +676,7 @@
 
       // Auto-slide functionality
       function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 5000);
+        autoSlideInterval = setInterval(nextSlide, slideDuration);
       }
 
       function stopAutoSlide() {
