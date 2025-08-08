@@ -26,22 +26,14 @@ const projects = [
   "Temperature Converter",
   "Space War Game",
   "CHESS GAME",
-
   "Bubble Shooter Game",
   " ",
   "Guess the Number Game",
   "Typing Speed Test webapp ",
   "Startup Name Generator Web App",
-  "",
-<<<<<<< HEAD
-  "Photo-Booth",
-  "Snake Game ", 
-  "Photo-Booth  ",
-  "Doodle Jump Game",
-  
   " ",
+  "Photo-Booth ",
   "Snake Game",
-  "Photo-Booth",
   "Doodle Jump Game",
   "Hangman Game",
   "Simon Say Game",
