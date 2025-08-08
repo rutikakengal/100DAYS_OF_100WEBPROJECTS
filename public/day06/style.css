@@ -65,6 +65,12 @@ input {
     text-align: center;
     border-radius: 7px;
     border: none;
+    transition: all 0.3s ease;
+}
+input:hover {
+    background-color: #fff59d;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
 }
 
 .box {

@@ -26,13 +26,19 @@ const projects = [
   "Temperature Converter",
   "Space War Game",
   "CHESS GAME",
-
   "Bubble Shooter Game",
-  " ",
   "Guess the Number Game",
   "Typing Speed Test webapp ",
+  
   "Startup Name Generator Web App",
-  "",
+  "Snake Game ",
+ "Hangman Game",
+  "Doodle Jump Game",
+  "Travel dream Spinner",
+  "Digital Clock",
+  "BrainBuzz Quizz Website",
+  "Code Editor",
+  " ",
   " ",
   "Snake Game ",
  "Hangman Game",
@@ -54,7 +60,7 @@ const projects = [
   "Doodle Jump Game",
   "BrainBuzz Quizz Website",
   "Code Editor",
-  "Spotify Clone"
+  "Spotify Clone",
 
   // Add more project names as needed
 
@@ -126,4 +132,5 @@ projects.forEach((name, index) => {
   `;
 
   tableBody.appendChild(row);
+
 });

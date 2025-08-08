@@ -1,6 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Spin the Globe</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="spin-theme">
+
+  <!-- 🌍 SPIN VIEW -->
+  <div id="spinPage">
+    <div class="globe" id="globe"></div>
+
+    <nav class="navbar">
+      <h2>🌍 Travel Dream Spinner</h2>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Destinations</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+
+    <div class="main-content">
+      <h1>Spin the Globe</h1>
+      <button onclick="spinGlobe()">🎯 Spin</button>
+    </div>
+
+    <footer class="footer">
+      <p>✨ Wherever you go becomes a part of you somehow. ✨<br>© 2025 Travel Dream Spinner. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- ✈️ DESTINATION VIEW -->
+  <div id="destinationPage" style="display: none;" class="main-content">
+    <div class="text-box">
+      <h1 id="placeName"></h1>
+      <div class="fact-box">
+        <p id="placeFact"></p>
+      </div>
+      <button onclick="goBack()">🔙 Back to Spin</button>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img id="placeImageFront" src="" alt="Front view" />
+        </div>
+        <div class="flip-card-back">
+          <img id="placeImageBack" src="" alt="Back view" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simon Game</title>

@@ -1,3 +1,240 @@
+
+
+/* Reset and Base */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  transition: background 0.6s ease-in-out;
+}
+
+/* Themes */
+body.spin-theme {
+  background: url('Anime\ Wallpaper\ \(1\).jpeg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.destination-theme {
+  background: linear-gradient(135deg, #0d0d0d, #2a0f12, #1a1a1a);
+  background-size: cover;
+  animation: premiumBackground 12s ease infinite;
+  color: white;
+}
+
+@keyframes premiumBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Globe */
+.globe {
+  position: absolute;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  background: url('earth-ball-planet-isolated.png') no-repeat center center;
+  background-size: contain;
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.6);
+  z-index: 1000;
+}
+
+@keyframes spinGlobeEffect {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+.globe.spinning {
+  animation: spinGlobeEffect 4s linear;
+}
+
+/* Navbar */
+.navbar {
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+}
+
+.navbar a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Main Content */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 140px);
+  padding: 20px;
+  text-align: center;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  margin-top: 120px;
+}
+
+.main-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+button {
+  padding: 12px 30px;
+  font-size: 18px;
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0, 188, 212, 0.4);
+  margin-top: 20px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #0097a7, #00bcd4);
+}
+
+/* Destination Layout */
+#destinationPage.main-content {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  padding: 60px;
+  margin-top: 60px;
+}
+
+.text-box {
+  max-width: 400px;
+  text-align: left;
+}
+
+.text-box h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+/* Flip Card */
+.flip-card {
+  background-color: transparent;
+  width: 400px;
+  height: 580px;
+  perspective: 1200px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.flip-card-front img,
+.flip-card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  text-align: center;
+  padding: 30px 10px;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 -6px 20px rgba(0, 255, 255, 0.2);
+}
+
+/* ✅ Transparent Fact Box */
+.fact-box {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 20px 25px;
+  border-radius: 15px;
+  margin-top: 20px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fact-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.3);
+}
+
+.fact-box p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #ffffffd9;
+  margin: 0;
+}
+=======
 body{
     text-align: center;
 }
@@ -33,3 +270,4 @@ body{
 .userflash{
     background-color: rgb(230, 12, 234);
 }
+
