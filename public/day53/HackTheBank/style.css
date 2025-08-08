@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #001F3F, #001233);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+  }
+  
+  .login-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 255, 171, 0.5);
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(0, 255, 171, 0.2);
+    animation: fadeIn 1s ease-in;
+  }
+  
+  .login-box h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 26px;
+    color: #00FFAB;
+  }
+  
+  .input-box {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .input-box i {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #00FFAB;
+  }
+  
+  .input-box input {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #000;
+    font-size: 14px;
+  }
+  
+  .btn {
+    width: 100%;
+    background: #00FFAB;
+    color: #000;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .btn:hover {
+    background: #00ffaa;
+    box-shadow: 0 0 15px #00FFAB;
+  }
+  
+  .hack-tip {
+    margin-top: 20px;
+    text-align: center;
+    color: #aaa;
+    font-style: italic;
+    font-size: 13px;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
