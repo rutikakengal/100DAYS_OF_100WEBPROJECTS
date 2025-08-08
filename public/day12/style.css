@@ -1,3 +1,79 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #002057;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game-container {
+  text-align: center;
+}
+
+h1 {
+  color: #ff0077;
+  margin-bottom: 20px;
+}
+
+#status {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
+  margin: 20px auto;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background: #ffffff10;
+  border: 2px solid #ff0077;
+  font-size: 2.5rem;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cell:hover {
+  background: #ffffff20;
+}
+
+#message {
+  font-size: 20px;
+  margin-top: 10px;
+  color: #00ffcc;
+}
+
+#reset {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #ff0077;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#reset:hover {
+  background-color: #ff4d9a;
+
 /* General body styling */
 body {
   background-color: black;
@@ -72,4 +148,5 @@ canvas {
 #scoreBoard {
   font-size: 20px;
   margin-top: 10px;
+
 }
