@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Create Study Group - Vibe Study Groups{% endblock %}
+
+{% block content %}
+<h2>Create a New Study Group</h2>
+<form method="POST" action="{{ url_for('create_group') }}">
+    <div class="form-group">
+        <label for="name">Group Name:</label>
+        <input type="text" id="name" name="name" value="{{ name or '' }}" required>
+        <small>Choose a unique and descriptive name for your group.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Group Description:</label>
+        <textarea id="description" name="description" rows="3">{{ description or '' }}</textarea>
+        <small>Briefly describe your group's focus or purpose.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="subjects">Subjects (comma-separated, e.g., Math, Physics):</label>
+        <input type="text" id="subjects" name="subjects" value="{{ subjects or '' }}">
+        <small>What subjects will your group cover?</small>
+    </div>
+
+    <div class="form-group">
+        <label for="topics">Specific Topics (comma-separated, e.g., Calculus, Optics):</label>
+        <input type="text" id="topics" name="topics" value="{{ topics or '' }}">
+        <small>Narrow down the specific topics for collaboration.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="goals">Group Goals:</label>
+        <textarea id="goals" name="goals" rows="5">{{ goals or '' }}</textarea>
+        <small>What are the collective goals of this study group? (e.g., "Prepare for UPSC Prelims," "Complete Project Alpha")</small>
+    </div>
+
+    <div class="form-group">
+        <label for="exam_timeline">Relevant Exam Date (Optional):</label>
+        <input type="date" id="exam_timeline" name="exam_timeline" value="{{ exam_timeline or '' }}">
+        <small>Is this group preparing for a specific upcoming exam?</small>
+    </div>
+
+    <button type="submit" class="button button-primary">Create Group</button>
+</form>
+{% endblock %}

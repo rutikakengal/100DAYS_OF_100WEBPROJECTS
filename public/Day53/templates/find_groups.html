@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Find Study Groups - Vibe Study Groups{% endblock %}
+
+{% block content %}
+<h2>Find Your Study Group</h2>
+
+<section class="user-profile-summary">
+    <h3>Your Profile for Matching:</h3>
+    <p><strong>Subjects:</strong> {{ user.subjects or 'Not set' }}</p>
+    <p><strong>Topics:</strong> {{ user.topics or 'Not set' }}</p>
+    <p><strong>Goals:</strong> {{ user.goals or 'Not set' }}</p>
+    <p><strong>Exam Date:</strong> {{ user.exam_timeline.strftime('%Y-%m-%d') if user.exam_timeline else 'Not set' }}</p>
+    <p><small>Make sure your <a href="{{ url_for('profile_edit') }}">profile</a> is up-to-date for best matches!</small></p>
+</section>
+
+<section class="matching-groups">
+    <h3>Suggested Groups:</h3>
+    {% if matching_groups %}
+        <div class="group-list">
+            {% for match_data in matching_groups %}
+                {% set group = match_data.group %}
+                {% set score = match_data.score %}
+                <div class="group-card">
+                    <h4>{{ group.name }} (Match Score: {{ score }})</h4>
+                    <p><strong>Description:</strong> {{ group.description or 'No description provided.' }}</p>
+                    <p><strong>Subjects:</strong> {{ group.subjects or 'N/A' }}</p>
+                    <p><strong>Topics:</strong> {{ group.topics or 'N/A' }}</p>
+                    <p><strong>Goals:</strong> {{ group.goals or 'N/A' }}</p>
+                    <p><strong>Exam Date:</strong> {{ group.exam_timeline.strftime('%Y-%m-%d') if group.exam_timeline else 'N/A' }}</p>
+                    <p><small>Created by: {{ group.creator.username }} on {{ group.created_at.strftime('%Y-%m-%d') }}</small></p>
+
+                    {% if group.id in user_group_ids %}
+                        <a href="#" class="button" style="background-color: #6c757d; cursor: not-allowed;">Already Member</a>
+                    {% else %}
+                        {% if group.id in user_group_ids %}
+                            <a href="#" class="button" style="background-color: #6c757d; cursor: not-allowed;">Already Member</a>
+                        {% else %}
+                            {# Change the href here! #}
+                            <a href="{{ url_for('join_group', group_id=group.id) }}" class="button button-primary">Join Group</a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No matching groups found based on your profile yet. Try updating your <a href="{{ url_for('profile_edit') }}">profile</a>, or <a href="{{ url_for('create_group') }}">create a new group</a>!</p>
+    {% endif %}
+</section>
+{% endblock %}

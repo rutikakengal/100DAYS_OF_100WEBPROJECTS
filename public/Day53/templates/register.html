@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Register - Vibe Study Groups{% endblock %}
+
+{% block content %}
+<h2>Join Vibe Study Groups</h2>
+<p>Registration form will go here.</p>
+<form method="POST" action="{{ url_for('register') }}"> 
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username" value="{{ username or '' }}"><br><br> 
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" value="{{ email or '' }}"><br><br>   
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br><br>
+    <label for="confirm_password">Confirm Password:</label><br>
+    <input type="password" id="confirm_password" name="confirm_password"><br><br>
+    <input type="submit" value="Register" class="button button-primary">
+</form>
+{% endblock %}

@@ -1,0 +1,802 @@
+/* --- Global Styles & Variables (Refined Dark Theme) --- */
+:root {
+    --bg-dark-primary: #121212; /* Deepest dark for body background */
+    --bg-dark-secondary: #1f1f1f; /* Slightly lighter dark for main containers/cards */
+    --bg-dark-tertiary: #2a2a2a; /* Even lighter dark for form inputs, chat bubbles */
+
+    --text-light: #f5f5f5; /* Main text color, clear and very light */
+    --text-medium: #bbbbbb; /* Secondary text color, good contrast */
+    --text-dark-on-vibrant: #121212; /* Very dark text to go on vibrant colors */
+
+    --border-color-dark: #3a3a3a; /* Dark border for elements */
+    --border-color-medium: #555555; /* Medium dark border for input focus/hover */
+
+    --primary-color: #81D4FA; /* A bright, appealing light blue for accents/actions */
+    --primary-hover-color: #4FC3F7; /* Slightly brighter for hover */
+    --secondary-color: #90A4AE; /* Muted grey for secondary actions */
+    --secondary-hover-color: #B0BEC5; /* Lighter grey for secondary hover */
+    --accent-color: #FFEB3B; /* Soft yellow for highlights (e.g., sender names) */
+
+    --error-color: #EF5350; /* Softer red for errors */
+    --success-color: #66BB6A; /* Softer green for success */
+    --info-color: #42A5F5; /* Softer blue for info */
+
+    --spacing-unit: 15px;
+    --border-radius-main: 8px; /* Larger radius for main containers */
+    --border-radius-small: 4px; /* Smaller for inputs, buttons */
+
+    --shadow-elevation-1: 0 2px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow for cards */
+    --shadow-elevation-2: 0 4px 15px rgba(0, 0, 0, 0.6); /* Deeper shadow for main sections */
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark-primary);
+    color: var(--text-light); /* Lighter main text */
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+/* --- Custom Scrollbar (for WebKit browsers like Chrome/Edge/Safari) --- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color-medium);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-light); /* All headings are light by default now */
+    margin-top: 0;
+    margin-bottom: var(--spacing-unit);
+    line-height: 1.3;
+    font-weight: 600; /* Slightly bolder headings */
+}
+
+h1 { font-size: 2.8em; }
+h2 { font-size: 2.2em; color: var(--primary-color); } /* H2 uses primary color */
+h3 { font-size: 1.7em; }
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+a:hover {
+    color: var(--primary-hover-color);
+    text-decoration: underline;
+}
+
+/* --- Layout & Containers --- */
+header {
+    background-color: var(--bg-dark-secondary);
+    color: var(--text-light);
+    padding: var(--spacing-unit) 0;
+    box-shadow: var(--shadow-elevation-1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color-dark);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+}
+
+nav h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: var(--text-light);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: var(--spacing-unit);
+}
+
+nav ul li a {
+    color: var(--text-light);
+    font-weight: 500; /* Slightly lighter bold */
+    padding: 5px 10px;
+    border-radius: var(--border-radius-small);
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+nav ul li a:hover {
+    background-color: var(--primary-color);
+    color: var(--text-dark-on-vibrant); /* Text becomes dark on hover */
+    text-decoration: none;
+}
+
+main {
+    padding: var(--spacing-unit) 0;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+footer {
+    text-align: center;
+    padding: var(--spacing-unit);
+    margin-top: 30px;
+    background-color: var(--bg-dark-secondary);
+    color: var(--text-medium);
+    font-size: 0.8em;
+    box-shadow: 0 -2px 5px var(--shadow-color);
+    border-top: 1px solid var(--border-color-dark);
+}
+
+/* --- Buttons --- */
+/* --- Buttons --- */
+.button {
+    display: inline-block;
+    padding: 12px 25px; /* Slightly increased padding for better click area */
+    border-radius: var(--border-radius-small);
+    text-decoration: none;
+    font-weight: 600; /* Bolder text for prominence */
+    font-size: 1.05em; /* Slightly larger text */
+    transition: background-color 0.25s ease-out, /* Smoother transition */
+                transform 0.15s ease-out,
+                box-shadow 0.25s ease-out,
+                color 0.25s ease-out;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* More noticeable initial shadow */
+    position: relative; /* For active state subtle push */
+    overflow: hidden; /* For potential future hover effects like ripples */
+}
+
+.button:active {
+    transform: translateY(1px); /* Subtle push down effect on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Smaller shadow on click */
+}
+
+/* Primary Buttons (e.g., Create, Send, Save) */
+.button-primary {
+    background-color: var(--primary-color);
+    color: var(--text-dark-on-vibrant);
+}
+.button-primary:hover {
+    background-color: var(--primary-hover-color);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+}
+
+/* Secondary Buttons (e.g., General actions) */
+.button-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+.button-secondary:hover {
+    background-color: var(--secondary-hover-color);
+    color: var(--text-dark-on-vibrant); /* Text becomes dark for better contrast on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Danger Buttons (e.g., Delete, Leave) */
+.button-danger {
+    background-color: var(--error-color);
+    color: var(--text-light);
+}
+.button-danger:hover {
+    background-color: #c0392b; /* A darker red for hover */
+    color: var(--text-light); /* Keep text color same on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Form specific submit buttons (inherited from .button-primary or general .button) */
+form button[type="submit"] {
+    /* Already inheriting .button and .button-primary styles */
+    /* Just ensure width is 100% as needed */
+    width: 100%;
+    margin-top: var(--spacing-unit);
+}
+
+/* Override for 'Already Member' button style (ensure it's not interactive) */
+.group-card .button[style*="background-color: rgb(108, 117, 125)"] {
+    background-color: var(--secondary-color) !important; /* Use secondary color for static look */
+    color: var(--text-light) !important; /* Ensure light text */
+    opacity: 0.8;
+    cursor: not-allowed;
+    box-shadow: none !important; /* Remove shadow for static button */
+    transform: none !important; /* No transform */
+}
+/* --- Forms --- */
+form {
+    background-color: var(--bg-dark-secondary);
+    padding: var(--spacing-unit) * 2;
+    border-radius: var(--border-radius-main);
+    box-shadow: var(--shadow-elevation-2);
+    max-width: 500px;
+    margin: 20px auto;
+    border: 1px solid var(--border-color-dark);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-unit);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-medium);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="date"],
+.form-group textarea,
+.form-group select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid var(--border-color-medium);
+    border-radius: var(--border-radius-small);
+    font-size: 1em;
+    background-color: var(--bg-dark-tertiary);
+    color: var(--text-light);
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group input[type="date"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.3); /* Subtle focus ring */
+}
+
+.form-group input[readonly] {
+    background-color: var(--bg-dark-tertiary); /* Still dark */
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.form-group small {
+    display: block;
+    color: var(--text-medium);
+    font-size: 0.85em;
+    margin-top: 5px;
+}
+
+form button[type="submit"] {
+    width: 100%;
+    margin-top: var(--spacing-unit);
+}
+
+/* --- Flash Messages --- */
+.flashes {
+    list-style: none;
+    padding: 10px var(--spacing-unit);
+    margin: var(--spacing-unit) auto;
+    max-width: 1200px;
+    border-radius: var(--border-radius-small);
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid transparent;
+    color: var(--text-light);
+}
+
+.flashes li {
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.flashes .error {
+    background-color: rgba(239, 83, 80, 0.2);
+    color: var(--error-color);
+    border-color: var(--error-color);
+}
+
+.flashes .success {
+    background-color: rgba(102, 187, 106, 0.2);
+    color: var(--success-color);
+    border-color: var(--success-color);
+}
+
+.flashes .info {
+    background-color: rgba(66, 165, 245, 0.2);
+    color: var(--info-color);
+    border-color: var(--info-color);
+}
+
+/* --- Hero Section (index.html) --- */
+.hero {
+    text-align: center;
+    padding: var(--spacing-unit) * 3 0;
+    background-color: var(--bg-dark-secondary);
+    border-radius: var(--border-radius-main);
+    margin: var(--spacing-unit) 0;
+    box-shadow: var(--shadow-elevation-2);
+    border: 1px solid var(--border-color-dark);
+}
+.hero h2 {
+    color: var(--primary-color);
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+.hero p {
+    font-size: 1.2em;
+    color: var(--text-medium);
+    margin-bottom: 25px;
+}
+
+/* --- Features Section (index.html) --- */
+.features {
+    display: flex;
+    justify-content: center; /* Center items */
+    gap: var(--spacing-unit) * 2;
+    padding: var(--spacing-unit) * 2 0;
+    flex-wrap: nowrap; /* Prevent wrapping on larger screens by default */
+}
+
+.feature-item {
+    flex: 1;
+    min-width: 280px; /* Adjusted min-width for better spacing */
+    max-width: 350px;
+    background-color: var(--bg-dark-secondary);
+    border: 1px solid var(--border-color-dark);
+    border-radius: var(--border-radius-main);
+    padding: var(--spacing-unit) * 1.5;
+    text-align: center;
+    box-shadow: var(--shadow-elevation-1);
+    transition: transform 0.2s ease-in-out;
+}
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+.feature-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+.feature-item p {
+    color: var(--text-medium);
+}
+
+/* --- Dashboard Sections --- */
+.dashboard-welcome, .dashboard-groups {
+    background-color: var(--bg-dark-secondary);
+    padding: var(--spacing-unit) * 1.5;
+    border-radius: var(--border-radius-main);
+    margin-bottom: var(--spacing-unit) * 2;
+    border: 1px solid var(--border-color-dark);
+    box-shadow: var(--shadow-elevation-1);
+}
+.dashboard-welcome h2, .dashboard-groups h3 {
+    color: var(--primary-color);
+}
+.dashboard-groups ul {
+    list-style: none;
+    padding: 0;
+}
+.dashboard-groups li {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-color-dark);
+}
+.dashboard-groups li:last-child {
+    border-bottom: none;
+}
+.dashboard-groups li a {
+    color: var(--text-light);
+}
+.dashboard-groups li a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Find Groups / Group Cards --- */
+.user-profile-summary {
+    background-color: var(--bg-dark-secondary);
+    border: 1px solid var(--border-color-dark);
+    padding: var(--spacing-unit);
+    margin-bottom: var(--spacing-unit) * 2;
+    border-radius: var(--border-radius-main);
+    box-shadow: var(--shadow-elevation-1);
+}
+
+.group-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-unit) * 2;
+}
+
+.group-card {
+    background-color: var(--bg-dark-secondary);
+    border: 1px solid var(--border-color-dark);
+    border-radius: var(--border-radius-main);
+    padding: var(--spacing-unit) * 1.5;
+    box-shadow: var(--shadow-elevation-1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out;
+}
+.group-card:hover {
+    transform: translateY(-5px);
+}
+.group-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+.group-card p {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    color: var(--text-medium);
+}
+.group-card p strong {
+    color: var(--text-light);
+}
+.group-card .button {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+/* Override for 'Already Member' button style */
+.group-card .button[style*="background-color: rgb(108, 117, 125)"] {
+    background-color: var(--secondary-color) !important; /* Use secondary color for static look */
+    color: var(--text-light);
+    opacity: 0.8;
+    cursor: not-allowed;
+    box-shadow: none; /* Remove shadow for static button */
+}
+
+/* --- Group Details & Chat Styling --- */
+.group-details-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-unit) * 2;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: var(--spacing-unit);
+    background-color: var(--bg-dark-secondary);
+    border-radius: var(--border-radius-main);
+    box-shadow: var(--shadow-elevation-2);
+    border: 1px solid var(--border-color-dark);
+}
+
+.group-info, .group-chat {
+    padding: var(--spacing-unit);
+    border: 1px solid var(--border-color-dark);
+    border-radius: var(--border-radius-main);
+    background-color: var(--bg-dark-tertiary);
+}
+
+.group-info h2, .group-chat h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: var(--spacing-unit);
+    border-bottom: 1px solid var(--border-color-dark);
+    padding-bottom: 10px;
+}
+
+.group-info p {
+    margin-bottom: 10px;
+    color: var(--text-medium);
+}
+
+.member-list {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--spacing-unit);
+}
+
+.member-list li {
+    background-color: var(--bg-dark-secondary); /* Darker list item background */
+    padding: 8px 12px;
+    border-radius: var(--border-radius-small);
+    margin-bottom: 5px;
+    border: 1px solid var(--border-color-medium);
+    color: var(--text-light);
+}
+
+/* Chat Styling */
+.chat-messages {
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color-medium);
+    padding: var(--spacing-unit);
+    margin-bottom: var(--spacing-unit);
+    border-radius: var(--border-radius-main);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-dark-primary);
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+    box-shadow: 0 1px 3px var(--shadow-color);
+}
+
+.my-message {
+    background-color: var(--primary-color);
+    align-self: flex-end;
+    text-align: right;
+    color: var(--text-dark-on-vibrant);
+}
+
+.other-message {
+    background-color: var(--bg-dark-secondary);
+    align-self: flex-start;
+    text-align: left;
+    color: var(--text-light);
+    border: 1px solid var(--border-color-medium);
+}
+
+.sender-name {
+    font-weight: bold;
+    margin-bottom: 3px;
+    display: block;
+    color: var(--primary-hover-color);
+    color: rgb(75, 133, 136); /* BRIGHTER for visibility */
+}
+
+.message-content {
+    display: block;
+    margin-top: 3px;
+    font-size: 0.95em;
+}
+
+.message-time {
+    font-size: 0.75em;
+    color: var(--text-medium);
+    margin-top: 5px;
+    display: block;
+}
+
+.no-messages {
+    text-align: center;
+    color: var(--text-medium);
+    margin-top: 50px;
+    font-style: italic;
+}
+
+.message-form {
+    display: flex;
+    gap: 10px;
+    margin-top: var(--spacing-unit);
+}
+
+.message-form textarea {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color-medium);
+    border-radius: var(--border-radius-small);
+    resize: vertical;
+    min-height: 40px;
+    font-size: 0.95em;
+    background-color: var(--bg-dark-primary);
+    color: var(--text-light);
+}
+
+.message-form button {
+    background-color: var(--primary-color);
+    color: var(--text-dark-on-vibrant);
+    border: none;
+    border-radius: var(--border-radius-small);
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.message-form button:hover {
+    background-color: var(--primary-hover-color);
+    color: var(--text-dark-on-vibrant);
+}
+
+
+/* --- Daily Accountability Styling --- */
+.daily-goal-form {
+    margin-top: var(--spacing-unit) * 1.5;
+    padding: var(--spacing-unit);
+    border: 1px solid var(--border-color-dark);
+    background-color: var(--bg-dark-secondary);
+    border-radius: var(--border-radius-main);
+    margin-bottom: var(--spacing-unit) * 2;
+    box-shadow: var(--shadow-elevation-1);
+}
+
+.daily-goal-form textarea {
+    width: calc(100% - 22px);
+    min-height: 80px;
+    padding: 10px;
+    border: 1px solid var(--border-color-medium);
+    border-radius: var(--border-radius-small);
+    font-size: 0.95em;
+    margin-bottom: 10px;
+    background-color: var(--bg-dark-primary);
+    color: var(--text-light);
+}
+
+.daily-goal-form .status-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: var(--spacing-unit);
+}
+
+.daily-goal-form .status-selector label {
+    font-weight: 500;
+    color: var(--text-medium);
+}
+
+.daily-goal-form select {
+    padding: 8px;
+    border: 1px solid var(--border-color-medium);
+    border-radius: var(--border-radius-small);
+    font-size: 0.9em;
+    background-color: var(--bg-dark-primary);
+    color: var(--text-light);
+}
+
+.daily-goal-form button {
+    width: 100%;
+}
+
+.group-goals-list {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--spacing-unit);
+}
+
+.group-goals-list li {
+    background-color: var(--bg-dark-primary);
+    padding: 10px 15px;
+    border-radius: var(--border-radius-small);
+    margin-bottom: 8px;
+    border: 1px solid var(--border-color-medium);
+    box-shadow: 0 1px 4px var(--shadow-color);
+    color: var(--text-light);
+}
+
+.group-goals-list li strong {
+    color: var(--primary-color); /* Highlight username */
+}
+
+.group-goals-list li .no-goal-yet {
+    color: var(--text-medium);
+    font-style: italic;
+}
+
+.goal-status {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 0.75em;
+    font-weight: bold;
+    margin-left: 10px;
+    color: var(--text-dark-on-vibrant); /* Dark text on colored status */
+}
+
+.goal-status-in-progress {
+    background-color: var(--accent-color);
+}
+
+.goal-status-completed {
+    background-color: var(--success-color);
+}
+
+.goal-status-stuck {
+    background-color: var(--error-color);
+}
+
+/* --- Group Actions Buttons --- */
+.group-actions {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color-dark);
+}
+
+.group-actions form {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    max-width: none;
+    flex-grow: 1;
+}
+
+.group-actions button {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    border: none;
+    color: var(--text-light); /* Light text on buttons */
+}
+.button-danger {
+    background-color: var(--error-color);
+}
+.button-danger:hover {
+    background-color: #d32f2f;
+}
+.button-secondary {
+    background-color: var(--secondary-color);
+}
+.button-secondary:hover {
+    background-color: var(--secondary-hover-color);
+}
+.button-primary {
+    background-color: var(--primary-color);
+    color: var(--text-dark-on-vibrant);
+}
+.button-primary:hover {
+    background-color: var(--primary-hover-color);
+    color: var(--text-dark-on-vibrant);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav h1 {
+        font-size: 1.5em;
+    }
+    nav ul {
+        margin-top: var(--spacing-unit);
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    main {
+        padding: var(--spacing-unit);
+    }
+    .hero {
+        padding: var(--spacing-unit) * 2 var(--spacing-unit);
+    }
+    .features {
+        flex-direction: column; /* Stack vertically on small screens */
+        align-items: center;
+        flex-wrap: wrap; /* Allow wrapping on small screens */
+    }
+    .feature-item {
+        width: 90%;
+        max-width: 90%;
+    }
+    .group-details-container {
+        grid-template-columns: 1fr;
+        padding: var(--spacing-unit);
+    }
+    .group-info, .group-chat {
+        padding: var(--spacing-unit);
+    }
+    .group-chat {
+        margin-top: 0;
+    }
+    .message {
+        max-width: 95%;
+    }
+    form {
+        padding: var(--spacing-unit);
+    }
+}

@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}{{ group.name }} - Group Details{% endblock %}
+
+{% block content %}
+<div class="group-details-container">
+    <section class="group-info">
+        <h2>{{ group.name }}</h2>
+        <p><strong>Description:</strong> {{ group.description or 'No description provided.' }}</p>
+        <p><strong>Subjects:</strong> {{ group.subjects or 'N/A' }}</p>
+        <p><strong>Topics:</strong> {{ group.topics or 'N/A' }}</p>
+        <p><strong>Goals:</strong> {{ group.goals or 'N/A' }}</p>
+        <p><strong>Exam Date:</strong> {{ group.exam_timeline.strftime('%Y-%m-%d') if group.exam_timeline else 'N/A' }}</p>
+        <p><small>Created by: {{ group.creator.username }} on {{ group.created_at.strftime('%Y-%m-%d') }}</small></p>
+
+        <h3>Members:</h3>
+        {% if group_members %}
+            <ul class="member-list">
+                {% for member_user in group_members %}
+                    <li>{{ member_user.username }} {% if member_user.id == group.creator_id %}(Creator){% endif %}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No members yet, be the first!</p>
+        {% endif %}
+
+        <h3>Daily Accountability:</h3>
+        <h3>Your Daily Goal for Today:</h3>
+        {# Check if current user has a goal for today #}
+        {% set my_today_goal = today_goals_map.get(current_user.id) %}
+        <form method="POST" action="{{ url_for('group_details', group_id=group.id) }}" class="daily-goal-form">
+            <textarea name="daily_goal_text" placeholder="What are you working on today?" required>{{ my_today_goal.goal_text or '' }}</textarea>
+            <div class="status-selector">
+                <label for="status_update">Status:</label>
+                <select id="status_update" name="status_update">
+                    <option value="In Progress" {% if my_today_goal and my_today_goal.status == 'In Progress' %}selected{% endif %}>In Progress</option>
+                    <option value="Completed" {% if my_today_goal and my_today_goal.status == 'Completed' %}selected{% endif %}>Completed</option>
+                    <option value="Stuck" {% if my_today_goal and my_today_goal.status == 'Stuck' %}selected{% endif %}>Stuck</option>
+                </select>
+            </div>
+            <button type="submit" class="button button-primary">Save Goal</button>
+        </form>
+
+        <h3>Group Daily Goals for Today:</h3>
+        <ul class="group-goals-list">
+            {% for member_user in group_members %}
+                {% set member_goal = today_goals_map.get(member_user.id) %}
+                <li>
+                    <strong>{{ member_user.username }}:</strong>
+                    {% if member_goal %}
+                        {{ member_goal.goal_text }}
+                        <span class="goal-status goal-status-{{ member_goal.status | lower | replace(' ', '-') }}">{{ member_goal.status }}</span>
+                        <small>(Last updated: {{ member_goal.last_updated.strftime('%H:%M') }})</small>
+                    {% else %}
+                        <span class="no-goal-yet">No goal set for today.</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="group-actions"> 
+
+            {% if group.id in user_group_ids %} 
+                <form action="{{ url_for('leave_group', group_id=group.id) }}" method="POST" onsubmit="return confirm('Are you sure you want to leave this group?');">
+                    <button type="submit" class="button button-danger">Leave Group</button>
+                </form>
+            {% else %}
+                {% if current_user.id != group.creator_id %}
+                    <form action="{{ url_for('join_group', group_id=group.id) }}" method="GET"> 
+                        <button type="submit" class="button button-primary">Join Group</button>
+                    </form>
+                {% endif %}
+            {% endif %}
+            {# Delete Group Button (Visible ONLY to the creator) #}
+            {% if current_user.id == group.creator_id %}
+                <form action="{{ url_for('delete_group', group_id=group.id) }}" method="POST" onsubmit="return confirm('WARNING: Are you absolutely sure you want to delete this group? This action cannot be undone and will remove all members and messages!');">
+                    <button type="submit" class="button button-danger">Delete Group</button>
+                </form>
+            {% endif %}
+        </div>
+
+
+    </section>
+
+    <section class="group-chat">
+        <h3>Group Chat</h3>
+        <div class="chat-messages">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message {% if message.sender.id == current_user.id %}my-message{% else %}other-message{% endif %}">
+                        <span class="sender-name">{{ message.sender.username }}:</span>
+                        <span class="message-content">{{ message.content }}</span>
+                        <span class="message-time">{{ message.timestamp.strftime('%H:%M') }}</span>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-messages">No messages yet. Be the first to say hello!</p>
+            {% endif %}
+        </div>
+
+        <form method="POST" action="{{ url_for('group_details', group_id=group.id) }}" class="message-form">
+            <textarea name="message_content" placeholder="Type your message..." required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+</div>
+{% endblock %}
