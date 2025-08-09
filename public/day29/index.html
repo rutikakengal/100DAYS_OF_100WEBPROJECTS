@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live Mock Interview</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🧠 Live Mock Interview</h1>
+
+    <select id="category">
+      <option value="hr">HR</option>
+      <option value="technical">Technical</option>
+      <option value="javascript">JavaScript</option>
+      <option value="python">Python</option>
+      <option value="dsa">DSA</option>
+    </select>
+
+    <div id="question-box">
+      <p id="question">Select a category and click "Start"</p>
+    </div>
+
+    <div id="timer">60</div>
+
+    <div id="score-box" style="display: none;">
+      <label><input type="checkbox" id="answered-well" /> Answered Well</label>
+      <label><input type="checkbox" id="need-improvement" /> Could Improve</label>
+    </div>
+
+    <button id="start-btn">Start</button>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
