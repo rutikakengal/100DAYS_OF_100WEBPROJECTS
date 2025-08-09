@@ -46,10 +46,31 @@ const projects = [
 
   "Doodle Jump Game",
   "BrainBuzz Quizz Website",
+  " ",
+
+  " currency Converter",
+
+  " ",
+  "GiggleBits",
   "",
+  "Digital Clock",
+  "Random Password Generator",
+  "Doodle Jump Game",
+  "BrainBuzz Quizz Website",
+  "Code Editor",
+
+
+
+  "Spotify Clone",
+  "Plant Care Scheduler",
+
 
 
   // Add more project names as needed
+
+
+ 
+
 
 ];
 
