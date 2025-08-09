@@ -47,7 +47,7 @@ const projects = [
   " currency Converter",
 
   " ",
-  " ",
+  "GiggleBits",
   "",
   "Digital Clock",
   "Random Password Generator",
@@ -55,14 +55,14 @@ const projects = [
   "BrainBuzz Quizz Website",
   "Code Editor",
   "Spotify Clone",
-  " ",
-  "My Daily Journal",
- 
+  "Plant Care Scheduler",
+   "My Daily Journal"
   
 
-  // Add more project names as needed
 
-];
+
+  // Add more project names as needed
+ ];
 
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const mobileMenu = document.getElementById('mobile-menu');
