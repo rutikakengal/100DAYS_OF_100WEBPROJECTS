@@ -1,0 +1,142 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+    background-color: #2c2c2c;
+    padding: 2rem;
+    
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    
+    max-width: 400px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #00bcd4; /* A vibrant teal */
+}
+
+/* New CSS for the mode selection screen */
+.screen {
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.screen h2 {
+    font-size: 1.5rem;
+    color: #f0f0f0;
+}
+
+/* Styling for the mode buttons */
+#mode-selection button {
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#mode-selection button:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+}
+
+#mode-selection button:active {
+    transform: translateY(0);
+}
+
+#status-message {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #a0a0a0;
+}
+.cell {
+    background-color: #444;
+    border-radius: 8px;
+    /* Ensure the size is fixed and not content-dependent */
+    width: 100px;  /* Or whatever size fits your design */
+    height: 100px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease; /* Remove transform from here */
+}
+
+/* Also remove the transform from the hover effect */
+.cell:hover {
+    background-color: #555;
+}
+
+/* Optional: You can still have a hover effect on the content itself
+.cell:hover span {
+    transform: scale(1.05);
+}
+*/
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    /* Adjust this size to match your cell dimensions */
+    width: 320px; 
+    height: 320px; 
+    margin: 0 auto;
+}
+.cell:active {
+    transform: scale(0.95);
+}
+
+.cell.x-player {
+    color: #ff5722; /* A fiery orange */
+}
+
+.cell.o-player {
+    color: #4caf50; /* A fresh green */
+}
+
+#restart-button {
+    margin-top: 2rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #00bcd4;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#restart-button:hover {
+    background-color: #0097a7;
+    transform: translateY(-2px);
+}
+
+#restart-button:active {
+    transform: translateY(0);
+}
