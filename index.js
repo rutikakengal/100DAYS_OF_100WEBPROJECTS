@@ -47,7 +47,7 @@ const projects = [
   " currency Converter",
 
   " ",
-  " ",
+  "GiggleBits",
   "",
   "Digital Clock",
   "Random Password Generator",
@@ -55,9 +55,14 @@ const projects = [
   "BrainBuzz Quizz Website",
   "Code Editor",
   "Spotify Clone",
-  "Study Group Finder"
+  "Study Group Finder",
+  "Plant Care Scheduler"
 
   // Add more project names as needed
+
+
+ 
+
 
 ];
 
