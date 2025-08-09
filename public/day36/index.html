@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Simon</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <h1 id="level-title">Press A Key to Start</h1>
+    
+  <button class="top-right-btn" id="guideBtn">How to Play</button>
+
+  <div class="guide-box" id="guideBox">
+    <h2>How to Play Simon Game</h2>
+    <p>
+      1. Watch the pattern of lights and sounds.<br>
+      2. Repeat the pattern by clicking the correct colors in order.<br>
+      3. The game gets harder as the sequence gets longer.<br>
+      4. One mistake and it's game over!
+    </p>
+    <button id="closeGuide">Close</button>
+  </div>
+
+
+
+    <div class="container">
+      <div class="row">
+        <div type="button" id="green" class="btn green"></div>
+
+        <div type="button" id="red" class="btn red"></div>
+      </div>
+
+      <div class="row">
+        <div type="button" id="yellow" class="btn yellow"></div>
+        <div type="button" id="blue" class="btn blue"></div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js" harset="utf-8"></script>
+  </body>
+</html>
