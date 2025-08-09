@@ -47,16 +47,25 @@ const projects = [
   " currency Converter",
 
   " ",
-  " ",
+  "GiggleBits",
   "",
   "Digital Clock",
   "Random Password Generator",
   "Doodle Jump Game",
   "BrainBuzz Quizz Website",
   "Code Editor",
-  "Spotify Clone"
+
+
+
+  "Spotify Clone",
+  "Plant Care Scheduler",
+
 
   // Add more project names as needed
+
+
+ 
+
 
 ];
 
