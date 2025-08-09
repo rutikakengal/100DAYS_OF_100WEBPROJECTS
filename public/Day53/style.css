@@ -1,0 +1,271 @@
+/* style.css */
+
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --text-color: #f8fafc;
+    --accent: #f7a8b8; /* subtle warm accent */
+    --radius: 16px;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to bottom, #1e1e1e, #121212);
+    color: var(--text-color);
+    height: 100vh;
+    overflow: hidden; /* No scroll unless in output area */
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    height: 75%;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Sections */
+.input-section,
+.output-section {
+    background: var(--glass-bg);
+    backdrop-filter: blur(18px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.input-section {
+    background-color: #1f1f1f;
+}
+
+.output-section {
+    background-color: #262626;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-width: 100vw;
+    box-sizing: border-box;
+}
+
+h1, h2 {
+    color: var(--accent);
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: rgba(248, 250, 252, 0.72);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+textarea {
+    flex: 1;
+    resize: none;
+    background-color: #2e2e2e;
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 10px;
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.04);
+}
+
+/* Controls row (always visible at bottom) */
+.controls {
+    display: flex;
+    gap: 12px;
+    margin-top: auto; /* Push buttons to bottom */
+}
+
+.controls > button {
+    flex: 1;
+    min-width: 120px;
+    background: linear-gradient(90deg,
+        rgba(178, 31, 31, 0.95) 0%,
+        rgba(26, 42, 108, 0.95) 50%,
+        rgba(253, 45, 173, 0.95) 100%);
+    color: var(--text-color);
+    border: none;
+    padding: 12px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    background-size: 200% 200%;
+    animation: gradientMove 6s linear infinite;
+    transition: transform 180ms ease, filter 150ms ease;
+}
+
+.controls > button:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.05);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.6);
+}
+
+.controls > button:active {
+    transform: translateY(-1px);
+}
+
+/* Tone options container (select + apply button) */
+.tone-options {
+    display: none;
+    gap: 12px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* Select dropdown styling */
+.tone-options select {
+    padding: 12px;
+    background: rgba(17, 24, 39, 0.78); /* dark glass */
+    color: var(--text-color);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    font-size: 1rem;
+    appearance: none;
+    cursor: pointer;
+    flex: 1 1 60%;
+    min-width: 180px;
+    transition: border-color 0.2s ease;
+}
+
+.tone-options select:hover,
+.tone-options select:focus {
+    border-color: rgba(255, 255, 255, 0.2);
+    outline: none;
+}
+
+/* Dropdown options */
+.tone-options select option {
+    background: #16202b;
+    color: var(--text-color);
+}
+
+#applyToneBtn {
+    flex: 1;
+    min-width: 120px;
+    background: linear-gradient(90deg,
+        rgba(178, 31, 31, 0.95) 0%,
+        rgba(26, 42, 108, 0.95) 50%,
+        rgba(253, 45, 173, 0.95) 100%);
+    color: var(--text-color);
+    border: none;
+    padding: 12px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    background-size: 200% 200%;
+    animation: gradientMove 6s linear infinite;
+    transition: transform 180ms ease, filter 150ms ease;
+}
+
+#applyToneBtn:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.05);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.6);
+}
+
+#applyToneBtn:active {
+    transform: translateY(-1px);
+}
+
+/* Output styling */
+.output-card {
+    max-width: 100%;
+    box-sizing: border-box;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+    animation: fadeInUp 0.4s ease;
+}
+
+.output-card h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    color: var(--accent);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 6px;
+}
+
+.output-card p {
+    margin: 8px 0;
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.output-card strong {
+    color: var(--accent);
+}
+
+.output-card * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Animations */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.loader {
+    font-style: italic;
+    color: rgba(248, 250, 252, 0.6);
+    padding: 10px;
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
