@@ -54,6 +54,7 @@ const projects = [
   "Doodle Jump Game",
   "BrainBuzz Quizz Website",
   "Code Editor",
+  "Astrology Horoscope",
   "Spotify Clone"
 
   // Add more project names as needed
