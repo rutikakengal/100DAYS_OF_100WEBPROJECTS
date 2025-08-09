@@ -55,9 +55,6 @@ const projects = [
   "BrainBuzz Quizz Website",
   "Code Editor",
   "AI Writing Assistant",
-
-
-
   "Spotify Clone",
   "Plant Care Scheduler",
 
