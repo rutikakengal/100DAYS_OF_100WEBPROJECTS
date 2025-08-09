@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BMI Calculator</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="calculator-container">
+        <div class="header">
+            <h1>BMI Calculator</h1>
+            <p>Calculate your Body Mass Index and health status</p>
+        </div>
+
+        <div class="unit-toggle">
+            <div class="unit-option active" data-unit="metric">Metric</div>
+            <div class="unit-option" data-unit="imperial">Imperial</div>
+        </div>
+
+        <form id="bmi-form">
+            <div class="form-group">
+                <label for="height" id="height-label">Height</label>
+                <div class="input-container">
+                    <input type="number" id="height" step="0.1" min="0" required>
+                    <span class="input-unit" id="height-unit">cm</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="weight" id="weight-label">Weight</label>
+                <div class="input-container">
+                    <input type="number" id="weight" step="0.1" min="0" required>
+                    <span class="input-unit" id="weight-unit">kg</span>
+                </div>
+            </div>
+
+            <button type="submit" class="calculate-btn" id="calculate-btn">
+                Calculate BMI
+            </button>
+        </form>
+
+        <div id="result-container" class="result-container">
+            <div class="bmi-value" id="bmi-value"></div>
+            <div class="bmi-category" id="bmi-category"></div>
+            <div class="bmi-info" id="bmi-info"></div>
+            
+            <div class="bmi-scale">
+                <div class="scale-title">BMI Categories</div>
+                <div class="scale-item">
+                    <span class="scale-range">Below 18.5</span>
+                    <span class="scale-category">Underweight</span>
+                </div>
+                <div class="scale-item">
+                    <span class="scale-range">18.5 - 24.9</span>
+                    <span class="scale-category">Normal weight</span>
+                </div>
+                <div class="scale-item">
+                    <span class="scale-range">25.0 - 29.9</span>
+                    <span class="scale-category">Overweight</span>
+                </div>
+                <div class="scale-item">
+                    <span class="scale-range">30.0 and above</span>
+                    <span class="scale-category">Obese</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
