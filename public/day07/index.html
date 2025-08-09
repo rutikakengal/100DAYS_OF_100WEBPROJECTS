@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Day 11 — Responsive Login Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <article class="card">
+      <h1 class="title">Welcome Back</h1>
+
+      <form id="loginForm" novalidate>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+        <label for="password">Password</label>
+        <div class="pw-row">
+          <input id="password" name="password" type="password" placeholder="Enter password" minlength="6" required />
+          <button type="button" id="togglePw" aria-label="Show password">👁️</button>
+        </div>
+
+        <div class="row between">
+          <label class="checkbox">
+            <input type="checkbox" id="remember" /> Remember me
+          </label>
+          <a class="link" href="#" id="forgot">Forgot?</a>
+        </div>
+
+        <button class="btn" type="submit">Sign In</button>
+
+        <p class="separator"><span>or</span></p>
+
+        <button type="button" class="btn alt" id="demoBtn">Sign in as Demo</button>
+
+        <p class="muted">Don't have an account? <a href="#" class="link">Sign up</a></p>
+      </form>
+
+      <div id="message" class="message" aria-live="polite"></div>
+    </article>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
