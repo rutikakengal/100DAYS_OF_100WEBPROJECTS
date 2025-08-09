@@ -6,21 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Writing Assistant</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-    <!DOCTYPE html>
-    <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AI Writing Assistant</title>
-        <link rel="stylesheet" href="./style.css">
-    </head>
-
-    <body>
-        <div class="container">
+    <div class="container">
+        <div class="input-section">
             <h1>AI Writing Assistant</h1>
             <textarea id="userInput" placeholder="Type your text here..."></textarea>
 
@@ -43,17 +35,15 @@
                 </select>
                 <button id="applyToneBtn">Apply Tone</button>
             </div>
-
-            <div class="output-section">
-                <h2>AI Suggestions</h2>
-                <div id="output"></div>
-            </div>
         </div>
 
-        <script src="./script.js"></script>
-    </body>
+        <div class="output-section">
+            <h2>AI Suggestions</h3>
+            <pre id="output"></pre>
+        </div>
+    </div>
 
-    </html>
+    <script src="./script.js"></script>
 
 </body>
 

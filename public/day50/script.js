@@ -1,6 +1,6 @@
 async function processText(action, text, tone = '') {
     let endpoint = '';
-    let payload = {text: text};
+    let payload = { text: text };
 
     if (action === 'grammar') {
         endpoint = '/correct'
@@ -20,35 +20,81 @@ async function processText(action, text, tone = '') {
             body: JSON.stringify(payload)
         });
 
-        if(!response.ok) {
-            throw new Error("API request failed");
+        if (!response.ok) {
+            throw new Error("API request failed (${response.status})");
         }
 
         const data = await response.json();
-        return data.corrected || data.paraphrased || data.toneAdjusted || 'No response'; 
-    } catch(error) {
+        return data;
+
+    } catch (error) {
         console.error('Error: ', error);
         return "An error occured when processing text."
     }
 }
 
+
+// Helper function to format API responses
+function displayFormattedOutput(data, mainTitle = "Result") {
+    if (typeof data === "string") {
+        try {
+            data = JSON.parse(data);
+        } catch {
+            document.getElementById('output').innerHTML = `<p>${data}</p>`;
+            return;
+        }
+    }
+
+    if (data.error) {
+        document.getElementById('output').innerHTML = `<p style="color:red;">${data.error}</p>`;
+        return;
+    }
+
+    let html = `
+    <div class=output-card>
+        <h3 style="margin-top:0;">${mainTitle}</h3>
+    `;
+
+    for (const key in data) {
+        if (key !== "error") {
+            html += `<p><strong>${capitalizeFirstLetter(key)}:</strong> ${data[key]}</p>`;
+        }
+    }
+
+    html += `</div>`;
+    document.getElementById('output').innerHTML = html;
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function showThinking(message = "Thinking...") {
+    document.getElementById('output').innerHTML = `<p class="loader">${message}</p>`;
+}
+
+
 // Grammar Check Button
 document.getElementById('grammarCheckBtn').addEventListener('click', async () => {
+    // Hide the tone options
     document.getElementById('toneOptions').style.display = 'none';
+
     const text = document.getElementById('userInput').value;
+    showThinking();
     const output = await processText('grammar', text);
-    document.getElementById('output').innerText = output;
+    displayFormattedOutput(output, "Grammar Correction");
 });
 
 // Paraphrase Button
 document.getElementById('paraphraseBtn').addEventListener('click', async () => {
     document.getElementById('toneOptions').style.display = 'none';
     const text = document.getElementById('userInput').value;
-    const output = await processText('paraphrase', text);
-    document.getElementById('output').innerText = output;
+    showThinking();
+    const result = await processText('paraphrase', text);
+    displayFormattedOutput(result, "Paraphrased Text");
 });
 
-// Tone Adjust Button (to reveal drop down section)
+// Show tone options
 document.getElementById('toneAdjustBtn').addEventListener('click', () => {
     document.getElementById('toneOptions').style.display = 'flex';
 });
@@ -62,7 +108,8 @@ document.getElementById('applyToneBtn').addEventListener('click', async () => {
         alert("Please select a tone.");
         return;
     }
-
-    const output = await processText('tone', text, tone);
-    document.getElementById('output').innerText = output;
+    showThinking();
+    result = await processText('tone', text, tone);
+    displayFormattedOutput(result, `${tone} Tone adjustment`)
 });
+

@@ -4,27 +4,59 @@ from google.genai import types
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import json, sys, re
+
 
 # Initialize Flask app and enable Cross-Origin Resource Sharing (CORS)
 app = Flask(__name__)
 CORS(app)
 
+
 # Your Gemini API Key & Model Configuration
-API = "YOUR-API-KEY"
+API = "YOUR-KEY-HERE"
 MODEL = "gemini-2.5-flash"
 
-client = genai.Client(api_key=API)
+
+if not API.strip():
+    sys.exit("ERROR: API Key is missing. Please provide Please provide a valid API key in the app.py.")
+
+try:
+    client = genai.Client(api_key=API)
+    print(f"Connected to Gemini")
+except Exception as e:
+    sys.exit(f"ERROR: Failed to connect to Gemini API.\nDetails: {e}")
+
+
+
+# Utility: clean and parse JSON from LLM output
+def parse_llm_json(raw_text):
+    cleaned = re.sub(r"```(?:json)?\s*|\s*```", "", raw_text, flags=re.IGNORECASE).strip()
+    try:
+        return json.loads(cleaned)
+    except json.JSONDecodeError:
+        return {
+            "corrected": cleaned,
+            "explanation": "Could not parse explanation."
+        }
+    
 
 # Function to correct grammatical errors in a sentence
 def correct_sentence(text):
-    # Constructing a prompt for grammar correction
-    prompt_correction = f"Correct the grammar of the following sentence:\nOriginal: {text}\nFixed Grammar:"
+    prompt_correction = f"""Correct the grammar of the following sentence and then explain what changes you made.
+    Original: {text}
+    
+    Respond in JSON format:
+    {{
+        "corrected": "<corrected sentence>",
+        "explanation": "<short explanation of what was fixed>"
+    }}
+    """
 
-    # Instruction to guide the AI model on how to perform the correction
     instr = '''
-    You are an AI grammar and spelling checker. 
-    You check for any mistakes in the prompt given to you and you correct the sentence.
-    Example: I ply footbll = I play football.
+    You are an AI grammar and spelling checker.
+    First, correct any mistakes in the input text.
+    Then, in a concise way, describe the changes — e.g., fixed spelling, improved verb tense, removed redundancy, etc.
+    Return only valid JSON with 'corrected' and 'explanation' keys.
     '''
     
     # Making an API call to Gemini to generate corrected text
@@ -35,30 +67,31 @@ def correct_sentence(text):
         temperature=0.2),
         contents=[prompt_correction],
     )
-    corrected_text = response_correction.text.strip()  # Extract the corrected sentence from the response
-    return corrected_text
+    
+    return parse_llm_json(response_correction.text)
 
 
 # Function to paraphrase a given sentence
 def paraphrase_text(text):
+    new_text = correct_sentence(text)["corrected"]
     
-    # First, correct any grammatical errors in the input
-    new_text = correct_sentence(text)
+    prompt_paraphrase = f"""Paraphrase the following sentence and then explain the changes you made.
     
-    prompt_paraphrase = f"Paraphrase the following sentence: \nOriginial: {new_text}\nParaphrased Sentence:"
+    Originial: {new_text}
+    Respond in JSON format:
+    {{
+        "corrected": "<corrected sentence>",
+        "explanation": "<short explanation of what was fixed>"
+    }}    
+    """
     
     instr = '''
-    You are an AI paraphraser.
-    Paraphrase the input text ensuring the intent and information in the original sentence remain unchanged.
-    Avoid altering factual details, numerical data, or core ideas
-    
-    Example: "He completed the project quickly." = "He wrapped up the project in no time."
-    
-    Change the structure/order of words while preserving meaning.
-    Example:"The book was read by her." = "She read the book."
-    
-    Avoid slang in formal tone, and simplify phrases for casual tone.
-    Remove repetitive or unnecessary words
+        You are an AI paraphraser.
+        Your task:
+        1. Paraphrase the input text while keeping its meaning intact.
+        2. Avoid changing facts, numbers, or core ideas.
+        3. Remove redundancy, improve flow, and adjust style for clarity.
+        4. Return ONLY valid JSON with "corrected" and "explanation" keys — nothing else.
     '''
     
     response_paraphrase = client.models.generate_content(
@@ -68,64 +101,31 @@ def paraphrase_text(text):
         temperature=0.5),
         contents=[prompt_paraphrase],
     )
-    paraphrase = response_paraphrase.text.strip()
-    return paraphrase
+    
+    return parse_llm_json(response_paraphrase.text)
 
 
 # Function to adjust the tone of a given sentence
 def adjust_tone(text, tone):
-    
-    # First, correct any grammatical errors in the input
     new_text = correct_sentence(text)
     
-    # Constructing a tone adjustment prompt dynamically using user-selected tone
-    prompt_adjust = f"Adjust the tone of the following sentence:\nOriginal{tone}: {new_text}\nAfter Adjusting Tone:"
+    prompt_adjust = f"""Adjust the tone of the following sentence and then explain what changes you made.
+    
+    Original: {new_text}
+    Respond in JSON format:
+    {{
+        "corrected": "<corrected sentence>",
+        "explanation": "<short explanation of what was fixed>"
+    }}
+    """
     
     instr = '''
-    You are an AI Writing Assistant.
-    Your task is to adjust the tone of the given input sentence based on the specified tone.
-
-    Here are the tone guidelines:
-
-    1. **Formal Tone**:
-    - Use precise, sophisticated vocabulary and polite phrases.
-    - Avoid contractions (e.g., "cannot" instead of "can't").
-    - Passive voice is acceptable.
-    Example:
-    "Hey, can you send me the file?" → "Could you please provide me with the document at your earliest convenience?"
-
-    2. **Informal Tone**:
-    - Use casual, conversational words and contractions.
-    - Incorporate slang and friendly openings ("Hey!", "What's up?").
-    Example:
-    "I am interested in collaborating with your team." → "I'd love to team up with you guys!"
-
-    3. **Professional Tone**:
-    - Use clear, concise, and respectful language.
-    - Be polite and approachable without slang.
-    Example:
-    "I want to work with you." → "I am looking forward to the opportunity to collaborate with you."
-
-    4. **Neutral Tone**:
-    - Avoid emotional or persuasive phrases.
-    - Use objective, factual, and to-the-point sentences.
-    Example:
-    "This amazing tool boosts your productivity!" → "This tool increases productivity."
-
-    5. **Enthusiastic Tone**:
-    - Use high-energy words and exclamation marks (but sparingly).
-    - Keep responses short, dynamic, and upbeat.
-    Example:
-    "The product is available now." → "Guess what? The product is finally here, and you’re going to love it!"
-
-    6. **Witty Tone**:
-    - Incorporate humor, puns, and playful language.
-    - Use light sarcasm or cheeky remarks, while keeping the message clear.
-    Example:
-    "Our servers are down for maintenance." → "Our servers are taking a coffee break. Be right back!"
-
-    Adjust the input sentence accordingly and provide only the rewritten sentence as output.
-    '''
+        You are an AI Writing Assistant.
+        Your task:
+        1. Rewrite the given sentence in the requested tone (formal, informal, professional, neutral, enthusiastic, or witty).
+        2. Follow the tone guidelines provided to maintain style consistency.
+        3. Return ONLY valid JSON with "corrected" and "explanation" keys — nothing else.
+        '''
     response_adjusted_tone = client.models.generate_content(
         model=MODEL,
         config=types.GenerateContentConfig(
@@ -133,8 +133,7 @@ def adjust_tone(text, tone):
         system_instruction=instr),
         contents=[prompt_adjust],
     )
-    tone_adjusted = response_adjusted_tone.text.strip()
-    return tone_adjusted
+    return parse_llm_json(response_adjusted_tone.text)
     
 # API Endpoint to correct grammar   
 @app.route("/correct", methods=['POST'])
@@ -143,11 +142,12 @@ def correct():
     if not data or 'text' not in data:
         return jsonify({'error': 'Missing "text" in request'}), 400
     user_text = data['text']
-    corrected = correct_sentence(user_text)
-
+    corrected_data = correct_sentence(user_text)
+        
     return jsonify({
         'original': user_text,
-        'corrected': corrected
+        'corrected': corrected_data["corrected"],
+        'explanation': corrected_data["explanation"],
     })
 
 # API Endpoint to paraphrase text
@@ -161,7 +161,8 @@ def paraphrase():
     
     return jsonify({
         'original': input,
-        'paraphrased': paraphrased
+        'paraphrased': paraphrased["corrected"],
+        'explanation': paraphrased["explanation"]
     })
     
 # API Endpoint to adjust tone of text
@@ -179,7 +180,8 @@ def tone():
     
     return jsonify({
         'original': input,
-        'toneAdjusted': tone_adjusted
+        'toneAdjusted': tone_adjusted["corrected"],
+        'explanation': tone_adjusted["explanation"]
     })
     
 if __name__ == '__main__':

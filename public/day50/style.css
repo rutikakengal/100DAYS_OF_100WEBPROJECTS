@@ -1,139 +1,271 @@
-* {
-    box-sizing: border-box;
+/* style.css */
+
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --text-color: #f8fafc;
+    --accent: #f7a8b8; /* subtle warm accent */
+    --radius: 16px;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
 }
 
-/* Global Reset & Background */
-body {
+/* Base */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #e0e7ff, #f5f7fa);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
-/* Container Glass Effect */
+body {
+    background: linear-gradient(to bottom, #1e1e1e, #121212);
+    color: var(--text-color);
+    height: 100vh;
+    overflow: hidden; /* No scroll unless in output area */
+}
+
 .container {
-    backdrop-filter: blur(12px);
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 1.5rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-    padding: 2rem;
-    width: 90%;
-    max-width: 600px;
-    transition: all 0.3s ease;
+    display: flex;
+    width: 100vw;
+    height: 75%;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Sections */
+.input-section,
+.output-section {
+    background: var(--glass-bg);
+    backdrop-filter: blur(18px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.input-section {
+    background-color: #1f1f1f;
+}
+
+.output-section {
+    background-color: #262626;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-width: 100vw;
     box-sizing: border-box;
 }
 
-/* Heading */
-h1 {
-    font-size: 2rem;
-    text-align: center;
-    color: #111827;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.5px;
+h1, h2 {
+    color: var(--accent);
 }
 
-/* Textarea */
+h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: rgba(248, 250, 252, 0.72);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
 textarea {
-    width: 100%;
-    height: 140px;
-    padding: 1rem;
-    border: 1px solid rgba(209, 213, 219, 0.6);
-    border-radius: 1rem;
+    flex: 1;
     resize: none;
+    background-color: #2e2e2e;
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 10px;
     font-size: 1rem;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(5px);
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
-    transition: border 0.3s ease;
-    margin-bottom: 1rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 textarea:focus {
     outline: none;
-    border: 1px solid #6366F1;
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.04);
 }
 
-/* Controls Buttons */
+/* Controls row (always visible at bottom) */
 .controls {
     display: flex;
-    justify-content: space-between;
-    margin-top: 1.5rem;
-    gap: 1rem;
+    gap: 12px;
+    margin-top: auto; /* Push buttons to bottom */
 }
 
-button {
+.controls > button {
     flex: 1;
-    padding: 0.75rem;
-    font-size: 1rem;
-    background: linear-gradient(135deg, #6366F1, #4F46E5);
-    color: #ffffff;
+    min-width: 120px;
+    background: linear-gradient(90deg,
+        rgba(178, 31, 31, 0.95) 0%,
+        rgba(26, 42, 108, 0.95) 50%,
+        rgba(253, 45, 173, 0.95) 100%);
+    color: var(--text-color);
     border: none;
-    border-radius: 0.75rem;
+    padding: 12px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    background-size: 200% 200%;
+    animation: gradientMove 6s linear infinite;
+    transition: transform 180ms ease, filter 150ms ease;
 }
 
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(99, 102, 241, 0.4);
+.controls > button:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.05);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.6);
 }
 
-button:active {
-    transform: scale(0.98);
+.controls > button:active {
+    transform: translateY(-1px);
 }
 
-/* Tone Options */
+/* Tone options container (select + apply button) */
 .tone-options {
     display: none;
+    gap: 12px;
+    margin-top: 10px;
     align-items: center;
-    gap: 1rem;
-    margin-top: 1rem;
-    animation: fadeSlideDown 0.4s ease forwards;
+    justify-content: flex-end;
 }
 
-@keyframes fadeSlideDown {
-    0% { opacity: 0; transform: translateY(-10px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-#toneSelect {
-    flex: 1;
-    padding: 0.6rem 1rem;
-    border-radius: 0.75rem;
-    border: 1px solid rgba(209, 213, 219, 0.6);
+/* Select dropdown styling */
+.tone-options select {
+    padding: 12px;
+    background: rgba(17, 24, 39, 0.78); /* dark glass */
+    color: var(--text-color);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
     font-size: 1rem;
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(5px);
+    appearance: none;
+    cursor: pointer;
+    flex: 1 1 60%;
+    min-width: 180px;
+    transition: border-color 0.2s ease;
+}
+
+.tone-options select:hover,
+.tone-options select:focus {
+    border-color: rgba(255, 255, 255, 0.2);
+    outline: none;
+}
+
+/* Dropdown options */
+.tone-options select option {
+    background: #16202b;
+    color: var(--text-color);
 }
 
 #applyToneBtn {
-    padding: 0.6rem 1.2rem;
-}
-
-/* Output Section */
-.output-section {
-    margin-top: 2rem;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 1rem;
-    border: 1px solid rgba(209, 213, 219, 0.6);
-    box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
-    backdrop-filter: blur(5px);
-}
-
-.output-section h2 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #111827;
-}
-
-#output {
+    flex: 1;
+    min-width: 120px;
+    background: linear-gradient(90deg,
+        rgba(178, 31, 31, 0.95) 0%,
+        rgba(26, 42, 108, 0.95) 50%,
+        rgba(253, 45, 173, 0.95) 100%);
+    color: var(--text-color);
+    border: none;
+    padding: 12px 18px;
     font-size: 1rem;
-    color: #374151;
-    white-space: pre-wrap;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    background-size: 200% 200%;
+    animation: gradientMove 6s linear infinite;
+    transition: transform 180ms ease, filter 150ms ease;
 }
+
+#applyToneBtn:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.05);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.6);
+}
+
+#applyToneBtn:active {
+    transform: translateY(-1px);
+}
+
+/* Output styling */
+.output-card {
+    max-width: 100%;
+    box-sizing: border-box;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+    animation: fadeInUp 0.4s ease;
+}
+
+.output-card h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    color: var(--accent);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 6px;
+}
+
+.output-card p {
+    margin: 8px 0;
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.output-card strong {
+    color: var(--accent);
+}
+
+.output-card * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Animations */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.loader {
+    font-style: italic;
+    color: rgba(248, 250, 252, 0.6);
+    padding: 10px;
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
