@@ -26,33 +26,27 @@ const projects = [
   "Temperature Converter",
   "Space War Game",
   "CHESS GAME",
-
   "Bubble Shooter Game",
   " ",
   "Guess the Number Game",
   "Typing Speed Test webapp ",
   "Startup Name Generator Web App",
-  "",
   " ",
-  "Snake Game ",
- "Hangman Game",
-  "Simon Say Game ",
-  " ",
-  " ",
+  "Photo-Booth ",
+  "Snake Game",
   "Doodle Jump Game",
-
+  "Hangman Game",
+  "Simon Say Game",
+  " ",
+  " ",
   "BrainBuzz Quizz Website",
   "",
-
-  " currency Converter",
-
+  "Currency Converter",
   " ",
   "GiggleBits",
   "",
   "Digital Clock",
   "Random Password Generator",
-  "Doodle Jump Game",
-  "BrainBuzz Quizz Website",
   "Code Editor",
 
 
@@ -112,12 +106,8 @@ randomBtn.addEventListener("click", () => {
 projects.forEach((name, index) => {
   const day = `Day ${String(index + 1).padStart(2, "0")}`;
   let link;
-  
-  // Dynamic link generation for specific projects
-  if (name === "Nasa Astronomy Picture of the day") {
+   if (name === "Nasa Astronomy Picture of the day") {
     link = "https://sabaaa01.github.io/NASA-astronomy-photo-of-the-day/";
-  } else if (name === "BrainBuzz Quizz Website") {
-    link = "https://brain-buzz-six.vercel.app/";
   } else {
     const folder = `day${String(index + 1).padStart(2, "0")}`;
     link = `public/${folder}/index.html`;
