@@ -15,14 +15,14 @@ function filterCards() {
     }
   });
 }
-  
+
 searchBtn.addEventListener("click", filterCards);
 
 searchInput.addEventListener("keyup", function (e) {
   if (e.key === "Enter") {
     filterCards();
   } else if (searchInput.value.trim() === "") {
-    filterCards(); // Auto-reset when cleared
+    filterCards();
   }
 });
 
@@ -76,3 +76,67 @@ document.querySelector(".clicktoTopBtn").addEventListener("click", function () {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+
+//  =============== Light mode and Dark Mode toggle ===============
+const toggleBtn = document.getElementById("theme-toggle");
+const favicon = document.getElementById("favicon");
+
+const lightModeCSS =
+  `
+section {
+  background-color: white;
+}
+
+.wsmainfull, .wsmobileheader {
+  background-color: white !important;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  
+}
+
+.wsmainfull ul li a, h1, h2, footer h5, .paraText, .card p, .card a, .statsBox p, footer hr, footer p, footer ul li a   {
+color: black !important;
+}
+
+#heroSection, #aboutChallegeSection {
+    background-color: #f8fafc !important;
+}
+
+
+.card {
+    background: #f8fafc !important;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+}
+
+.card:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+}
+
+footer {
+  background-color: #f8fafc !important;
+}
+
+`
+  ;
+
+let styleTag;
+
+toggleBtn.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+
+  if (document.body.classList.contains("light-mode")) {
+    if (!styleTag) {
+      styleTag = document.createElement("style");
+      styleTag.innerHTML = lightModeCSS;
+      document.head.appendChild(styleTag);
+    }
+    toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    favicon.href = "sun.png";
+  } else {
+    if (styleTag) {
+      styleTag.remove();
+      styleTag = null;
+    }
+    toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    favicon.href = "moon.png";
+  }
+});

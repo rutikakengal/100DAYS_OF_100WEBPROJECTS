@@ -7,7 +7,8 @@
     font-family: "Lato", sans-serif;
 }
 
-html, body {
+html,
+body {
     scroll-padding-top: 56px;
     scroll-behavior: smooth;
 }
@@ -92,6 +93,7 @@ body {
     font-weight: 900;
     margin-left: 5px;
 }
+
 /* ===================== Navbar Styling End Here ===================== */
 
 
@@ -192,6 +194,7 @@ body {
 .ctaButtons a:hover {
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
+
 /* ===================== Hero Section Styling End Here ===================== */
 
 
@@ -230,52 +233,50 @@ body {
     background-color: #001b4b;
 }
 
-.titleContainer p {
-    color: #01ffc3;
-}
 
-.card-title {
+
+.projectContainer .card-title {
     color: #02cb9f;
     opacity: 0.8;
     font-weight: 600;
 }
 
-.card p {
+.projectContainer .card p {
     color: white;
     opacity: 0.8;
     font-size: 14px;
 }
 
-.card {
+.projectContainer .card {
     border-radius: 20px;
     transition: all 0.2s ease-in-out;
 }
 
-.card:hover {
+.projectContainer .card:hover {
     box-shadow: rgb(9, 48, 83) 3px 3px 6px 0px inset, rgba(8, 25, 52, 0.5) -3px -3px 6px 1px inset;
 }
 
-.viewBtnContainer {
+.projectContainer .viewBtnContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.techStack {
+.projectContainer .techStack {
     margin-bottom: 0;
 }
 
-.techStack i {
+.projectContainer .techStack i {
     font-size: 22px;
     margin-right: 8px;
     transition: all 0.2s ease-in-out;
 }
 
-.techStack i:hover {
+.projectContainer .techStack i:hover {
     color: #01ffc3;
 }
 
-.card-link {
+.projectContainer .card-link {
     text-decoration: none;
     border: 1px solid #02cb9f;
     padding: 4px 25px;
@@ -287,7 +288,7 @@ body {
 
 }
 
-.card-link:hover {
+.projectContainer .card-link:hover {
     border-bottom-right-radius: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 0;
@@ -303,7 +304,7 @@ body {
     transition: all 0.4s ease-in-out;
 }
 
-.card-link:hover .arrowIcon {
+.projectContainer .card-link:hover .arrowIcon {
     transform: translateX(5px);
 }
 
@@ -337,6 +338,7 @@ body {
 .searchBtn:focus {
     box-shadow: none;
 }
+
 /* ===================== Project Section Styling End Here ===================== */
 
 
@@ -412,6 +414,56 @@ body {
 /* ===================== Contribution Stats Section Styling End Here ===================== */
 
 
+
+/* ===================== About the Challege Section Styling Start Here ===================== */
+#aboutChallegeSection {
+    padding: 2rem 0;
+}
+
+.challengeBoxContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.challengeBoxContainer .card {
+    margin: 20px;
+}
+
+.challengeBoxContainer .card-subtitle {
+    font-weight: 600;
+    color: #02cb9f;
+    opacity: 0.8;
+}
+
+
+.challengeBoxContainer .card {
+    background-color: #001b4b;
+    text-align: center;
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.challengeBoxContainer .card:hover {
+    box-shadow: rgb(9, 48, 83) 3px 3px 6px 0px inset, rgba(8, 25, 52, 0.5) -3px -3px 6px 1px inset;
+}
+
+
+.challengeBoxContainer .card p {
+    color: white;
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+.aboutChallengeImg {
+    height: 60px;
+}
+
+
+/* ===================== About the Challege Section Styling End Here ===================== */
+
+
+
 /* ======== Click to Top Button Section Styling Start Here ======== */
 .clicktoTopBtn {
     background-color: #01ffc3;
@@ -421,21 +473,47 @@ body {
     right: 20px;
     border-radius: 100%;
     padding: 10px 15px;
-    z-index: 99999;
+    z-index: 9999999;
     animation: float 3s ease-in-out infinite;
 }
 
 .clicktoTopBtn i {
     font-size: 18px;
 }
+
 /* ======== Click to Top Button Section Styling End Here ======== */
+
+
+/* ======== Theme Section Styling Start Here ======== */
+
+#theme-toggle {
+    background: transparent;
+    border: none;
+    color: black;
+    background: #02fbc0;
+    padding: 8px 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    border-radius: 100%;
+    z-index: 9999999;
+    transition: all 150ms ease-in-out;
+
+}
+
+
+/* ======== Theme Section Styling End Here ======== */
+
 
 
 /* ===================== Footer Section Styling Start Here ===================== */
 footer {
     background-color: #050f1d;
     padding-top: 2rem;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
 }
 
 footer .col-10 {
@@ -531,6 +609,10 @@ footer .col-10 {
 .followUs ul li:hover .footerNavLinks {
     opacity: 1;
     color: #01ffc3;
+}
+
+.footerHr {
+    color: white;
 }
 
 .footerText {
