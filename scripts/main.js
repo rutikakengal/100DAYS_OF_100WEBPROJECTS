@@ -104,12 +104,7 @@ color: black !important;
 #aboutChallegeSection p, #contributionStatsSection p {
   color: black !Important;
 
-
-#heroSection, #aboutChallegeSection {
-    background-color: #f8fafc !important;
 }
-
-
 
 .card {
     background: #f8fafc !important;
