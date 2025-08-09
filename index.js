@@ -34,15 +34,13 @@ const projects = [
   "Guess the Number Game",
   "Typing Speed Test webapp ",
   "Startup Name Generator Web App",
-  "Simon Game",
   " ",
-  "Snake Game ",
   " ",
-
-  " ",
+  "Simon Game ",
   " ",
 
-  
+  " ",
+  " ",
 
   "Doodle Jump Game",
   "BrainBuzz Quizz Website",
@@ -59,19 +57,10 @@ const projects = [
   "BrainBuzz Quizz Website",
   "Code Editor",
 
-
-
   "Spotify Clone",
   "Plant Care Scheduler",
 
-
-
   // Add more project names as needed
-
-
- 
-
-
 ];
 
 const hamburgerBtn = document.getElementById("hamburger-btn");
@@ -117,14 +106,9 @@ randomBtn.addEventListener("click", () => {
 projects.forEach((name, index) => {
   const day = `Day ${String(index + 1).padStart(2, "0")}`;
   let link;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  
+
   // Dynamic link generation for specific projects
->>>>>>> upstream/main
-=======
->>>>>>> 814c587 (Added Simon Game)
+
   if (name === "Nasa Astronomy Picture of the day") {
     link = "https://sabaaa01.github.io/NASA-astronomy-photo-of-the-day/";
   } else if (name === "BrainBuzz Quizz Website") {
