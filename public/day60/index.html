@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2048 Game – Unique Version</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">2048 <span class="logo-icon">💥</span></div>
+    <button class="new-game-btn">New Game</button>
+  </header>
+
+  <main>
+    <section class="score-section">
+      <div class="score-label">Score</div>
+      <div class="score-value" id="score">0</div>
+    </section>
+
+    <div class="game-container">
+      <div class="grid">
+        <!-- Generate 16 tiles -->
+        <div class="tile" data-value="2">2</div>
+        <div class="tile" data-value="4">4</div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <span>Build your logic</span>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
