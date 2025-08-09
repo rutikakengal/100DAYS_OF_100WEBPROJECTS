@@ -54,20 +54,15 @@ const projects = [
   "Doodle Jump Game",
   "BrainBuzz Quizz Website",
   "Code Editor",
-
-
-
   "Spotify Clone",
   "Plant Care Scheduler",
+   "My Daily Journal"
+  
+
 
 
   // Add more project names as needed
-
-
- 
-
-
-];
+ ];
 
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const mobileMenu = document.getElementById('mobile-menu');
