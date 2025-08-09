@@ -18,7 +18,7 @@ const projects = [
   "Mood Timer",
   "text to PDF Convertor",
   "Memory Card Game",
-  "Email Validator",  
+  "Email Validator",
   "Snake And Ladder Game",
   "Space Jumper Game",
   "Calculator",
@@ -35,7 +35,7 @@ const projects = [
   "",
   " ",
   "Snake Game ",
- "Hangman Game",
+  "Hangman Game",
   "Simon Say Game ",
   " ",
   " ",
@@ -54,15 +54,15 @@ const projects = [
   "Doodle Jump Game",
   "BrainBuzz Quizz Website",
   "Code Editor",
-  "AI Writing Assistant",
   "Spotify Clone",
+  "AI Writing Assistant",
   "Plant Care Scheduler",
 
 
   // Add more project names as needed
 
 
- 
+
 
 
 ];
@@ -110,7 +110,7 @@ randomBtn.addEventListener("click", () => {
 projects.forEach((name, index) => {
   const day = `Day ${String(index + 1).padStart(2, "0")}`;
   let link;
-  
+
   // Dynamic link generation for specific projects
   if (name === "Nasa Astronomy Picture of the day") {
     link = "https://sabaaa01.github.io/NASA-astronomy-photo-of-the-day/";
