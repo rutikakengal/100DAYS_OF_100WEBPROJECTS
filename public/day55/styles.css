@@ -1,0 +1,238 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80')
+    no-repeat center center fixed;
+  background-size: cover;
+  color: #222;
+  padding: 2rem;
+}
+
+/* Container with translucent white background */
+.container {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2rem 3rem;
+  border-radius: 14px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+/* Headline */
+h1 {
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 1rem;
+}
+
+/* Upload area */
+.upload-area {
+  border: 3px dashed #777;
+  border-radius: 12px;
+  padding: 2rem;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: #555;
+}
+
+.upload-area:hover,
+.upload-area.dragover {
+  border-color: #444;
+  background-color: #f7f7f7;
+  color: #222;
+}
+
+.upload-area p {
+  font-size: 1.1rem;
+}
+
+/* File input label as button inside upload area */
+.file-btn {
+  background: #555;
+  color: #eee;
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease;
+}
+
+.file-btn:hover,
+.file-btn:focus {
+  background: #333;
+}
+
+/* Buttons base */
+.btn {
+  border: none;
+  border-radius: 30px;
+  padding: 0.7rem 1.8rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  outline-offset: 3px;
+}
+
+/* Primary button */
+.primary-btn {
+  background: #333;
+  color: #eee;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.primary-btn:hover:not(:disabled),
+.primary-btn:focus:not(:disabled) {
+  background: #111;
+  box-shadow: 0 7px 20px rgba(0,0,0,0.35);
+}
+
+.primary-btn:disabled {
+  background: #bbb;
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.25); /* lighter, partially transparent */
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+.modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Modal content with partial transparency */
+.modal-content {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 450px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+  user-select: text;
+}
+
+/* Buttons inside modal */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Secondary buttons */
+.secondary-btn {
+  background-color: #eee;
+  color: #333;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  flex: 1 1 100px;
+}
+
+.secondary-btn:hover,
+.secondary-btn:focus {
+  background-color: #ddd;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+
+.upload-message {
+  margin-top: 0.5rem;
+  color: #444;
+  font-style: italic;
+  font-size: 0.9rem;
+  min-height: 1.2em;
+}
+
+
+.result-container {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.image-preview {
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.caption-output {
+  font-size: 1.1rem;
+  color: #222;
+  max-width: 300px;
+}
+
+#copyCaptionBtn {
+  all: unset; 
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  background-color: #000; 
+  color: #fff; 
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  user-select: none;
+  min-width: 90px;
+  margin: 0.5rem auto 0 auto; 
+  line-height: 1.2;
+  text-align: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#copyCaptionBtn:hover {
+  background-color: #222; 
+  box-shadow: 0 4px 12px rgba(34, 34, 34, 0.7);
+}
+
+#copyCaptionBtn:active {
+  background-color: #111;
+  box-shadow: none;
+  transform: translateY(1px);
+}
+
+

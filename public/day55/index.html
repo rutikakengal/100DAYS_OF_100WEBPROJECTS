@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Image Caption Generator</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>AI Image Caption Generator</h1>
+
+    <form id="uploadForm" class="upload-area">
+      <input type="file" accept="image/*" id="imageInput" hidden />
+      <p>Drag & Drop an image here</p>
+      <label for="imageInput" class="btn file-btn">Browse Files</label>
+    </form>
+
+    <button id="generateBtn" class="btn primary-btn" disabled>Generate Caption</button>
+
+    <p id="uploadMessage" class="upload-message"></p>
+    <div id="resultContainer" class="result-container" style="display:none;">
+      <img id="imagePreview" class="image-preview" alt="Image Preview" />
+      <p id="captionOutput" class="caption-output"></p>
+      <button id="copyCaptionBtn" style="display:none;">Copy Caption</button>
+
+    </div>
+
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

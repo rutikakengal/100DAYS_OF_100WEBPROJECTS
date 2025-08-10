@@ -57,7 +57,7 @@ const projects = [
   "Spotify Clone",
   "AI Writing Assistant",
   "Plant Care Scheduler",
-
+  "AI Image Caption Generator",
 
   // Add more project names as needed
 
