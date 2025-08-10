@@ -10,11 +10,11 @@ Welcome to **100_days_100_web_project** – a challenge-based repository to **le
 
 | Day | Project Name | Folder Link | Description |
 |-----|--------------|-------------|-------------|
-| DAY-1 | TODOLIST | [TODOLIST]() | Task manager app |
-| DAY-2 | DIGITAL CLOCK | [DIGITAL CLOCK]() | Real-time digital clock |
-| DAY-3 | Weather App | [Weather APP]() | Real-time weather information using OpenWeatherMap API |
-| Day 4  | **Calculator**      | [Link]()       | Basic calculator functionality|
-| DAY-10 | MEMORY CARD GAME | [Memory Card Game]() | Memory Card Matching Game |
+| DAY-1 | TODOLIST | [TODOLIST](https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS/tree/main/public/day01) | Task manager app |
+| DAY-2 | DIGITAL CLOCK | [DIGITAL CLOCK](https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS/tree/main/public/day02) | Real-time digital clock |
+| DAY-3 | Weather App | [Weather APP](https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS/tree/main/public/day03) | Real-time weather information using OpenWeatherMap API |
+| Day 4  | **Calculator**      | [Calculator](https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS/tree/main/public/day04)       | Basic calculator functionality|
+| DAY-10 | MEMORY CARD GAME | [Memory Card Game](https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS/tree/main/public/day10) | Memory Card Matching Game |
 
 | Day 100+ | **Coming Soon**  | 🚧             | 🚧                           |
 
