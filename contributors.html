@@ -418,22 +418,59 @@
     </style>
 </head>
 
-<body class="min-h-screen transition-all font-sans">
+<body class="bg-dark text-white font-sans pt-24">
+  <nav class="fixed top-0 w-full z-50 navbar-glass shadow-xl p-4">
+    <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 text-white font-bold text-lg mb-2 sm:mb-0">
+        <img
+          src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"
+          class="h-12 w-12 rounded-full object-cover ring-2 ring-primary/30" alt="Logo"
+        />
+        <span class="whitespace-nowrap gradient-text text-xl font-extrabold"> 100_DAYS_100_WEB_PROJECT </span>
+      </a>
 
-    <nav class="fixed top-0 w-full z-50 navbar-glass shadow-xl p-4">
-        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 font-bold text-lg mb-2 sm:mb-0" style="color: var(--text-primary);">
-                <img
-                    src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"
-                    class="h-12 w-12 rounded-full object-cover ring-2 ring-primary/30"
-                    alt="Logo"
-                />
-                <span class="whitespace-nowrap gradient-text text-xl font-extrabold"> 100_DAYS_100_WEB_PROJECT </span>
-            </a>
+      <div class="flex gap-4">
+        <button id="hamburger-btn" class="md:hidden">
+          <svg
+            class="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
 
-
+        <div
+          id="mobile-menu"
+          class="hidden md:flex absolute md:static top-16 left-0 w-full navbar-glass md:w-auto md:bg-transparent flex flex-col md:flex-row py-4 md:gap-x-6 md:py-0"
+        >
+          <a
+            href="index.html#projects"
+            class="nav-link flex-grow md:flex-grow-0 text-center text-white hover:text-primary font-semibold transition-colors px-4 py-2"
+            >Projects</a
+          >
+          <a
+            href="index.html#about"
+            class="nav-link flex-grow md:flex-grow-0 text-center text-white hover:text-primary font-semibold transition-colors px-4 py-2"
+            >About</a
+          >
+          <a
+            href="contributors.html"
+            class="nav-link flex-grow md:flex-grow-0 text-center text-white hover:text-primary font-semibold transition-colors px-4 py-2"
+            >Contributors</a
+          >
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
+
 
 
     <button id="themeToggle" class="theme-toggle">🌙</button>
