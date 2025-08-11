@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cute Digital Clock</title>
+    <title>Cute Digital & Analog Clock</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -31,14 +31,99 @@
         <button class="theme-btn" id="themeForest" data-theme="forest"></button>
     </div>
 
+    <!-- Clock Mode Toggle -->
+    <div class="clock-mode-toggle">
+        <button id="toggleClockMode" class="mode-btn">
+            <span class="mode-icon">🕒</span>
+            <span class="mode-text">Switch to Analog</span>
+        </button>
+    </div>
+
     <!-- Main Clock Container -->
     <div class="container" id="clockContainer">
         <h1>
             <span class="header-icon">🕐</span>
-            Digital Clock
+            <span id="clockTitle">Digital Clock</span>
             <span class="header-icon">✨</span>
         </h1>
+        
+        <!-- Digital Clock -->
         <div class="digital-clock" id="digitalClock">12:00:00 AM</div>
+        
+        <!-- Analog Clock -->
+        <div class="analog-clock" id="analogClock" style="display: none;">
+            <div class="clock-face">
+                <div class="clock-center"></div>
+                <div class="hand hour-hand" id="hourHand"></div>
+                <div class="hand minute-hand" id="minuteHand"></div>
+                <div class="hand second-hand" id="secondHand"></div>
+                <div class="clock-numbers">
+                    <span class="number" style="--i:1">1</span>
+                    <span class="number" style="--i:2">2</span>
+                    <span class="number" style="--i:3">3</span>
+                    <span class="number" style="--i:4">4</span>
+                    <span class="number" style="--i:5">5</span>
+                    <span class="number" style="--i:6">6</span>
+                    <span class="number" style="--i:7">7</span>
+                    <span class="number" style="--i:8">8</span>
+                    <span class="number" style="--i:9">9</span>
+                    <span class="number" style="--i:10">10</span>
+                    <span class="number" style="--i:11">11</span>
+                    <span class="number" style="--i:12">12</span>
+                </div>
+                <div class="clock-marks">
+                    <span class="mark" style="--i:1"></span>
+                    <span class="mark" style="--i:2"></span>
+                    <span class="mark" style="--i:3"></span>
+                    <span class="mark" style="--i:4"></span>
+                    <span class="mark" style="--i:5"></span>
+                    <span class="mark" style="--i:6"></span>
+                    <span class="mark" style="--i:7"></span>
+                    <span class="mark" style="--i:8"></span>
+                    <span class="mark" style="--i:9"></span>
+                    <span class="mark" style="--i:10"></span>
+                    <span class="mark" style="--i:11"></span>
+                    <span class="mark" style="--i:12"></span>
+                    <span class="mark" style="--i:13"></span>
+                    <span class="mark" style="--i:14"></span>
+                    <span class="mark" style="--i:15"></span>
+                    <span class="mark" style="--i:16"></span>
+                    <span class="mark" style="--i:17"></span>
+                    <span class="mark" style="--i:18"></span>
+                    <span class="mark" style="--i:19"></span>
+                    <span class="mark" style="--i:20"></span>
+                    <span class="mark" style="--i:21"></span>
+                    <span class="mark" style="--i:22"></span>
+                    <span class="mark" style="--i:23"></span>
+                    <span class="mark" style="--i:24"></span>
+                    <span class="mark" style="--i:25"></span>
+                    <span class="mark" style="--i:26"></span>
+                    <span class="mark" style="--i:27"></span>
+                    <span class="mark" style="--i:28"></span>
+                    <span class="mark" style="--i:29"></span>
+                    <span class="mark" style="--i:30"></span>
+                    <span class="mark" style="--i:31"></span>
+                    <span class="mark" style="--i:32"></span>
+                    <span class="mark" style="--i:33"></span>
+                    <span class="mark" style="--i:34"></span>
+                    <span class="mark" style="--i:35"></span>
+                    <span class="mark" style="--i:36"></span>
+                    <span class="mark" style="--i:37"></span>
+                    <span class="mark" style="--i:38"></span>
+                    <span class="mark" style="--i:39"></span>
+                    <span class="mark" style="--i:40"></span>
+                    <span class="mark" style="--i:41"></span>
+                    <span class="mark" style="--i:42"></span>
+                    <span class="mark" style="--i:43"></span>
+                    <span class="mark" style="--i:44"></span>
+                    <span class="mark" style="--i:45"></span>
+                    <span class="mark" style="--i:46"></span>
+                    <span class="mark" style="--i:47"></span>
+                    <span class="mark" style="--i:48"></span>
+                </div>
+            </div>
+        </div>
+        
         <div class="current-date" id="currentDate">Loading...</div>
     </div>
 
@@ -63,7 +148,6 @@
         <source src="sounds/chime.wav" type="audio/wav">
         Your browser does not support the audio element.
     </audio>
-
 
     <script src="script.js"></script>
 </body>
