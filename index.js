@@ -30,36 +30,48 @@ const projects = [
   "Bubble Shooter Game",
   " ",
   "Guess the Number Game",
-
   "Typing Speed Test webapp ",
   "Startup Name Generator Web App",
-
   "",
   " ",
   "Snake Game ",
  "Hangman Game",
-  " ",
+  "Simon Say Game ",
   " ",
   " ",
   "Doodle Jump Game",
-  " currency Converter",
-  " ",
-  " ",
- main
 
+  "BrainBuzz Quizz Website",
+  "",
+
+  " currency Converter",
+
+  " ",
+
+  " ",
+ 
   "Doodle Jump Game",
   "Hangman Game",  
-
-
+  "GiggleBits",
   "",
- main
   "Digital Clock",
   "Random Password Generator",
   "Doodle Jump Game",
   "BrainBuzz Quizz Website",
+
   "Code Editor"
- main
+  "Code Editor",
+
+
+
+  "Spotify Clone",
+  "Plant Care Scheduler",
+
   // Add more project names as needed
+
+
+ 
+
 
 ];
 
