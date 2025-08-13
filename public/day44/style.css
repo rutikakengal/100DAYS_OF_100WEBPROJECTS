@@ -1,198 +1,55 @@
- *{
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-body{
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(135deg, #3b82f6, #9333ea);
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .password-generator
-    {
-      background-color: #ffffff;
-      padding: 2rem;
-      border-radius: 12px;
-      width: 400px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .password-generator h2
-    {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: #333333;
-    }
-
-    .output-group
-    {
-      margin-bottom: 1.5rem;
-    }
-
-    #passwordOutput
-    {
-      width: 100%;
-      padding: 0.75rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background-color: #f9fafb;
-      color: #111827;
-      text-align: center;
-    }
-
-    .settings-group
-    {
-      margin-bottom: 1rem;
-      margin-top: 1rem;
-    }
-
-    .label
-    {
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-      display: block;
-      color: #555;
-    }
-
-    #passwordLength
-    {
-      width: 100%;
-    }
-
-    .btn-generate
-    {
-      margin-top: 0.5rem;
-      width: 100%;
-      padding: 0.75rem;
-      background-color: #3b82f6;
-      color: white;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .Btn-copy
-    {
-
-      width: 100%;
-      padding: 0.75rem;
-      background-color: #3b82f6;
-      color: white;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .btn-generate:hover
-    {
-      background-color: #2563eb;
-    }
-
-    .Btn-copy:hover
-    {
-      background-color: #2563eb;
-    }
-
-    /* Checkbox Css*/
-     .checkbox-box
-    {
-      border: 1px solid #1b0015;
-      padding: 0.5rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      background-color: #c2c6d2;
-      margin-top: 1rem;
-    }
-
-    .checkbox-grid
-    {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .checkbox-item
-    {
-      display: flex;
-      align-items: center;
-      font-size: 0.9rem;
-      color: #333;
-    }
-
-    .checkbox-item input[type="checkbox"]
-    {
-      margin-right: 0.5rem;
-      cursor: pointer;
-    }
-
-
-    /* strength of password */
-  .strength-box {
-  background-color: #e5e7eb;
-  border: 1px solid #6b7280;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-top: 0.2rem;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.strength-label 
-{
-  font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 0.5rem;
-}
-
-.strength-bar {
-  background-color: #d1d5db;
-  height: 10px;
-  border-radius: 5px;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #810ef4e0, #ffffff);
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
 }
 
-.strength-fill {
-  height: 100%;
-  transition: width 0.3s;
-  border-radius: 5px;
+#welcomeScreen {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
 }
 
-.strength-fill.weak {
-  width: 25%;
-  background-color: #dc2626;
+#welcomeScreen h1 {
+  font-size: 32px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-.strength-fill.medium {
-  width: 50%;
-  background-color: #f59e0b;
+#startBtn {
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.strength-fill.strong {
-  width: 100%;
-  background-color: #16a34a;
+#startBtn:hover {
+  background-color: #fff309;
+  color:black;
 }
 
-
-/* optional */
-.strength-fill {
-  height: 10px;
-  width: 100%;
-  transition: background 0.3s;
-}
-.strength-fill.weak {
-  background: red;
-}
-.strength-fill.medium {
-  background: orange;
-}
-.strength-fill.strong {
-  background: green;
+canvas {
+  background: #a2cdf9ec;
+  border: 4px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  display: none;
+  
+  
 }

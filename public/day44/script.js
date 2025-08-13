@@ -1,87 +1,138 @@
-// Character sets
-const UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
-const NUMBERS = "0123456789";
-const SYMBOLS = "!@#$%^&*()_+[]{}|;:,.<>?/~";
+const canvas = document.getElementById('flappyBird');
+const ctx = canvas.getContext('2d');
+const startBtn = document.getElementById('startBtn');
+const welcomeScreen = document.getElementById('welcomeScreen');
 
-// DOM Elements
-const passwordOutput = document.getElementById("passwordOutput");
-const passwordLengthSlider = document.getElementById("passwordLength");
-const lengthDisplay = document.getElementById("lengthDisplay");
-const includeUppercase = document.getElementById("includeUppercase");
-const includeLowercase = document.getElementById("includeLowercase");
-const includeNumbers = document.getElementById("includeNumbers");
-const includeSymbols = document.getElementById("includeSymbols");
-const generateBtn = document.getElementById("generateBtn");
-const copyBtn = document.getElementById("copyBtn");
-const strengthText = document.getElementById("passwordStrength");
-const strengthBar = document.getElementById("strengthLevel");
+let canvasWidth = 360;
+let canvasHeight = 640;
+canvas.width = canvasWidth;
+canvas.height = canvasHeight;
 
-// Update password length label
-passwordLengthSlider.addEventListener("input", () => {
-  lengthDisplay.textContent = passwordLengthSlider.value;
-});
 
-// Generate password on click
-generateBtn.addEventListener("click", () => {
-  const length = +passwordLengthSlider.value;
-  const hasUpper = includeUppercase.checked;
-  const hasLower = includeLowercase.checked;
-  const hasNumber = includeNumbers.checked;
-  const hasSymbol = includeSymbols.checked;
+const birdImage = new Image();
+birdImage.src = 'bird.jpg'; 
 
-  const password = generatePassword(length, hasUpper, hasLower, hasNumber, hasSymbol);
-  passwordOutput.value = password;
-  updateStrengthIndicator(password);
-});
+const gravity = 0.5;
+const flap = -8;
+const pipeGap = 150;
+const pipeWidth = 60;
 
-// Copy password to clipboard
-copyBtn.addEventListener("click", () => {
-  if (passwordOutput.value !== "") {
-    navigator.clipboard.writeText(passwordOutput.value);
-    copyBtn.textContent = "Copied!";
-    setTimeout(() => {
-      copyBtn.textContent = "Copy Password";
-    }, 1500);
-  }
-});
 
-// Generate Password Logic
-function generatePassword(length, upper, lower, number, symbol) {
-  let charSet = "";
-  if (upper) charSet += UPPERCASE;
-  if (lower) charSet += LOWERCASE;
-  if (number) charSet += NUMBERS;
-  if (symbol) charSet += SYMBOLS;
+let bird, pipes, score, gameOver, frames;
 
-  if (charSet.length === 0) return "Please select at least one option";
+function initGame() {
+  bird = {
+    x: 50,
+    y: 150,
+    width: 40,
+    height: 30,
+    velocity: 0
+  };
 
-  let password = "";
-  for (let i = 0; i < length; i++) {
-    const randomChar = charSet[Math.floor(Math.random() * charSet.length)];
-    password += randomChar;
-  }
-  return password;
+  pipes = [];
+  score = 0;
+  gameOver = false;
+  frames = 0;
 }
 
-// Strength Indicator Logic
-function updateStrengthIndicator(password) {
-  let strength = 0;
-  const length = password.length;
+function drawBird() {
+  ctx.drawImage(birdImage, bird.x - bird.width / 2, bird.y - bird.height / 2, bird.width, bird.height);
+}
 
-  if (/[A-Z]/.test(password)) strength++;
-  if (/[a-z]/.test(password)) strength++;
-  if (/[0-9]/.test(password)) strength++;
-  if (/[^A-Za-z0-9]/.test(password)) strength++;
+function drawPipe(pipe) {
+  ctx.fillStyle = '#4caf50';
+  ctx.fillRect(pipe.x, 0, pipeWidth, pipe.top);
+  ctx.fillRect(pipe.x, pipe.top + pipeGap, pipeWidth, canvasHeight - pipe.top - pipeGap);
+}
 
-  if (length >= 12 && strength >= 3) {
-    strengthBar.className = "strength-fill strong";
-    strengthText.textContent = "Strong";
-  } else if (length >= 8 && strength >= 2) {
-    strengthBar.className = "strength-fill medium";
-    strengthText.textContent = "Medium";
+function drawScore() {
+  ctx.fillStyle = '#fff';
+  ctx.font = '24px Arial';
+  ctx.fillText(`Score: ${score}`, 10, 30);
+}
+
+function gameLoop() {
+  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+  bird.velocity += gravity;
+  bird.y += bird.velocity;
+
+  if (frames % 90 === 0) {
+    let pipeTop = Math.floor(Math.random() * (canvasHeight - pipeGap - 100)) + 50;
+    pipes.push({ x: canvasWidth, top: pipeTop });
+  }
+
+  pipes.forEach(pipe => {
+    pipe.x -= 2;
+    drawPipe(pipe);
+
+    if (
+      bird.x + bird.width / 2 > pipe.x &&
+      bird.x - bird.width / 2 < pipe.x + pipeWidth &&
+      (bird.y - bird.height / 2 < pipe.top ||
+        bird.y + bird.height / 2 > pipe.top + pipeGap)
+    ) {
+      gameOver = true;
+    }
+
+    if (pipe.x + pipeWidth === bird.x) {
+      score++;
+    }
+  });
+
+  pipes = pipes.filter(pipe => pipe.x + pipeWidth > 0);
+
+  drawBird();
+  drawScore();
+
+  if (bird.y + bird.height / 2 >= canvasHeight || bird.y - bird.height / 2 <= 0) {
+    gameOver = true;
+  }
+
+  if (!gameOver) {
+    frames++;
+    requestAnimationFrame(gameLoop);
   } else {
-    strengthBar.className = "strength-fill weak";
-    strengthText.textContent = "Weak";
+    ctx.fillStyle = '#000';
+    ctx.font = '32px Arial';
+    ctx.fillText('Game Over', canvasWidth / 2 - 80, canvasHeight / 2);
+    ctx.font = '20px Arial';
+    ctx.fillText('Tap to Restart', canvasWidth / 2 - 70, canvasHeight / 2 + 30);
   }
 }
+
+// Controls
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'Space') {
+    bird.velocity = flap;
+    if (gameOver) {
+      initGame();
+      gameLoop();
+    }
+  }
+});
+
+document.addEventListener('touchstart', () => {
+  bird.velocity = flap;
+  if (gameOver) {
+    initGame();
+    gameLoop();
+  }
+});
+
+
+startBtn.addEventListener('click', () => {
+  birdImage.onload = () => {
+    welcomeScreen.style.display = 'none';
+    canvas.style.display = 'block';
+    initGame();
+    gameLoop();
+  };
+
+  if (birdImage.complete) {
+    welcomeScreen.style.display = 'none';
+    canvas.style.display = 'block';
+    initGame();
+    gameLoop();
+  }
+});

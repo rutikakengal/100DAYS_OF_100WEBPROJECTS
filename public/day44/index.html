@@ -1,57 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Aaqeeb Pinjari -->
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/x-icon" href="./pass.jpg">
-  <title>Password Generator</title>
-  <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flappy Bird</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="password-generator">
-    <U><h2>Password Generator</h2></U>
-    <div class="output-group">
-      <input type="text" id="passwordOutput" class="password-output" readonly placeholder="Your password will appear here">
-    </div>
-
-    <div class="settings-group">
-      <label for="passwordLength" class="label">Password Length: <span id="lengthDisplay">6</span></label>
-      <input type="range" id="passwordLength" class="range-slider" min="6" max="32" value="6">
-    </div>
-
-    <div class="strength-box">
-        <p class="strength-label">Password Strength: <span id="passwordStrength">Medium</span></p>
-          <div class="strength-bar">
-            <div id="strengthLevel" class="strength-fill medium"></div>
-          </div>
-    </div>
-<!-- password sesssion -->
-        <div class="checkbox-box">
-        <h2>Customize your Password</h2>
-        <div class="checkbox-grid">
-        <label class="checkbox-item">
-          <input type="checkbox" id="includeUppercase" checked>
-          Uppercase
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" id="includeLowercase" checked>
-          Lowercase
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" id="includeNumbers" checked>
-          Numbers
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" id="includeSymbols">
-          Symbols
-        </label>
-      </div>
-    </div>
-
-    <button id="copyBtn" class="Btn-copy">Copy Password</button>
-    <button id="generateBtn" class="btn-generate">Generate Password</button>
-    
+  <div id="welcomeScreen">
+    <h1>Welcome to Adventure Flappy Bird</h1>
+    <button id="startBtn">Start Game</button>
   </div>
+
+  <canvas id="flappyBird"></canvas>
+
   <script src="script.js"></script>
 </body>
 </html>
