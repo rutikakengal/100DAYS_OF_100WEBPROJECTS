@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mood-Based Motivational Quote Poster Maker</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+  <!-- html2canvas for download -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+    :root{
+      --accent: #6c5ce7;
+      --bg: #0f172a;
+      --card: #0b1220;
+      --glass: rgba(255,255,255,0.06);
+    }
+    *{box-sizing:border-box}
+    body{font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; margin:0; background: linear-gradient(180deg,#0f172a 0%, #071029 100%); color:#e6eef8; min-height:100vh; display:flex; align-items:flex-start; justify-content:center; padding:32px;}
+
+    .app{
+      width:100%; max-width:1100px; display:grid; grid-template-columns:420px 1fr; gap:24px; align-items:start;
+    }
+
+    /* Left panel controls */
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius:14px; padding:18px; box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .panel h2{margin:0 0 12px 0; font-size:18px}
+    .moods{display:flex; gap:8px; flex-wrap:wrap}
+    .mood-btn{background:transparent; border:1px solid rgba(255,255,255,0.06); color:inherit; padding:8px 10px; border-radius:10px; cursor:pointer; font-weight:600}
+    .mood-btn.active{background:var(--accent); color:#081021; border-color:transparent; box-shadow:0 6px 18px rgba(108,92,231,0.18)}
+
+    .control{margin-top:12px}
+    label{display:block; font-size:13px; opacity:0.9; margin-bottom:6px}
+    select,input[type="color"],textarea{width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:inherit}
+    textarea{min-height:70px; resize:vertical}
+    .small{display:flex; gap:8px; align-items:center}
+    .row{display:flex; gap:8px}
+
+    .quote-suggestions{display:flex; flex-direction:column; gap:6px; margin-top:8px}
+    .suggestion{background:rgba(255,255,255,0.03); padding:8px; border-radius:8px; cursor:pointer; font-size:14px}
+
+    .footer-actions{display:flex; gap:8px; margin-top:12px}
+    button.primary{background:var(--accent); color:#071021; border:none; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:700}
+    button.ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); padding:10px 12px; border-radius:10px; cursor:pointer}
+
+    /* Poster preview */
+    .preview-wrap{display:flex; align-items:center; justify-content:center}
+    .poster{
+      width:720px; height:900px; border-radius:18px; overflow:hidden; display:flex; align-items:center; justify-content:center; position:relative; box-shadow: 0 18px 60px rgba(2,6,23,0.7);
+      background:linear-gradient(180deg,#1f2937,#111827); border:1px solid rgba(255,255,255,0.03);
+    }
+    .poster .overlay{position:absolute; inset:0; display:flex; align-items:center; justify-content:center;}
+    .poster-content{width:80%; text-align:center; padding:24px; z-index:10}
+    .poster-emoji{font-size:56px; margin-bottom:10px}
+    .poster-quote{font-family:'Roboto Slab', serif; font-size:36px; line-height:1.12; font-weight:700; margin-bottom:12px}
+    .poster-author{font-size:14px; opacity:0.9}
+
+    .bg-pattern{position:absolute; inset:0; z-index:0; filter: blur(8px) contrast(1.05); opacity:0.85}
+
+    /* small helpers */
+    .muted{opacity:0.75; font-size:12px}
+
+    /* responsive */
+    @media (max-width:980px){
+      .app{grid-template-columns:1fr;}
+      .poster{width:92%; height:620px}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="panel">
+      <h2>Mood → Poster Personalizer</h2>
+
+      <div class="control">
+        <label>Choose mood</label>
+        <div class="moods" id="moodList">
+          <!-- buttons injected -->
+        </div>
+      </div>
+
+      <div class="control">
+        <label>Suggested quotes</label>
+        <div id="suggestions" class="quote-suggestions"></div>
+      </div>
+
+      <div class="control">
+        <label>Quote text (click suggestion to insert)</label>
+        <textarea id="quoteText">"Be the change you wish to see."</textarea>
+      </div>
+
+      <div class="control small">
+        <div style="flex:1">
+          <label>Author</label>
+          <input id="quoteAuthor" placeholder="— Author" />
+        </div>
+        <div style="width:110px">
+          <label>Emoji</label>
+          <select id="emojiSelect">
+            <option>✨</option>
+            <option>😊</option>
+            <option>💪</option>
+            <option>🌈</option>
+            <option>🌿</option>
+            <option>🔥</option>
+            <option>☕</option>
+            <option>😌</option>
+            <option>🌟</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="control small">
+        <div style="flex:1">
+          <label>Font</label>
+          <select id="fontSelect">
+            <option value="Roboto Slab">Serif — Impactful</option>
+            <option value="Great Vibes">Script — Elegant</option>
+            <option value="Poppins">Sans — Clean</option>
+          </select>
+        </div>
+        <div style="width:120px">
+          <label>Text size</label>
+          <input id="sizeRange" type="range" min="20" max="64" value="36" />
+        </div>
+      </div>
+
+      <div class="control small">
+        <div style="flex:1">
+          <label>Text color</label>
+          <input id="colorPick" type="color" value="#ffffff" />
+        </div>
+        <div style="width:120px">
+          <label>Align</label>
+          <select id="alignSelect"><option value="center">Center</option><option value="left">Left</option><option value="right">Right</option></select>
+        </div>
+      </div>
+
+      <div class="control">
+        <label>Background theme</label>
+        <select id="themeSelect">
+          <option value="calm">Calm Blues</option>
+          <option value="sunny">Sunny Gradient</option>
+          <option value="dark">Moody Dark</option>
+          <option value="forest">Forest Vibes</option>
+          <option value="fire">Fiery Boost</option>
+        </select>
+      </div>
+
+      <div class="control">
+        <label>Or upload background image (optional)</label>
+        <input id="bgUpload" type="file" accept="image/*" />
+      </div>
+
+      <div class="footer-actions">
+        <button class="primary" id="applyBtn">Apply Mood</button>
+        <button class="ghost" id="randomBtn">Randomize</button>
+        <button class="ghost" id="downloadBtn">Download PNG</button>
+      </div>
+
+      <p class="muted" style="margin-top:12px">Tip: Click a suggested quote to quickly use it. You can also tweak fonts, emoji and background before downloading.</p>
+
+    </div>
+
+    <div class="preview-wrap">
+      <div class="poster" id="poster">
+        <div class="bg-pattern" id="bgPattern"></div>
+        <div class="poster-content" id="posterContent">
+          <div class="poster-emoji" id="posterEmoji">✨</div>
+          <div class="poster-quote" id="posterQuote">Be the change you wish to see.</div>
+          <div class="poster-author" id="posterAuthor">— Unknown</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Data: moods, quotes, recommended settings
+    const MOODS = {
+      happy: {
+        label:'Happy',
+        emoji:'😊',
+        quotes:[
+          "Happiness is an inside job.",
+          "Do more of what makes you forget to check your phone.",
+          "Collect moments, not things."
+        ],
+        theme:'sunny', color:'#2b2b2b', font:'Poppins'
+      },
+      sad: {
+        label:'Sad',
+        emoji:'😌',
+        quotes:[
+          "Tough times never last, but tough people do.",
+          "Give yourself the same care you give others.",
+          "It's okay to not be okay — healing is a process."
+        ],
+        theme:'calm', color:'#ffffff', font:'Roboto Slab'
+      },
+      stressed: {
+        label:'Stressed',
+        emoji:'☕',
+        quotes:[
+          "Breathe. This too shall pass.",
+          "One step at a time — progress is progress.",
+          "Rest when you must, but don't quit."
+        ],
+        theme:'calm', color:'#ffffff', font:'Poppins'
+      },
+      motivated: {
+        label:'Motivated',
+        emoji:'💪',
+        quotes:[
+          "Dream big. Start small. Act now.",
+          "Discipline is choosing between what you want now and what you want most.",
+          "Don't wait for opportunity. Create it."
+        ],
+        theme:'fire', color:'#fff7f0', font:'Roboto Slab'
+      },
+      peaceful: {
+        label:'Peaceful',
+        emoji:'🌿',
+        quotes:[
+          "Silence isn't empty, it's full of answers.",
+          "Peace begins with a smile.",
+          "Slow down and everything you are chasing will come around."
+        ],
+        theme:'forest', color:'#e9f7ef', font:'Poppins'
+      }
+    };
+
+    // Themes: background CSS generators
+    function applyTheme(name, el){
+      const bg = el;
+      switch(name){
+        case 'calm': bg.style.background = 'linear-gradient(180deg,#6dd5ed 0%, #2193b0 100%)'; break;
+        case 'sunny': bg.style.background = 'linear-gradient(180deg,#FFD194 0%, #D1913C 100%)'; break;
+        case 'dark': bg.style.background = 'linear-gradient(180deg,#0f0c29 0%, #302b63 50%, #24243e 100%)'; break;
+        case 'forest': bg.style.background = 'linear-gradient(180deg,#a8e6cf 0%, #56ab2f 100%)'; break;
+        case 'fire': bg.style.background = 'radial-gradient(circle at 20% 20%, #ff9a9e, #fecfef 10%, #ff7e5f 40%, #feb47b 80%)'; break;
+        default: bg.style.background = 'linear-gradient(180deg,#1f2937,#111827)';
+      }
+
+      // add subtle animated shapes using conic gradients (simple layered look)
+      bg.style.backgroundRepeat = 'no-repeat';
+    }
+
+    // DOM refs
+    const moodList = document.getElementById('moodList');
+    const suggestions = document.getElementById('suggestions');
+    const quoteText = document.getElementById('quoteText');
+    const quoteAuthor = document.getElementById('quoteAuthor');
+    const emojiSelect = document.getElementById('emojiSelect');
+    const fontSelect = document.getElementById('fontSelect');
+    const sizeRange = document.getElementById('sizeRange');
+    const colorPick = document.getElementById('colorPick');
+    const alignSelect = document.getElementById('alignSelect');
+    const themeSelect = document.getElementById('themeSelect');
+    const applyBtn = document.getElementById('applyBtn');
+    const randomBtn = document.getElementById('randomBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const poster = document.getElementById('poster');
+    const posterQuote = document.getElementById('posterQuote');
+    const posterAuthor = document.getElementById('posterAuthor');
+    const posterEmoji = document.getElementById('posterEmoji');
+    const posterContent = document.getElementById('posterContent');
+    const bgPattern = document.getElementById('bgPattern');
+    const bgUpload = document.getElementById('bgUpload');
+
+    let selectedMood = 'happy';
+
+    // Initialize mood buttons
+    function initMoods(){
+      for(const key of Object.keys(MOODS)){
+        const b = document.createElement('button');
+        b.className = 'mood-btn';
+        b.textContent = MOODS[key].label;
+        b.dataset.mood = key;
+        b.addEventListener('click', ()=>{ selectMood(key); });
+        moodList.appendChild(b);
+      }
+      selectMood(selectedMood);
+    }
+
+    function selectMood(key){
+      selectedMood = key;
+      // set active
+      document.querySelectorAll('.mood-btn').forEach(btn=>btn.classList.toggle('active', btn.dataset.mood===key));
+      // populate suggestions
+      suggestions.innerHTML = '';
+      MOODS[key].quotes.forEach(q=>{
+        const s = document.createElement('div'); s.className='suggestion'; s.textContent=q; s.onclick=()=>{ quoteText.value=q; }
+        suggestions.appendChild(s);
+      });
+
+      // set emoji suggestion
+      posterEmoji.textContent = MOODS[key].emoji;
+      // set default theme/font if not changed by user
+      themeSelect.value = MOODS[key].theme || 'calm';
+      fontSelect.value = MOODS[key].font || 'Poppins';
+      colorPick.value = rgbToHex(MOODS[key].color || '#ffffff');
+
+      // show a preview
+      applyMoodToPoster();
+    }
+
+    function applyMoodToPoster(){
+      // set quote
+      posterQuote.textContent = quoteText.value || '...';
+      posterAuthor.textContent = quoteAuthor.value ? '— ' + quoteAuthor.value : '';
+      posterEmoji.textContent = emojiSelect.value || MOODS[selectedMood].emoji;
+
+      // styling
+      posterQuote.style.fontFamily = fontSelect.value.includes(' ') ? `'${fontSelect.value}', serif` : fontSelect.value;
+      posterQuote.style.fontSize = sizeRange.value + 'px';
+      posterQuote.style.color = colorPick.value;
+      posterQuote.style.textAlign = alignSelect.value;
+      posterContent.style.textAlign = alignSelect.value;
+
+      // theme
+      applyTheme(themeSelect.value, bgPattern);
+
+      // if user uploaded a bg, keep it
+      if(poster.dataset.customBg){
+        bgPattern.style.backgroundSize = 'cover';
+        bgPattern.style.backgroundPosition = 'center';
+      } else {
+        bgPattern.style.backgroundRepeat = 'no-repeat';
+      }
+    }
+
+    // randomize settings for fun
+    function randomizeAll(){
+      const keys = Object.keys(MOODS);
+      const k = keys[Math.floor(Math.random()*keys.length)];
+      selectMood(k);
+      // pick random quote
+      const q = MOODS[k].quotes[Math.floor(Math.random()*MOODS[k].quotes.length)];
+      quoteText.value = q;
+      quoteAuthor.value = '';
+      emojiSelect.value = MOODS[k].emoji;
+      // random text size
+      sizeRange.value = 28 + Math.floor(Math.random()*28);
+      // random theme
+      const themes = ['calm','sunny','dark','forest','fire'];
+      themeSelect.value = themes[Math.floor(Math.random()*themes.length)];
+      // clear custom bg
+      poster.removeAttribute('data-custom-bg');
+      bgPattern.style.backgroundSize = '';
+      applyMoodToPoster();
+    }
+
+    // download using html2canvas
+    async function downloadPoster(){
+      // temporarily increase scale for better quality
+      const scale = 2;
+      const originalWidth = poster.offsetWidth;
+      const originalHeight = poster.offsetHeight;
+
+      const opts = {useCORS:true, scale: scale, backgroundColor: null};
+      const canvas = await html2canvas(poster, opts);
+      const link = document.createElement('a');
+      link.download = `poster-${selectedMood}-${Date.now()}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    // helpers
+    function rgbToHex(rgb){
+      if(!rgb) return '#ffffff';
+      // already hex
+      if(rgb[0]==='#') return rgb;
+      // rgb(255,255,255)
+      const m = rgb.match(/(\d+),\s*(\d+),\s*(\d+)/);
+      if(!m) return '#ffffff';
+      return '#'+[1,2,3].map(i=>parseInt(m[i]).toString(16).padStart(2,'0')).join('');
+    }
+
+    // load uploaded background
+    bgUpload.addEventListener('change', (e)=>{
+      const f = e.target.files && e.target.files[0];
+      if(!f) return;
+      const reader = new FileReader();
+      reader.onload = function(ev){
+        poster.dataset.customBg = 'true';
+        bgPattern.style.backgroundImage = `url(${ev.target.result})`;
+        bgPattern.style.backgroundSize = 'cover';
+        bgPattern.style.backgroundPosition = 'center';
+      }
+      reader.readAsDataURL(f);
+    });
+
+    // Wire buttons
+    applyBtn.addEventListener('click', ()=>{
+      // clear custom bg if user chose theme
+      if(!poster.dataset.customBg) bgPattern.style.backgroundImage = '';
+      applyMoodToPoster();
+    });
+    randomBtn.addEventListener('click', randomizeAll);
+    downloadBtn.addEventListener('click', downloadPoster);
+
+    // live updates
+    quoteText.addEventListener('input', ()=>{ posterQuote.textContent = quoteText.value; });
+    quoteAuthor.addEventListener('input', ()=>{ posterAuthor.textContent = quoteAuthor.value ? '— ' + quoteAuthor.value : ''; });
+    emojiSelect.addEventListener('change', ()=>{ posterEmoji.textContent = emojiSelect.value; });
+    fontSelect.addEventListener('change', applyMoodToPoster);
+    sizeRange.addEventListener('input', ()=>{ posterQuote.style.fontSize = sizeRange.value + 'px'; });
+    colorPick.addEventListener('input', ()=>{ posterQuote.style.color = colorPick.value; });
+    alignSelect.addEventListener('change', ()=>{ posterContent.style.textAlign = alignSelect.value; });
+    themeSelect.addEventListener('change', ()=>{ if(!poster.dataset.customBg) applyTheme(themeSelect.value, bgPattern); });
+
+    // init
+    initMoods();
+    applyMoodToPoster();
+
+  </script>
+</body>
+</html>
