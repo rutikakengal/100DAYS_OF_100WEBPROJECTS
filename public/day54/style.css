@@ -1,0 +1,68 @@
+body{
+    background-color: #dbeafe;
+}
+
+h1{
+    text-align: center;
+}
+
+.game-board{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px; 
+}
+
+.card{
+    height: 100px;
+    width: 100px;
+    background-color:  #ffffff;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px black;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+}
+
+.front {
+  transform: rotateY(180deg);
+  background-color: white;
+  font-size: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back{
+   background-color: #374151;
+}
+
+.card.flip{
+    transform: rotateY(180deg);
+}
+
+.stats-bar {
+  display: flex;
+  justify-content: space-between; /* pushes left and right apart */
+  align-items: center;            
+  padding: 10px 20px;              
+}
+
+.stats-left p,
+.stats-right p {
+  margin: 5px 0; /* avoid too much gap between lines */
+}
+
+.controls {
+  text-align: center;
+  margin: 10px 0 20px 0;
+}
+
+
