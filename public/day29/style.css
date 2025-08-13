@@ -1,0 +1,34 @@
+body {
+  text-align: center;
+  font-family: Arial;
+  margin-top: 50px;
+  background-color: rgb(161, 185, 172);
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.step {
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
+  border: 2px solid gray;
+  border-radius: 50%;
+  margin: 0 10px;
+  background-color: white;
+}
+
+.step.active {
+  background-color: lightgreen;
+  border-color: green;
+}
+
+button {
+  padding: 8px 16px;
+  margin: 10px;
+  background-color: rgb(103, 155, 130);
+  border-radius: 15px;
+}
