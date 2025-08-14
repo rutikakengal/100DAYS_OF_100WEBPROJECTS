@@ -8,6 +8,7 @@ const projects = [
   "Stylish Animated loginpage",
   "BMI Calculator",
   "QR Generator",
+  "QR Generator",
   "Rock Paper Scissors Game",
   "Reading Journal",
   "Pong Game",
@@ -18,7 +19,8 @@ const projects = [
   "Mood Timer",
   "text to PDF Convertor",
   "Memory Card Game",
-  "Email Validator",  
+  "Email Validator",
+
   "Snake And Ladder Game",
   "Space Jumper Game",
   "Calculator",
@@ -32,17 +34,17 @@ const projects = [
   "Guess the Number Game",
   "Typing Speed Test webapp ",
   "Startup Name Generator Web App",
-  "",
-  " ",
-  "Snake Game ",
- "Hangman Game",
-  "Simon Say Game ",
   " ",
   " ",
-  "Doodle Jump Game",
+  "Simon Game ",
+  " ",
 
+  " ",
+  " ",
+
+  "Doodle Jump Game",
   "BrainBuzz Quizz Website",
-  "",
+  " ",
 
   " currency Converter",
 
@@ -55,26 +57,18 @@ const projects = [
   "BrainBuzz Quizz Website",
   "Code Editor",
 
-
-
   "Spotify Clone",
   "Plant Care Scheduler",
   "Mood Quote Poster",
 
-
   // Add more project names as needed
-
-
- 
-
-
 ];
 
-const hamburgerBtn = document.getElementById('hamburger-btn');
-const mobileMenu = document.getElementById('mobile-menu');
+const hamburgerBtn = document.getElementById("hamburger-btn");
+const mobileMenu = document.getElementById("mobile-menu");
 
-hamburgerBtn.addEventListener('click', () => {
-  mobileMenu.classList.toggle('hidden');
+hamburgerBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
 });
 
 const tableBody = document.getElementById("tableBody");
@@ -113,8 +107,9 @@ randomBtn.addEventListener("click", () => {
 projects.forEach((name, index) => {
   const day = `Day ${String(index + 1).padStart(2, "0")}`;
   let link;
-  
+
   // Dynamic link generation for specific projects
+
   if (name === "Nasa Astronomy Picture of the day") {
     link = "https://sabaaa01.github.io/NASA-astronomy-photo-of-the-day/";
   } else if (name === "BrainBuzz Quizz Website") {
