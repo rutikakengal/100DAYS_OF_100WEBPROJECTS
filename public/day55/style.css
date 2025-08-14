@@ -1,0 +1,56 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: radial-gradient(circle, rgb(93, 63, 245),rgb(35, 95, 168));
+}
+.container{
+    background-color: rgba(114, 44, 218, 0.7);
+    padding: 25px;
+    color: white;
+    border-radius: 10px;
+    border: solid 1.5px black;
+    box-shadow: 4px 4px 3px white;
+    cursor: pointer;
+}
+.cell{
+    width: 250px;
+    height: 15px;
+    border: solid 1px black;
+    box-shadow: 2px 2px 2px rgb(222, 208, 208);
+    cursor: pointer;
+}
+.info{
+    font-size: small;
+    font-weight: bold;
+}
+.name{
+    color: black;
+    font-size: larger;
+    font-weight: bolder;
+    font-style: normal;
+    text-align: center;
+}
+button{
+    text-align: center;
+    width: 260px;
+    height: 25px;
+    background-color: rgb(202, 56, 231);
+    border-radius: 5px;
+    border: solid 1px black;
+    color: white;
+    box-shadow: 2px 2px 2px rgb(222, 208, 208);
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+button:active{
+    transform: scale(0.9);
+} 
+.img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}

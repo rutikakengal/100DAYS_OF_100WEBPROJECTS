@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="img">
+        <img src="./image.png" alt="welcome to astrology department" height="580px" width="1000px">
+    </div>
+    <div class="container">
+        <div class="name">Astrology Insights</div><br>
+        <div class="data">
+            <form action="find" id="astroform">
+                <label for="first" class="info">First Name: </label><br>
+                <!-- enter the first name -->
+                <input type="text" id="first" class="cell" value="Ram"><br><br>
+                <label for="surname" class="info">Surname</label><br>
+                <!-- enter the last name -->
+                <input type="text" id="surname" class="cell" value="Sharma"><br><br>
+                <label for="day" class="info">Date of Birth(Day)</label><br>
+                 <input type="number" id="day" class="cell" value="25"><br><br>
+                <label for="month" class="info">Month</label><br>
+                <input type="number" id="month" class="cell" value="9"><br><br>
+                <label for="year" class="info">year</label><br>
+                <input type="number" id="year" class="cell" value="2002"><br><br>
+            </form>
+        </div>
+        <div class="submit">
+            <button id="res" class="final">Get insights</button>
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
