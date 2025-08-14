@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #c9ada7;
+}
+
+.container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  min-height: 45vh;
+  width: 90%;
+  max-width: 500px; /* ✅ More natural width */
+}
+
+form {
+  margin: 2rem 0 1rem 0;
+}
+
+form select,
+button,
+input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 0.75rem;
+}
+
+form input {
+  border: 1px solid lightgray;
+  font-size: 1rem;
+  height: 3rem;
+  padding-left: 0.5rem;
+}
+
+.output-area {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #f5f5f5;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dropdown i {
+  font-size: 1.5rem;
+}
+
+.select-container {
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 1px solid lightgray;
+  padding: 0 0.5rem;
+  background: #fff;
+  flex: 1;
+  min-width: 150px; /* ✅ Make enough space for dropdown */
+}
+
+.select-container img {
+  width: 2rem;
+  height: auto;
+  margin-right: 0.5rem;
+}
+
+.select-container select {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+form button {
+  height: 3rem;
+  background-color: #4a4e69;
+  color: #fff;
+  font-size: 1.15rem;
+  cursor: pointer;
+  margin-top: 2rem;
+}
