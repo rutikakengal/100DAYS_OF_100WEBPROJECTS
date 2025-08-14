@@ -5,7 +5,7 @@ const projects = [
   "Jewellery-company landing page",
   "Random Image Generator",
   "New Year Countdown",
-  "Stylish Animated loginpage",
+  "",
   "BMI Calculator",
   "QR Generator",
   "Rock Paper Scissors Game",
@@ -44,16 +44,16 @@ const projects = [
   "BrainBuzz Quizz Website",
   "",
 
-  " currency Converter",
+  "",
 
   " ",
   "GiggleBits",
   "",
-  "Digital Clock",
-  "Random Password Generator",
-  "Doodle Jump Game",
+  "",
+  "",
+  "",
   "BrainBuzz Quizz Website",
-  "Code Editor",
+  "",
 
 
 
