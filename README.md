@@ -15,6 +15,7 @@ Welcome to **100_days_100_web_project** – a challenge-based repository to **le
 | DAY-3 | Weather App | [Weather APP]() | Real-time weather information using OpenWeatherMap API |
 | Day 4  | **Calculator**      | [Link]()       | Basic calculator functionality|
 | DAY-10 | MEMORY CARD GAME | [Memory Card Game]() | Memory Card Matching Game |
+| DAY-55 | Memory Matrix Game | [Memory Matrix Game](/public/day55/index.html) | Simon-style pattern recall challenge |
 
 | Day 100+ | **Coming Soon**  | 🚧             | 🚧                           |
 
