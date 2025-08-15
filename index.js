@@ -18,7 +18,6 @@ const projects = [
   "Mood Timer",
   "text to PDF Convertor",
   "Memory Card Game",
-  "Memory Matrix Game",
   "Email Validator",  
   "Snake And Ladder Game",
   "Space Jumper Game",
@@ -61,6 +60,7 @@ const projects = [
   "Spotify Clone",
   "Plant Care Scheduler",
   "Mood Quote Poster",
+  "Memory Matrix Game",
 
 
   // Add more project names as needed
