@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+      color: white;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(270deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb, #8fd3f4);
+      background-size: 1000% 1000%;
+      animation: gradientShift 15s ease infinite;
+      z-index: -2;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #fff;
+      text-shadow: 0 0 10px #ffffffcc, 0 0 20px #a18cd1;
+      z-index: 2;
+    }
+
+    .toggle-mode {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid white;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .toggle-mode:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .calculator {
+      position: relative;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 30px;
+      width: 340px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      z-index: 1;
+      border: 2px solid #fff;
+      transition: transform 0.3s ease;
+    }
+
+    .calculator:hover {
+      transform: scale(1.02);
+    }
+
+    #result {
+      width: 100%;
+      height: 60px;
+      font-size: 26px;
+      padding: 10px;
+      text-align: right;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 12px;
+      background: #f3f3f3;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+      color: #333;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .buttons button {
+      position: relative;
+      height: 60px;
+      font-size: 22px;
+      border: none;
+      border-radius: 12px;
+      background: #e7e7e7;
+      color: #333;
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.1s ease, background 0.3s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .buttons button:hover {
+      background: #dcdcdc;
+      transform: scale(1.05);
+    }
+
+    .buttons button:active {
+      transform: scale(0.95);
+    }
+
+    .buttons button.operator {
+      background: #ff6a00;
+      color: white;
+      box-shadow: 0 0 8px #ff6a00;
+    }
+
+    .buttons button.equal {
+      background: #42b883;
+      color: white;
+      box-shadow: 0 0 15px #42b883;
+    }
+
+    .credit {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #ffffffcc;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .floating-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .floating-text span {
+      position: absolute;
+      display: inline-block;
+      font-size: 24px;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.15);
+      animation: float 12s linear infinite;
+      pointer-events: none;
+    }
+
+    .floating-text span:nth-child(1) { left: 10%; animation-delay: 0s; font-size: 20px; }
+    .floating-text span:nth-child(2) { left: 25%; animation-delay: 2s; font-size: 28px; }
+    .floating-text span:nth-child(3) { left: 40%; animation-delay: 4s; font-size: 26px; }
+    .floating-text span:nth-child(4) { left: 60%; animation-delay: 6s; font-size: 22px; }
+    .floating-text span:nth-child(5) { left: 75%; animation-delay: 8s; font-size: 30px; }
+    .floating-text span:nth-child(6) { left: 85%; animation-delay: 10s; font-size: 24px; }
+    .floating-text span:nth-child(7) { left: 50%; animation-delay: 5s; font-size: 27px; }
+    .floating-text span:nth-child(8) { left: 33%; animation-delay: 3s; font-size: 23px; }
+
+    @keyframes float {
+      0% {
+        top: 100%;
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% { opacity: 0.2; }
+      50% { opacity: 0.4; }
+      100% {
+        top: -10%;
+        transform: translateY(-100%) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .calculator {
+        width: 90%;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+
+    /* Dark Mode Support */
+    body.dark {
+      color: black;
+    }
+
+    body.dark .calculator {
+      background: #1f1f1f;
+      border: 2px solid #333;
+    }
+
+    body.dark #result {
+      background: #333;
+      color: white;
+    }
+
+    body.dark .buttons button {
+      background: #555;
+      color: white;
+    }
+
+    body.dark .buttons button.operator {
+      background: #ff6a00;
+    }
+
+    body.dark .buttons button.equal {
+      background: #42b883;
+    }
+
+    body.dark .credit {
+      color: #ccc;
+    }
+
+  </style>
+</head>
+<body>
+
+  <button class="toggle-mode" onclick="toggleMode()">🌗 Toggle Mode</button>
+
+
+  <div class="calculator">
+    <input type="text" id="result" disabled />
+    <div class="buttons">
+      <button onclick="handleClick('C')" class="operator">C</button>
+      <button onclick="handleClick('/')" class="operator">/</button>
+      <button onclick="handleClick('*')" class="operator">*</button>
+      <button onclick="handleClick('←')" class="operator">←</button>
+
+      <button onclick="handleClick('7')">7</button>
+      <button onclick="handleClick('8')">8</button>
+      <button onclick="handleClick('9')">9</button>
+      <button onclick="handleClick('-')" class="operator">-</button>
+
+      <button onclick="handleClick('4')">4</button>
+      <button onclick="handleClick('5')">5</button>
+      <button onclick="handleClick('6')">6</button>
+      <button onclick="handleClick('+')" class="operator">+</button>
+
+      <button onclick="handleClick('1')">1</button>
+      <button onclick="handleClick('2')">2</button>
+      <button onclick="handleClick('3')">3</button>
+      <button onclick="handleClick('=')" class="equal">=</button>
+
+      <button onclick="handleClick('0')" style="grid-column: span 2;">0</button>
+      <button onclick="handleClick('.')">.</button>
+    </div>
+  </div>
+
+ 
+
+  <div class="floating-text">
+    <span>+</span>
+    <span>🔢</span>
+    <span>=</span>
+    <span>🧠</span>
+    <span>÷</span>
+    <span>🔥</span>
+    <span>7</span>
+    <span>-</span>
+  </div>
+
+  <audio id="click-sound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_55e9f8e7df.mp3" preload="auto"></audio>
+
+  <script>
+  const soundUrl = "https://cdn.pixabay.com/audio/2022/03/15/audio_55e9f8e7df.mp3";
+
+  function playClickSound() {
+    const click = new Audio(soundUrl);
+    click.play().catch(() => {});
+  }
+
+  function handleClick(value) {
+    playClickSound();
+    const display = document.getElementById('result');
+
+    if (value === 'C') {
+      display.value = '';
+    } else if (value === '←') {
+      display.value = display.value.slice(0, -1);
+    } else if (value === '=') {
+      try {
+        display.value = eval(display.value);
+      } catch {
+        alert("Invalid Expression");
+      }
+    } else {
+      display.value += value;
+    }
+  }
+
+  function toggleMode() {
+    document.body.classList.toggle('dark');
+  }
+
+  document.addEventListener('keydown', (e) => {
+    const key = e.key;
+
+    if (key >= '0' && key <= '9') handleClick(key);
+    else if (['+', '-', '*', '/'].includes(key)) handleClick(key);
+    else if (key === 'Enter') handleClick('=');
+    else if (key === 'Backspace') handleClick('←');
+    else if (key === 'Escape') handleClick('C');
+    else if (key === '.') handleClick('.');
+  });
+</script>
+
+</body>
+</html>
