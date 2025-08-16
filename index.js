@@ -32,7 +32,7 @@ const projects = [
   "Guess the Number Game",
   "Typing Speed Test webapp ",
   "Startup Name Generator Web App",
-  "",
+  "Snake-Tube Style",
   " ",
   "Snake Game ",
  "Hangman Game",
@@ -46,7 +46,7 @@ const projects = [
 
   " currency Converter",
 
-  " ",
+  " Password Generator",
   "GiggleBits",
   "",
   "Digital Clock",
