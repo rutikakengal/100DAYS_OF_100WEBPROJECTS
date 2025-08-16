@@ -1,0 +1,170 @@
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0f2027;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Bubbles Animation */
+.bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bubbles span {
+  position: absolute;
+  bottom: -150px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: rise 20s infinite ease-in;
+}
+
+.bubbles span:nth-child(1) {
+  width: 80px;
+  height: 80px;
+  left: 20%;
+  animation-duration: 18s;
+}
+
+.bubbles span:nth-child(2) {
+  width: 50px;
+  height: 50px;
+  left: 40%;
+  animation-duration: 25s;
+}
+
+.bubbles span:nth-child(3) {
+  width: 120px;
+  height: 120px;
+  left: 60%;
+  animation-duration: 22s;
+}
+
+.bubbles span:nth-child(4) {
+  width: 70px;
+  height: 70px;
+  left: 80%;
+  animation-duration: 17s;
+}
+
+.bubbles span:nth-child(5) {
+  width: 100px;
+  height: 100px;
+  left: 10%;
+  animation-duration: 20s;
+}
+
+.bubbles span:nth-child(6) {
+  width: 60px;
+  height: 60px;
+  left: 50%;
+  animation-duration: 19s;
+}
+
+.bubbles span:nth-child(7) {
+  width: 90px;
+  height: 90px;
+  left: 70%;
+  animation-duration: 23s;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-1000px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Glassmorphism Login Box */
+.login-box {
+  width: 320px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+  animation: float 4s ease-in-out infinite;
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+  outline: none;
+  font-size: 16px;
+}
+
+.input-box label {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  color: #ccc;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-box input:focus + label,
+.input-box input:valid + label {
+  top: -10px;
+  font-size: 12px;
+  color: #00f5d4;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #00f5d4;
+  color: #000;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #00c2a8;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

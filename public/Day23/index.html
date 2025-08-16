@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stylish Calculator</title>
 
   <style>
     * {
@@ -235,13 +236,11 @@
     body.dark .credit {
       color: #ccc;
     }
-
   </style>
 </head>
 <body>
 
   <button class="toggle-mode" onclick="toggleMode()">🌗 Toggle Mode</button>
-
 
   <div class="calculator">
     <input type="text" id="result" disabled />
@@ -270,8 +269,6 @@
       <button onclick="handleClick('.')">.</button>
     </div>
   </div>
-
- 
 
   <div class="floating-text">
     <span>+</span>
@@ -327,7 +324,6 @@
     else if (key === 'Escape') handleClick('C');
     else if (key === '.') handleClick('.');
   });
-</script>
-
+  </script>
 </body>
 </html>
