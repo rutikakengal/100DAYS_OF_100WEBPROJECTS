@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Login - Vibe Study Groups{% endblock %}
+
+{% block content %}
+<h2>Login to Your Account</h2>
+<form method="POST" action="{{ url_for('login') }}"> 
+    <label for="identifier">Username or Email:</label><br>
+    <input type="text" id="identifier" name="identifier" value="{{ identifier or '' }}"><br><br> 
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br><br>
+    <input type="submit" value="Login" class="button button-primary">
+</form>
+<p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a>.</p>
+{% endblock %}

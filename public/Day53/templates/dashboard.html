@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Vibe Study Groups{% endblock %}
+
+{% block content %}
+<section class="dashboard-welcome">
+    <h2>Welcome, {{ username }}!</h2>
+    <p>This is your personal dashboard. Here you will find your study groups, profile settings, and more.</p>
+    <p>Start by completing your <a href="{{ url_for('profile_edit') }}">profile</a>, <a href="{{ url_for('create_group') }}">create a new study group</a>, or <a href="{{ url_for('find_groups') }}">find a group to join</a>!</p> 
+</section>
+
+<section class="dashboard-groups">
+    <h3>Your Study Groups</h3>
+    {% if user.memberships %}
+        <ul>
+        {% for membership in user.memberships %}
+            <li><a href="{{ url_for('group_details', group_id=membership.group.id) }}">{{ membership.group.name }}</a>
+                (Joined: {{ membership.date_joined.strftime('%Y-%m-%d') }})</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>You haven't joined or created any groups yet. <a href="{{ url_for('create_group') }}">Create a group</a> or <a href="{{ url_for('find_groups') }}">find a group to join</a>!</p>
+    {% endif %}
+</section>
+
+<a href="{{ url_for('logout') }}" class="button">Logout</a>
+{% endblock %}

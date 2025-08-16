@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Profile - Vibe Study Groups{% endblock %}
+
+{% block content %}
+<h2>Edit Your Study Profile</h2>
+<form method="POST" action="{{ url_for('profile_edit') }}">
+    <div class="form-group">
+        <label for="username_display">Username:</label>
+        <input type="text" id="username_display" name="username_display" value="{{ user.username }}" readonly>
+        <small>Username cannot be changed here.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="email_display">Email:</label>
+        <input type="email" id="email_display" name="email_display" value="{{ user.email }}" readonly>
+        <small>Email cannot be changed here.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="subjects">Subjects (comma-separated, e.g., Math, Physics, Chemistry):</label>
+        <input type="text" id="subjects" name="subjects" value="{{ user.subjects or '' }}">
+        <small>What subjects are you currently studying or interested in?</small>
+    </div>
+
+    <div class="form-group">
+        <label for="topics">Specific Topics (comma-separated, e.g., Calculus, Quantum Mechanics):</label>
+        <input type="text" id="topics" name="topics" value="{{ user.topics or '' }}">
+        <small>Specific areas within your subjects you want to focus on.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="goals">Study Goals:</label>
+        <textarea id="goals" name="goals" rows="5">{{ user.goals or '' }}</textarea>
+        <small>What are you aiming to achieve? (e.g., "Pass linear algebra exam," "Understand data structures for interview")</small>
+    </div>
+
+    <div class="form-group">
+        <label for="exam_timeline">Next Major Exam Date:</label>
+        <input type="date" id="exam_timeline" name="exam_timeline" value="{{ user.exam_timeline.isoformat() if user.exam_timeline else '' }}">
+        <small>When is your next big exam?</small>
+    </div>
+
+    <button type="submit" class="button button-primary">Save Profile</button>
+</form>
+{% endblock %}
