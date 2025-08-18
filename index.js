@@ -1,7 +1,7 @@
 const projects = [
   "Animated Landing Page",
-  "To-Do List",
-  "Weather App",
+  "Advanced To-Do List",
+  "Weather Forecast App",
   "Jewellery-company landing page",
   "Random Image Generator",
   "New Year Countdown",
@@ -11,8 +11,77 @@ const projects = [
   "Tic Tac Toe",
    "QR Generator",
   "Rock Paper Scissors Game"
+
+  "QR Generator",
+  "Rock Paper Scissors Game",
+  "Reading Journal",
+  "Pong Game",
+  "Colour Picker",
+  "Drawing Canvas",
+  "Nasa Astronomy Picture of the day",
+  "World Clock",
+  "Mood Timer",
+  "text to PDF Convertor",
+  "Memory Card Game",
+  "Email Validator",  
+  "Snake And Ladder Game",
+  "Space Jumper Game",
+  "Calculator",
+  "Promodoro Timer",
+  "Temperature Converter",
+  "Space War Game",
+  "CHESS GAME",
+
+  "Bubble Shooter Game",
+  "Animated Login Form",
+  "Guess the Number Game",
+  "Typing Speed Test webapp ",
+  "Startup Name Generator Web App",
+  "",
+  "Recipe Finder",
+  "Snake Game ",
+ "Hangman Game",
+  "Simon Say Game ",
+  " ",
+  " ",
+  "Doodle Jump Game",
+
+  "BrainBuzz Quizz Website",
+  "",
+
+  " currency Converter",
+
+  " ",
+  "GiggleBits",
+  "",
+  "Digital Clock",
+  "Random Password Generator",
+  "Doodle Jump Game",
+  "BrainBuzz Quizz Website",
+  "Code Editor",
+
+
+
+  "Spotify Clone",
+  "Plant Care Scheduler",
+  "Mood Quote Poster",
+  "Echo Chamber",
+
+
   // Add more project names as needed
+
+
+ 
+
+
 ];
+
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburgerBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
 
 const tableBody = document.getElementById("tableBody");
 const projectCount = document.getElementById("projectCount");
@@ -50,11 +119,15 @@ randomBtn.addEventListener("click", () => {
 projects.forEach((name, index) => {
   const day = `Day ${String(index + 1).padStart(2, "0")}`;
   let link;
-  if (name === "QR Generator") {
-  link = `public/Day 9/index.html`;
+  
+  // Dynamic link generation for specific projects
+  if (name === "Nasa Astronomy Picture of the day") {
+    link = "https://sabaaa01.github.io/NASA-astronomy-photo-of-the-day/";
+  } else if (name === "BrainBuzz Quizz Website") {
+    link = "https://brain-buzz-six.vercel.app/";
   } else {
-  const folder = `day${String(index + 1).padStart(2, "0")}`;
-  link = `public/${folder}/index.html`;
+    const folder = `day${String(index + 1).padStart(2, "0")}`;
+    link = `public/${folder}/index.html`;
   }
 
   const row = document.createElement("tr");
