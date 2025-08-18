@@ -7,13 +7,30 @@ const projects = [
   "New Year Countdown",
   "Stylish Animated loginpage",
   "BMI Calculator",
+
+
+
+  "Reading Journal",
   "QR Generator",
+  "Rock Paper Scissors Game",
+  "Tic Tac Toe",
+
+  "QR Generator",
+
+   "QR Generator",
+
+
+  "QR Generator",
+
   "Rock Paper Scissors Game",
   "Reading Journal",
   "Pong Game",
   "Colour Picker",
   "Drawing Canvas",
   "Nasa Astronomy Picture of the day",
+
+  "World Clock"
+
   "World Clock",
   "Mood Timer",
   "text to PDF Convertor",
@@ -39,6 +56,10 @@ const projects = [
   "Simon Say Game ",
   " ",
   " ",
+
+  "Doodle Jump Game"
+
+
   "Doodle Jump Game",
 
   "BrainBuzz Quizz Website",
@@ -53,6 +74,10 @@ const projects = [
   "Random Password Generator",
   "Doodle Jump Game",
   "BrainBuzz Quizz Website",
+
+
+  "Code Editor"
+
   "Code Editor",
 
 

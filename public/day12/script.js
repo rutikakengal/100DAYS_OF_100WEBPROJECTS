@@ -1,3 +1,126 @@
+
+
+const cells = document.querySelectorAll('.cell');
+const statusText = document.getElementById('status');
+const playerSpan = document.getElementById('player');
+const message = document.getElementById('message');
+const resetBtn = document.getElementById('reset');
+
+let currentPlayer = "X";
+let board = ["", "", "", "", "", "", "", "", ""];
+let isGameActive = true;
+
+const winningCombinations = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+];
+
+function checkWinner() {
+  for (let combo of winningCombinations) {
+    const [a, b, c] = combo;
+    if (board[a] && board[a] === board[b] && board[b] === board[c]) {
+      message.textContent = `🎉 Player ${board[a]} wins!`;
+      isGameActive = false;
+      return true;
+    }
+  }
+
+  if (!board.includes("")) {
+    message.textContent = "😐 It's a tie!";
+    isGameActive = false;
+    return true;
+  }
+
+  return false;
+}
+
+function handleClick(e) {
+  const index = e.target.dataset.index;
+  if (board[index] === "" && isGameActive) {
+    board[index] = currentPlayer;
+    e.target.textContent = currentPlayer;
+    if (!checkWinner()) {
+      currentPlayer = currentPlayer === "X" ? "O" : "X";
+      playerSpan.textContent = currentPlayer;
+    }
+  }
+}
+
+function resetGame() {
+  board = ["", "", "", "", "", "", "", "", ""];
+  currentPlayer = "X";
+  isGameActive = true;
+  cells.forEach(cell => (cell.textContent = ""));
+  playerSpan.textContent = currentPlayer;
+  message.textContent = "";
+}
+
+cells.forEach(cell => cell.addEventListener('click', handleClick));
+resetBtn.addEventListener('click', resetGame);
+// script.js
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth > 600 ? 800 : window.innerWidth - 20;
+canvas.height = window.innerHeight > 600 ? 500 : window.innerHeight / 1.5;
+
+// Game variables
+let paddleHeight = 80;
+let paddleWidth = 10;
+let paddle1Y = canvas.height / 2 - paddleHeight / 2;
+let paddle2Y = canvas.height / 2 - paddleHeight / 2;
+let ballX = canvas.width / 2;
+let ballY = canvas.height / 2;
+let ballSpeedX = 4;
+let ballSpeedY = 4;
+let player1Score = 0;
+let player2Score = 0;
+let gameMode = "";
+let difficulty = "medium";
+let paused = false;
+let gameStarted = false;
+
+const keysPressed = {};
+const paddleSpeed = 6;
+
+const difficultySpeeds = {
+  low: 3,
+  medium: 4,
+  hard: 6
+};
+
+// Event listeners for desktop
+window.addEventListener("keydown", (e) => {
+  keysPressed[e.key] = true;
+});
+
+window.addEventListener("keyup", (e) => {
+  keysPressed[e.key] = false;
+});
+
+// Touch support for mobile
+canvas.addEventListener("touchstart", handleTouch);
+canvas.addEventListener("touchmove", handleTouch);
+
+function handleTouch(e) {
+  e.preventDefault();
+  const rect = canvas.getBoundingClientRect();
+  const touchY = e.touches[0].clientY - rect.top;
+
+  if (gameMode === "cpu") {
+    paddle1Y = touchY - paddleHeight / 2;
+  } else if (gameMode === "2p") {
+    if (ballX < canvas.width / 2) {
+      paddle1Y = touchY - paddleHeight / 2;
+    } else {
+      paddle2Y = touchY - paddleHeight / 2;
+=======
 window.addEventListener('load', () => {
     // --- DOM ELEMENTS ---
     const canvas = document.getElementById('drawing-canvas');
@@ -38,6 +161,7 @@ window.addEventListener('load', () => {
             return [event.touches[0].clientX - rect.left, event.touches[0].clientY - rect.top];
         }
         return [event.clientX - rect.left, event.clientY - rect.top];
+
     }
 
     // Prepares canvas data URL with a white background for saving
@@ -200,6 +324,10 @@ window.addEventListener('load', () => {
         ctx.putImageData(currentDrawing, 0, 0);
     }
 
+
+drawEverything();
+
+
     // --- INITIALIZATION ---
     resizeCanvas();
     selectPencil();
@@ -230,3 +358,4 @@ window.addEventListener('load', () => {
     brushCircleBtn.addEventListener('click', () => selectBrush('circle'));
     brushSquareBtn.addEventListener('click', () => selectBrush('square'));
 });
+
