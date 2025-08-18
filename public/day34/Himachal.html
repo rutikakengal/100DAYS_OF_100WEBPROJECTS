@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Himachal Pradesh Adventures</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav
+      id="main-navbar"
+      class="navbar navbar-expand-lg glass-navbar fixed-top"
+    >
+      <div class="container">
+        <!-- Brand -->
+        <a class="navbar-brand fw-bold text-white" href="#"
+          ><img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749553891/adventure_4_life_final_logo_page-0001-removebg-preview_eoqoui.png"
+            alt=""
+        /></a>
+
+        <!-- Toggler -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-white"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                Tracking & Hiking Trips
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="./Kerala.html">Kerala</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./ladakh.html">Ladakh</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./Sikkim.html">Sikkim</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./Uttrakhand.html"
+                    >Uttrakhand</a
+                  >
+                </li>
+                <!-- <li><a class="dropdown-item" href="#">Ladakh</a></li> -->
+                <li>
+                  <a class="dropdown-item" href="./Meghalaya.html">Meghalaya</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./Himachal.html"
+                    >Himachal Pradesh</a
+                  >
+                </li>
+                <!-- Add more as needed -->
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./index.html#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./index.html#gallery"
+                >Gallery</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-white"
+                href="./contact.html"
+                target="_blank"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header class="header">
+      <div class="header-image-container">
+        <img
+          src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749543496/rishabh-pandoh-m1PFxGQ-5x0-unsplash_b3fcon.jpg"
+          alt="Himachal Pradesh Mountains"
+          class="header-image"
+        />
+        <div class="header-overlay">
+          <h1>Himachal Pradesh Adventures</h1>
+          <p>Thrills in the Land of the Himalayas</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="adventure-description">
+      <h2>Trekking, Snow, and Solitude</h2>
+      <p>
+        Himachal Pradesh is a paradise for trekkers and thrill-seekers alike.
+        From high-altitude snow trails to hidden hamlets and fast rivers, it
+        offers year-round adventure in the lap of the Himalayas.
+      </p>
+    </section>
+
+    <section class="gallery">
+      <h2>Adventure Highlights</h2>
+      <div class="card-grid">
+        <!-- Triund Trek -->
+        <div class="card">
+          <img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749545844/Triund_hzcym0.jpg"
+            alt="Triund Trek"
+          />
+          <h3>Triund Trek</h3>
+          <p>
+            A short but scenic trek near McLeod Ganj with stunning Dhauladhar
+            views.
+          </p>
+          <a href="#"><button onclick="openTriund()">2 days</button></a>
+        </div>
+
+        <!-- Modal: Triund -->
+        <div id="triund-modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeTriund()">&times;</span>
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749545844/Triund_hzcym0.jpg"
+              alt="Triund"
+              class="modal-img"
+            />
+            <h2>Triund Trek – 2 Days</h2>
+            <p>
+              <strong>Description:</strong> A short yet rewarding trek through
+              rhododendron forests leading to a panoramic ridge with
+              breathtaking views of the Kangra valley and Dhauladhar mountains.
+            </p>
+            <h3>Itinerary:</h3>
+            <ul>
+              <li>
+                Day 1: Trek from McLeod Ganj to Triund (9 km), passing through
+                oak and rhododendron forests.
+              </li>
+              <li>
+                Evening: Enjoy sunset views, bonfire, and overnight camping
+                under the stars.
+              </li>
+              <li>
+                Day 2: Sunrise hike to explore nearby viewpoints, breakfast at
+                the campsite, and descent back to McLeod Ganj.
+              </li>
+            </ul>
+            <h3>Inclusions:</h3>
+            <ul>
+              <li>Experienced guide for navigation and safety.</li>
+              <li>Camping gear (tents, sleeping bags, mats).</li>
+              <li>Meals (dinner on Day 1, breakfast on Day 2).</li>
+              <li>Entry permits for the trek.</li>
+              <li>Bonfire experience (subject to weather conditions).</li>
+              <li>First aid kit and emergency support.</li>
+            </ul>
+            <a href="https://wa.me/919876543210?text=Interested in Triund Trek">
+              <button class="book-btn">Book Now</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Spiti Valley Expedition -->
+        <div class="card">
+          <img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749456050/Picture_332_krdeqa.jpg"
+            alt="Spiti Valley"
+          />
+          <h3>Spiti Valley Expedition</h3>
+          <p>
+            Explore high-altitude villages, monasteries, and moon-like
+            landscapes.
+          </p>
+          <a href="#"><button onclick="openSpiti()">7 days</button></a>
+        </div>
+
+        <!-- Modal: Spiti -->
+        <div id="spiti-modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeSpiti()">&times;</span>
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749456050/Picture_332_krdeqa.jpg"
+              alt="Spiti"
+              class="modal-img"
+            />
+            <h2>Spiti Valley – 7 Days</h2>
+            <p>
+              <strong>Description:</strong> Journey to remote Spiti for Buddhist
+              culture, rugged beauty, and ancient gompas.
+            </p>
+            <h3>Itinerary:</h3>
+            <ul>
+              <li>
+                Day 1: Drive from Shimla to Kalpa, explore Kinnaur Valley.
+              </li>
+              <li>Day 2: Visit Nako Lake, Gue Mummy, and reach Tabo.</li>
+              <li>
+                Day 3: Explore Tabo Monastery, Dhankar Monastery, and Pin
+                Valley.
+              </li>
+              <li>
+                Day 4: Drive to Kaza, visit Key Monastery, Kibber, and Chicham
+                Bridge.
+              </li>
+              <li>
+                Day 5: Trek to Langza, Hikkim (highest post office), and Komic
+                village.
+              </li>
+              <li>
+                Day 6: Drive to Chandratal Lake via Kunzum Pass, camp overnight.
+              </li>
+              <li>Day 7: Return to Manali, concluding the journey.</li>
+            </ul>
+            <h3>Inclusions:</h3>
+            <ul>
+              <li>Transport & permits for seamless travel.</li>
+              <li>Accommodation in hotels/camps.</li>
+              <li>Meals (breakfast & dinner).</li>
+              <li>Experienced guide for cultural insights.</li>
+              <li>Entry fees for monasteries and attractions.</li>
+              <li>Camping gear for Chandratal Lake stay.</li>
+              <li>Safety equipment (first aid kit, oxygen cylinder).</li>
+            </ul>
+            <a
+              href="https://wa.me/919876543210?text=Interested in Spiti Valley Expedition"
+            >
+              <button class="book-btn">Book Now</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Paragliding in Bir Billing -->
+        <div class="card">
+          <img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749546712/paragliding_qzh9h1.jpg"
+            alt="Bir Billing"
+          />
+          <h3>Paragliding in Bir</h3>
+          <p>
+            Fly high above the Kangra valley in India’s paragliding capital.
+          </p>
+          <a href="#"><button onclick="openBir()">4 day</button></a>
+        </div>
+
+        
+        <div id="bir-modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeBir()">&times;</span>
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749546712/paragliding_qzh9h1.jpg"
+              alt="Bir"
+              class="modal-img"
+            />
+            <h2>Paragliding at Bir – 4 Days</h2>
+            <p>
+              <strong>Description:</strong> Experience the thrill of tandem
+              paragliding from Billing (2400m), soaring over the breathtaking
+              Dhauladhar ranges.
+            </p>
+            <h3>Itinerary:</h3>
+            <ul>
+              <li>
+                Day 1: Arrival at Bir, explore local monasteries and cafes.
+              </li>
+              <li>
+                Day 2: Trek to Billing, enjoy sunset views, and camp overnight.
+              </li>
+              <li>
+                Day 3: Paragliding experience from Billing, landing at Bir.
+              </li>
+              <li>Day 4: Relax, explore Bir market, and depart.</li>
+            </ul>
+            <h3>Inclusions:</h3>
+            <ul>
+              <li>Certified pilot & safety gear for a secure flight.</li>
+              <li>Pickup & drop from Bir to Billing.</li>
+              <li>Flight video to capture your adventure.</li>
+              <li>Accommodation in camps/hotels.</li>
+              <li>Meals (breakfast & dinner).</li>
+              <li>Guided trek to Billing.</li>
+            </ul>
+            <a
+              href="https://wa.me/919876543210?text=Interested in Bir Billing Paragliding"
+            >
+              <button class="book-btn">Book Now</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hampta Pass Trek -->
+        <div class="card">
+          <img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749546868/hampta_yqj6zf.jpg"
+            alt="Hampta Pass"
+          />
+          <h3>Hampta Pass Trek</h3>
+          <p>
+            Cross from lush Kullu valley to arid Lahaul over a stunning high
+            pass.
+          </p>
+          <a href="#"><button onclick="openHampta()">5 days</button></a>
+        </div>
+
+        <!-- Modal: Hampta -->
+        <div id="hampta-modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeHampta()">&times;</span>
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749546868/hampta_yqj6zf.jpg"
+              alt="Hampta"
+              class="modal-img"
+            />
+            <h2>Hampta Pass Trek – 5 Days</h2>
+            <p>
+              <strong>Description:</strong> A breathtaking crossover trek that
+              connects the lush Kullu Valley to the stark landscapes of Lahaul,
+              featuring glacier streams, alpine meadows, and dramatic mountain
+              passes.
+            </p>
+            <h3>Itinerary:</h3>
+            <ul>
+              <li>
+                Day 1: Drive from Manali to Jobra, trek to Chika campsite.
+              </li>
+              <li>
+                Day 2: Trek from Chika to Balu Ka Ghera, surrounded by stunning
+                landscapes.
+              </li>
+              <li>
+                Day 3: Trek to Hampta Pass (4,310m), cross over to Shea Goru
+                campsite.
+              </li>
+              <li>
+                Day 4: Trek from Shea Goru to Chhatru, drive to Chandratal Lake
+                (optional).
+              </li>
+              <li>Day 5: Drive back to Manali, concluding the trek.</li>
+            </ul>
+            <h3>Inclusions:</h3>
+            <ul>
+              <li>All trekking permits & environmental fees.</li>
+              <li>Experienced guide & support crew.</li>
+              <li>Meals (vegetarian) throughout the trek.</li>
+              <li>Trekking gear (tents, sleeping bags, mats).</li>
+              <li>Transportation from Manali to base camp & return.</li>
+              <li>Safety equipment (first aid kit, oxygen cylinder).</li>
+            </ul>
+            <a
+              href="https://wa.me/919876543210?text=Interested in Hampta Pass Trek"
+            >
+              <button class="book-btn">Book Now</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer-section">
+      <div class="footer-container">
+        <div class="footer-about">
+          <a class="navbar-brand fw-bold text-white" href="#"
+            ><img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749553891/adventure_4_life_final_logo_page-0001-removebg-preview_eoqoui.png"
+              alt=""
+          /></a>
+          <p>
+            Your trusted partner in traveling, trekking, and hiking adventures.
+            Explore the world with us!
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.html#gallery">Gallery</a></li>
+            <li><a href="./index.html#about">About</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p>Email: info@adventure.com</p>
+          <p>Phone: +91 12345 67890</p>
+          <p>Address: Noida, Uttar Pradesh, India</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Adventure4Life. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
