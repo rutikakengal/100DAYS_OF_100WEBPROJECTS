@@ -1,43 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>countdown</title>
-    <link rel="stylesheet" href="style.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Year Countdown</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="eventName">
-            <h1>New Year 2026</h1>
-        </div>
-        <div class="eventDate">
-            <h2>1 January 2026</h2>
-        </div>
-        <div class="timer">
-            <div class="box">
-                <label for="days">Days</label>
-                <input type="text" readonly value="0">
-            </div>
-            <div class="box">
-                <label for="hours">Hours</label>
-                <input type="text" readonly value="0">
-            </div>
-            <div class="box">
-                <label for="minutes">Minutes</label>
-                <input type="text" readonly value="0">
-            </div>
-            <div class="box">
-                <label for="seconds">Seconds</label>
-                <input type="text" readonly value="0">
-            </div>
-        </div>
-        <div class="msg">
-            <h1 class="newYearMsg" style="display: none;">🎉 Happy New Year 2026! 🎉</h1>
-        </div>
+  <canvas id="fireworks"></canvas>
+
+  <div class="countdown-container">
+    <h1>New Year 2026 🎉</h1>
+    <p>1 January 2026</p>
+    <div class="countdown">
+      <div class="time-box"><span id="days">00</span><small>Days</small></div>
+      <div class="time-box"><span id="hours">00</span><small>Hours</small></div>
+      <div class="time-box"><span id="minutes">00</span><small>Minutes</small></div>
+      <div class="time-box"><span id="seconds">00</span><small>Seconds</small></div>
     </div>
-    <script src="script.js"></script>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
