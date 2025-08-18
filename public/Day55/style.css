@@ -1,7 +1,20 @@
+
+:root {
+    --primary-color: #6200ee;
+    --secondary-color: #03dac6;
+    --background-color: #121212;
+    --text-color: #e1e1e1;
+    --card-color: #1e1e1e;
+    --accent-color: #bb86fc;
+    --font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 body {
@@ -242,3 +255,798 @@ body {
         font-size: 0.9rem;
     }
 }
+=======
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+header {
+    padding: 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    z-index: 0;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    position: relative;
+    z-index: 1;
+}
+
+.reload-btn {
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.reload-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.reload-btn:active {
+    transform: translateY(1px);
+}
+
+.reload-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateX(-100%);
+}
+
+.reload-btn:hover::after {
+    animation: shine 1.5s infinite;
+}
+
+@keyframes shine {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.badges-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    max-width: 800px;
+}
+
+.badge {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    opacity: 0.3;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+
+.badge.unlocked {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 15px var(--secondary-color);
+}
+
+.badge.special {
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    box-shadow: 0 0 20px #e52e71;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+}
+
+.badge.ultimate {
+    background: linear-gradient(135deg, #12c2e9, #c471ed, #f64f59);
+    box-shadow: 0 0 25px #c471ed;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    flex: 1;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    max-width: 1200px;
+}
+
+.card {
+    background-color: var(--card-color);
+    border-radius: 15px;
+    padding: 1.5rem;
+    width: 300px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateX(-100vw);
+    opacity: 0;
+    animation: slideIn 0.6s forwards;
+    border-left: 5px solid var(--accent-color);
+}
+
+@keyframes slideIn {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.card-content {
+    line-height: 1.6;
+}
+
+footer {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.footer-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--accent-color);
+}
+
+.click-counter {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.achievement-notification {
+    position: fixed;
+    top: 20px;
+    right: -400px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 1000;
+    transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.achievement-notification.show {
+    right: 20px;
+}
+
+.achievement-icon {
+    font-size: 2rem;
+}
+
+.achievement-title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.achievement-desc {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Mutation styles */
+
+
+/* Mutation styles - 50 unique color combinations */
+.style-1 {
+    --primary-color: #6200ee;
+    --secondary-color: #03dac6;
+    --background-color: #121212;
+    --text-color: #e1e1e1;
+    --card-color: #1e1e1e;
+    --accent-color: #bb86fc;
+    --font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.style-2 {
+    --primary-color: #ff3e00;
+    --secondary-color: #40b3ff;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --card-color: #fff;
+    --accent-color: #ff3e00;
+    --font-family: 'Courier New', monospace;
+}
+
+.style-3 {
+    --primary-color: #00c853;
+    --secondary-color: #ffd600;
+    --background-color: #000;
+    --text-color: #fff;
+    --card-color: #111;
+    --accent-color: #00c853;
+    --font-family: 'Arial Black', sans-serif;
+}
+
+.style-4 {
+    --primary-color: #9c27b0;
+    --secondary-color: #ff9800;
+    --background-color: #f8f8f8;
+    --text-color: #333;
+    --card-color: #fff;
+    --accent-color: #9c27b0;
+    --font-family: 'Georgia', serif;
+}
+
+.style-5 {
+    --primary-color: #2196f3;
+    --secondary-color: #f44336;
+    --background-color: #010101;
+    --text-color: #f0f0f0;
+    --card-color: #1a1a1a;
+    --accent-color: #2196f3;
+    --font-family: 'Verdana', sans-serif;
+}
+
+.style-6 {
+    --primary-color: #e91e63;
+    --secondary-color: #4caf50;
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --card-color: #1e1e1e;
+    --accent-color: #ff5722;
+    --font-family: 'Trebuchet MS', sans-serif;
+}
+
+.style-7 {
+    --primary-color: #3f51b5;
+    --secondary-color: #ffeb3b;
+    --background-color: #fafafa;
+    --text-color: #212121;
+    --card-color: #ffffff;
+    --accent-color: #ff4081;
+    --font-family: 'Palatino', serif;
+}
+
+.style-8 {
+    --primary-color: #009688;
+    --secondary-color: #ffc107;
+    --background-color: #263238;
+    --text-color: #eceff1;
+    --card-color: #37474f;
+    --accent-color: #00bcd4;
+    --font-family: 'Century Gothic', sans-serif;
+}
+
+.style-9 {
+    --primary-color: #673ab7;
+    --secondary-color: #cddc39;
+    --background-color: #e0f7fa;
+    --text-color: #006064;
+    --card-color: #b2ebf2;
+    --accent-color: #ff5252;
+    --font-family: 'Franklin Gothic', sans-serif;
+}
+
+.style-10 {
+    --primary-color: #ff5722;
+    --secondary-color: #607d8b;
+    --background-color: #fffde7;
+    --text-color: #5d4037;
+    --card-color: #fff9c4;
+    --accent-color: #7c4dff;
+    --font-family: 'Lucida Sans', sans-serif;
+}
+
+.style-11 {
+    --primary-color: #795548;
+    --secondary-color: #8bc34a;
+    --background-color: #f0f4c3;
+    --text-color: #212121;
+    --card-color: #c5e1a5;
+    --accent-color: #ff9800;
+    --font-family: 'Impact', sans-serif;
+} 
+.style-12 {
+    --primary-color: #9e9e9e;
+    --secondary-color: #ffcdd2;
+    --background-color: #f5f5f5;
+    --text-color: #424242;
+    --card-color: #eeeeee;
+    --accent-color: #ff4081;
+    --font-family: 'Tahoma', sans-serif;
+} 
+.style-13 {
+    --primary-color: #607d8b;
+    --secondary-color: #ffc107;
+    --background-color: #263238;
+    --text-color: #eceff1;
+    --card-color: #37474f;
+    --accent-color: #00bcd4;
+    --font-family: 'Century Gothic', sans-serif;
+}
+.style-14 {
+    --primary-color: #3f51b5;
+    --secondary-color: #ffeb3b;
+    --background-color: #fafafa;
+    --text-color: #212121;
+    --card-color: #ffffff;
+    --accent-color: #ff4081;
+    --font-family: 'Palatino', serif;
+}
+.style-15 {
+    --primary-color: #009688;
+    --secondary-color: #ffc107;
+    --background-color: #263238;
+    --text-color: #eceff1;
+    --card-color: #37474f;
+    --accent-color: #00bcd4;
+    --font-family: 'Century Gothic', sans-serif;
+} 
+.style-16 {
+    --primary-color: #673ab7;
+    --secondary-color: #cddc39;
+    --background-color: #e0f7fa;
+    --text-color: #006064;
+    --card-color: #b2ebf2;
+    --accent-color: #ff5252;
+    --font-family: 'Franklin Gothic', sans-serif;
+}
+.style-17 {
+    --primary-color: #ff5722;
+    --secondary-color: #607d8b;
+    --background-color: #fffde7;
+    --text-color: #5d4037;
+    --card-color: #fff9c4;
+    --accent-color: #7c4dff;
+    --font-family: 'Lucida Sans', sans-serif;
+}
+.style-18 {
+    --primary-color: #795548;
+    --secondary-color: #8bc34a;
+    --background-color: #f0f4c3;
+    --text-color: #212121;
+    --card-color: #c5e1a5;
+    --accent-color: #ff9800;
+    --font-family: 'Impact', sans-serif;
+}
+
+
+
+
+.style-19 {
+    --primary-color: #9e9e9e;
+    --secondary-color: #ffcdd2;
+    --background-color: #f5f5f5;
+    --text-color: #424242;
+    --card-color: #eeeeee;
+    --accent-color: #ff4081;
+    --font-family: 'Tahoma', sans-serif;
+}
+.style-20 {
+    --primary-color: #607d8b;
+    --secondary-color: #ffc107;
+    --background-color: #263238;
+    --text-color: #eceff1;
+    --card-color: #37474f;
+    --accent-color: #00bcd4;
+    --font-family: 'Century Gothic', sans-serif;
+}
+.style-21 {
+    --primary-color: #3f51b5;
+    --secondary-color: #ffeb3b;
+    --background-color: #fafafa;
+    --text-color: #212121;
+    --card-color: #ffffff;
+    --accent-color: #ff4081;
+    --font-family: 'Palatino', serif;
+}
+.style-22 {
+    --primary-color: #009688;
+    --secondary-color: #ffc107;
+    --background-color: #263238;
+    --text-color: #eceff1;
+    --card-color: #37474f;
+    --accent-color: #00bcd4;
+    --font-family: 'Century Gothic', sans-serif;
+}
+.style-23 {
+    --primary-color: #673ab7;
+    --secondary-color: #cddc39;
+    --background-color: #e0f7fa;
+    --text-color: #006064;
+    --card-color: #b2ebf2;
+    --accent-color: #ff5252;
+    --font-family: 'Franklin Gothic', sans-serif;
+}
+.style-24 {
+    --primary-color: #ff5722;
+    --secondary-color: #607d8b;
+    --background-color: #fffde7;
+    --text-color: #5d4037;
+    --card-color: #fff9c4;
+    --accent-color: #7c4dff;
+    --font-family: 'Lucida Sans', sans-serif;
+}
+.style-25 {
+    --primary-color: #795548;
+    --secondary-color: #8bc34a;
+    --background-color: #f0f4c3;
+    --text-color: #212121;
+    --card-color: #c5e1a5;
+    --accent-color: #ff9800;
+    --font-family: 'Impact', sans-serif;
+}
+.style-26 {
+    --primary-color: #9e9e9e;
+    --secondary-color: #ffcdd2;
+    --background-color: #f5f5f5;
+    --text-color: #424242;
+    --card-color: #eeeeee;
+    --accent-color: #ff4081;
+    --font-family: 'Tahoma', sans-serif;
+}
+.style-27 {
+    --primary-color: #607d8b;
+    --secondary-color: #ffc107;
+    --background-color: #263238;
+    --text-color: #eceff1;
+    --card-color: #37474f;
+    --accent-color: #00bcd4;
+    --font-family: 'Century Gothic', sans-serif;
+}
+.style-28 {
+    --primary-color: #3f51b5;
+    --secondary-color: #ffeb3b;
+    --background-color: #fafafa;
+    --text-color: #212121;
+    --card-color: #ffffff;
+    --accent-color: #ff4081;
+    --font-family: 'Palatino', serif;
+}
+.style-29 {
+    --primary-color: #009688;
+    --secondary-color: #ffc107;
+    --background-color: #263238;
+    --text-color: #eceff1;
+    --card-color: #37474f;
+    --accent-color: #00bcd4;
+    --font-family: 'Century Gothic', sans-serif;
+}
+
+.style-30 {
+    --primary-color: #673ab7;
+    --secondary-color: #cddc39;
+    --background-color: #e0f7fa;
+    --text-color: #006064;
+    --card-color: #b2ebf2;
+    --accent-color: #ff5252;
+    --font-family: 'Franklin Gothic', sans-serif;
+}
+.style-31 {
+    --primary-color: #ff5722;
+    --secondary-color: #607d8b;
+    --background-color: #fffde7;
+    --text-color: #5d4037;
+    --card-color: #fff9c4;
+    --accent-color: #7c4dff;
+    --font-family: 'Lucida Sans', sans-serif;
+}
+.style-32 {
+    --primary-color: #795548;
+    --secondary-color: #8bc34a;
+    --background-color: #f0f4c3;
+    --text-color: #212121;
+    --card-color: #c5e1a5;
+    --accent-color: #ff9800;
+    --font-family: 'Impact', sans-serif;
+}
+.style-33 {
+    --primary-color: #9e9e9e;
+    --secondary-color: #ffcdd2;
+    --background-color: #f5f5f5;
+    --text-color: #424242;
+    --card-color: #eeeeee;
+    --accent-color: #ff4081;
+    --font-family: 'Tahoma', sans-serif;
+}
+
+
+.style-34 {
+    --primary-color: #607d8b;
+    --secondary-color: #ffc107;
+    --background-color: #263238;
+    --text-color: #eceff1;
+    --card-color: #37474f;
+    --accent-color: #00bcd4;
+    --font-family: 'Century Gothic', sans-serif;
+}
+.style-35 {
+    --primary-color: #3f51b5;
+    --secondary-color: #ffeb3b;
+    --background-color: #fafafa;
+    --text-color: #212121;
+    --card-color: #ffffff;
+    --accent-color: #ff4081;
+    --font-family: 'Palatino', serif;
+}
+.style-36 {
+    --primary-color: #009688;
+    --secondary-color: #ffc107;
+    --background-color: #263238;
+    --text-color: #eceff1;
+    --card-color: #37474f;
+    --accent-color: #00bcd4;
+    --font-family: 'Century Gothic', sans-serif;
+}
+.style-37 {
+    --primary-color: #673ab7;
+    --secondary-color: #cddc39;
+    --background-color: #e0f7fa;
+    --text-color: #006064;
+    --card-color: #b2ebf2;
+    --accent-color: #ff5252;
+    --font-family: 'Franklin Gothic', sans-serif;
+}
+.style-38 {
+    --primary-color: #ff5722;
+    --secondary-color: #607d8b;
+    --background-color: #fffde7;
+    --text-color: #5d4037;
+    --card-color: #fff9c4;
+    --accent-color: #7c4dff;
+    --font-family: 'Lucida Sans', sans-serif;
+}
+.style-39 {
+    --primary-color: #795548;
+    --secondary-color: #8bc34a;
+    --background-color: #f0f4c3;
+    --text-color: #212121;
+    --card-color: #c5e1a5;
+    --accent-color: #ff9800;
+    --font-family: 'Impact', sans-serif;
+}
+.style-40 {
+    --primary-color: #9e9e9e;
+    --secondary-color: #ffcdd2;
+    --background-color: #f5f5f5;
+    --text-color: #424242;
+    --card-color: #eeeeee;
+    --accent-color: #ff4081;
+    --font-family: 'Tahoma', sans-serif;
+}
+
+.style-41 {
+    --primary-color: #607d8b;
+    --secondary-color: #ffc107;
+    --background-color: #263238;
+    --text-color: #eceff1;
+    --card-color: #37474f;
+    --accent-color: #00bcd4;
+    --font-family: 'Century Gothic', sans-serif;
+}
+.style-42 {
+    --primary-color: #3f51b5;
+    --secondary-color: #ffeb3b;
+    --background-color: #fafafa;
+    --text-color: #212121;
+    --card-color: #ffffff;
+    --accent-color: #ff4081;
+    --font-family: 'Palatino', serif;
+}
+.style-43 {
+    --primary-color: #009688;
+    --secondary-color: #ffc107;
+    --background-color: #263238;
+    --text-color: #eceff1;
+    --card-color: #37474f;
+    --accent-color: #00bcd4;
+    --font-family: 'Century Gothic', sans-serif;
+}
+.style-44 {
+    --primary-color: #673ab7;
+    --secondary-color: #cddc39;
+    --background-color: #e0f7fa;
+    --text-color: #006064;
+    --card-color: #b2ebf2;
+    --accent-color: #ff5252;
+    --font-family: 'Franklin Gothic', sans-serif;
+}
+.style-45 {
+    --primary-color: #ff5722;
+    --secondary-color: #607d8b;
+    --background-color: #fffde7;
+    --text-color: #5d4037;
+    --card-color: #fff9c4;
+    --accent-color: #7c4dff;
+    --font-family: 'Lucida Sans', sans-serif;
+}
+.style-46 {
+    --primary-color: #795548;
+    --secondary-color: #8bc34a;
+    --background-color: #f0f4c3;
+    --text-color: #212121;
+    --card-color: #c5e1a5;
+    --accent-color: #ff9800;
+    --font-family: 'Impact', sans-serif;
+}
+.style-47 {
+    --primary-color: #9e9e9e;
+    --secondary-color: #ffcdd2;
+    --background-color: #f5f5f5;
+    --text-color: #424242;
+    --card-color: #eeeeee;
+    --accent-color: #ff4081;
+    --font-family: 'Tahoma', sans-serif;
+}
+.style-48 {
+    --primary-color: #607d8b;
+    --secondary-color: #ffc107;
+    --background-color: #263238;
+    --text-color: #eceff1;
+    --card-color: #37474f;
+    --accent-color: #00bcd4;
+    --font-family: 'Century Gothic', sans-serif;
+}
+.style-49 {
+    --primary-color: #3f51b5;
+    --secondary-color: #ffeb3b;
+    --background-color: #fafafa;
+    --text-color: #212121;
+    --card-color: #ffffff;
+    --accent-color: #ff4081;
+    --font-family: 'Palatino', serif;
+}
+.style-50 {
+    --primary-color: #009688;
+    --secondary-color: #ffc107;
+    --background-color: #263238;
+    --text-color: #eceff1;
+    --card-color: #37474f;
+    --accent-color: #00bcd4;
+    --font-family: 'Century Gothic', sans-serif;
+}
+/* Add to the bottom of your CSS */
+.glitch {
+    animation: glitch 1s linear infinite;
+    position: relative;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, 3px); }
+    40% { transform: translate(-3px, -3px); }
+    60% { transform: translate(3px, 3px); }
+    80% { transform: translate(3px, -3px); }
+    100% { transform: translate(0); }
+}
+
+.bounce {
+    animation: bounce 0.5s;
+    display: inline-block;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+.particle {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+    animation: float 15s infinite linear;
+}
+
+@keyframes float {
+    to { transform: translateY(-100vh) rotate(360deg); }
+}
+/* Button ripple effect */
+.reload-btn:hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    border-radius: inherit;
+    animation: ripple 1.5s infinite;
+}
+
+@keyframes ripple {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+

@@ -33,7 +33,7 @@ const projects = [
   "Typing Speed Test webapp ",
   "Startup Name Generator Web App",
   "",
-  " ",
+  "Recipe Finder",
   "Snake Game ",
  "Hangman Game",
   "Simon Say Game ",
@@ -61,6 +61,7 @@ const projects = [
   "Plant Care Scheduler",
   "Mood Quote Poster",
   "SUDOKU",
+  "Echo Chamber",
 
   // Add more project names as needed
 
@@ -136,4 +137,4 @@ projects.forEach((name, index) => {
   `;
 
   tableBody.appendChild(row);
-});
+});   
