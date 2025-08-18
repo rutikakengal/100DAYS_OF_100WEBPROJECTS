@@ -1,3 +1,4 @@
+
 :root {
     --primary-color: #6200ee;
     --secondary-color: #03dac6;
@@ -8,10 +9,253 @@
     --font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.game-container {
+    background: #ffffffee;
+    backdrop-filter: blur(6px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    width: 100%;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.subtitle {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.timer {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.difficulty-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.difficulty-btn {
+    padding: 8px 16px;
+    border: 2px solid #ddd;
+    background: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.difficulty-btn.active {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border-color: transparent;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#newGame {
+    background: linear-gradient(45deg, #7f00ff, #e100ff);
+    color: white;
+}
+
+#hintBtn {
+    background: #4caf50;
+    color: white;
+}
+
+#checkBtn {
+    background: #ff9800;
+    color: white;
+}
+
+#solveBtn {
+    background: #f44336;
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.board-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.sudoku-board {
+    display: grid;
+    grid-template-columns: repeat(9, 35px);
+    gap: 0;
+    background: #333;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+.cell {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #aaa;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    color: #333;
+    background: white;
+}
+
+.cell:nth-child(3n) {
+    border-right: 3px solid #000;
+}
+
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 3px solid #000;
+}
+
+.cell.selected {
+    background: #2196f3 !important;
+    color: white;
+}
+
+.cell.given {
+    background: #f5f5f5;
+    font-weight: 900;
+}
+
+.cell.error {
+    background: #ffebee;
+    color: #d32f2f;
+    animation: shake 0.5s ease-in-out;
+}
+
+.cell.highlight-row,
+.cell.highlight-col,
+.cell.highlight-box {
+    background: #fff9c4;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    75% { transform: translateX(3px); }
+}
+
+.number-pad {
+    display: grid;
+    grid-template-columns: repeat(3, 35px);
+    grid-auto-rows: 35px;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.number-btn {
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.number-btn:hover {
+    background: #f0f8ff;
+    border-color: #2196f3;
+    transform: scale(1.05);
+}
+
+.status {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.status.success {
+    color: #4caf50;
+}
+
+@media (max-width: 768px) {
+    .board-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sudoku-board {
+        grid-template-columns: repeat(9, 30px);
+    }
+
+    .cell {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+
+    .number-pad {
+        grid-template-columns: repeat(3, 30px);
+        grid-auto-rows: 30px;
+    }
+
+    .number-btn {
+        font-size: 0.9rem;
+    }
+}
+=======
     transition: all 0.3s ease;
 }
 
@@ -805,3 +1049,4 @@ footer {
     0% { transform: scale(0.8); opacity: 1; }
     100% { transform: scale(2.5); opacity: 0; }
 }
+

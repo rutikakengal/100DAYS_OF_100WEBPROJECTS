@@ -60,8 +60,8 @@ const projects = [
   "Spotify Clone",
   "Plant Care Scheduler",
   "Mood Quote Poster",
+  "SUDOKU",
   "Echo Chamber",
-
 
   // Add more project names as needed
 
@@ -137,4 +137,4 @@ projects.forEach((name, index) => {
   `;
 
   tableBody.appendChild(row);
-});
+});   

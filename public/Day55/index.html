@@ -1,6 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="image\image.png">
+  <title>Sudoku Master</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <div class="header">
+      <h1 class="title">Sudoku Master</h1>
+      <p class="subtitle">Challenge your mind with this classic puzzle</p>
+    </div>
+
+    <div class="timer" id="timer">00:00</div>
+
+    <div class="difficulty-selector">
+      <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
+      <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+      <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-primary" id="newGame">New Game</button>
+      <button class="btn btn-secondary" id="hintBtn">Hint</button>
+      <button class="btn btn-secondary" id="checkBtn">Check</button>
+      <button class="btn btn-secondary" id="solveBtn">Solve</button>
+    </div>
+
+    <div class="board-container">
+      <div class="number-pad" id="numberPad">
+        <button class="number-btn" data-number="1">1</button>
+        <button class="number-btn" data-number="2">2</button>
+        <button class="number-btn" data-number="3">3</button>
+        <button class="number-btn" data-number="4">4</button>
+        <button class="number-btn" data-number="5">5</button>
+        <button class="number-btn" data-number="6">6</button>
+        <button class="number-btn" data-number="7">7</button>
+        <button class="number-btn" data-number="8">8</button>
+        <button class="number-btn" data-number="9">9</button>
+        <button class="number-btn" data-number="0">✕</button>
+      </div>
+
+      <div class="sudoku-board" id="board"></div>
+    </div>
+
+    <div class="status" id="status">Select a cell and choose a number</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EchoChamber</title>
