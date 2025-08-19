@@ -37,7 +37,7 @@ const projects = [
   "Snake Game ",
  "Hangman Game",
   "Simon Say Game ",
-  " ",
+  "Color Blindness Checker",
   " ",
   "Doodle Jump Game",
 
