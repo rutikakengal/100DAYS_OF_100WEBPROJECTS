@@ -3,21 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title> Adventure Flappy Bird </title>
+  <title>Adventure Flappy Bird</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- afb -->
-  <!-- Start Button -->
+  
   <button id="startBtn">Start Game</button>
 
-  <!-- Score Display -->
-  <div id="score">0</div>
+ 
+  <div id="hud">
+    <div id="score">0</div>
+    <div id="level">Level 1</div>
+  </div>
 
-  <!-- Game Canvas -->
+
   <canvas id="gameCanvas"></canvas>
 
-  <!-- Game Script -->
+ 
+  <div id="scoreBoard" class="hidden">
+    <h2>🏆 Scoreboard</h2>
+    <p>Last Score: <span id="lastScore">0</span></p>
+    <p>Best Score: <span id="bestScore">0</span></p>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
