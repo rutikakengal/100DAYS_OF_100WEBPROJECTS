@@ -1,198 +1,74 @@
- *{
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-body{
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(135deg, #3b82f6, #9333ea);
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .password-generator
-    {
-      background-color: #ffffff;
-      padding: 2rem;
-      border-radius: 12px;
-      width: 400px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .password-generator h2
-    {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: #333333;
-    }
-
-    .output-group
-    {
-      margin-bottom: 1.5rem;
-    }
-
-    #passwordOutput
-    {
-      width: 100%;
-      padding: 0.75rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background-color: #f9fafb;
-      color: #111827;
-      text-align: center;
-    }
-
-    .settings-group
-    {
-      margin-bottom: 1rem;
-      margin-top: 1rem;
-    }
-
-    .label
-    {
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-      display: block;
-      color: #555;
-    }
-
-    #passwordLength
-    {
-      width: 100%;
-    }
-
-    .btn-generate
-    {
-      margin-top: 0.5rem;
-      width: 100%;
-      padding: 0.75rem;
-      background-color: #3b82f6;
-      color: white;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .Btn-copy
-    {
-
-      width: 100%;
-      padding: 0.75rem;
-      background-color: #3b82f6;
-      color: white;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .btn-generate:hover
-    {
-      background-color: #2563eb;
-    }
-
-    .Btn-copy:hover
-    {
-      background-color: #2563eb;
-    }
-
-    /* Checkbox Css*/
-     .checkbox-box
-    {
-      border: 1px solid #1b0015;
-      padding: 0.5rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      background-color: #c2c6d2;
-      margin-top: 1rem;
-    }
-
-    .checkbox-grid
-    {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .checkbox-item
-    {
-      display: flex;
-      align-items: center;
-      font-size: 0.9rem;
-      color: #333;
-    }
-
-    .checkbox-item input[type="checkbox"]
-    {
-      margin-right: 0.5rem;
-      cursor: pointer;
-    }
-
-
-    /* strength of password */
-  .strength-box {
-  background-color: #e5e7eb;
-  border: 1px solid #6b7280;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-top: 0.2rem;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.strength-label 
-{
-  font-weight: 600;
-  color: #1f2937;
-  margin-bottom: 0.5rem;
-}
-
-.strength-bar {
-  background-color: #d1d5db;
-  height: 10px;
-  border-radius: 5px;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #0a0a2a;
   overflow: hidden;
+  font-family: Arial, sans-serif;
 }
-
-.strength-fill {
+canvas {
+  background: linear-gradient(to bottom, #0a0a2a, #1a1a40);
+  display: block;
+  width: 100%;
   height: 100%;
-  transition: width 0.3s;
-  border-radius: 5px;
 }
-
-.strength-fill.weak {
-  width: 25%;
-  background-color: #dc2626;
+#hud {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
-
-.strength-fill.medium {
-  width: 50%;
-  background-color: #f59e0b;
+#scoreBoard {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: rgba(0,0,0,0.7);
+  padding: 20px 40px;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 1.2rem;
 }
-
-.strength-fill.strong {
-  width: 100%;
-  background-color: #16a34a;
+#scoreBoard.hidden {
+  display: none;
 }
-
-
-/* optional */
-.strength-fill {
-  height: 10px;
-  width: 100%;
-  transition: background 0.3s;
-}
-.strength-fill.weak {
-  background: red;
-}
-.strength-fill.medium {
+#startBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
   background: orange;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
 }
-.strength-fill.strong {
-  background: green;
+#startBtn.hidden {
+  display: none;
+}
+
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+.fade-in.show {
+  opacity: 1;
 }
