@@ -18,8 +18,18 @@ resizeCanvas();
 let bird;
 let pipes = [];
 let clouds = [];
+let stars = [];
 let frame, score, gameOver, awaitingStart, level;
 let bestScore = localStorage.getItem("bestScore") || 0;
+
+// Wing animation variables
+let wingAngle = 0;
+let wingDirection = 1;
+
+// Day/Night Cycle Variables
+let timeOfDay = 0; // 0 to 1 range (0 = morning, 0.5 = night, 1 = next morning)
+let weather = "clear";
+let weatherChangeFrame = 0;
 
 function initGame() {
   bird = {
@@ -32,6 +42,7 @@ function initGame() {
   };
   pipes = [];
   clouds = [];
+  stars = [];
   frame = 0;
   score = 0;
   level = 1;
@@ -39,14 +50,90 @@ function initGame() {
   awaitingStart = true;
   scoreDisplay.textContent = 0;
   levelDisplay.textContent = "Level 1";
+  timeOfDay = Math.random(); // random start time for variety
+  weather = "clear";
+  weatherChangeFrame = 0;
 }
 
-// Draw Bird
+// Background Day/Night Gradient + Weather
+function drawBackground() {
+  timeOfDay += 0.0003;
+  if (timeOfDay > 1) timeOfDay = 0;
+
+  let r, g, b;
+  if (timeOfDay < 0.5) {
+    // Day → Night transition
+    let t = timeOfDay * 2;
+    r = 10 + 100 * t;
+    g = 10 + 100 * t;
+    b = 40 + 150 * t;
+  } else {
+    // Night → Day transition
+    let t = (timeOfDay - 0.5) * 2;
+    r = 110 - 100 * t;
+    g = 110 - 100 * t;
+    b = 190 - 150 * t;
+  }
+
+  const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+  gradient.addColorStop(0, `rgb(${r},${g},${b})`);
+  gradient.addColorStop(1, `rgb(${r / 2},${g / 2},${b / 2})`);
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Change weather every ~30 seconds
+  if (frame - weatherChangeFrame > 1800) {
+    const types = ["clear", "cloudy", "stars"];
+    weather = types[Math.floor(Math.random() * types.length)];
+    weatherChangeFrame = frame;
+  }
+
+  if (weather === "stars" && timeOfDay > 0.4 && timeOfDay < 0.8) drawStars();
+}
+
+// Stars at night
+function drawStars() {
+  if (stars.length < 100 && frame % 5 === 0) {
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * (canvas.height / 2),
+      size: Math.random() * 2,
+      twinkle: Math.random()
+    });
+  }
+  stars.forEach(star => {
+    ctx.fillStyle = `rgba(255,255,255,${0.5 + 0.5 * Math.sin(frame * 0.05 + star.twinkle)})`;
+    ctx.fillRect(star.x, star.y, star.size, star.size);
+  });
+}
+
+// Bird with two flapping wings
 function drawBird() {
+  // Body
   ctx.fillStyle = "yellow";
   ctx.beginPath();
   ctx.arc(bird.x, bird.y, bird.radius, 0, Math.PI * 2);
   ctx.fill();
+
+  // LEFT WING
+  ctx.save();
+  ctx.translate(bird.x, bird.y);
+  ctx.rotate(-wingAngle * 0.5);
+  ctx.fillStyle = "orange";
+  ctx.beginPath();
+  ctx.ellipse(-bird.radius * 0.8, 0, bird.radius * 0.7, bird.radius * 0.4, Math.PI / 2, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+
+  // RIGHT WING
+  ctx.save();
+  ctx.translate(bird.x, bird.y);
+  ctx.rotate(wingAngle * 0.5);
+  ctx.fillStyle = "orange";
+  ctx.beginPath();
+  ctx.ellipse(bird.radius * 0.8, 0, bird.radius * 0.7, bird.radius * 0.4, Math.PI / 2, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
 
   // Eye
   ctx.fillStyle = "white";
@@ -80,7 +167,7 @@ function drawPipes() {
 
 function updatePipes() {
   if (frame % 90 === 0) {
-    let gap = Math.max(150 - level * 10, 90); // smaller gap per level
+    let gap = Math.max(150 - level * 10, 90);
     let top = Math.random() * (canvas.height / 2);
     let bottom = top + gap;
     pipes.push({
@@ -88,7 +175,7 @@ function updatePipes() {
       width: 60,
       top: top,
       bottom: bottom,
-      speed: 3 + level // faster pipes per level
+      speed: 3 + level
     });
   }
 
@@ -106,8 +193,6 @@ function updatePipes() {
     if (!pipe.passed && pipe.x + pipe.width < bird.x) {
       score++;
       scoreDisplay.textContent = score;
-
-      // Level up every 10 points
       if (score % 10 === 0) {
         level++;
         levelDisplay.textContent = "Level " + level;
@@ -134,20 +219,26 @@ function updateClouds() {
 }
 
 function drawClouds() {
-  ctx.fillStyle = "rgba(255,255,255,0.8)";
-  clouds.forEach(cloud => {
-    ctx.beginPath();
-    ctx.arc(cloud.x, cloud.y, cloud.radius, 0, Math.PI * 2);
-    ctx.arc(cloud.x + cloud.radius * 0.6, cloud.y + 10, cloud.radius * 0.7, 0, Math.PI * 2);
-    ctx.arc(cloud.x - cloud.radius * 0.6, cloud.y + 10, cloud.radius * 0.7, 0, Math.PI * 2);
-    ctx.fill();
-  });
+  if (weather === "cloudy" || weather === "clear") {
+    ctx.fillStyle = "rgba(255,255,255,0.8)";
+    clouds.forEach(cloud => {
+      ctx.beginPath();
+      ctx.arc(cloud.x, cloud.y, cloud.radius, 0, Math.PI * 2);
+      ctx.arc(cloud.x + cloud.radius * 0.6, cloud.y + 10, cloud.radius * 0.7, 0, Math.PI * 2);
+      ctx.arc(cloud.x - cloud.radius * 0.6, cloud.y + 10, cloud.radius * 0.7, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
 }
 
 // Bird physics
 function updateBird() {
   bird.velocity += bird.gravity;
   bird.y += bird.velocity;
+
+  // Wing flap
+  wingAngle += 0.2 * wingDirection;
+  if (wingAngle > 1 || wingAngle < -1) wingDirection *= -1;
 
   if (bird.y + bird.radius > canvas.height) {
     bird.y = canvas.height - bird.radius;
@@ -161,7 +252,7 @@ function updateBird() {
 
 // Main loop
 function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawBackground();
   drawClouds();
   drawBird();
   drawPipes();
@@ -191,7 +282,6 @@ function endGame() {
 
   awaitingStart = true;
 
-  // Draw Game Over immediately
   ctx.fillStyle = "rgba(0,0,0,0.5)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "white";
@@ -199,16 +289,13 @@ function endGame() {
   ctx.textAlign = "center";
   ctx.fillText("Game Over", canvas.width / 2, canvas.height / 2);
 
-  // Hide scoreboard & button first
   scoreBoard.classList.add("hidden");
   startBtn.classList.add("hidden");
 
-  // After 3 seconds → show scoreboard and button
   setTimeout(() => {
     scoreBoard.classList.remove("hidden");
     scoreBoard.classList.add("fade-in");
-    setTimeout(() => scoreBoard.classList.add("show"), 50); // trigger fade-in
-
+    setTimeout(() => scoreBoard.classList.add("show"), 50);
     startBtn.classList.remove("hidden");
   }, 800);
 }
@@ -216,7 +303,9 @@ function endGame() {
 // Start & reset
 function startGame() {
   scoreBoard.classList.add("hidden");
+  scoreBoard.classList.remove("fade-in", "show");
   startBtn.classList.add("hidden");
+
   initGame();
   awaitingStart = false;
   update();
