@@ -27,9 +27,12 @@ let wingAngle = 0;
 let wingDirection = 1;
 
 // Day/Night Cycle Variables
-let timeOfDay = 0; // 0 to 1 range (0 = morning, 0.5 = night, 1 = next morning)
+let timeOfDay = 0; 
 let weather = "clear";
 let weatherChangeFrame = 0;
+
+// Timeout ID for endGame scoreboard delay
+let endGameTimeout = null;
 
 function initGame() {
   bird = {
@@ -50,7 +53,7 @@ function initGame() {
   awaitingStart = true;
   scoreDisplay.textContent = 0;
   levelDisplay.textContent = "Level 1";
-  timeOfDay = Math.random(); // random start time for variety
+  timeOfDay = Math.random();
   weather = "clear";
   weatherChangeFrame = 0;
 }
@@ -62,13 +65,11 @@ function drawBackground() {
 
   let r, g, b;
   if (timeOfDay < 0.5) {
-    // Day → Night transition
     let t = timeOfDay * 2;
     r = 10 + 100 * t;
     g = 10 + 100 * t;
     b = 40 + 150 * t;
   } else {
-    // Night → Day transition
     let t = (timeOfDay - 0.5) * 2;
     r = 110 - 100 * t;
     g = 110 - 100 * t;
@@ -91,7 +92,6 @@ function drawBackground() {
   if (weather === "stars" && timeOfDay > 0.4 && timeOfDay < 0.8) drawStars();
 }
 
-// Stars at night
 function drawStars() {
   if (stars.length < 100 && frame % 5 === 0) {
     stars.push({
@@ -109,13 +109,12 @@ function drawStars() {
 
 // Bird with two flapping wings
 function drawBird() {
-  // Body
   ctx.fillStyle = "yellow";
   ctx.beginPath();
   ctx.arc(bird.x, bird.y, bird.radius, 0, Math.PI * 2);
   ctx.fill();
 
-  // LEFT WING
+  // Left Wing
   ctx.save();
   ctx.translate(bird.x, bird.y);
   ctx.rotate(-wingAngle * 0.5);
@@ -125,7 +124,7 @@ function drawBird() {
   ctx.fill();
   ctx.restore();
 
-  // RIGHT WING
+  // Right Wing
   ctx.save();
   ctx.translate(bird.x, bird.y);
   ctx.rotate(wingAngle * 0.5);
@@ -156,7 +155,6 @@ function drawBird() {
   ctx.fill();
 }
 
-// Pipes
 function drawPipes() {
   ctx.fillStyle = "#2ecc71";
   pipes.forEach(pipe => {
@@ -204,7 +202,6 @@ function updatePipes() {
   pipes = pipes.filter(pipe => pipe.x + pipe.width > 0);
 }
 
-// Clouds
 function updateClouds() {
   if (frame % 150 === 0) {
     clouds.push({
@@ -231,12 +228,10 @@ function drawClouds() {
   }
 }
 
-// Bird physics
 function updateBird() {
   bird.velocity += bird.gravity;
   bird.y += bird.velocity;
 
-  // Wing flap
   wingAngle += 0.2 * wingDirection;
   if (wingAngle > 1 || wingAngle < -1) wingDirection *= -1;
 
@@ -250,7 +245,6 @@ function updateBird() {
   }
 }
 
-// Main loop
 function draw() {
   drawBackground();
   drawClouds();
@@ -271,7 +265,6 @@ function update() {
   requestAnimationFrame(update);
 }
 
-// Game over
 function endGame() {
   lastScoreDisplay.textContent = score;
   if (score > bestScore) {
@@ -279,7 +272,6 @@ function endGame() {
     localStorage.setItem("bestScore", bestScore);
   }
   bestScoreDisplay.textContent = bestScore;
-
   awaitingStart = true;
 
   ctx.fillStyle = "rgba(0,0,0,0.5)";
@@ -292,7 +284,7 @@ function endGame() {
   scoreBoard.classList.add("hidden");
   startBtn.classList.add("hidden");
 
-  setTimeout(() => {
+  endGameTimeout = setTimeout(() => {
     scoreBoard.classList.remove("hidden");
     scoreBoard.classList.add("fade-in");
     setTimeout(() => scoreBoard.classList.add("show"), 50);
@@ -300,18 +292,23 @@ function endGame() {
   }, 800);
 }
 
-// Start & reset
 function startGame() {
+  if (endGameTimeout) {
+    clearTimeout(endGameTimeout);
+    endGameTimeout = null;
+  }
+
   scoreBoard.classList.add("hidden");
   scoreBoard.classList.remove("fade-in", "show");
   startBtn.classList.add("hidden");
 
   initGame();
+  gameOver = false;
   awaitingStart = false;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   update();
 }
 
-// Controls
 document.addEventListener("keydown", e => {
   if (e.code === "Space") {
     e.preventDefault();
@@ -322,6 +319,7 @@ document.addEventListener("keydown", e => {
     }
   }
 });
+
 document.addEventListener("touchstart", () => {
   if (awaitingStart || gameOver) {
     startGame();
@@ -329,6 +327,6 @@ document.addEventListener("touchstart", () => {
     bird.velocity = bird.lift;
   }
 });
-startBtn.addEventListener("click", startGame);
 
+startBtn.addEventListener("click", startGame);
 initGame();
