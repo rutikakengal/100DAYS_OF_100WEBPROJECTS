@@ -1,65 +1,170 @@
-*{
-    margin:0;
-    padding:0;
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
-body{
-    font-family :'Segoe UI', sans-serif;
-    background: #f2f2f2;
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #f2f2f2);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    transition: background 0.5s ease;
 }
-.container{
-    max-width: 700px;
+
+.container {
+    width: 90%;
+    max-width: 750px;
     background: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     text-align: center;
+    transition: background 0.5s ease, color 0.5s ease;
 }
-h1{
-    margin-bottom: 20px;
+
+/* Headings */
+h1 {
+    margin-bottom: 25px;
+    font-size: 2rem;
+    color: #222;
 }
-.quote{
-    font-size:18px;
+
+/* Quote Box */
+.quote {
+    font-size: 18px;
     margin-bottom: 20px;
     color: #333;
-    line-height: 1.5;
-    background: #f4f4f4;
-    padding:10px;
-    border-radius: 8px;
+    line-height: 1.6;
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    min-height: 70px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
-textarea{
+
+/* Typing Area */
+textarea {
     width: 100%;
-    height: 120px;
-    padding: 10px;
+    height: 130px;
+    padding: 12px;
     font-size: 16px;
-    margin-bottom: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     border: 1px solid #ccc;
     resize: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.stats{
+textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 6px rgba(0,123,255,0.4);
+}
+
+/* Stats */
+.stats {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-bottom: 20px;
     font-size: 16px;
+    padding: 0 10px;
 }
-#finish, #restart{
-  background: #007bff;
-  color: white;
-  padding: 10px 30px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+.stats p {
+    margin: 0 10px;
+    font-weight: 500;
 }
- #restart:hover{
+
+/* Buttons */
+button {
+    background: #007bff;
+    color: white;
+    padding: 10px 22px;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 8px;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+button:hover {
     background: #0056b3;
+    transform: translateY(-2px);
 }
- #finish:hover{
-    background: #0056b3;
+button:active {
+    transform: scale(0.96);
+}
+
+/* Progress Bar */
+.progress {
+    width: 100%;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+#progressBar {
+    width: 0%;
+    height: 12px;
+    background: linear-gradient(90deg, #28a745, #00c853);
+    transition: width 0.4s ease;
+}
+
+/* Leaderboard */
+.leaderboard {
+    margin-top: 25px;
+    text-align: left;
+}
+.leaderboard h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #444;
+}
+.leaderboard ul {
+    list-style: none;
+    max-height: 160px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 8px;
+}
+.leaderboard li {
+    font-size: 14px;
+    padding: 6px 8px;
+    border-bottom: 1px solid #eee;
+}
+.leaderboard li:last-child {
+    border-bottom: none;
+}
+
+/* 🌙 Dark Mode */
+body.dark {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+}
+body.dark .container {
+    background: #1e1e1e;
+    color: #fff;
+}
+body.dark .quote {
+    background: #2a2a2a;
+    color: #ddd;
+    border-color: #444;
+}
+body.dark textarea {
+    background: #2b2b2b;
+    border: 1px solid #444;
+    color: #eee;
+}
+body.dark textarea:focus {
+    border-color: #66b2ff;
+    box-shadow: 0 0 6px rgba(102,178,255,0.4);
+}
+body.dark .leaderboard ul {
+    border-color: #444;
 }
