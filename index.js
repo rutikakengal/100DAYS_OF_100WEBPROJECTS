@@ -33,7 +33,9 @@ const projects = [
   "Typing Speed Test webapp ",
   "Startup Name Generator Web App",
   "",
+
   "Recipe Finder",
+
   "Snake Game ",
  "Hangman Game",
   "Simon Say Game ",
@@ -48,7 +50,7 @@ const projects = [
 
   " ",
   "GiggleBits",
-  "",
+  "Step Wizard",
   "Digital Clock",
   "Random Password Generator",
   "Doodle Jump Game",
