@@ -428,7 +428,10 @@
                     class="h-12 w-12 rounded-full object-cover ring-2 ring-primary/30"
                     alt="Logo"
                 />
-                <span class="whitespace-nowrap gradient-text text-xl font-extrabold"> 100_DAYS_100_WEB_PROJECT </span>
+                <span class="truncate gradient-text text-xl font-extrabold block max-w-[200px]">
+  100_DAYS_100_WEB_PROJECT
+</span>
+
             </a>
 
 
@@ -440,11 +443,12 @@
 
     <section class="min-h-screen flex flex-col justify-center items-center text-center hero-bg relative pt-24 px-4">
         <div class="container mx-auto relative z-10">
-            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
-                <span class="gradient-text">AMAZING</span>
-                <br>
-                <span style="color: var(--text-primary);">CONTRIBUTORS</span>
-            </h1>
+            <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+  <span class="gradient-text">AMAZING</span>
+  <br />
+  <span style="color: var(--text-primary);">CONTRIBUTORS</span>
+</h1>
+
             <p class="mt-6 text-xl md:text-2xl max-w-2xl mx-auto hero-subtitle font-light leading-relaxed"
                 style="color: var(--text-secondary);">
                 Meet the incredible developers who are making this
@@ -471,7 +475,7 @@
         </div>
     </section>
 
-    <section class="py-20 px-4 max-w-7xl mx-auto">
+    <section class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl font-bold mb-4">
                 <span class="gradient-text">Our</span> <span style="color: var(--text-primary);">Heroes</span>
@@ -482,9 +486,9 @@
             </p>
         </div>
 
-        <div id="contributors" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+       <div id="contributors" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
             <template id="skeleton">
-                <div class="contributor-card rounded-2xl h-80 skeleton loading-pulse"></div>
+                <div class="contributor-card p-6 sm:p-8 rounded-2xl text-center transition-all duration-500"></div>
             </template>
         </div>
     </section>
@@ -506,7 +510,8 @@
     </section>
 
     <footer class="bg-slate-900 text-white p-8 mt-20 border-t border-slate-800">
-        <div class="container mx-auto grid md:grid-cols-3 gap-12">
+  <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
             <div>
                 <h2 class="text-2xl font-bold mb-6 gradient-text">100 Days Challenge</h2>
                 <p class="text-slate-300 mb-6 leading-relaxed text-lg">
