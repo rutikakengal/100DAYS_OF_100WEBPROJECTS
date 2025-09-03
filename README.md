@@ -127,14 +127,38 @@ If you like this project, please consider giving it a ⭐️ on [GitHub](https:/
 ## Stargazers ❤️
 <div align='left'>
 
-[![Stargazers](https://reporoster.com/stars/dark/rutikakengal/100DAYS_OF_100WEBPROJECTS)](https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS/stargazers)
+
+<p align="center">
+  <a href="https://github.com/codeGurhans"><img src="https://github.com/codeGurhans.png" width="80" alt="@codeGurhans"/></a>
+  <a href="https://github.com/Kirti123x"><img src="https://github.com/Kirti123x.png" width="80" alt="@Kirti123x"/></a>
+  <a href="https://github.com/chhaviluthra08"><img src="https://github.com/chhaviluthra08.png" width="80" alt="@chhaviluthra08"/></a>
+  <a href="https://github.com/ptl34"><img src="https://github.com/ptl34.png" width="80" alt="@ptl34"/></a>
+  <a href="https://github.com/GollaBharath"><img src="https://github.com/GollaBharath.png" width="80" alt="@GollaBharath"/></a>
+  <a href="https://github.com/unnati-078"><img src="https://github.com/unnati-078.png" width="80" alt="@unnati-078"/></a>
+  <a href="https://github.com/codeX-Crafter"><img src="https://github.com/codeX-Crafter.png" width="80" alt="@codeX-Crafter"/></a>
+  <a href="https://github.com/scah24"><img src="https://github.com/scah24.png" width="80" alt="@scah24"/></a>
+  <a href="https://github.com/Darshan-raja"><img src="https://github.com/Darshan-raja.png" width="80" alt="@Darshan-raja"/></a>
+  <a href="https://github.com/ruchikakengal"><img src="https://github.com/ruchikakengal.png" width="80" alt="@ruchikakengal"/></a>
+</p>
 
 
 </div>
 
 ## Forkers ❤️
 
-[![Forkers](https://reporoster.com/forks/dark/rutikakengal/100DAYS_OF_100WEBPROJECTS)](https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS/network/members)
+
+<p align="center">
+  <a href="https://github.com/rutikakengal"><img src="https://github.com/rutikakengal.png" width="80" alt="@rutikakengal"/></a>
+  <a href="https://github.com/codeX-Crafter"><img src="https://github.com/codeX-Crafter.png" width="80" alt="@codeX-Crafter"/></a>
+  <a href="https://github.com/deepshruti"><img src="https://github.com/deepshruti.png" width="80" alt="@deepshruti"/></a>
+  <a href="https://github.com/jj-9901"><img src="https://github.com/jj-9901.png" width="80" alt="@jj-9901"/></a>
+  <a href="https://github.com/Kirti123x"><img src="https://github.com/Kirti123x.png" width="80" alt="@Kirti123x"/></a>
+  <a href="https://github.com/MANDRITA-MAJI"><img src="https://github.com/MANDRITA-MAJI.png" width="80" alt="@MANDRITA-MAJI"/></a>
+  <a href="https://github.com/Paddu909"><img src="https://github.com/Paddu909.png" width="80" alt="@Paddu909"/></a>
+  <a href="https://github.com/rakshika2639"><img src="https://github.com/rakshika2639.png" width="80" alt="@rakshika2639"/></a>
+  <a href="https://github.com/unnati-078"><img src="https://github.com/unnati-078.png" width="80" alt="@unnati-078"/></a>
+  <a href="https://github.com/unnati-joshi"><img src="https://github.com/unnati-joshi.png" width="80" alt="@unnati-joshi"/></a>
+</p>
 
 
 <!--line-->
