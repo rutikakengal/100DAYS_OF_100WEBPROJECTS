@@ -1,0 +1,175 @@
+
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    position: relative; 
+    
+    background: #000;  
+}
+body::before {
+    content: '';
+    position: absolute;
+    
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;         
+    background: url("totoro.png") no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.5;        
+}
+
+body.spirited-away::before {
+    background: url("spirited_away.jpeg") no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.5; 
+}
+
+body.the-neighbour::before {
+    background: url("totoro.png") no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.5; 
+}
+.nav-bar{
+    display: flex;
+    justify-content: end;
+}
+#edit-timer,#change-theme{
+    width:245px;
+    height: 72px;
+    border-radius: 100px;
+    background-color: rgba(227, 217, 161,0.7);
+    color: white;
+    font-weight: bolder;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: none;
+
+}
+#change-theme:hover{
+    background-color:rgba(227, 217, 161,0);
+    border:2px solid white;
+}
+.change-theme{
+    display:inline-block;
+    position: relative;
+}
+
+.options-theme button{
+    display: block;
+     width:215px;
+    height: 32px;
+    background-color: rgba(227, 217, 161,0.7);
+    color: white;
+    font-weight:lighter;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 1px solid white;
+    border-radius: 10px;
+ }
+ .options-theme button:hover{
+background-color: rgba(227, 217, 161,0);
+ }
+.options-theme{
+    display:none;
+    position: absolute;
+    top: 100%; 
+    left: 10px;
+    border-radius: 10px;
+    background: #000;
+}
+.change-theme:hover .options-theme{
+    display: block;
+}
+.option-buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items:center ;
+
+}
+.display-box{
+    height: 100vh;
+}
+.pomodoro,.short-break,.long-break{
+    
+    border-radius: 100px;
+    background-color: rgba(227, 217, 161,0.7);
+    color: white;
+    font-weight: bolder;
+    height: 60px;
+    width: 250px;
+    margin-top: 50px;
+    border: none;
+margin-bottom: 40px;
+font-size: 1rem;
+}
+.display-timer{
+    background-color: rgba(227, 217, 161,0.6);
+    width: 500px;
+    border: none;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+#display-timer{
+    color: white;
+    font-size: 130px;
+    
+}
+.start-btn{
+    border-radius: 50px;
+    height: 50px;
+    width: 150px;
+    background-color: rgba(227, 217, 161,0);
+    color: white;
+    font-weight: bolder;
+    border: none;
+    margin-bottom: 10px;
+}
+.start-btn:hover,.pomodoro:hover,.short-break:hover,.long-break:hover,#stop-btn:hover,#resume-btn:hover,#restart-btn:hover{
+    background-color: rgba(227, 217, 161,0);
+    border: 2px solid white;
+}
+#stop-btn,#restart-btn,#resume-btn{
+    border-radius: 50px;
+    height: 50px;
+    width: 150px;
+    background-color: rgba(227, 217, 161,0);
+    color: white;
+    font-weight: bolder;
+    border: none;
+    margin-bottom: 10px;
+    position: relative;
+
+}
+#action-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width:768px) {
+     #edit-timer, #change-theme {
+        width: 145px;
+        height: 42px;
+    }.options-theme button{
+        width: 125px;
+        height: 40px;
+    }.pomodoro,.short-break,.long-break{
+height: 50px;
+    width: 150px;
+    }
+    .display-timer{
+        width: 420px;
+    }
+}
