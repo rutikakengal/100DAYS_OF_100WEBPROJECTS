@@ -63,6 +63,9 @@ const projects = [
   "Echo Chamber",
   "Tic-Tac-Toe",
 
+  "Typing Survival Game",
+
+
 
   // Add more project names as needed
 
