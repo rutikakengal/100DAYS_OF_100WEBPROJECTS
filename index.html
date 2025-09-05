@@ -1,961 +1,1044 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>100_DAYS_100_WEB_PROJECTS</title>
-    <link rel="icon" href="100-days-100-webdev-projects-LOGO.png" type="image/png">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#6366f1",
-              secondary: "#8b5cf6",
-              accent: "#06b6d4",
-              dark: "#0f172a",
-              surface: "#1e293b",
-            },
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-            },
-            animation: {
-              'gradient': 'gradient 8s linear infinite',
-              'float': 'float 6s ease-in-out infinite',
-              'glow': 'glow 2s ease-in-out infinite alternate',
-            }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>100_DAYS_100_WEB_PROJECTS</title>
+  <link rel="icon" href="100-days-100-webdev-projects-LOGO.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#6366f1",
+            secondary: "#8b5cf6",
+            accent: "#06b6d4",
+            dark: "#0f172a",
+            surface: "#1e293b",
           },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+          },
+          animation: {
+            'gradient': 'gradient 8s linear infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'glow': 'glow 2s ease-in-out infinite alternate',
+          }
         },
-      };
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
-    <style>
-      [data-theme="light"] .hero-subtitle {
-        color: #374151 !important;
-      }
-      [data-theme="light"] .bg-dark {
-        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
-        /* Removed color: var(--text-primary) !important; as it was causing issues for child elements */
-      }
-      :root {
-        --bg-primary: #0f172a;
-        --bg-secondary: #1e293b;
-        --text-primary: #f8fafc;
-        --text-secondary: #94a3b8;
-        --accent-color: #6366f1;
-        --glass-bg: rgba(255, 255, 255, 0.08);
-        --glass-border: rgba(255, 255, 255, 0.12);
-        --hover-bg: rgba(99, 102, 241, 0.1);
-        --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-      }
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    [data-theme="light"] .hero-subtitle {
+      color: #374151 !important;
+    }
 
-      [data-theme="light"] {
-        --bg-primary: #ffffff;
-        --bg-secondary: #f8fafc;
-        --text-primary: #1e293b; /* Changed from light slate to dark for visibility */
-        --text-secondary: #64748b;
-        --accent-color: #6366f1;
-        --glass-bg: rgba(255, 255, 255, 0.9);
-        --glass-border: rgba(0, 0, 0, 0.08);
-        --hover-bg: rgba(99, 102, 241, 0.08);
-      }
+    [data-theme="light"] .bg-dark {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+      /* Removed color: var(--text-primary) !important; as it was causing issues for child elements */
+    }
 
-      body {
-        background: var(--bg-primary);
-        color: var(--text-primary);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        overflow-x: hidden;
-      }
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent-color: #6366f1;
+      --glass-bg: rgba(255, 255, 255, 0.08);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --hover-bg: rgba(99, 102, 241, 0.1);
+      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
 
-      .hero-bg {
-        background: linear-gradient(135deg, 
-          rgba(99, 102, 241, 0.1) 0%, 
-          rgba(139, 92, 246, 0.1) 50%, 
+    [data-theme="light"] {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8fafc;
+      --text-primary: #1e293b;
+      /* Changed from light slate to dark for visibility */
+      --text-secondary: #64748b;
+      --accent-color: #6366f1;
+      --glass-bg: rgba(255, 255, 255, 0.9);
+      --glass-border: rgba(0, 0, 0, 0.08);
+      --hover-bg: rgba(99, 102, 241, 0.08);
+    }
+
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-x: hidden;
+    }
+
+    /* Heading animation */
+h1 {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+h1 br + span {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Word-by-word paragraph animation */
+.hero-subtitle span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: wordReveal 0.4s ease forwards;
+  animation-delay: calc(var(--i) * 0.08s);
+}
+
+@keyframes wordReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+    .hero-bg {
+      background: linear-gradient(135deg,
+          rgba(99, 102, 241, 0.1) 0%,
+          rgba(139, 92, 246, 0.1) 50%,
           rgba(6, 182, 212, 0.1) 100%);
-        position: relative;
+      position: relative;
+    }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.3) 0%, transparent 50%);
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .glass-card {
+      backdrop-filter: blur(20px);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      /* Ensure text in glass-card is visible in light mode */
+      color: var(--text-primary);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      border-color: var(--accent-color);
+    }
+
+    .btn-modern {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-modern::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn-modern:hover::before {
+      left: 100%;
+    }
+
+    .btn-modern:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.4);
+    }
+
+    .project-row {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 12px;
+      border-left: 3px solid transparent;
+    }
+
+    .project-row:hover {
+      background: var(--hover-bg);
+      transform: translateX(8px);
+      border-left-color: var(--accent-color);
+      box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .tag-filter {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+      /* Ensure tag filter text is visible in light mode before hover */
+      color: var(--text-primary);
+    }
+
+    .tag-filter::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: var(--accent-color);
+      transition: width 0.3s ease;
+      z-index: -1;
+    }
+
+    .tag-filter:hover::before {
+      width: 100%;
+    }
+
+    .tag-filter:hover {
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+    }
+
+    .tag-filter.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      z-index: 1000;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      color: var(--text-primary);
+      /* Ensure toggle icon color is visible */
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1) rotate(180deg);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+    }
+
+    .random-btn {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      animation: glow 2s ease-in-out infinite alternate;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .random-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .random-btn:hover::before {
+      left: 100%;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 20px rgba(240, 147, 251, 0.5);
       }
 
-      .hero-bg::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.3) 0%, transparent 50%);
-        animation: float 8s ease-in-out infinite;
+      to {
+        box-shadow: 0 0 30px rgba(245, 87, 108, 0.8);
+      }
+    }
+
+    @keyframes gradient {
+
+      0%,
+      100% {
+        background-position: 0% 50%;
       }
 
-      .glass-card {
-        backdrop-filter: blur(20px);
-        background: var(--glass-bg);
-        border: 1px solid var(--glass-border);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        /* Ensure text in glass-card is visible in light mode */
-        color: var(--text-primary);
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
       }
 
-      .glass-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        border-color: var(--accent-color);
+      33% {
+        transform: translateY(-20px) rotate(2deg);
       }
 
-      .btn-modern {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
+      66% {
+        transform: translateY(-10px) rotate(-1deg);
+      }
+    }
+
+    .search-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      /* Stack vertically on small screens */
+      align-items: center;
+      max-width: 500px;
+      margin: 2rem 0rem 3rem 8rem;
+    }
+
+    /* ... your existing CSS ... */
+
+    @media (max-width: 767px) {
+
+      /* Adjust for screens smaller than medium (768px) */
+      .hero-bg {
+        padding-top: 5rem;
+        /* Add some top padding for smaller screens */
+        padding-bottom: 5rem;
+        /* Add some bottom padding for smaller screens */
       }
 
-      .btn-modern::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-        transition: left 0.5s;
+      .hero-bg h1 {
+        font-size: 3.5rem;
+        /* Adjust heading size for smaller screens */
       }
 
-      .btn-modern:hover::before {
-        left: 100%;
-      }
-
-      .btn-modern:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.4);
-      }
-
-      .project-row {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border-radius: 12px;
-        border-left: 3px solid transparent;
-      }
-
-      .project-row:hover {
-        background: var(--hover-bg);
-        transform: translateX(8px);
-        border-left-color: var(--accent-color);
-        box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
-      }
-
-      .tag-filter {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        cursor: pointer;
-        border: 2px solid transparent;
-        position: relative;
-        overflow: hidden;
-        /* Ensure tag filter text is visible in light mode before hover */
-        color: var(--text-primary);
-      }
-
-      .tag-filter::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background: var(--accent-color);
-        transition: width 0.3s ease;
-        z-index: -1;
-      }
-
-      .tag-filter:hover::before {
-        width: 100%;
-      }
-
-      .tag-filter:hover {
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
-      }
-
-      .tag-filter.active {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
-      }
-
-      .theme-toggle {
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        z-index: 1000;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        border: none;
-        cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        border: 1px solid var(--glass-border);
-        color: var(--text-primary); /* Ensure toggle icon color is visible */
-      }
-
-      .theme-toggle:hover {
-        transform: scale(1.1) rotate(180deg);
-        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
-      }
-
-      .random-btn {
-        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        animation: glow 2s ease-in-out infinite alternate;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .random-btn::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-        transition: left 0.5s;
-      }
-
-      .random-btn:hover::before {
-        left: 100%;
-      }
-
-      @keyframes glow {
-        from {
-          box-shadow: 0 0 20px rgba(240, 147, 251, 0.5);
-        }
-        to {
-          box-shadow: 0 0 30px rgba(245, 87, 108, 0.8);
-        }
-      }
-
-      @keyframes gradient {
-        0%, 100% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-      }
-
-      @keyframes float {
-        0%, 100% {
-          transform: translateY(0px) rotate(0deg);
-        }
-        33% {
-          transform: translateY(-20px) rotate(2deg);
-        }
-        66% {
-          transform: translateY(-10px) rotate(-1deg);
-        }
+      .hero-bg p {
+        font-size: 1.125rem;
+        /* Adjust paragraph size for smaller screens */
       }
 
       .search-container {
-        position: relative;
-        display: flex;
-        flex-direction: column; /* Stack vertically on small screens */
-        align-items: center;
-        max-width: 500px;
-        margin: 2rem 0rem 3rem 35rem ;
+        margin: 2rem auto 3rem auto;
+        /* Center the search container */
+        max-width: 90%;
+        /* Make it take up more width on smaller screens */
       }
-      /* ... your existing CSS ... */
 
-@media (max-width: 767px) { /* Adjust for screens smaller than medium (768px) */
-  .hero-bg {
-      padding-top: 5rem; /* Add some top padding for smaller screens */
-      padding-bottom: 5rem; /* Add some bottom padding for smaller screens */
-  }
+      .random-btn {
+        margin-left: 0 !important;
+        /* Remove left margin on small screens */
+      }
 
-  .hero-bg h1 {
-      font-size: 3.5rem; /* Adjust heading size for smaller screens */
-  }
+      .tag-filter {
+        width: calc(50% - 0.5rem);
+        /* Make tags two per row on smaller screens, accounting for gap */
+        text-align: center;
+      }
 
-  .hero-bg p {
-      font-size: 1.125rem; /* Adjust paragraph size for smaller screens */
-  }
+      .theme-toggle {
+        top: 110px;
+        /* Adjust top position for smaller screens */
+        right: 20px;
+        /* Move to the left side for better accessibility on small screens */
+        left: auto;
+        /* Remove right positioning */
+        width: 50px;
+        /* Slightly smaller button for small screens */
+        height: 50px;
+        /* Slightly smaller button for small screens */
+        font-size: 20px;
+        /* Smaller icon size */
+      }
+    }
 
-  .search-container {
-      margin: 2rem auto 3rem auto; /* Center the search container */
-      max-width: 90%; /* Make it take up more width on smaller screens */
-  }
+    @media (min-width: 768px) and (max-width: 1023px) {
 
-  .random-btn {
-      margin-left: 0 !important; /* Remove left margin on small screens */
-  }
+      /* Adjust for medium screens */
+      .search-container {
+        margin: 2rem auto 3rem auto;
+        /* Center on medium screens as well */
+        max-width: 80%;
+        /* Adjust max-width for tablets */
+      }
+    }
 
-  .tag-filter {
-      width: calc(50% - 0.5rem); /* Make tags two per row on smaller screens, accounting for gap */
-      text-align: center;
-  }
-  .theme-toggle {
-    top: 110px; /* Adjust top position for smaller screens */
-    right: 20px; /* Move to the left side for better accessibility on small screens */
-    left: auto; /* Remove right positioning */
-    width: 50px; /* Slightly smaller button for small screens */
-    height: 50px; /* Slightly smaller button for small screens */
-    font-size: 20px; /* Smaller icon size */
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) { /* Adjust for medium screens */
-  .search-container {
-      margin: 2rem auto 3rem auto; /* Center on medium screens as well */
-      max-width: 80%; /* Adjust max-width for tablets */
-  }
-}
-
-/* You already have this for medium screens and up, which is good: */
-/* @media (min-width: 768px) {
+    /* You already have this for medium screens and up, which is good: */
+    /* @media (min-width: 768px) {
   .search-container {
       flex-direction: row;
   }
 } */
-      
-      @media (min-width: 768px) { /* On medium screens and up, make it a row */
-        .search-container {
-          flex-direction: row;
-        }
-      }
-
-      .search-input {
-        flex: 1;
-        padding: 16px 24px;
-        border: 2px solid transparent;
-        border-radius: 50px;
-        background: var(--glass-bg);
-        color: var(--text-primary);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        backdrop-filter: blur(20px);
-        font-size: 16px;
-        width: 100%; /* Full width on small screens */
-      }
-
-      .search-input:focus {
-        outline: none;
-        border-color: var(--accent-color);
-        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-        transform: scale(1.02);
-      }
-
-      .search-input::placeholder {
-        color: var(--text-secondary);
-      }
-
-      .about-section {
-        background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .about-section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: 
-          radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-          radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-        animation: float 12s ease-in-out infinite;
-      }
-
-      .navbar-glass {
-        backdrop-filter: blur(20px);
-        background: rgba(15, 23, 42, 0.8);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      [data-theme="light"] .navbar-glass {
-        background: rgba(255, 255, 255, 0.9);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      }
-      /* Specifically target text within navbar-glass for light mode */
-      [data-theme="light"] .navbar-glass .text-white {
-        color: var(--text-primary) !important; /* Force dark text in light mode */
-      }
-      [data-theme="light"] .navbar-glass svg {
-        color: var(--text-primary) !important; /* Force dark icon in light mode */
-      }
-
-
-      .nav-link {
-        position: relative;
-        transition: all 0.3s ease;
-      }
-
-      .nav-link::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -4px;
-        left: 50%;
-        background: var(--accent-color);
-        transition: all 0.3s ease;
-        transform: translateX(-50%);
-      }
-
-      .nav-link:hover::after {
-        width: 100%;
-      }
-
-      .stat-card {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-        border: 1px solid rgba(99, 102, 241, 0.2);
-        transition: all 0.3s ease;
-      }
-
-      .stat-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 25px rgba(99, 102, 241, 0.15);
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-
-      /* Scrollbar Styling */
-      .chat-messages::-webkit-scrollbar {
-        width: 6px;
-      }
-
-      .chat-messages::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-      }
-
-      .chat-messages::-webkit-scrollbar-thumb {
-        background: #c1c1c1;
-        border-radius: 10px;
-      }
-
-      .chat-messages::-webkit-scrollbar-thumb:hover {
-        background: #a8a8a8;
-      }
-
-      /* Floating Chatbot Widget Styles */
-      .chatbot-widget {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        z-index: 1000;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-
-      .chat-toggle-btn {
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        box-shadow: 0 4px 20px rgba(66, 133, 244, 0.4);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .chat-toggle-btn:hover {
-        transform: scale(1.1);
-        box-shadow: 0 6px 25px rgba(66, 133, 244, 0.6);
-      }
-
-      .chat-toggle-btn i {
-        color: white;
-        font-size: 24px;
-        transition: all 0.3s ease;
-      }
-
-      .pulse-ring {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border: 3px solid rgba(66, 133, 244, 0.6);
-        border-radius: 50%;
-        animation: pulse 2s infinite;
-      }
-
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-          opacity: 1;
-        }
-        100% {
-          transform: scale(1.5);
-          opacity: 0;
-        }
-      }
-
-      .chat-window {
-        position: absolute;
-        bottom: 80px;
-        left: 0;
-        width: 350px;
-        height: 500px;
-        background: white;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-        display: none;
-        flex-direction: column;
-        overflow: hidden;
-        animation: slideUp 0.3s ease;
-      }
-
-      @keyframes slideUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .chat-window.show {
-        display: flex;
-      }
-
-      .chat-header {
-        background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
-        padding: 15px;
-        color: white;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .chat-header-content {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .bot-avatar {
-        width: 35px;
-        height: 35px;
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 16px;
-      }
-
-      .bot-info h3 {
-        margin: 0;
-        font-size: 16px;
-      }
-
-      .status {
-        font-size: 12px;
-        opacity: 0.9;
-      }
-
-      .minimize-btn {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-        padding: 5px;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.3s;
-      }
-
-      .minimize-btn:hover {
-        background: rgba(255, 255, 255, 0.2);
-      }
-
-      .chat-messages {
-        flex: 1;
-        padding: 15px;
-        overflow-y: auto;
-        background: #f8f9fa;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .message {
-        display: flex;
-        gap: 8px;
-        max-width: 85%;
-        animation: fadeIn 0.3s ease-in;
-      }
-
-      .bot-message {
-        align-self: flex-start;
-      }
-
-      .user-message {
-        align-self: flex-end;
-        flex-direction: row-reverse;
-      }
-
-      .message-avatar {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        flex-shrink: 0;
-      }
-
-      .bot-message .message-avatar {
-        background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
-        color: white;
-      }
-
-      .user-message .message-avatar {
-        background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
-        color: white;
-      }
-
-      .message-content {
-        background: white;
-        padding: 10px 15px;
-        border-radius: 15px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        position: relative;
-        color: #333;
-      }
-
-      .user-message .message-content {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-      }
-
-      .message-content p {
-        margin: 0;
-        line-height: 1.4;
-        font-size: 14px;
-        word-wrap: break-word;
-        color: inherit;
-      }
-
-      .typing-dots {
-        display: flex;
-        gap: 3px;
-        padding: 10px 15px;
-      }
-
-      .typing-dots span {
-        width: 6px;
-        height: 6px;
-        background: #4285f4;
-        border-radius: 50%;
-        animation: typing 1.4s infinite;
-      }
-
-      .typing-dots span:nth-child(2) {
-        animation-delay: 0.2s;
-      }
-
-      .typing-dots span:nth-child(3) {
-        animation-delay: 0.4s;
-      }
-
-      @keyframes typing {
-        0%,
-        60%,
-        100% {
-          transform: translateY(0);
-          opacity: 0.4;
-        }
-        30% {
-          transform: translateY(-8px);
-          opacity: 1;
-        }
-      }
-
-      .chat-input-container {
-        padding: 15px;
-        background: white;
-        border-top: 1px solid #e0e0e0;
-      }
-
-      .chat-input {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        background: #f8f9fa;
-        padding: 10px;
-        border-radius: 20px;
-        border: 2px solid transparent;
-        transition: all 0.3s ease;
-      }
-
-      .chat-input:focus-within {
-        border-color: #4285f4;
-        background: white;
-        box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
-      }
-
-      #widgetMessageInput {
-        flex: 1;
-        border: none;
-        outline: none;
-        background: transparent;
-        font-size: 14px;
-        color: #333;
-      }
-
-      #widgetMessageInput::placeholder {
-        color: #999;
-      }
-
-      .send-button {
-        width: 35px;
-        height: 35px;
-        border: none;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
-        color: white;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        transition: all 0.3s ease;
-      }
-
-      .send-button:hover {
-        transform: scale(1.1);
-        box-shadow: 0 3px 10px rgba(66, 133, 244, 0.4);
-      }
-
-      .send-button:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-        transform: none;
-      }
-
-      /* Modal styles for widget */
-      .modal {
-        position: fixed;
-        z-index: 1001;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-      }
-
-      .modal-content {
-        background-color: white;
-        margin: 5% auto;
-        padding: 0;
-        border-radius: 15px;
-        width: 90%;
-        max-width: 450px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        animation: modalFadeIn 0.3s ease;
-      }
-
-      .modal-header {
-        background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
-        color: white;
-        padding: 15px 20px;
-        border-radius: 15px 15px 0 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .modal-header h3 {
-        margin: 0;
-        font-size: 18px;
-      }
-
-      .close {
-        font-size: 24px;
-        font-weight: bold;
-        cursor: pointer;
-        opacity: 0.8;
-        transition: opacity 0.3s;
-      }
 
-      .close:hover {
+    @media (min-width: 768px) {
+
+      /* On medium screens and up, make it a row */
+      .search-container {
+        flex-direction: row;
+      }
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 16px 24px;
+      border: 2px solid transparent;
+      border-radius: 50px;
+      background: var(--glass-bg);
+      color: var(--text-primary);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(20px);
+      font-size: 16px;
+      width: 100%;
+      /* Full width on small screens */
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+      transform: scale(1.02);
+    }
+
+    .search-input::placeholder {
+      color: var(--text-secondary);
+    }
+
+    .about-section {
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+      animation: float 12s ease-in-out infinite;
+    }
+
+    .navbar-glass {
+      backdrop-filter: blur(20px);
+      background: rgba(15, 23, 42, 0.8);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    [data-theme="light"] .navbar-glass {
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    /* Specifically target text within navbar-glass for light mode */
+    [data-theme="light"] .navbar-glass .text-white {
+      color: var(--text-primary) !important;
+      /* Force dark text in light mode */
+    }
+
+    [data-theme="light"] .navbar-glass svg {
+      color: var(--text-primary) !important;
+      /* Force dark icon in light mode */
+    }
+
+
+    .nav-link {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 50%;
+      background: var(--accent-color);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(99, 102, 241, 0.15);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    /* Scrollbar Styling */
+    .chat-messages::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .chat-messages::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    .chat-messages::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      border-radius: 10px;
+    }
+
+    .chat-messages::-webkit-scrollbar-thumb:hover {
+      background: #a8a8a8;
+    }
+
+    /* Floating Chatbot Widget Styles */
+    .chatbot-widget {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .chat-toggle-btn {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(66, 133, 244, 0.4);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chat-toggle-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(66, 133, 244, 0.6);
+    }
+
+    .chat-toggle-btn i {
+      color: white;
+      font-size: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .pulse-ring {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 3px solid rgba(66, 133, 244, 0.6);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
         opacity: 1;
       }
 
-      .modal-body {
-        padding: 20px;
-        color: #333;
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .chat-window {
+      position: absolute;
+      bottom: 80px;
+      left: 0;
+      width: 350px;
+      height: 500px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
 
-      .modal-body p {
-        margin-bottom: 12px;
-        line-height: 1.5;
-        color: #333;
-        font-size: 14px;
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .chat-window.show {
+      display: flex;
+    }
+
+    .chat-header {
+      background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+      padding: 15px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header-content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bot-avatar {
+      width: 35px;
+      height: 35px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .bot-info h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .status {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .minimize-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .minimize-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      background: #f8f9fa;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .message {
+      display: flex;
+      gap: 8px;
+      max-width: 85%;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    .bot-message {
+      align-self: flex-start;
+    }
+
+    .user-message {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .message-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .bot-message .message-avatar {
+      background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+      color: white;
+    }
+
+    .user-message .message-avatar {
+      background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+      color: white;
+    }
+
+    .message-content {
+      background: white;
+      padding: 10px 15px;
+      border-radius: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: relative;
+      color: #333;
+    }
+
+    .user-message .message-content {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .message-content p {
+      margin: 0;
+      line-height: 1.4;
+      font-size: 14px;
+      word-wrap: break-word;
+      color: inherit;
+    }
+
+    .typing-dots {
+      display: flex;
+      gap: 3px;
+      padding: 10px 15px;
+    }
+
+    .typing-dots span {
+      width: 6px;
+      height: 6px;
+      background: #4285f4;
+      border-radius: 50%;
+      animation: typing 1.4s infinite;
+    }
+
+    .typing-dots span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-dots span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes typing {
+
+      0%,
+      60%,
+      100% {
+        transform: translateY(0);
+        opacity: 0.4;
       }
 
-      .modal-body ol {
-        margin: 12px 0;
-        padding-left: 18px;
+      30% {
+        transform: translateY(-8px);
+        opacity: 1;
+      }
+    }
+
+    .chat-input-container {
+      padding: 15px;
+      background: white;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      background: #f8f9fa;
+      padding: 10px;
+      border-radius: 20px;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .chat-input:focus-within {
+      border-color: #4285f4;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+    }
+
+    #widgetMessageInput {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 14px;
+      color: #333;
+    }
+
+    #widgetMessageInput::placeholder {
+      color: #999;
+    }
+
+    .send-button {
+      width: 35px;
+      height: 35px;
+      border: none;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .send-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 3px 10px rgba(66, 133, 244, 0.4);
+    }
+
+    .send-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Modal styles for widget */
+    .modal {
+      position: fixed;
+      z-index: 1001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 5% auto;
+      padding: 0;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 450px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 15px 15px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .close {
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    .close:hover {
+      opacity: 1;
+    }
+
+    .modal-body {
+      padding: 20px;
+      color: #333;
+    }
+
+    .modal-body p {
+      margin-bottom: 12px;
+      line-height: 1.5;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .modal-body ol {
+      margin: 12px 0;
+      padding-left: 18px;
+    }
+
+    .modal-body li {
+      margin-bottom: 6px;
+      line-height: 1.4;
+      font-size: 13px;
+    }
+
+    .modal-body a {
+      color: #4285f4;
+      text-decoration: none;
+    }
+
+    .modal-body a:hover {
+      text-decoration: underline;
+    }
+
+    #widgetApiKeyInput {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      margin: 12px 0;
+      transition: border-color 0.3s;
+    }
+
+    #widgetApiKeyInput:focus {
+      outline: none;
+      border-color: #4285f4;
+      box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 15px;
+    }
+
+    .save-button,
+    .cancel-button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .save-button {
+      background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+      color: white;
+    }
+
+    .save-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(66, 133, 244, 0.4);
+    }
+
+    .cancel-button {
+      background: #f8f9fa;
+      color: #666;
+      border: 1px solid #e0e0e0;
+    }
+
+    .cancel-button:hover {
+      background: #e9ecef;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
       }
 
-      .modal-body li {
-        margin-bottom: 6px;
-        line-height: 1.4;
-        font-size: 13px;
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
       }
 
-      .modal-body a {
-        color: #4285f4;
-        text-decoration: none;
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+      .chat-window {
+        width: calc(100vw - 40px);
+        height: 60vh;
+        max-width: 350px;
       }
 
-      .modal-body a:hover {
-        text-decoration: underline;
+      .chatbot-widget {
+        bottom: 15px;
+        left: 15px;
       }
 
-      #widgetApiKeyInput {
-        width: 100%;
-        padding: 12px;
-        border: 2px solid #e0e0e0;
-        border-radius: 8px;
-        font-size: 14px;
-        margin: 12px 0;
-        transition: border-color 0.3s;
-      }
-
-      #widgetApiKeyInput:focus {
-        outline: none;
-        border-color: #4285f4;
-        box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
-      }
-
-      .modal-buttons {
-        display: flex;
-        gap: 10px;
-        justify-content: flex-end;
-        margin-top: 15px;
-      }
-
-      .save-button,
-      .cancel-button {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 20px;
-        font-size: 14px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .save-button {
-        background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
-        color: white;
-      }
-
-      .save-button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(66, 133, 244, 0.4);
-      }
-
-      .cancel-button {
-        background: #f8f9fa;
-        color: #666;
-        border: 1px solid #e0e0e0;
-      }
-
-      .cancel-button:hover {
-        background: #e9ecef;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes modalFadeIn {
-        from {
-          opacity: 0;
-          transform: scale(0.9);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-
-      /* Mobile responsive */
-      @media (max-width: 768px) {
-        .chat-window {
-          width: calc(100vw - 40px);
-          height: 60vh;
-          max-width: 350px;
-        }
-
-        .chatbot-widget {
-          bottom: 15px;
-          left: 15px;
-        }
       .gradient-text {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
+
       /* Ensure text in the project showcase and about sections is visible */
       [data-theme="light"] .text-white {
         color: var(--text-primary) !important;
       }
+
       [data-theme="light"] .text-slate-300 {
-          color: var(--text-secondary) !important;
+        color: var(--text-secondary) !important;
       }
+
       [data-theme="light"] .text-slate-500 {
-          color: var(--text-secondary) !important;
+        color: var(--text-secondary) !important;
       }
+
       [data-theme="light"] .text-slate-400 {
-          color: var(--text-secondary) !important;
+        color: var(--text-secondary) !important;
       }
 
       /* Specific fix for the "No Projects Found" text */
@@ -969,656 +1052,603 @@
       [data-theme="light"] footer .text-slate-400 {
         color: var(--text-secondary) !important;
       }
+
       /* Adjust footer background in light mode */
       [data-theme="light"] footer {
         background: var(--bg-secondary) !important;
         border-top-color: var(--glass-border) !important;
       }
-    </style>
-  </head>
-  <body class="bg-dark text-white font-sans pt-24">
-    <nav class="fixed top-0 w-full z-50 navbar-glass shadow-xl p-4">
-      <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
-        <a href="index.html" class="flex items-center gap-3 text-white font-bold text-lg mb-2 sm:mb-0">
-          <img
-            src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"
-            class="h-12 w-12 rounded-full object-cover ring-2 ring-primary/30" alt="Logo"
-          />
-         <span class="whitespace-nowrap gradient-text text-xl font-extrabold"> 100_DAYS_100_WEB_PROJECT </span>
-        </a>
+  </style>
+</head>
 
-        <div class="flex gap-4">
-          <button id="hamburger-btn" class="md:hidden">
-            <svg
-              class="w-6 h-6 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              ></path>
-            </svg>
-          </button>
+<body class="bg-dark text-white font-sans pt-24">
+  <nav class="fixed top-0 w-full z-50 navbar-glass shadow-xl p-4">
+    <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 text-white font-bold text-lg mb-2 sm:mb-0">
+        <img src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"
+          class="h-12 w-12 rounded-full object-cover ring-2 ring-primary/30" alt="Logo" />
+        <span class="whitespace-nowrap gradient-text text-xl font-extrabold"> 100_DAYS_100_WEB_PROJECT </span>
+      </a>
 
-          <div
-            id="mobile-menu"
-            class="hidden md:flex absolute md:static top-16 left-0 w-full navbar-glass md:w-auto md:bg-transparent flex flex-col md:flex-row py-4 md:gap-x-6 md:py-0"
-          >
-            <a
-              href="#projects"
-              class="nav-link flex-grow md:flex-grow-0 text-center text-white hover:text-primary font-semibold transition-colors px-4 py-2"
-              >Projects</a
-            >
-            <a
-              href="#about"
-              class="nav-link flex-grow md:flex-grow-0 text-center text-white hover:text-primary font-semibold transition-colors px-4 py-2"
-              >About</a
-            >
-            <a
-              href="contributors.html"
-              class="nav-link flex-grow md:flex-grow-0 text-center text-white hover:text-primary font-semibold transition-colors px-4 py-2"
-              >Contributors</a
-            >
-          </div>
+      <div class="flex gap-4">
+        <button id="hamburger-btn" class="md:hidden">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+
+        <div id="mobile-menu"
+          class="hidden md:flex absolute md:static top-16 left-0 w-full navbar-glass md:w-auto md:bg-transparent flex flex-col md:flex-row py-4 md:gap-x-6 md:py-0">
+          <a href="#projects"
+            class="nav-link flex-grow md:flex-grow-0 text-center text-white hover:text-primary font-semibold transition-colors px-4 py-2">Projects</a>
+          <a href="#about"
+            class="nav-link flex-grow md:flex-grow-0 text-center text-white hover:text-primary font-semibold transition-colors px-4 py-2">About</a>
+          <a href="contributors.html"
+            class="nav-link flex-grow md:flex-grow-0 text-center text-white hover:text-primary font-semibold transition-colors px-4 py-2">Contributors</a>
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <section class="min-h-screen flex flex-col justify-center items-center pt-100 text-center hero-bg relative px-4">
-      <div class="container mx-auto relative z-10 ">
-        <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
-          <span class="gradient-text">100 DAYS</span>
-          <br>
-          <span class="text-white">OF WEB MAGIC</span>
-        </h1>
-        <p class="mt-6 text-slate-300 text-xl md:text-2xl max-w-2xl mx-auto hero-subtitle font-light leading-relaxed">
-          Discover amazing mini projects crafted with modern web technologies. 
-          <span class="text-primary font-medium">HTML</span>, 
-          <span class="text-secondary font-medium">CSS</span>, and 
-          <span class="text-accent font-medium">JavaScript</span> at their finest!
+  <section class="min-h-screen flex flex-col justify-center items-center pt-100 text-center hero-bg relative px-4">
+    <div class="container mx-auto relative z-10">
+      <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+        <span class="line-1 gradient-text">100 DAYS</span>
+        <br>
+        <span class="line-2 text-white">OF WEB MAGIC</span>
+      </h1>
+      <p class="mt-6 text-slate-300 text-xl md:text-2xl max-w-2xl mx-auto hero-subtitle font-light leading-relaxed">
+        <span style="--i:1">Discover</span>
+        <span style="--i:2">amazing</span>
+        <span style="--i:3">mini</span>
+        <span style="--i:4">projects</span>
+        <span style="--i:5">crafted</span>
+        <span style="--i:6">with</span>
+        <span style="--i:7">modern</span>
+        <span style="--i:8">web</span>
+        <span style="--i:9">technologies.</span>
+        <span class="text-primary font-medium" style="--i:10">HTML,</span>
+        <span class="text-secondary font-medium" style="--i:11">CSS,</span>
+        <span style="--i:12">and</span>
+        <span class="text-accent font-medium" style="--i:13">JavaScript</span>
+        <span style="--i:14">at</span>
+        <span style="--i:15">their</span>
+        <span style="--i:16">finest!</span>
+      </p>
+
+    </div>
+
+    <div class="mt-12 space-y-4 md:space-y-0">
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for amazing projects..." class="search-input" />
+        <button id="randomProjectBtn"
+          class="random-btn text-white px-8 py-4 rounded-full btn-modern mt-4 md:mt-0 md:ml-6 font-semibold text-lg w-full md:w-auto">
+          🎲 Surprise Me
+        </button>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4 mt-8">
+        <button class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium" data-tag="all">
+          All Projects
+        </button>
+        <button class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium" data-tag="ui">
+          UI/UX
+        </button>
+        <button class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium" data-tag="game">
+          Games
+        </button>
+        <button class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium" data-tag="api">
+          API
+        </button>
+        <button class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium" data-tag="clock">
+          Clock
+        </button>
+        <button class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium" data-tag="tool">
+          Tools
+        </button>
+        <button class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium" data-tag="journal">
+          Journal
+        </button>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="projects" class="container mx-auto px-4 py-20">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">
+        <span class="gradient-text">Project</span> <span class="text-white">Showcase</span>
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+    </div>
+
+    <div class="glass-card rounded-2xl p-8 overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left">
+          <thead class="border-b border-slate-700/50 mb-6">
+            <tr>
+              <th class="p-6 text-primary font-bold text-lg">Day</th>
+              <th class="p-6 text-primary font-bold text-lg">Project Name</th>
+              <th class="p-6 text-primary font-bold text-lg">Demo Link</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+          </tbody>
+        </table>
+      </div>
+
+      <div id="no-projects" class="text-center mt-12 p-12 hidden">
+        <div class="text-8xl mb-6 opacity-50">🔍</div>
+        <h3 class="text-2xl font-bold mb-4 text-slate-300">No Projects Found</h3>
+        <p class="text-slate-500 text-lg">
+          Try adjusting your search or filter criteria
         </p>
-        
-        <div class="mt-12 space-y-4 md:space-y-0">
-          <div class="search-container">
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Search for amazing projects..."
-              class="search-input"
-            />
-            <button
-              id="randomProjectBtn"
-              class="random-btn text-white px-8 py-4 rounded-full btn-modern mt-4 md:mt-0 md:ml-6 font-semibold text-lg w-full md:w-auto"
-            >
-              🎲 Surprise Me
-            </button>
-          </div>
-
-          <div class="flex flex-wrap justify-center gap-4 mt-8">
-            <button
-              class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium"
-              data-tag="all"
-            >
-              All Projects
-            </button>
-            <button
-              class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium"
-              data-tag="ui"
-            >
-              UI/UX
-            </button>
-            <button
-              class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium"
-              data-tag="game"
-            >
-              Games
-            </button>
-            <button
-              class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium"
-              data-tag="api"
-            >
-              API
-            </button>
-            <button
-              class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium"
-              data-tag="clock"
-            >
-              Clock
-            </button>
-            <button
-              class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium"
-              data-tag="tool"
-            >
-              Tools
-            </button>
-            <button
-              class="tag-filter glass-card px-6 py-3 rounded-full text-sm font-medium"
-              data-tag="journal"
-            >
-              Journal
-            </button>
-          </div>
-        </div>
       </div>
-    </section>
-    
-    <section id="projects" class="container mx-auto px-4 py-20">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">
-          <span class="gradient-text">Project</span> <span class="text-white">Showcase</span>
+    </div>
+  </section>
+
+  <section id="about" class="about-section py-24 mt-20">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-20">
+        <h2 class="text-5xl md:text-6xl font-bold mb-6">
+          <span class="gradient-text">About the</span> <span class="text-white">Challenge</span>
         </h2>
-        <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+        <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-8"></div>
+        <p class="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          Embark on an incredible journey of creativity and skill development through 100 unique web projects.
+        </p>
       </div>
-      
-      <div class="glass-card rounded-2xl p-8 overflow-hidden">
-        <div class="overflow-x-auto">
-          <table class="w-full text-left">
-            <thead class="border-b border-slate-700/50 mb-6">
-              <tr>
-                <th class="p-6 text-primary font-bold text-lg">Day</th>
-                <th class="p-6 text-primary font-bold text-lg">Project Name</th>
-                <th class="p-6 text-primary font-bold text-lg">Demo Link</th>
-              </tr>
-            </thead>
-            <tbody id="tableBody">
-              </tbody>
-          </table>
-        </div>
-        
-        <div id="no-projects" class="text-center mt-12 p-12 hidden">
-          <div class="text-8xl mb-6 opacity-50">🔍</div>
-          <h3 class="text-2xl font-bold mb-4 text-slate-300">No Projects Found</h3>
-          <p class="text-slate-500 text-lg">
-            Try adjusting your search or filter criteria
-          </p>
-        </div>
-      </div>
-    </section>
 
-    <section id="about" class="about-section py-24 mt-20">
-      <div class="container mx-auto px-4 relative z-10">
-        <div class="text-center mb-20">
-          <h2 class="text-5xl md:text-6xl font-bold mb-6">
-            <span class="gradient-text">About the</span> <span class="text-white">Challenge</span>
-          </h2>
-          <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-8"></div>
-          <p class="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Embark on an incredible journey of creativity and skill development through 100 unique web projects.
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div class="glass-card p-10 rounded-2xl text-center group">
+          <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🎯</div>
+          <h3 class="text-2xl font-bold mb-6 gradient-text">Our Mission</h3>
+          <p class="text-slate-300 leading-relaxed text-lg">
+            Build 100 amazing web projects to master HTML, CSS, and JavaScript
+            through hands-on practice and real-world applications.
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          <div class="glass-card p-10 rounded-2xl text-center group">
-            <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🎯</div>
-            <h3 class="text-2xl font-bold mb-6 gradient-text">Our Mission</h3>
-            <p class="text-slate-300 leading-relaxed text-lg">
-              Build 100 amazing web projects to master HTML, CSS, and JavaScript
-              through hands-on practice and real-world applications.
-            </p>
-          </div>
-
-          <div class="glass-card p-10 rounded-2xl text-center group">
-            <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🚀</div>
-            <h3 class="text-2xl font-bold mb-6 gradient-text">Skill Development</h3>
-            <p class="text-slate-300 leading-relaxed text-lg">
-              From basic to intermediate level projects, each designed to
-              challenge and improve your web development skills progressively.
-            </p>
-          </div>
-
-          <div class="glass-card p-10 rounded-2xl text-center group">
-            <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🌟</div>
-            <h3 class="text-2xl font-bold mb-6 gradient-text">Community</h3>
-            <p class="text-slate-300 leading-relaxed text-lg">
-              Join a growing community of developers, contribute to projects,
-              and learn together in this collaborative journey.
-            </p>
-          </div>
-        </div>
-
-        <div class="glass-card p-10 rounded-2xl">
-          <h3 class="text-3xl font-bold mb-8 text-center gradient-text">
-            Challenge Statistics
-          </h3>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div class="stat-card p-6 rounded-xl">
-              <div class="text-4xl font-black text-primary mb-2" id="projectCount">5</div>
-              <div class="text-sm text-slate-400 uppercase tracking-wider">Projects Completed</div>
-            </div>
-            <div class="stat-card p-6 rounded-xl">
-              <div class="text-4xl font-black text-secondary mb-2">100</div>
-              <div class="text-sm text-slate-400 uppercase tracking-wider">Total Goal</div>
-            </div>
-            <div class="stat-card p-6 rounded-xl">
-              <div class="text-4xl font-black text-accent mb-2">3</div>
-              <div class="text-sm text-slate-400 uppercase tracking-wider">Technologies</div>
-            </div>
-            <div class="stat-card p-6 rounded-xl">
-              <div class="text-4xl font-black gradient-text mb-2">∞</div>
-              <div class="text-sm text-slate-400 uppercase tracking-wider">Learning</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="bg-slate-900 text-white p-8 mt-20 border-t border-slate-800">
-      <div class="container mx-auto grid md:grid-cols-3 gap-12">
-        <div>
-          <h2 class="text-2xl font-bold mb-6 gradient-text">100 Days Challenge</h2>
-          <p class="text-slate-300 mb-6 leading-relaxed text-lg">
-            This repository contains 100 web projects from basic to intermediate
-            using HTML, CSS, and JS. Each project is designed to teach specific
-            concepts and improve your coding skills.
+        <div class="glass-card p-10 rounded-2xl text-center group">
+          <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🚀</div>
+          <h3 class="text-2xl font-bold mb-6 gradient-text">Skill Development</h3>
+          <p class="text-slate-300 leading-relaxed text-lg">
+            From basic to intermediate level projects, each designed to
+            challenge and improve your web development skills progressively.
           </p>
-          <div class="flex gap-6">
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              class="text-pink-400 hover:text-pink-300 transition-colors text-2xl hover:scale-110 transform duration-300"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <a
-              href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS"
-              target="_blank"
-              class="text-slate-300 hover:text-white transition-colors text-2xl hover:scale-110 transform duration-300"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/rutika-kengal-8085092b7"
-              target="_blank"
-              class="text-blue-400 hover:text-blue-300 transition-colors text-2xl hover:scale-110 transform duration-300"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-          </div>
-        </div>
-        
-        <div>
-          <h2 class="text-2xl font-bold mb-6 gradient-text">Quick Links</h2>
-          <ul class="space-y-4">
-          
-            <li>
-              <a
-                href="#about"
-                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
-                >About Challenge</a
-              >
-            </li>
-            <li>
-              <a
-                href="#projects"
-                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
-                >Browse Projects</a
-              >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
-                >Contributors</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS"
-                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
-                >GitHub Repository</a
-              >
-            </li>
-          </ul>
         </div>
 
-        <div>
-          <h2 class="text-2xl font-bold mb-6 gradient-text">Technologies</h2>
-          <div class="flex flex-wrap gap-3 mb-8">
-            <span class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium">HTML5</span>
-            <span class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">CSS3</span>
-            <span class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-4 py-2 rounded-full text-sm font-medium">JavaScript</span>
-            <span class="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-full text-sm font-medium">Responsive</span>
-          </div>
-          <p class="text-slate-400 text-lg">
-            ©
-            <script>
-              document.write(new Date().getFullYear());
-            </script>
-            100DAYS_WEBPROJECTS by
-            <a href="#" class="underline hover:text-white transition-colors gradient-text font-medium"
-              >Rutika Kengal</a
-            >
-            & Contributors
+        <div class="glass-card p-10 rounded-2xl text-center group">
+          <div class="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🌟</div>
+          <h3 class="text-2xl font-bold mb-6 gradient-text">Community</h3>
+          <p class="text-slate-300 leading-relaxed text-lg">
+            Join a growing community of developers, contribute to projects,
+            and learn together in this collaborative journey.
           </p>
         </div>
       </div>
-    </footer>
 
-    <button id="themeToggle" class="theme-toggle">🌙</button>
-
-    <button
-      id="scrollBtn"
-      onclick="scrollToTop()"
-      class="fixed bottom-8 right-8 bg-gradient-to-r from-primary to-secondary text-white p-4 rounded-full shadow-2xl z-[60] btn-modern hidden hover:scale-110 transition-all duration-300"
-    >
-      <i class="fas fa-arrow-up text-xl"></i>
-    </button>
-    <!-- Floating Chatbot Widget -->
-    <div id="chatbotWidget" class="chatbot-widget">
-      <!-- Chat Toggle Button -->
-      <div id="chatToggleBtn" class="chat-toggle-btn">
-        <i class="fas fa-robot" id="chatIcon"></i>
-        <i class="fas fa-times" id="closeIcon" style="display: none;"></i>
-        <div class="pulse-ring"></div>
+      <div class="glass-card p-10 rounded-2xl">
+        <h3 class="text-3xl font-bold mb-8 text-center gradient-text">
+          Challenge Statistics
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div class="stat-card p-6 rounded-xl">
+            <div class="text-4xl font-black text-primary mb-2" id="projectCount">5</div>
+            <div class="text-sm text-slate-400 uppercase tracking-wider">Projects Completed</div>
+          </div>
+          <div class="stat-card p-6 rounded-xl">
+            <div class="text-4xl font-black text-secondary mb-2">100</div>
+            <div class="text-sm text-slate-400 uppercase tracking-wider">Total Goal</div>
+          </div>
+          <div class="stat-card p-6 rounded-xl">
+            <div class="text-4xl font-black text-accent mb-2">3</div>
+            <div class="text-sm text-slate-400 uppercase tracking-wider">Technologies</div>
+          </div>
+          <div class="stat-card p-6 rounded-xl">
+            <div class="text-4xl font-black gradient-text mb-2">∞</div>
+            <div class="text-sm text-slate-400 uppercase tracking-wider">Learning</div>
+          </div>
+        </div>
       </div>
-      
-      <!-- Chat Window -->
-      <div id="chatWindow" class="chat-window">
-        <div class="chat-header">
-          <div class="chat-header-content">
-            <div class="bot-avatar">
-              <i class="fas fa-robot"></i>
-            </div>
-            <div class="bot-info">
-              <h3>AI Assistant</h3>
-              <span class="status">Online</span>
+    </div>
+  </section>
+
+  <footer class="bg-slate-900 text-white p-8 mt-20 border-t border-slate-800">
+    <div class="container mx-auto grid md:grid-cols-3 gap-12">
+      <div>
+        <h2 class="text-2xl font-bold mb-6 gradient-text">100 Days Challenge</h2>
+        <p class="text-slate-300 mb-6 leading-relaxed text-lg">
+          This repository contains 100 web projects from basic to intermediate
+          using HTML, CSS, and JS. Each project is designed to teach specific
+          concepts and improve your coding skills.
+        </p>
+        <div class="flex gap-6">
+          <a href="https://www.instagram.com/" target="_blank"
+            class="text-pink-400 hover:text-pink-300 transition-colors text-2xl hover:scale-110 transform duration-300"><i
+              class="fab fa-instagram"></i></a>
+          <a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS" target="_blank"
+            class="text-slate-300 hover:text-white transition-colors text-2xl hover:scale-110 transform duration-300"><i
+              class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/rutika-kengal-8085092b7" target="_blank"
+            class="text-blue-400 hover:text-blue-300 transition-colors text-2xl hover:scale-110 transform duration-300"><i
+              class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold mb-6 gradient-text">Quick Links</h2>
+        <ul class="space-y-4">
+
+          <li>
+            <a href="#about"
+              class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block">About
+              Challenge</a>
+          </li>
+          <li>
+            <a href="#projects"
+              class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block">Browse
+              Projects</a>
+          </li>
+          <li>
+            <a href="#"
+              class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block">Contributors</a>
+          </li>
+          <li>
+            <a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS"
+              class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block">GitHub
+              Repository</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold mb-6 gradient-text">Technologies</h2>
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span
+            class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium">HTML5</span>
+          <span
+            class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">CSS3</span>
+          <span
+            class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-4 py-2 rounded-full text-sm font-medium">JavaScript</span>
+          <span
+            class="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-full text-sm font-medium">Responsive</span>
+        </div>
+        <p class="text-slate-400 text-lg">
+          ©
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          100DAYS_WEBPROJECTS by
+          <a href="#" class="underline hover:text-white transition-colors gradient-text font-medium">Rutika Kengal</a>
+          & Contributors
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="themeToggle" class="theme-toggle">🌙</button>
+
+  <button id="scrollBtn" onclick="scrollToTop()"
+    class="fixed bottom-8 right-8 bg-gradient-to-r from-primary to-secondary text-white p-4 rounded-full shadow-2xl z-[60] btn-modern hidden hover:scale-110 transition-all duration-300">
+    <i class="fas fa-arrow-up text-xl"></i>
+  </button>
+  <!-- Floating Chatbot Widget -->
+  <div id="chatbotWidget" class="chatbot-widget">
+    <!-- Chat Toggle Button -->
+    <div id="chatToggleBtn" class="chat-toggle-btn">
+      <i class="fas fa-robot" id="chatIcon"></i>
+      <i class="fas fa-times" id="closeIcon" style="display: none;"></i>
+      <div class="pulse-ring"></div>
+    </div>
+
+    <!-- Chat Window -->
+    <div id="chatWindow" class="chat-window">
+      <div class="chat-header">
+        <div class="chat-header-content">
+          <div class="bot-avatar">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="bot-info">
+            <h3>AI Assistant</h3>
+            <span class="status">Online</span>
+          </div>
+        </div>
+        <button id="minimizeChat" class="minimize-btn">
+          <i class="fas fa-minus"></i>
+        </button>
+      </div>
+
+      <div class="chat-messages" id="widgetChatMessages">
+        <div class="message bot-message">
+          <div class="message-avatar">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="message-content">
+            <p>Hi! I'm your AI assistant. I can help you with questions about this website, web development, or anything
+              else. How can I assist you today?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="typing-indicator" id="widgetTypingIndicator" style="display: none;">
+        <div class="message bot-message">
+          <div class="message-avatar">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="message-content">
+            <div class="typing-dots">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
           </div>
-          <button id="minimizeChat" class="minimize-btn">
-            <i class="fas fa-minus"></i>
+        </div>
+      </div>
+
+      <div class="chat-input-container">
+        <div class="chat-input">
+          <input type="text" id="widgetMessageInput" placeholder="Type your message..." autocomplete="off">
+          <button id="widgetSendButton" class="send-button">
+            <i class="fas fa-paper-plane"></i>
           </button>
         </div>
-        
-        <div class="chat-messages" id="widgetChatMessages">
-          <div class="message bot-message">
-            <div class="message-avatar">
-              <i class="fas fa-robot"></i>
-            </div>
-            <div class="message-content">
-              <p>Hi! I'm your AI assistant. I can help you with questions about this website, web development, or anything else. How can I assist you today?</p>
-            </div>
-          </div>
-        </div>
-        
-        <div class="typing-indicator" id="widgetTypingIndicator" style="display: none;">
-          <div class="message bot-message">
-            <div class="message-avatar">
-              <i class="fas fa-robot"></i>
-            </div>
-            <div class="message-content">
-              <div class="typing-dots">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="chat-input-container">
-          <div class="chat-input">
-            <input type="text" id="widgetMessageInput" placeholder="Type your message..." autocomplete="off">
-            <button id="widgetSendButton" class="send-button">
-              <i class="fas fa-paper-plane"></i>
-            </button>
-          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- API Key Setup Modal for Widget -->
+  <div id="widgetApiKeyModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Setup AI Assistant</h3>
+        <span class="close" onclick="closeWidgetModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>To use the AI assistant, you need to provide your Google Gemini API key.</p>
+        <p><strong>How to get your API key:</strong></p>
+        <ol>
+          <li>Visit <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a></li>
+          <li>Sign in with your Google account</li>
+          <li>Click "Create API Key"</li>
+          <li>Copy the generated key and paste it below</li>
+        </ol>
+        <input type="password" id="widgetApiKeyInput" placeholder="Enter your API key here">
+        <div class="modal-buttons">
+          <button onclick="saveWidgetApiKey()" class="save-button">Save API Key</button>
+          <button onclick="closeWidgetModal()" class="cancel-button">Skip for Now</button>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- API Key Setup Modal for Widget -->
-    <div id="widgetApiKeyModal" class="modal" style="display: none;">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3>Setup AI Assistant</h3>
-          <span class="close" onclick="closeWidgetModal()">&times;</span>
-        </div>
-        <div class="modal-body">
-          <p>To use the AI assistant, you need to provide your Google Gemini API key.</p>
-          <p><strong>How to get your API key:</strong></p>
-          <ol>
-            <li>Visit <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a></li>
-            <li>Sign in with your Google account</li>
-            <li>Click "Create API Key"</li>
-            <li>Copy the generated key and paste it below</li>
-          </ol>
-          <input type="password" id="widgetApiKeyInput" placeholder="Enter your API key here">
-          <div class="modal-buttons">
-            <button onclick="saveWidgetApiKey()" class="save-button">Save API Key</button>
-            <button onclick="closeWidgetModal()" class="cancel-button">Skip for Now</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- Scripts -->
 
-    <!-- Scripts -->
-
-    <script>
-      const scrollBtn = document.getElementById("scrollBtn");
-      window.onscroll = () => {
-        if (document.documentElement.scrollTop > 100)
-          scrollBtn.classList.remove("hidden");
-        else scrollBtn.classList.add("hidden");
-      };
-      function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-      function filterProjects() {
-        const input = document
-          .getElementById("searchInput")
-          .value.toLowerCase();
-        const table = document.getElementById("tableBody");
-        const rows = table.getElementsByTagName("tr");
-        let found = false;
-        for (let i = 0; i < rows.length; i++) {
-          const cols = rows[i].getElementsByTagName("td");
-          let match = false;
-          for (let j = 0; j < cols.length; j++) {
-            if (cols[j].innerText.toLowerCase().includes(input)) {
-              match = true;
-              break;
-            }
+  <script>
+    const scrollBtn = document.getElementById("scrollBtn");
+    window.onscroll = () => {
+      if (document.documentElement.scrollTop > 100)
+        scrollBtn.classList.remove("hidden");
+      else scrollBtn.classList.add("hidden");
+    };
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    function filterProjects() {
+      const input = document
+        .getElementById("searchInput")
+        .value.toLowerCase();
+      const table = document.getElementById("tableBody");
+      const rows = table.getElementsByTagName("tr");
+      let found = false;
+      for (let i = 0; i < rows.length; i++) {
+        const cols = rows[i].getElementsByTagName("td");
+        let match = false;
+        for (let j = 0; j < cols.length; j++) {
+          if (cols[j].innerText.toLowerCase().includes(input)) {
+            match = true;
+            break;
           }
-          rows[i].style.display = match ? "" : "none";
-          if (match) found = true;
         }
-        document.getElementById("no-projects").style.display = found
-          ? "none"
-          : "block";
+        rows[i].style.display = match ? "" : "none";
+        if (match) found = true;
       }
+      document.getElementById("no-projects").style.display = found
+        ? "none"
+        : "block";
+    }
 
-      // Theme toggle logic
-      const themeToggle = document.getElementById("themeToggle");
-      function setTheme(mode) {
-        if (mode === "light") {
-          document.documentElement.setAttribute("data-theme", "light");
-          themeToggle.textContent = "🌞";
-        } else {
-          document.documentElement.removeAttribute("data-theme");
-          themeToggle.textContent = "🌙";
-        }
+    // Theme toggle logic
+    const themeToggle = document.getElementById("themeToggle");
+    function setTheme(mode) {
+      if (mode === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+        themeToggle.textContent = "🌞";
+      } else {
+        document.documentElement.removeAttribute("data-theme");
+        themeToggle.textContent = "🌙";
       }
-      // Load theme from localStorage or default to dark
-      let currentTheme = localStorage.getItem("theme") || "dark";
+    }
+    // Load theme from localStorage or default to dark
+    let currentTheme = localStorage.getItem("theme") || "dark";
+    setTheme(currentTheme);
+    themeToggle.addEventListener("click", function () {
+      currentTheme = currentTheme === "dark" ? "light" : "dark";
       setTheme(currentTheme);
-      themeToggle.addEventListener("click", function () {
-        currentTheme = currentTheme === "dark" ? "light" : "dark";
-        setTheme(currentTheme);
-        localStorage.setItem("theme", currentTheme);
-      });
-      
-      // Floating Chatbot Widget Functionality
-      class FloatingChatbot {
-        constructor() {
-          this.apiKey = localStorage.getItem('geminiApiKey');
-          this.isOpen = false;
-          this.initializeElements();
-          this.initializeEventListeners();
-        }
+      localStorage.setItem("theme", currentTheme);
+    });
 
-        initializeElements() {
-          this.chatToggleBtn = document.getElementById('chatToggleBtn');
-          this.chatWindow = document.getElementById('chatWindow');
-          this.chatIcon = document.getElementById('chatIcon');
-          this.closeIcon = document.getElementById('closeIcon');
-          this.minimizeChat = document.getElementById('minimizeChat');
-          this.chatMessages = document.getElementById('widgetChatMessages');
-          this.messageInput = document.getElementById('widgetMessageInput');
-          this.sendButton = document.getElementById('widgetSendButton');
-          this.typingIndicator = document.getElementById('widgetTypingIndicator');
-          this.apiKeyModal = document.getElementById('widgetApiKeyModal');
-        }
+    // Floating Chatbot Widget Functionality
+    class FloatingChatbot {
+      constructor() {
+        this.apiKey = localStorage.getItem('geminiApiKey');
+        this.isOpen = false;
+        this.initializeElements();
+        this.initializeEventListeners();
+      }
 
-        initializeEventListeners() {
-          this.chatToggleBtn.addEventListener('click', () => this.toggleChat());
-          this.minimizeChat.addEventListener('click', () => this.toggleChat());
-          this.sendButton.addEventListener('click', () => this.sendMessage());
-          
-          this.messageInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-              e.preventDefault();
-              this.sendMessage();
-            }
-          });
-        }
+      initializeElements() {
+        this.chatToggleBtn = document.getElementById('chatToggleBtn');
+        this.chatWindow = document.getElementById('chatWindow');
+        this.chatIcon = document.getElementById('chatIcon');
+        this.closeIcon = document.getElementById('closeIcon');
+        this.minimizeChat = document.getElementById('minimizeChat');
+        this.chatMessages = document.getElementById('widgetChatMessages');
+        this.messageInput = document.getElementById('widgetMessageInput');
+        this.sendButton = document.getElementById('widgetSendButton');
+        this.typingIndicator = document.getElementById('widgetTypingIndicator');
+        this.apiKeyModal = document.getElementById('widgetApiKeyModal');
+      }
 
-        toggleChat() {
-          this.isOpen = !this.isOpen;
-          
-          if (this.isOpen) {
-            this.chatWindow.classList.add('show');
-            this.chatIcon.style.display = 'none';
-            this.closeIcon.style.display = 'block';
-            this.messageInput.focus();
-          } else {
-            this.chatWindow.classList.remove('show');
-            this.chatIcon.style.display = 'block';
-            this.closeIcon.style.display = 'none';
+      initializeEventListeners() {
+        this.chatToggleBtn.addEventListener('click', () => this.toggleChat());
+        this.minimizeChat.addEventListener('click', () => this.toggleChat());
+        this.sendButton.addEventListener('click', () => this.sendMessage());
+
+        this.messageInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            this.sendMessage();
           }
+        });
+      }
+
+      toggleChat() {
+        this.isOpen = !this.isOpen;
+
+        if (this.isOpen) {
+          this.chatWindow.classList.add('show');
+          this.chatIcon.style.display = 'none';
+          this.closeIcon.style.display = 'block';
+          this.messageInput.focus();
+        } else {
+          this.chatWindow.classList.remove('show');
+          this.chatIcon.style.display = 'block';
+          this.closeIcon.style.display = 'none';
+        }
+      }
+
+      async sendMessage() {
+        const message = this.messageInput.value.trim();
+
+        if (!message) return;
+
+        if (!this.apiKey) {
+          this.showApiKeyModal();
+          return;
         }
 
-        async sendMessage() {
-          const message = this.messageInput.value.trim();
-          
-          if (!message) return;
-          
-          if (!this.apiKey) {
+        this.messageInput.value = '';
+        this.sendButton.disabled = true;
+        this.addMessage(message, 'user');
+        this.showTypingIndicator();
+
+        try {
+          const response = await this.callGeminiAPI(message);
+          this.hideTypingIndicator();
+          this.addMessage(response, 'bot');
+        } catch (error) {
+          console.error('Error calling Gemini API:', error);
+          this.hideTypingIndicator();
+
+          let errorMessage = 'Sorry, I encountered an error. Please try again.';
+
+          if (error.message.includes('API key')) {
+            errorMessage = 'Invalid API key. Please check your API key and try again.';
             this.showApiKeyModal();
-            return;
+          } else if (error.message.includes('quota')) {
+            errorMessage = 'API quota exceeded. Please check your Gemini API usage limits.';
+          } else if (error.message.includes('network') || error.message.includes('Failed to fetch')) {
+            errorMessage = 'Network error. Please check your internet connection and try again.';
+          } else if (error.message.includes('server error')) {
+            errorMessage = 'Gemini API is temporarily unavailable. Please try again later.';
           }
 
-          this.messageInput.value = '';
-          this.sendButton.disabled = true;
-          this.addMessage(message, 'user');
-          this.showTypingIndicator();
+          this.addMessage(errorMessage, 'bot', true);
+        } finally {
+          this.sendButton.disabled = false;
+          this.messageInput.focus();
+        }
+      }
 
-          try {
-            const response = await this.callGeminiAPI(message);
-            this.hideTypingIndicator();
-            this.addMessage(response, 'bot');
-          } catch (error) {
-            console.error('Error calling Gemini API:', error);
-            this.hideTypingIndicator();
-            
-            let errorMessage = 'Sorry, I encountered an error. Please try again.';
-            
-            if (error.message.includes('API key')) {
-              errorMessage = 'Invalid API key. Please check your API key and try again.';
-              this.showApiKeyModal();
-            } else if (error.message.includes('quota')) {
-              errorMessage = 'API quota exceeded. Please check your Gemini API usage limits.';
-            } else if (error.message.includes('network') || error.message.includes('Failed to fetch')) {
-              errorMessage = 'Network error. Please check your internet connection and try again.';
-            } else if (error.message.includes('server error')) {
-              errorMessage = 'Gemini API is temporarily unavailable. Please try again later.';
+      async callGeminiAPI(message) {
+        // Use the official Gemini API format
+        const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+
+        const requestBody = {
+          contents: [{
+            parts: [{
+              text: message
+            }]
+          }],
+          generationConfig: {
+            temperature: 0.9,
+            topK: 1,
+            topP: 1,
+            maxOutputTokens: 2048,
+          },
+          safetySettings: [
+            {
+              category: "HARM_CATEGORY_HARASSMENT",
+              threshold: "BLOCK_MEDIUM_AND_ABOVE"
+            },
+            {
+              category: "HARM_CATEGORY_HATE_SPEECH",
+              threshold: "BLOCK_MEDIUM_AND_ABOVE"
+            },
+            {
+              category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+              threshold: "BLOCK_MEDIUM_AND_ABOVE"
+            },
+            {
+              category: "HARM_CATEGORY_DANGEROUS_CONTENT",
+              threshold: "BLOCK_MEDIUM_AND_ABOVE"
             }
-            
-            this.addMessage(errorMessage, 'bot', true);
-          } finally {
-            this.sendButton.disabled = false;
-            this.messageInput.focus();
+          ]
+        };
+
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-goog-api-key': this.apiKey
+          },
+          body: JSON.stringify(requestBody)
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+
+          if (response.status === 400) {
+            throw new Error('Invalid API key or request format. Please check your API key.');
+          } else if (response.status === 403) {
+            throw new Error('API key access denied. Please check your API key permissions.');
+          } else if (response.status === 429) {
+            throw new Error('API quota exceeded. Please check your usage limits.');
+          } else if (response.status >= 500) {
+            throw new Error('Gemini API server error. Please try again later.');
+          } else {
+            throw new Error(`API request failed with status: ${response.status}`);
           }
         }
 
-        async callGeminiAPI(message) {
-          // Use the official Gemini API format
-          const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
-          
-          const requestBody = {
-            contents: [{
-              parts: [{
-                text: message
-              }]
-            }],
-            generationConfig: {
-              temperature: 0.9,
-              topK: 1,
-              topP: 1,
-              maxOutputTokens: 2048,
-            },
-            safetySettings: [
-              {
-                category: "HARM_CATEGORY_HARASSMENT",
-                threshold: "BLOCK_MEDIUM_AND_ABOVE"
-              },
-              {
-                category: "HARM_CATEGORY_HATE_SPEECH",
-                threshold: "BLOCK_MEDIUM_AND_ABOVE"
-              },
-              {
-                category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-                threshold: "BLOCK_MEDIUM_AND_ABOVE"
-              },
-              {
-                category: "HARM_CATEGORY_DANGEROUS_CONTENT",
-                threshold: "BLOCK_MEDIUM_AND_ABOVE"
-              }
-            ]
-          };
+        const data = await response.json();
 
-          const response = await fetch(API_URL, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'X-goog-api-key': this.apiKey
-            },
-            body: JSON.stringify(requestBody)
-          });
-
-          if (!response.ok) {
-            const errorData = await response.json().catch(() => ({}));
-            
-            if (response.status === 400) {
-              throw new Error('Invalid API key or request format. Please check your API key.');
-            } else if (response.status === 403) {
-              throw new Error('API key access denied. Please check your API key permissions.');
-            } else if (response.status === 429) {
-              throw new Error('API quota exceeded. Please check your usage limits.');
-            } else if (response.status >= 500) {
-              throw new Error('Gemini API server error. Please try again later.');
-            } else {
-              throw new Error(`API request failed with status: ${response.status}`);
-            }
-          }
-
-          const data = await response.json();
-          
-          if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
-            throw new Error('Invalid response from Gemini API');
-          }
-
-          return data.candidates[0].content.parts[0].text;
+        if (!data.candidates || !data.candidates[0] || !data.candidates[0].content) {
+          throw new Error('Invalid response from Gemini API');
         }
 
-        addMessage(text, sender, isError = false) {
-          const messageDiv = document.createElement('div');
-          messageDiv.className = `message ${sender}-message`;
-          
-          const errorStyle = isError ? ' style="background: #ffebee !important; color: #c62828 !important; border-left: 4px solid #f44336;"' : '';
-          
-          messageDiv.innerHTML = `
+        return data.candidates[0].content.parts[0].text;
+      }
+
+      addMessage(text, sender, isError = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}-message`;
+
+        const errorStyle = isError ? ' style="background: #ffebee !important; color: #c62828 !important; border-left: 4px solid #f44336;"' : '';
+
+        messageDiv.innerHTML = `
             <div class="message-avatar">
               <i class="fas fa-${sender === 'user' ? 'user' : 'robot'}"></i>
             </div>
@@ -1626,59 +1656,60 @@
               <p>${text}</p>
             </div>
           `;
-          this.chatMessages.appendChild(messageDiv);
-          this.scrollToBottom();
-        }
-
-        showTypingIndicator() {
-          this.typingIndicator.style.display = 'flex';
-          this.scrollToBottom();
-        }
-
-        hideTypingIndicator() {
-          this.typingIndicator.style.display = 'none';
-        }
-
-        scrollToBottom() {
-          setTimeout(() => {
-            this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
-          }, 100);
-        }
-
-        showApiKeyModal() {
-          this.apiKeyModal.style.display = 'block';
-        }
-
-        saveApiKey() {
-          const apiKey = document.getElementById('widgetApiKeyInput').value.trim();
-          if (!apiKey) return alert('Please enter a valid API key');
-          
-          this.apiKey = apiKey;
-          localStorage.setItem('geminiApiKey', apiKey);
-          this.apiKeyModal.style.display = 'none';
-          this.addMessage('API key saved! You can now chat with me.', 'bot');
-        }
+        this.chatMessages.appendChild(messageDiv);
+        this.scrollToBottom();
       }
 
-      // Global functions
-      function closeWidgetModal() {
-        if (window.floatingChatbot) {
-          window.floatingChatbot.apiKeyModal.style.display = 'none';
-        }
+      showTypingIndicator() {
+        this.typingIndicator.style.display = 'flex';
+        this.scrollToBottom();
       }
 
-      function saveWidgetApiKey() {
-        if (window.floatingChatbot) {
-          window.floatingChatbot.saveApiKey();
-        }
+      hideTypingIndicator() {
+        this.typingIndicator.style.display = 'none';
       }
 
-      // Initialize chatbot
-      setTimeout(() => {
-        window.floatingChatbot = new FloatingChatbot();
-      }, 1000);
-    </script>
-    <script src="index.js"></script>
-    <script src="script.js"></script>
-  </body>
+      scrollToBottom() {
+        setTimeout(() => {
+          this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+        }, 100);
+      }
+
+      showApiKeyModal() {
+        this.apiKeyModal.style.display = 'block';
+      }
+
+      saveApiKey() {
+        const apiKey = document.getElementById('widgetApiKeyInput').value.trim();
+        if (!apiKey) return alert('Please enter a valid API key');
+
+        this.apiKey = apiKey;
+        localStorage.setItem('geminiApiKey', apiKey);
+        this.apiKeyModal.style.display = 'none';
+        this.addMessage('API key saved! You can now chat with me.', 'bot');
+      }
+    }
+
+    // Global functions
+    function closeWidgetModal() {
+      if (window.floatingChatbot) {
+        window.floatingChatbot.apiKeyModal.style.display = 'none';
+      }
+    }
+
+    function saveWidgetApiKey() {
+      if (window.floatingChatbot) {
+        window.floatingChatbot.saveApiKey();
+      }
+    }
+
+    // Initialize chatbot
+    setTimeout(() => {
+      window.floatingChatbot = new FloatingChatbot();
+    }, 1000);
+  </script>
+  <script src="index.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>
