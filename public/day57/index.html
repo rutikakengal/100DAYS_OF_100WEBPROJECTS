@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Amazon Clone</title>
+
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="ProStyle.css" />
+</head>
+<body>
+
+<!-- Amazon Header Navbar -->
+<nav class="navbar navbar-dark bg-dark px-2 py-1">
+  <div class="container-fluid d-flex align-items-center">
+
+    <!-- Amazon Logo -->
+    <a class="navbar-brand me-2" href="#">
+      <img src="AmazonLogo.png" alt="Amazon Logo" height="40" width="90">
+    </a>
+
+    <!-- Deliver to India (hidden on xs, visible md+) -->
+    <div class="text-white d-none d-md-flex align-items-center me-2">
+      <i class="fa-solid fa-location-dot me-1"></i>
+      <div>
+        <div style="font-size:12px; line-height:1;">Deliver to</div>
+        <strong>India</strong>
+      </div>
+    </div>
+
+    <!-- Search Bar (always full width on mobile, centered on desktop) -->
+    <form class="d-flex flex-grow-1 mx-2">
+      <div class="input-group w-100">
+        <select class="form-select form-select-sm" style="max-width:60px;">
+          <option selected>All</option>
+          <option>Industrial & Scientific</option>
+          <option>Home & Kitchen</option>
+          <option>Digital music</option>
+          <option>Electronics</option>
+          <option>Girl's Fashion</option>
+          <option>Electronics</option>
+          <option>Computers</option>
+          <option>Boy's Fashion</option>
+          <option>Men's Fashion</option>
+        </select>
+        <input type="text" class="form-control" placeholder="Search Amazon">
+        <button class="btn btn-warning" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </form>
+
+    <!-- Right side compact icons -->
+    <div class="d-flex align-items-center text-white ms-2">
+
+      <!-- Language  form-select form-select-sm -->
+      <div class="me-3 d-none d-sm-block ">
+        <select class=" langOptions ">
+          <option id="opt">Eng</option>
+          <option id="opt">Hindi</option>
+          <option id="opt">Mar</option>
+          <option id="opt">Sans</option>
+          <option id="opt">Fren</option>
+          <option id="opt">Span</option>
+          <option id="opt">Japa</option>
+          <option id="opt">Areb</option>
+          <option id="opt">Ger</option>
+          <option id="opt">Persi</option>
+          <option id="opt">Rus</option>
+          <option id="opt">Portu</option>
+          <option id="opt">Greek</option>
+        </select>
+      </div>
+
+
+      <!-- Accounts & Lists -->
+      <div class="navHA">
+        <!-- hello sign in --> 
+         <div class="navHello">Hello, sign in</div>
+
+         <!-- Account & Lists -->
+          <select class="navAccLi">
+            <option id="op">Accounts & Lists</option>
+            <option id="o">Sign in</option>
+            <option id="opti">Your Account</option>
+            <option id="opti">Account</option>
+            <option id="opti">Orders</option>
+            <option id="opti">Recommendations</option>
+            <option id="opti">Browsing History</option>
+            <option id="opti">Watchlist</option>
+            <option id="opti">Video Purchases & Rentals</option>
+            <option id="opti">Kindle Unlimited</option>
+            <option id="opti">Content & Devices</option>
+            <option id="opti">Subscribe & Save items</option>
+            <option id="opti">Membership & Subscriptions</option>
+            <option id="opti">Music Library</option>
+          </select>
+        </div>
+
+      <!-- Orders -->
+      <div class="me-3 d-none d-sm-block">
+        <div style="font-size:12px;">Returns</div>
+        <strong>& Orders</strong>
+      </div>
+
+      <!-- Cart -->
+      <a href="#" class="text-white text-decoration-none">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <strong>Cart</strong>
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+        
+        <button class="navbar-toggler ms-2 d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#amzTopCollapse" aria-controls="amzTopCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </ul>
+
+      
+      <div class="collapse navbar-collapse" id="amzTopCollapse"></div>
+    </div>
+  </nav>
+
+  
+  <div class="amz-subnav bg-amzBlue text-white">
+    <div class="container-fluid d-flex gap-3 align-items-center overflow-auto py-2">
+      <a href="#" class="text-white text-decoration-none d-flex align-items-center gap-2 px-2 py-1 border border-transparent rounded hover-white">
+        <i class="fa-solid fa-bars"></i> <span>All</span>
+      </a>
+      <a href="#" class="subnav-link">Today’s Deals</a>
+      <a href="#" class="subnav-link">Registry</a>
+      <a href="#" class="subnav-link">Prime Video</a>
+      <a href="#" class="subnav-link">Gift Cards</a>
+      <a href="#" class="subnav-link">Customer Service</a>
+      <a href="#" class="subnav-link">Sell</a>
+    </div>
+  </div>
+
+  
+  <section class="amz-hero position-relative">
+    <div class="imgHeading w-100"></div>
+  </section>
+
+  
+  <div class="container">
+    <div class="amz-info alert text-center my-3" role="alert">
+      You are on amazon.com. You can also shop on Amazon India for millions of products with fast local delivery.
+      <a href="https://amazon.in" class="link-primary text-decoration-none">Click here to go to amazon.in</a>
+    </div>
+  </div>
+
+  
+  <main class="container-xxl my-3">
+    <div class="row g-3">
+
+     
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="amz-card card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Shop for your home essentials</h5>
+            <div class="tiles">
+              <div class="tile" style="background-image:url('Ama_1.png')"><span>Cleaning Tools</span></div>
+              <div class="tile" style="background-image:url('Ama_2.png')"><span>Home Storage</span></div>
+              <div class="tile" style="background-image:url('Ama_3.png')"><span>Home Decor</span></div>
+              <div class="tile" style="background-image:url('Ama_4.png')"><span>Bedding</span></div>
+            </div>
+            <a href="#" class="see-more">See more</a>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="amz-card card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Get your game on</h5>
+            <div class="tiles">
+              <div class="tile" style="background-image:url('Ama_5.png')"><span>Consoles</span></div>
+              <div class="tile" style="background-image:url('Ama_6.png')"><span>PC</span></div>
+              <div class="tile" style="background-image:url('Ama_7.png')"><span>Accessories</span></div>
+              <div class="tile" style="background-image:url('Ama_8.png')"><span>Headsets</span></div>
+            </div>
+            <a href="#" class="see-more">Shop gaming</a>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="amz-card card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Top categories in Kitchen appliances</h5>
+            <div class="tiles">
+              <div class="tile" style="background-image:url('Ama_3.png')"><span>Cookers</span></div>
+              <div class="tile" style="background-image:url('Ama_4.png')"><span>Kettles</span></div>
+              <div class="tile" style="background-image:url('Ama_1.png')"><span>Coffee</span></div>
+              <div class="tile" style="background-image:url('Ama_2.png')"><span>Toasters</span></div>
+            </div>
+            <a href="#" class="see-more">See more</a>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="amz-card card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Fashion trends you like</h5>
+            <div class="tiles">
+              <div class="tile" style="background-image:url('Ama_6.png')"><span>Dresses</span></div>
+              <div class="tile" style="background-image:url('Ama_8.png')"><span>Knits</span></div>
+              <div class="tile" style="background-image:url('Ama_7.png')"><span>Jackets</span></div>
+              <div class="tile" style="background-image:url('Ama_5.png')"><span>Jewelry</span></div>
+            </div>
+            <a href="#" class="see-more">Explore more</a>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="col-12">
+        <div class="amz-wide img9"></div>
+      </div>
+
+      
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="amz-card card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">New home arrivals under $50</h5>
+            <div class="tiles">
+              <div class="tile" style="background-image:url('Ama_2.png')"><span>Kitchen &amp; Dining</span></div>
+              <div class="tile" style="background-image:url('Ama_1.png')"><span>Home Improvement</span></div>
+              <div class="tile" style="background-image:url('Ama_3.png')"><span>Storage</span></div>
+              <div class="tile" style="background-image:url('Ama_4.png')"><span>Decor</span></div>
+            </div>
+            <a href="#" class="see-more">Shop under $50</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="amz-card card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Shop Fashion for less</h5>
+            <div class="tiles">
+              <div class="tile" style="background-image:url('Ama_8.png')"><span>Jeans</span></div>
+              <div class="tile" style="background-image:url('Ama_6.png')"><span>Tops</span></div>
+              <div class="tile" style="background-image:url('Ama_7.png')"><span>Sneakers</span></div>
+              <div class="tile" style="background-image:url('Ama_5.png')"><span>Accessories</span></div>
+            </div>
+            <a href="#" class="see-more">See all deals</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="amz-card card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Toys under $25</h5>
+            <div class="tiles">
+              <div class="tile" style="background-image:url('Ama_5.png')"><span>Plush</span></div>
+              <div class="tile" style="background-image:url('Ama_7.png')"><span>STEM</span></div>
+              <div class="tile" style="background-image:url('Ama_6.png')"><span>Games</span></div>
+              <div class="tile" style="background-image:url('Ama_8.png')"><span>Puzzles</span></div>
+            </div>
+            <a href="#" class="see-more">Shop toys</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="amz-card card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Refresh your space</h5>
+            <div class="tiles">
+              <div class="tile" style="background-image:url('Ama_1.png')"><span>Dining</span></div>
+              <div class="tile" style="background-image:url('Ama_3.png')"><span>Home</span></div>
+              <div class="tile" style="background-image:url('Ama_2.png')"><span>Smart Home</span></div>
+              <div class="tile" style="background-image:url('Ama_4.png')"><span>Décor</span></div>
+            </div>
+            <a href="#" class="see-more">See more</a>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="col-12">
+        <div class="amz-wide img10"></div>
+      </div>
+
+    </div>
+  </main>
+
+
+  <section class="container-xxl my-4">
+    <div class="bothText rounded-2 shadow-sm">
+      <hr class="my-0">
+      <div class="lastSecT">Your recently viewed items and featured recommendations</div>
+      <div class="lastText">After viewing product detail pages, look here to find an easy way to navigate back to pages you are interested in.</div>
+      <hr class="my-0">
+    </div>
+    <button class="lastBut w-100 rounded-1 border-0 mt-3">Back to top</button>
+  </section>
+
+  
+  <footer class="mt-4">
+    <div class="verText1234">
+      <div class="verText1">
+        <div class="firstH">Get to Know Us</div>
+        <div class="ver1">Careers</div>
+        <div class="ver1">Blog</div>
+        <div class="ver1">About Amazon</div>
+        <div class="ver1">Investor Relations</div>
+        <div class="ver1">Amazon Devices</div>
+        <div class="ver1">Amazon Science</div>
+      </div>
+
+      <div class="verText2">
+        <div class="secondH">Make Money with Us</div>
+        <div class="ver2">Sell products on Amazon</div>
+        <div class="ver2">Sell on Amazon Business</div>
+        <div class="ver2">Sell apps on Amazon</div>
+        <div class="ver2">Become an Affiliate</div>
+        <div class="ver2">Advertise Your Products</div>
+        <div class="ver2">Self-Publish with Us</div>
+        <div class="ver2">Host an Amazon Hub</div>
+        <div class="ver2">› See More Make Money with Us</div>
+      </div>
+
+      <div class="verText3">
+        <div class="thirdH">Amazon Payment Products</div>
+        <div class="ver3">Amazon Business Card</div>
+        <div class="ver3">Shop with Points</div>
+        <div class="ver3">Reload Your Balance</div>
+        <div class="ver3">Amazon Currency Converter</div>
+      </div>
+
+      <div class="verText4">
+        <div class="fourthH">Let Us Help You</div>
+        <div class="ver4">Amazon and COVID-19</div>
+        <div class="ver4">Your Account</div>
+        <div class="ver4">Your Orders</div>
+        <div class="ver4">Returns &amp; Replacements</div>
+        <div class="ver4">Manage Your Content and Devices</div>
+        <div class="ver4">Help</div>
+      </div>
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
