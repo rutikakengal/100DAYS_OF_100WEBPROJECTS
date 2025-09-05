@@ -220,6 +220,16 @@
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
         }
+        /* Snake cursor dots */
+         .snake-dot{
+             position:fixed;left:0;top:0;width:14px;height:14px;
+             background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);
+             border-radius:50%;pointer-events:none;z-index:99999;
+             transform:translate(-50%,-50%);
+             box-shadow:0 0 10px rgba(240,147,251,.85),0 0 20px rgba(245,87,108,.85);
+              opacity:.95;will-change:left,top,opacity,transform;
+            }
+
 
         .theme-toggle:hover {
             transform: scale(1.1) rotate(180deg);
@@ -739,6 +749,55 @@
             link.addEventListener('click', toggleMobileMenu);
         });
     </script>
+    <script>
+    // Snake Cursor Script
+    (() => {
+      const isTouch = ("ontouchstart" in window) || navigator.maxTouchPoints > 0;
+      if (isTouch) return;
+
+      const tail = [];
+      const length = 18;
+      let mx = innerWidth / 2, my = innerHeight / 2;
+
+      for (let i = 0; i < length; i++) {
+        const d = document.createElement("div");
+        d.className = "snake-dot";
+        const size = Math.max(6, 14 - Math.floor(i * 0.45));
+        d.style.width = size + "px";
+        d.style.height = size + "px";
+        document.body.appendChild(d);
+        tail.push({ el: d, x: mx, y: my });
+      }
+
+      addEventListener("mousemove", e => { mx = e.clientX; my = e.clientY; });
+
+      function tick() {
+        let tx = mx, ty = my;
+        for (let i = 0; i < tail.length; i++) {
+          const t = tail[i];
+          t.x += (tx - t.x) * 0.28;
+          t.y += (ty - t.y) * 0.28;
+          t.el.style.left = t.x + "px";
+          t.el.style.top = t.y + "px";
+          t.el.style.opacity = Math.max(0.08, 1 - i / tail.length);
+          const scale = 1 - i / (tail.length * 1.2);
+          t.el.style.transform = `translate(-50%,-50%) scale(${scale})`;
+          tx = t.x; ty = t.y;
+        }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+
+      addEventListener("resize", () => {
+        const w = innerWidth, h = innerHeight;
+        tail.forEach(t => {
+          t.x = Math.min(Math.max(0, t.x), w);
+          t.y = Math.min(Math.max(0, t.y), h);
+        });
+      });
+    })();
+  </script>
+
 </body>
 
 </html>
