@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoChamber</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="style-1">
+    <header>
+        <h1>EchoChamber</h1>
+        <p class="subtitle">A self-mutating digital experience</p>
+    </header>
+
+    <div class="content-container">
+        <button class="reload-btn" id="reloadBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21.5 2v6h-6M2.5 22v-6h6"></path>
+                <path d="M22 11.5A10 10 0 0 0 3.2 7.2M2 12.5a10 10 0 0 0 18.8 4.2"></path>
+            </svg>
+            Mutate Reality
+        </button>
+
+        <div class="badges-container" id="badgesContainer">
+            <!-- Badges will be added here dynamically -->
+        </div>
+
+        <div class="cards-container" id="cardsContainer">
+            <!-- Cards will be added here dynamically -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h3>EchoChamber</h3>
+            <p>Exploring the boundaries of digital mutation</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">About</a>
+                <a href="#" class="footer-link">Contact</a>
+                <a href="#" class="footer-link">Privacy</a>
+                <a href="#" class="footer-link">Terms</a>
+            </div>
+            <p class="click-counter">Mutation count: <span id="clickCount">0</span>/50</p>
+        </div>
+    </footer>
+
+    <div class="achievement-notification">
+        <div class="achievement-icon">🏆</div>
+        <div class="achievement-text">
+            <div class="achievement-title"></div>
+            <div class="achievement-desc"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

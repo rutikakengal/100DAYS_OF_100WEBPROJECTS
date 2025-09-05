@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Explorer - Day 01</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Solar System Background -->
+    <div class="solar-system">
+        <div class="sun"></div>
+        <div class="planet mercury"></div>
+        <div class="planet venus"></div>
+        <div class="planet earth"></div>
+        <div class="planet mars"></div>
+        <div class="planet jupiter"></div>
+        <div class="planet saturn">
+            <div class="ring"></div>
+        </div>
+        <div class="planet uranus"></div>
+        <div class="planet neptune"></div>
+        <div class="asteroid asteroid-1"></div>
+        <div class="asteroid asteroid-2"></div>
+        <div class="asteroid asteroid-3"></div>
+    </div>
+    
+    <!-- Rocket for Launch Animation -->
+    <div class="rocket" id="rocket">
+        <div class="rocket-body"></div>
+        <div class="rocket-fin rocket-fin-left"></div>
+        <div class="rocket-fin rocket-fin-right"></div>
+        <div class="rocket-window"></div>
+        <div class="rocket-flame"></div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Space<span class="highlight">Explorer</span></span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-line">Journey to the</span>
+                    <span class="title-line highlight-text">Cosmic</span>
+                    <span class="title-line">Universe</span>
+                </h1>
+                <p class="hero-subtitle">Explore the infinite cosmos with stunning visuals and discover the mysteries of space</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">Launch Mission</button>
+                    <button class="btn btn-secondary">Explore Galaxy</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                    <div class="shape shape-4"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="about" class="features">
+        <div class="container">
+            <h2 class="section-title">Cosmic Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Warp Speed</h3>
+                    <p>Travel at light speed through the cosmos with our advanced propulsion systems</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <h3>Universal Access</h3>
+                    <p>Connect from any planet or space station across the galaxy</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Stellar Interface</h3>
+                    <p>Navigate through space with our intuitive cosmic control panel</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Credit -->
+    <div class="footer-credit">
+        <p>created by @DhanashriPetkar</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
