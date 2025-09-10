@@ -54,6 +54,8 @@ const projects = [
   "Doodle Jump Game",
   "BrainBuzz Quizz Website",
   "Code Editor",
+  "Spotify Clone",
+  "Breathing exercise tracker "
 
   "Spotify Clone",
   "Plant Care Scheduler",
@@ -66,6 +68,7 @@ const projects = [
 
   "Typing Survival Game",
   "Amazon Clone (Web-Page)",
+
 
 
 

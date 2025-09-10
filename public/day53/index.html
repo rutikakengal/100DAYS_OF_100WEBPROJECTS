@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Breathing Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="circle" id="circle"></div>
+    <p id="text">Press Start</p>
+    <p id="counter">Cycles: 0</p>
+
+    <div class="controls">
+      <button id="startBtn">Start</button>
+      <button id="stopBtn" disabled>Stop</button>
+      <button id="muteBtn">🔊 Sound On</button>
+    </div>
+  </div>
+
+  <!-- Calming audio (royalty-free) -->
+  <audio id="calmAudio" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_a07c5d317b.mp3?filename=soft-ambient-113123.mp3" type="audio/mp3">
+    Your browser does not support audio.
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
