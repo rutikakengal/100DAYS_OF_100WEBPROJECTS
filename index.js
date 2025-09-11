@@ -67,6 +67,7 @@ const projects = [
   "Typing Survival Game",
   "Amazon Clone (Web-Page)",
   "Adventure Flappy Bird",
+  "3x3 Sliding Tile Puzzle Game"
 
 
 
