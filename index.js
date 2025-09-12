@@ -42,7 +42,7 @@ const projects = [
   "Doodle Jump Game",
 
   "BrainBuzz Quizz Website",
-  "",
+  "Toast Popup",
 
   " currency Converter",
 
