@@ -76,7 +76,7 @@
         --glass-border: rgba(0, 0, 0, 0.08);
         --hover-bg: rgba(99, 102, 241, 0.08);
       }
-
+     
       body {
         background: var(--bg-primary);
         color: var(--text-primary);
@@ -989,6 +989,27 @@
     </style>
   </head>
   <body class="bg-dark text-white font-sans pt-24">
+    
+     <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.querySelector(".search-input");
+    const projectRows = document.querySelectorAll(".project-row");
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase().trim();
+
+      projectRows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        if (text.includes(query)) {
+          row.style.display = "block"; // show matching
+        } else {
+          row.style.display = "none"; // hide non-matching
+        }
+      });
+    });
+  });
+</script>
+
     <nav class="fixed top-0 w-full z-50 navbar-glass shadow-xl p-4">
       <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
         <a href="index.html" class="flex items-center gap-3 text-white font-bold text-lg mb-2 sm:mb-0">
