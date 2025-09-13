@@ -1,0 +1,92 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: linear-gradient(135deg, #f0f8ff, #dfffd6);
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+
+.title {
+  margin: 15px 0;
+  color: #333;
+  text-shadow: 1px 1px #aaa;
+}
+
+.info-bar {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #444;
+}
+
+.maze {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: #fff;
+  border: 4px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.player {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  background: blue;
+  border-radius: 5px;
+}
+
+.exit {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 24px;
+}
+
+.wall {
+  position: absolute;
+  background: #333;
+  border-radius: 4px;
+}
+
+#status {
+  margin-top: 15px;
+  font-weight: bold;
+  color: green;
+}
+
+#restart {
+  margin-top: 10px;
+  padding: 8px 15px;
+  font-size: 16px;
+  background: #ffcc00;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#start-screen {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#startBtn {
+  padding: 10px 20px;
+  font-size: 18px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#startBtn:hover {
+  background: #218838;
+}
+
+
