@@ -67,7 +67,7 @@ const projects = [
   "Typing Survival Game",
   "Amazon Clone (Web-Page)",
   "Adventure Flappy Bird",
-
+  "Whack-a-Mole Game"
 
 
   // Add more project names as needed

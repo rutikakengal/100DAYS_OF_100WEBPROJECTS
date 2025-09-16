@@ -1,0 +1,123 @@
+/* General setup */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Press Start 2P", cursive;
+  background: linear-gradient(135deg, #1e1f26, #2a2d3e);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  user-select: none;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #ffeb3b;
+  text-shadow: 0 0 10px #ff9800, 0 0 20px #f44336;
+  margin-bottom: 20px;
+}
+
+/* Scoreboard */
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #00e5ff;
+  text-shadow: 0 0 5px #00bcd4, 0 0 10px #2196f3;
+}
+
+/* Game board */
+.game {
+  width: 400px;
+  height: 400px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+  perspective: 1000px;
+}
+
+.hole {
+  background: #2e2f3e;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 10px 20px rgba(0,0,0,0.7);
+}
+
+.mole {
+  background: url('mole.jpg') center/contain no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: -100%;
+  transition: all 0.3s ease;
+}
+
+.mole.up {
+  bottom: 0;
+}
+
+/* Buttons */
+button {
+  background: #ff4081;
+  border: none;
+  padding: 12px 25px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 10px #ff4081, 0 0 20px #f50057;
+}
+
+button:hover {
+  background: #f50057;
+  transform: scale(1.1);
+}
+
+.controls {
+  margin-top: 15px;
+}
+
+/* Game over */
+#gameOver {
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Rules */
+.rules {
+  margin-top: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: left;
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.7rem;
+}
+
+.rules h3 {
+  margin-bottom: 10px;
+  color: #ffeb3b;
+  text-align: center;
+}
+.rules ul {
+  list-style: none;
+}
+.rules li {
+  margin: 8px 0;
+  color: #e0e0e0;
+}
+

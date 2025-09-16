@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whack-a-Mole</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>🎯 Whack-a-Mole 🎯</h1>
+
+    <!-- Scoreboard -->
+    <div class="scoreboard">
+      <span>⏱️ Time: <span id="time">30</span>s</span>
+      <span>⭐ Score: <span id="score">0</span></span>
+      <span>🏆 High Score: <span id="highScore">0</span></span>
+    </div>
+
+    <!-- Game board -->
+    <div class="game">
+      <div class="hole"></div>
+      <div class="hole"></div>
+      <div class="hole"></div>
+      <div class="hole"></div>
+      <div class="hole"></div>
+      <div class="hole"></div>
+      <div class="hole"></div>
+      <div class="hole"></div>
+      <div class="hole"></div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="controls">
+      <button id="startBtn">▶️ Start Game</button>
+    </div>
+
+    <!-- Game over -->
+    <div id="gameOver" class="hidden">
+      <h2>Game Over!</h2>
+      <p>Your Score: <span id="finalScore">0</span></p>
+      <button id="restartBtn">🔄 Restart</button>
+    </div>
+
+    <!-- How to play -->
+    <div class="rules">
+      <h3>📜 How to Play</h3>
+      <ul>
+        <li>Click the 🐹 moles as fast as you can!</li>
+        <li>Each mole = +1 point.</li>
+        <li>Game lasts 30 seconds.</li>
+        <li>Beat your 🏆 High Score!</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
