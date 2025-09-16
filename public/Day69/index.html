@@ -1,0 +1,302 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="ludo.css" />
+  </head>
+  <body>
+    <div id="tsparticles"></div>
+    
+    <div class="center-container">
+      <div class="plsel">
+        <label class="plch">
+          <h4>Choose no of players: &nbsp;&nbsp;</h4>
+          <select name="plchoose" class="plct">
+            <option value="0">Choose</option>
+            <option value="2">2 Players</option>
+            <option value="1">3 Players</option>
+            <option value="0">4 Players</option>
+          </select>
+        </label>
+        <label class="clch">
+          <h4>Choose colour:&nbsp;&nbsp;&nbsp;</h4>
+          <h4>Red</h4>
+          <input type="radio" value="0" class="plse0" />
+          <h4>Green</h4>
+          <input type="radio" value="1" class="plse1" />
+          <h4>Blue</h4>
+          <input type="radio" value="2" class="plse2" />
+          <h4>Yellow</h4>
+          <input type="radio" value="3" class="plse3" />
+        </label>
+        <button type="button" class="plchbtn">OK</button>
+      </div>
+      <div class="obox">
+        <div class="box">
+          <div class="b_1">
+            <div class="red">
+              <div class="rk1">
+                <a href="#" class="r1" onclick="event.preventDefault()"
+                  ><div class="rp" id="rp1"></div
+                ></a>
+              </div>
+              <div class="rk2">
+                <a href="#" class="r2" onclick="event.preventDefault()"
+                  ><div class="rp" id="rp2"></div
+                ></a>
+              </div>
+              <div class="rk3">
+                <a href="#" class="r3" onclick="event.preventDefault()"
+                  ><div class="rp" id="rp3"></div
+                ></a>
+              </div>
+              <div class="rk4">
+                <a href="#" class="r4" onclick="event.preventDefault()"
+                  ><div class="rp" id="rp4"></div
+                ></a>
+              </div>
+            </div>
+            <div class="gt">
+              <table>
+                <tr>
+                  <td><div id="c23"></div></td>
+                  <td><div id="c24"></div></td>
+                  <td><div id="c25"></div></td>
+                </tr>
+                <tr>
+                  <td><div id="c22"></div></td>
+                  <td class="m"><div id="gr1"></div></td>
+                  <td class="m"><div id="c26"></div></td>
+                </tr>
+                <tr>
+                  <td><div id="c21"></div></td>
+                  <td class="m"><div id="gr2"></div></td>
+                  <td><div id="c27"></div></td>
+                </tr>
+                <tr>
+                  <td><div id="c20"></div></td>
+                  <td class="m"><div id="gr3"></div></td>
+                  <td><div id="c28"></div></td>
+                </tr>
+                <tr>
+                  <td><div id="c19"></div></td>
+                  <td class="m"><div id="gr4"></div></td>
+                  <td><div id="c29"></div></td>
+                </tr>
+                <tr>
+                  <td><div id="c18"></div></td>
+                  <td class="m"><div id="gr5"></div></td>
+                  <td><div id="c30"></div></td>
+                </tr>
+              </table>
+            </div>
+            <div class="green">
+              <div class="gk1">
+                <a href="#" class="g1" onclick="event.preventDefault()"
+                  ><div class="gp" id="gp1"></div
+                ></a>
+              </div>
+              <div class="gk2">
+                <a href="#" class="g2" onclick="event.preventDefault()"
+                  ><div class="gp" id="gp2"></div
+                ></a>
+              </div>
+              <div class="gk3">
+                <a href="#" class="g3" onclick="event.preventDefault()"
+                  ><div class="gp" id="gp3"></div
+                ></a>
+              </div>
+              <div class="gk4">
+                <a href="#" class="g4" onclick="event.preventDefault()"
+                  ><div class="gp" id="gp4"></div
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="b_2">
+            <div class="ty">
+              <table>
+                <tr>
+                  <td><div id="c12"></div></td>
+                  <td class="r"><div id="c13"></div></td>
+                  <td class="k"><div id="c14"></div></td>
+                  <td class="k"><div id="c15"></div></td>
+                  <td class="k"><div id="c16"></div></td>
+                  <td class="k"><div id="c17"></div></td>
+                </tr>
+                <tr>
+                  <td><div id="c11"></div></td>
+                  <td class="k r"><div id="rr1"></div></td>
+                  <td class="k r"><div id="rr2"></div></td>
+                  <td class="k r"><div id="rr3"></div></td>
+                  <td class="k r"><div id="rr4"></div></td>
+                  <td class="k r"><div id="rr5"></div></td>
+                </tr>
+                <tr>
+                  <td class="k"><div id="c10"></div></td>
+                  <td class="k"><div id="c9"></div></td>
+                  <td class="k"><div id="c8"></div></td>
+                  <td class="k"><div id="c7"></div></td>
+                  <td class="k"><div id="c6"></div></td>
+                  <td class="k"><div id="c5"></div></td>
+                </tr>
+              </table>
+            </div>
+            <div class="center">
+              <div id="rr6"></div>
+              <div id="gr6"></div>
+              <div id="br6"></div>
+              <div id="yr6"></div>
+            </div>
+            <div class="ty">
+              <table>
+                <tr>
+                  <td class="k1"><div id="c31"></div></td>
+                  <td class="k"><div id="c32"></div></td>
+                  <td class="k"><div id="c33"></div></td>
+                  <td class="k"><div id="c34"></div></td>
+                  <td class="k"><div id="c35"></div></td>
+                  <td class="k"><div id="c36"></div></td>
+                </tr>
+                <tr>
+                  <td class="k b"><div id="br5"></div></td>
+                  <td class="k b"><div id="br4"></div></td>
+                  <td class="k b"><div id="br3"></div></td>
+                  <td class="k b"><div id="br2"></div></td>
+                  <td class="k b"><div id="br1"></div></td>
+                  <td><div id="c37"></div></td>
+                </tr>
+                <tr>
+                  <td class="k"><div id="c43"></div></td>
+                  <td class="k"><div id="c42"></div></td>
+                  <td class="k"><div id="c41"></div></td>
+                  <td class="k"><div id="c40"></div></td>
+                  <td class="b"><div id="c39"></div></td>
+                  <td class="k"><div id="c38"></div></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="b_3">
+            <div class="yellow">
+              <div class="yk1">
+                <a href="#" class="y1" onclick="event.preventDefault()"
+                  ><div class="yp" id="yp1"></div
+                ></a>
+              </div>
+              <div class="yk2">
+                <a href="#" class="y2" onclick="event.preventDefault()"
+                  ><div class="yp" id="yp2"></div
+                ></a>
+              </div>
+              <div class="yk3">
+                <a href="#" class="y3" onclick="event.preventDefault()"
+                  ><div class="yp" id="yp3"></div
+                ></a>
+              </div>
+              <div class="yk4">
+                <a href="#" class="y4" onclick="event.preventDefault()"
+                  ><div class="yp" id="yp4"></div
+                ></a>
+              </div>
+            </div>
+            <div class="gt1">
+              <table>
+                <tr>
+                  <td><div id="c4"></div></td>
+                  <td class="y"><div id="yr5"></div></td>
+                  <td><div id="c44"></div></td>
+                </tr>
+                <tr>
+                  <td><div id="c3"></div></td>
+                  <td class="y"><div id="yr4"></div></td>
+                  <td><div id="c45"></div></td>
+                </tr>
+                <tr>
+                  <td><div id="c2"></div></td>
+                  <td class="y"><div id="yr3"></div></td>
+                  <td><div id="c46"></div></td>
+                </tr>
+                <tr>
+                  <td><div id="c1"></div></td>
+                  <td class="y"><div id="yr2"></div></td>
+                  <td><div id="c47"></div></td>
+                </tr>
+                <tr>
+                  <td class="y"><div id="c0"></div></td>
+                  <td class="y"><div id="yr1"></div></td>
+                  <td><div id="c48"></div></td>
+                </tr>
+                <tr>
+                  <td class="i"><div id="c51"></div></td>
+                  <td><div id="c50"></div></td>
+                  <td><div id="c49"></div></td>
+                </tr>
+              </table>
+            </div>
+            <div class="blue">
+              <div class="bk1">
+                <a href="#" class="b1" onclick="event.preventDefault()"
+                  ><div class="bp" id="bp1"></div
+                ></a>
+              </div>
+              <div class="bk2">
+                <a href="#" class="b2" onclick="event.preventDefault()"
+                  ><div class="bp" id="bp2"></div
+                ></a>
+              </div>
+              <div class="bk3">
+                <a href="#" class="b3" onclick="event.preventDefault()"
+                  ><div class="bp" id="bp3"></div
+                ></a>
+              </div>
+              <div class="bk4">
+                <a href="#" class="b4" onclick="event.preventDefault()"
+                  ><div class="bp" id="bp4"></div
+                ></a>
+              </div>
+            </div>
+
+            <div></div>
+          </div>
+        </div>
+        <div class="dice">
+          <button type="button" class="dicy">
+            <p class="pi"></p>
+          </button>
+        </div>
+      </div>
+      <div class="ins">
+        <ul>
+          <h3>INSTRUCTION</h3>
+          <li>Roll the dice</li>
+          <li>
+            Check the colour in the background of dice to know if it is your
+            turn or not
+          </li>
+          <li>Click on one of your piece to move it</li>
+          <li>Your piece will move according to the number on the dice</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Particle Background -->
+		<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				tsParticles.load("tsparticles", {
+					background: { color: "#000", opacity: 0.9 },
+					fpsLimit: 60,
+					particles: {
+						number: { value: 80 },
+						color: { value: ["#0723DC", "#EEFF0B", "#12AA21", "#FC0101"] },
+						links: { enable: true, distance: 140, color: "#01FCE7", opacity: 0.25 },
+						move: { enable: true, speed: 1 },
+						size: { value: { min: 2, max: 4 } },
+						opacity: { value: 5 }
+					},
+					interactivity: { events: { onHover: { enable: true, mode: "repulse" } } },
+					detectRetina: true
+				});
+			});
+		</script>
+    <script src="ludo.js"></script>
+  </body>
+</html>
