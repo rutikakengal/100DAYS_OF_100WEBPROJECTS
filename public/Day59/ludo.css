@@ -1,0 +1,285 @@
+#tsparticles {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	top: 0;
+	left: 0;
+}
+
+.box {
+  width: 800px;
+  height: 830px;
+  border: 10px solid black;
+  touch-action: manipulation;
+}
+.obox {
+  display: flex;
+}
+td {
+  width: 50px;
+  height: 50px;
+  background-color: whitesmoke;
+  border: 0.5px solid green;
+  margin: 0%;
+}
+.red {
+  width: 260px;
+  height: 260px;
+  border: 40px solid red;
+}
+.rk1,
+.rk2,
+.rk3,
+.rk4 {
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  margin: 34px;
+  display: inline-block;
+}
+.m {
+  background-color: green;
+}
+.blue {
+  width: 260px;
+  height: 260px;
+  border: 37px solid blue;
+}
+.bk1,
+.bk2,
+.bk3,
+.bk4 {
+  width: 50px;
+  height: 50px;
+  background-color: blue;
+  margin: 34px;
+  display: inline-block;
+}
+
+.green {
+  width: 260px;
+  height: 260px;
+  border: 40px solid green;
+}
+.gk1,
+.gk2,
+.gk3,
+.gk4 {
+  width: 50px;
+  height: 50px;
+  background-color: green;
+  margin: 34px;
+  display: inline-block;
+}
+.yellow {
+  width: 260px;
+  height: 260px;
+  border: 37px solid yellow;
+}
+.yk1,
+.yk2,
+.yk3,
+.yk4 {
+  width: 50px;
+  height: 50px;
+  background-color: yellow;
+  margin: 34px;
+  display: inline-block;
+}
+.b_1,
+.b_2,
+.b_3 {
+  display: flex;
+}
+
+.gt,
+.gt1,
+.ty {
+  display: flex;
+}
+.center {
+  height: 150px;
+  width: 150px;
+  background-image: url(imgs/ab.png);
+  background-size: 150px;
+  border: 3px solid violet;
+}
+.b_2 {
+  display: flex;
+  justify-content: space-evenly;
+}
+.y {
+  background-color: yellow;
+}
+.r {
+  background-color: red;
+}
+.b {
+  background-color: blue;
+}
+
+.dicy {
+  width: 100px;
+  height: 100px;
+  background-color: blanchedalmond;
+  background-image: url("imgs/1.png");
+  background-size: cover;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-color: white;
+  border-radius: 20%;
+}
+.dice {
+  width: 140px;
+  height: 830px;
+  border: 10px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+}
+.dicy:active {
+  transform: rotate(180deg);
+}
+p {
+  text-align: center;
+  font-size: 30px;
+}
+a {
+  text-decoration: none;
+}
+.bp {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: 3;
+  border-radius: 50%;
+  background-color: skyblue;
+  border: 1px solid black;
+  margin: 8px;
+}
+.yp {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: 4;
+  border-radius: 50%;
+  background-color: orange;
+  border: 1px solid black;
+  margin: 8px;
+}
+.rp {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+  background-color: brown;
+  border: 1px solid black;
+  margin: 8px;
+}
+.gp {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: 2;
+  border-radius: 50%;
+  background-color: lightgreen;
+  border: 1px solid black;
+  margin: 8px;
+}
+#rr6 {
+  width: 40px;
+  height: 40px;
+  margin-top: 52px;
+}
+#gr6 {
+  width: 40px;
+  height: 40px;
+  margin-left: 50px;
+  margin-top: -93px;
+}
+#yr6 {
+  width: 40px;
+  height: 40px;
+  margin-left: 50px;
+  margin-top: 8px;
+}
+#br6 {
+  width: 40px;
+  height: 40px;
+  margin-left: 102px;
+  margin-top: 9px;
+}
+#c0,
+#c13,
+#c47,
+#c34,
+#c39,
+#c26,
+#c21,
+#c8 {
+  background-image: url("imgs/s.svg");
+  background-size: 50px;
+  overflow: hidden;
+}
+.ins {
+  display: flex;
+  width: 99%;
+  background-color: rgba(0, 0, 0, 0.66);
+  margin-top: 10px;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+}
+h3 {
+  color: #ff0000;
+  text-decoration: underline;
+}
+.plct {
+  width: 120px;
+  height: 40px;
+  margin-top: 15px;
+}
+li {
+  color: #ff0000;
+}
+h4 {
+  font-size: 20px;
+  color: rgb(56, 203, 27);
+}
+.plsel {
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  background-color: rgba(0, 0, 0, 0.704);
+  color: blue;
+  size: 10px;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 10px;
+}
+.clch {
+  display: flex;
+  align-self: center;
+}
+.plch {
+  display: flex;
+  margin-top: 5px;
+  align-self: center;
+}
+.plchbtn {
+  width: 100px;
+  height: 50px;
+  align-self: center;
+  background-color: aliceblue;
+  border-radius: 30%;
+}
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
