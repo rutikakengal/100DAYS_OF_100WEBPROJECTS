@@ -33,7 +33,7 @@ const projects = [
   "Typing Speed Test webapp ",
   "Startup Name Generator Web App",
   "",
-  " ",
+  "Recipe Finder",
   "Snake Game ",
  "Hangman Game",
   "Simon Say Game ",
@@ -55,18 +55,22 @@ const projects = [
   "BrainBuzz Quizz Website",
   "Code Editor",
 
-
-
   "Spotify Clone",
   "Plant Care Scheduler",
+
   "Mood Quote Poster",
+  "Echo Chamber",
+
+  
+  
+
+  "Typing Survival Game",
+  "Amazon Clone (Web-Page)",
+  "Adventure Flappy Bird",
+
 
 
   // Add more project names as needed
-
-
- 
-
 
 ];
 

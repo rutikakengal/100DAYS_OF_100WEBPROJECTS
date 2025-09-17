@@ -220,6 +220,16 @@
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
         }
+        /* Snake cursor dots */
+         .snake-dot{
+             position:fixed;left:0;top:0;width:14px;height:14px;
+             background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);
+             border-radius:50%;pointer-events:none;z-index:99999;
+             transform:translate(-50%,-50%);
+             box-shadow:0 0 10px rgba(240,147,251,.85),0 0 20px rgba(245,87,108,.85);
+              opacity:.95;will-change:left,top,opacity,transform;
+            }
+
 
         .theme-toggle:hover {
             transform: scale(1.1) rotate(180deg);
@@ -430,6 +440,9 @@
                 />
                 <span class="whitespace-nowrap gradient-text text-xl font-extrabold"> 100_DAYS_100_WEB_PROJECT </span>
             </a>
+            <span class="whitespace-nowrap gradient-text text-xl font-extrabold"><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 50 50" fill="#6c65c5">
+    <path d="M 25 1.0507812 C 24.7825 1.0507812 24.565859 1.1197656 24.380859 1.2597656 L 1.3808594 19.210938 C 0.95085938 19.550938 0.8709375 20.179141 1.2109375 20.619141 C 1.5509375 21.049141 2.1791406 21.129062 2.6191406 20.789062 L 4 19.710938 L 4 46 C 4 46.55 4.45 47 5 47 L 19 47 L 19 29 L 31 29 L 31 47 L 45 47 C 45.55 47 46 46.55 46 46 L 46 19.710938 L 47.380859 20.789062 C 47.570859 20.929063 47.78 21 48 21 C 48.3 21 48.589063 20.869141 48.789062 20.619141 C 49.129063 20.179141 49.049141 19.550938 48.619141 19.210938 L 25.619141 1.2597656 C 25.434141 1.1197656 25.2175 1.0507812 25 1.0507812 z M 35 5 L 35 6.0507812 L 41 10.730469 L 41 5 L 35 5 z"></path>
+</svg></a></span>
 
 
         </div>
@@ -739,6 +752,55 @@
             link.addEventListener('click', toggleMobileMenu);
         });
     </script>
+    <script>
+    // Snake Cursor Script
+    (() => {
+      const isTouch = ("ontouchstart" in window) || navigator.maxTouchPoints > 0;
+      if (isTouch) return;
+
+      const tail = [];
+      const length = 18;
+      let mx = innerWidth / 2, my = innerHeight / 2;
+
+      for (let i = 0; i < length; i++) {
+        const d = document.createElement("div");
+        d.className = "snake-dot";
+        const size = Math.max(6, 14 - Math.floor(i * 0.45));
+        d.style.width = size + "px";
+        d.style.height = size + "px";
+        document.body.appendChild(d);
+        tail.push({ el: d, x: mx, y: my });
+      }
+
+      addEventListener("mousemove", e => { mx = e.clientX; my = e.clientY; });
+
+      function tick() {
+        let tx = mx, ty = my;
+        for (let i = 0; i < tail.length; i++) {
+          const t = tail[i];
+          t.x += (tx - t.x) * 0.28;
+          t.y += (ty - t.y) * 0.28;
+          t.el.style.left = t.x + "px";
+          t.el.style.top = t.y + "px";
+          t.el.style.opacity = Math.max(0.08, 1 - i / tail.length);
+          const scale = 1 - i / (tail.length * 1.2);
+          t.el.style.transform = `translate(-50%,-50%) scale(${scale})`;
+          tx = t.x; ty = t.y;
+        }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+
+      addEventListener("resize", () => {
+        const w = innerWidth, h = innerHeight;
+        tail.forEach(t => {
+          t.x = Math.min(Math.max(0, t.x), w);
+          t.y = Math.min(Math.max(0, t.y), h);
+        });
+      });
+    })();
+  </script>
+
 </body>
 
 </html>
