@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adventure Maze Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="title">⚔️ Adventure Maze Game ⚔️</h1>
+
+  <!-- Start Screen -->
+  <div id="start-screen">
+    <p>Welcome to the Maze Adventure! 🎮</p>
+    <button id="startBtn">Start Game</button>
+  </div>
+
+  <!-- Game Info -->
+  <div class="info-bar" style="display:none;">
+    <span id="level">Level: 1</span>
+    <span id="score">Score: 0</span>
+    <span id="timer">Time: 30</span>
+  </div>
+
+  <!-- Maze -->
+  <div class="maze" id="maze" style="display:none;">
+    <div class="player" id="player"></div>
+    <div class="exit" id="exit">🏆</div>
+    <!-- Walls inserted dynamically -->
+  </div>
+
+  <p id="status"></p>
+  <button id="restart" style="display:none;">Restart Game</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
