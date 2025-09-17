@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#64ffda">
+    <meta name="description" content="Take control of your finances with our intuitive expense tracker">
+    <meta name="keywords" content="expense tracker, budget, finance, money management, PWA">
+    <meta name="author" content="ExpenseFlow">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ExpenseFlow">
+    <meta name="msapplication-TileColor" content="#0f0f23">
+    <meta name="msapplication-navbutton-color" content="#64ffda">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iNDIiIGZpbGw9InVybCgjZ3JhZGllbnQwX2xpbmVhclswXSkiLz4KPHBhdGggZD0iTTQ4IDY0SDQ4LjA0OEgxNDRWMTI4SDk2VjE0NEgxNDRDMTUyLjgzNyAxNDQgMTYwIDEzNi44MzcgMTYwIDEyOFY2NEM1OCA1Ni4xNjMgNTIuMDQzIDQ4IDQ4IEg0OEM0MC4wNzEgNDggMzIgNTYuMDcxIDMyIDY0VjEyOEMzMiAxMzUuOTI5IDQwLjA3MSAxNDQgNDggMTQ0SDgwVjEyOEg0OFY2NFoiIGZpbGw9IiM2NGZmZGEiLz4KPHBhdGggZD0iTTY0IDgwSDgwVjk2SDY0VjgwWiIgZmlsbD0iIzY0ZmZkYSIvPgo8cGF0aCBkPSJNOTYgODBIMTI4Vjk2SDk2VjgwWiIgZmlsbD0iIzY0ZmZkYSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudDBfbGluZWFyWzBdIiB4MT0iMCIgeTE9IjAiIHgyPSIxOTIiIHkyPSIxOTIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzY2N2VlYSIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM3NjRiYTIiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K">
+    
+    <title>ExpenseFlow - Smart Money Management</title>
+    <link rel="stylesheet" href="expensetracker.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="nav-logo">
+            <i class="fas fa-wallet"></i>
+            <span>ExpenseFlow</span>
+          </div>
+          <div class="nav-menu" id="nav-menu">
+            <a href="#dashboard" class="nav-link active">Dashboard</a>
+            <a href="#analytics" class="nav-link">Analytics</a>
+            <a href="#goals" class="nav-link">Goals</a>
+            <a href="#settings" class="nav-link">Settings</a>
+          </div>
+          <div class="nav-toggle" id="nav-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          <div class="user-profile">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face" alt="User" class="profile-img">
+            <span class="username">John Doe</span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="hero-section">
+        <h1 class="hero-title">Smart Money Management</h1>
+        <p class="hero-subtitle">Take control of your finances with our intuitive expense tracker</p>
+      </div>
+
+      <div class="container">
+        <!-- Balance Card -->
+        <div class="balance-card">
+          <div class="balance-header">
+            <i class="fas fa-chart-line"></i>
+            <h4>Your Balance</h4>
+          </div>
+          <h1 id="balance" class="balance-amount">&#8377;0.00</h1>
+          <div class="balance-trend">
+            <span class="trend-indicator positive">↗</span>
+            <span class="trend-text">+2.5% from last month</span>
+          </div>
+        </div>
+
+        <!-- Income & Expense Cards -->
+        <div class="inc-exp-container">
+          <div class="income-card">
+            <div class="card-icon income-icon">
+              <i class="fas fa-arrow-up"></i>
+            </div>
+            <div class="card-content">
+              <h4>Income</h4>
+              <p id="money-plus" class="money-plus">
+                +&#8377;0.00
+              </p>
+            </div>
+          </div>
+          <div class="expense-card">
+            <div class="card-icon expense-icon">
+              <i class="fas fa-arrow-down"></i>
+            </div>
+            <div class="card-content">
+              <h4>Expense</h4>
+              <p id="money-minus" class="money-minus">
+                -&#8377;0.00
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transaction History -->
+        <div class="history-section">
+          <div class="section-header">
+            <h3><i class="fas fa-history"></i> Transaction History</h3>
+            <div class="filter-controls">
+              <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search transactions..." class="search-input">
+                <i class="fas fa-search search-icon"></i>
+              </div>
+              <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="income">Income</button>
+                <button class="filter-btn" data-filter="expense">Expense</button>
+              </div>
+              <div class="advanced-filters">
+                <select id="category-filter" class="category-select">
+                  <option value="all">All Categories</option>
+                  <option value="food">🍽️ Food & Dining</option>
+                  <option value="transport">🚗 Transportation</option>
+                  <option value="shopping">🛒 Shopping</option>
+                  <option value="entertainment">🎬 Entertainment</option>
+                  <option value="bills">💡 Bills & Utilities</option>
+                  <option value="healthcare">🏥 Healthcare</option>
+                  <option value="education">📚 Education</option>
+                  <option value="travel">✈️ Travel</option>
+                  <option value="salary">💼 Salary</option>
+                  <option value="freelance">💻 Freelance</option>
+                  <option value="investment">📈 Investment</option>
+                  <option value="other">📋 Other</option>
+                </select>
+                <div class="date-filters">
+                  <input type="date" id="date-from" class="date-input" placeholder="From">
+                  <input type="date" id="date-to" class="date-input" placeholder="To">
+                </div>
+                <div class="amount-filters">
+                  <input type="number" id="amount-min" placeholder="Min Amount" class="amount-input" step="0.01">
+                  <input type="number" id="amount-max" placeholder="Max Amount" class="amount-input" step="0.01">
+                </div>
+                <button class="clear-filters-btn" id="clear-filters">
+                  <i class="fas fa-times"></i> Clear Filters
+                </button>
+              </div>
+            </div>
+          </div>
+          <ul id="list" class="list">
+            <!-- Transactions will be added here -->
+          </ul>
+        </div>
+
+        <!-- Data Management Section -->
+        <div class="data-management-section">
+          <h3><i class="fas fa-database"></i> Data Management</h3>
+          <div class="data-actions">
+            <div class="export-section">
+              <h4>Export Data</h4>
+              <div class="export-buttons">
+                <button class="export-btn" id="export-csv">
+                  <i class="fas fa-file-csv"></i> Export to CSV
+                </button>
+                <button class="export-btn" id="export-json">
+                  <i class="fas fa-file-code"></i> Export to JSON
+                </button>
+              </div>
+            </div>
+            <div class="import-section">
+              <h4>Import Data</h4>
+              <div class="import-controls">
+                <input type="file" id="import-file" accept=".csv,.json" class="file-input">
+                <label for="import-file" class="file-label">
+                  <i class="fas fa-upload"></i> Choose File
+                </label>
+                <button class="import-btn" id="import-data" disabled>
+                  <i class="fas fa-download"></i> Import Data
+                </button>
+              </div>
+              <div class="import-options">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="merge-data" checked>
+                  <span class="checkmark"></span>
+                  Merge with existing data
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Transaction Form -->
+        <div class="form-section">
+          <h3><i class="fas fa-plus-circle"></i> Add New Transaction</h3>
+          <form id="form" class="transaction-form">
+            <div class="form-row">
+              <div class="form-control">
+                <label for="text">Description</label>
+                <input type="text" id="text" placeholder="Enter transaction description" required/>
+              </div>
+              <div class="form-control">
+                <label for="category">Category</label>
+                <select id="category" required>
+                  <option value="">Select Category</option>
+                  <option value="food">🍽️ Food & Dining</option>
+                  <option value="transport">🚗 Transportation</option>
+                  <option value="shopping">🛒 Shopping</option>
+                  <option value="entertainment">🎬 Entertainment</option>
+                  <option value="bills">💡 Bills & Utilities</option>
+                  <option value="healthcare">🏥 Healthcare</option>
+                  <option value="education">📚 Education</option>
+                  <option value="travel">✈️ Travel</option>
+                  <option value="salary">💼 Salary</option>
+                  <option value="freelance">💻 Freelance</option>
+                  <option value="investment">📈 Investment</option>
+                  <option value="other">📋 Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-control">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" placeholder="Enter amount" step="0.01" required>
+                <small>Tip: Use negative values for expenses, positive for income</small>
+              </div>
+              <div class="form-control">
+                <label for="type">Transaction Type</label>
+                <select id="type" required>
+                  <option value="">Select Type</option>
+                  <option value="income">💰 Income</option>
+                  <option value="expense">💸 Expense</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn-submit">
+              <i class="fas fa-plus"></i>
+              Add Transaction
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <i class="fas fa-wallet"></i>
+            <span>ExpenseFlow</span>
+          </div>
+          <p>Smart money management made simple. Track, analyze, and optimize your financial habits.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Features</h4>
+          <ul class="footer-links">
+            <li><a href="#">Expense Tracking</a></li>
+            <li><a href="#">Budget Planning</a></li>
+            <li><a href="#">Analytics Dashboard</a></li>
+            <li><a href="#">Goal Setting</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Financial Tips</a></li>
+            <li><a href="#">Video Tutorials</a></li>
+            <li><a href="#">Community</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-container">
+          <p>&copy; 2024 ExpenseFlow. All rights reserved. Made with ❤️ for better financial management.</p>
+          <div class="footer-stats">
+            <span>🏆 Trusted by 10,000+ users</span>
+            <span>💰 ₹50M+ tracked</span>
+            <span>📊 99.9% uptime</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="trackerscript.js"></script>
+    
+    <!-- PWA Installation Prompt -->
+    <div id="install-prompt" class="install-prompt" style="display: none;">
+      <div class="install-prompt-content">
+        <div class="install-prompt-header">
+          <i class="fas fa-download"></i>
+          <h3>Install ExpenseFlow</h3>
+        </div>
+        <p>Install ExpenseFlow for quick access and offline functionality!</p>
+        <div class="install-prompt-actions">
+          <button id="install-button" class="install-btn">
+            <i class="fas fa-plus"></i> Install
+          </button>
+          <button id="install-dismiss" class="dismiss-btn">
+            <i class="fas fa-times"></i> Not now
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Offline Indicator -->
+    <div id="offline-indicator" class="offline-indicator" style="display: none;">
+      <i class="fas fa-wifi-slash"></i>
+      <span>You're offline. Changes will be saved locally.</span>
+    </div>
+    
+    <!-- Update Available Notification -->
+    <div id="update-notification" class="update-notification" style="display: none;">
+      <div class="update-content">
+        <i class="fas fa-sync-alt"></i>
+        <span>A new version is available!</span>
+        <button id="update-button" class="update-btn">Update Now</button>
+      </div>
+    </div>
+  </body>
+</html>
