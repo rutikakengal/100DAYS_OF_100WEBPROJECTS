@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms & Conditions - 100 Days Web Challenge</title>
+    <link rel="icon" href="100-days-100-webdev-projects-LOGO.png" type="image/png">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366f1",
+              secondary: "#8b5cf6",
+              accent: "#06b6d4",
+              dark: "#0f172a",
+              surface: "#1e293b",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        --accent-color: #6366f1;
+        --glass-bg: rgba(255, 255, 255, 0.08);
+        --glass-border: rgba(255, 255, 255, 0.12);
+        --hover-bg: rgba(99, 102, 241, 0.1);
+      }
+      [data-theme="light"] {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f1f5f9;
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --accent-color: #6366f1;
+        --glass-bg: rgba(255, 255, 255, 0.85);
+        --glass-border: rgba(0, 0, 0, 0.08);
+        --hover-bg: rgba(99, 102, 241, 0.08);
+      }
+      body {
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        transition: all 0.4s ease;
+        overflow-x: hidden;
+      }
+      .glass-card {
+        backdrop-filter: blur(20px);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        transition: all 0.4s ease;
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .navbar-glass {
+        backdrop-filter: blur(20px);
+        background: rgba(15,23,42,0.8);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      [data-theme="light"] .navbar-glass {
+        background: rgba(255,255,255,0.9);
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .theme-toggle {
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        z-index: 1000;
+      }
+      .theme-toggle:hover {
+        transform: scale(1.1) rotate(180deg);
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      @media (max-width: 768px) {
+        .theme-toggle {
+          top: 110px;
+          right: 20px;
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+        }
+      }
+      /* Force overrides in light mode */
+[data-theme="light"] body {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="light"] .text-white {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="light"] .text-slate-300 {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="light"] .bg-dark {
+  background: var(--bg-primary) !important;
+}
+
+[data-theme="light"] .navbar-glass {
+  background: var(--glass-bg) !important;
+  border-bottom: 1px solid var(--glass-border) !important;
+}
+
+[data-theme="light"] .glass-card {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+}
+
+[data-theme="light"] .footer,
+[data-theme="light"] footer {
+  background: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="light"] a {
+  color: var(--accent-color) !important;
+}
+
+    </style>
+  </head>
+  <body class="bg-dark text-white font-sans pt-24">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 navbar-glass shadow-xl p-4">
+      <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3 text-white font-bold text-lg mb-2 sm:mb-0">
+          <img src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"
+            class="h-12 w-12 rounded-full object-cover ring-2 ring-primary/30" alt="Logo" />
+          <span class="gradient-text text-xl font-extrabold">100_DAYS_100_WEB_PROJECT</span>
+        </a>
+        <div class="flex gap-4">
+          <button id="hamburger-btn" class="md:hidden">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+          <div id="mobile-menu"
+            class="hidden md:flex absolute md:static top-16 left-0 w-full navbar-glass md:w-auto flex flex-col md:flex-row py-4 md:gap-x-6 md:py-0">
+            <a href="index.html#projects" class="nav-link text-white hover:text-primary px-4 py-2">Projects</a>
+            <a href="index.html#about" class="nav-link text-white hover:text-primary px-4 py-2">About</a>
+            <a href="contributors.html" class="nav-link text-white hover:text-primary px-4 py-2">Contributors</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="min-h-[50vh] flex flex-col justify-center items-center pt-10 text-center px-4">
+      <div class="container mx-auto">
+        <h1 class="text-4xl md:text-6xl font-black mb-4 leading-tight">
+          <span class="gradient-text">Terms & Conditions</span><br>
+        </h1>
+        <p class="mt-4 text-slate-300 text-lg md:text-xl max-w-2xl mx-auto font-light">
+          Last Updated: <span id="currentDate"></span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="container mx-auto px-4 py-20">
+      <div class="glass-card rounded-2xl p-8 md:p-12">
+        <div class="prose prose-invert max-w-none">
+          <h2 class="text-3xl font-bold mb-6 gradient-text">1. Acceptance of Terms</h2>
+          <p class="text-slate-300 mb-8 text-lg">
+            By accessing or using our website and services, you agree to comply with these Terms &
+            Conditions. If you do not agree, please discontinue use immediately.
+          </p>
+
+          <h2 class="text-3xl font-bold mb-6 gradient-text">2. Use of Services</h2>
+          <p class="text-slate-300 mb-8 text-lg">
+            You agree to use our projects and resources for lawful purposes only and not to engage
+            in any activity that may harm, disrupt, or exploit the platform or other users.
+          </p>
+
+          <h2 class="text-3xl font-bold mb-6 gradient-text">3. Intellectual Property</h2>
+          <p class="text-slate-300 mb-8 text-lg">
+            All content, including code, design, and media, is provided for educational purposes.
+            You may use, modify, or share the projects with proper attribution. Unauthorized
+            commercial use is prohibited.
+          </p>
+
+          <h2 class="text-3xl font-bold mb-6 gradient-text">4. Limitation of Liability</h2>
+          <p class="text-slate-300 mb-8 text-lg">
+            We are not liable for any damages, losses, or issues arising from the use of our
+            projects or third-party services integrated into them.
+          </p>
+
+          <h2 class="text-3xl font-bold mb-6 gradient-text">5. Third-Party Links</h2>
+          <p class="text-slate-300 mb-8 text-lg">
+            Our projects may contain links to third-party websites. We are not responsible for
+            their content, policies, or practices.
+          </p>
+
+          <h2 class="text-3xl font-bold mb-6 gradient-text">6. Changes to Terms</h2>
+          <p class="text-slate-300 mb-8 text-lg">
+            We reserve the right to update or change these Terms & Conditions at any time. Updates
+            will be posted on this page with the revised "Last Updated" date.
+          </p>
+
+          <h2 class="text-3xl font-bold mb-6 gradient-text">7. Contact Us</h2>
+          <p class="text-slate-300 mb-8 text-lg">
+            If you have any questions about these Terms, please contact us at:
+            <a href="mailto:terms@100dayswebprojects.com" class="text-primary hover:underline">terms@100dayswebprojects.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white p-8 mt-20 border-t border-slate-800">
+      <div class="container mx-auto grid md:grid-cols-3 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold mb-6 gradient-text">100 Days Challenge</h2>
+          <p class="text-slate-300 mb-6 text-lg">100 web projects built with HTML, CSS, and JS for
+            learning and practice.</p>
+          <div class="flex gap-6">
+            <a href="https://www.instagram.com/" class="text-pink-400 text-2xl"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS"
+              class="text-slate-300 text-2xl"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/rutika-kengal-8085092b7"
+              class="text-blue-400 text-2xl"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold mb-6 gradient-text">Quick Links</h2>
+          <ul class="space-y-4">
+            <li><a href="index.html" class="text-slate-300 hover:text-white">Home</a></li>
+            <li><a href="index.html#about" class="text-slate-300 hover:text-white">About Challenge</a></li>
+            <li><a href="index.html#projects" class="text-slate-300 hover:text-white">Browse Projects</a></li>
+            <li><a href="contributors.html" class="text-slate-300 hover:text-white">Contributors</a></li>
+            <li><a href="privacy.html" class="text-slate-300 hover:text-white">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold mb-6 gradient-text">Legal</h2>
+          <div class="flex flex-wrap gap-3 mb-8">
+            <a href="privacy.html"
+              class="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:scale-105">Privacy
+              Policy</a>
+            <a href="terms.html"
+              class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">Terms
+              of Service</a>
+          </div>
+          <p class="text-slate-400 text-lg">©
+            <script>document.write(new Date().getFullYear());</script>
+            100DAYS_WEBPROJECTS by
+            <a href="#" class="gradient-text">Rutika Kengal</a> & Contributors
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Theme Toggle -->
+    <button id="themeToggle" class="theme-toggle">🌙</button>
+
+    <!-- Scroll to Top -->
+    <button id="scrollBtn" onclick="scrollToTop()"
+      class="fixed bottom-8 right-8 bg-gradient-to-r from-primary to-secondary text-white p-4 rounded-full shadow-2xl hidden">
+      <i class="fas fa-arrow-up text-xl"></i>
+    </button>
+
+    <script>
+      document.getElementById("currentDate").textContent = new Date().toLocaleDateString("en-US", {
+        year: "numeric", month: "long", day: "numeric"
+      });
+      const scrollBtn = document.getElementById("scrollBtn");
+      window.onscroll = () => {
+        if (document.documentElement.scrollTop > 100) scrollBtn.classList.remove("hidden");
+        else scrollBtn.classList.add("hidden");
+      };
+      function scrollToTop() { window.scrollTo({ top: 0, behavior: "smooth" }); }
+
+      // Theme toggle logic
+      const themeToggle = document.getElementById("themeToggle");
+      function setTheme(mode) {
+        if (mode === "light") {
+          document.documentElement.setAttribute("data-theme", "light");
+          themeToggle.textContent = "🌞";
+        } else {
+          document.documentElement.removeAttribute("data-theme");
+          themeToggle.textContent = "🌙";
+        }
+      }
+      
+      // Load theme from localStorage or default to dark
+      let currentTheme = localStorage.getItem("theme") || "dark";
+      setTheme(currentTheme);
+      
+      themeToggle.addEventListener("click", function () {
+        currentTheme = currentTheme === "dark" ? "light" : "dark";
+        setTheme(currentTheme);
+        localStorage.setItem("theme", currentTheme);
+      });
+    </script>
+  </body>
+</html>

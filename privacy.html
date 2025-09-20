@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy - 100 Days Web Challenge</title>
+    <link rel="icon" href="100-days-100-webdev-projects-LOGO.png" type="image/png">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366f1",
+              secondary: "#8b5cf6",
+              accent: "#06b6d4",
+              dark: "#0f172a",
+              surface: "#1e293b",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            animation: {
+              'gradient': 'gradient 8s linear infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate',
+            }
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        --accent-color: #6366f1;
+        --glass-bg: rgba(255, 255, 255, 0.08);
+        --glass-border: rgba(255, 255, 255, 0.12);
+        --hover-bg: rgba(99, 102, 241, 0.1);
+      }
+
+      [data-theme="light"] {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8fafc;
+        --text-primary: #1e293b;
+        --text-secondary: #64748b;
+        --accent-color: #6366f1;
+        --glass-bg: rgba(255, 255, 255, 0.9);
+        --glass-border: rgba(0, 0, 0, 0.08);
+        --hover-bg: rgba(99, 102, 241, 0.08);
+      }
+
+      body {
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-x: hidden;
+      }
+
+      .glass-card {
+        backdrop-filter: blur(20px);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        color: var(--text-primary);
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .navbar-glass {
+        backdrop-filter: blur(20px);
+        background: rgba(15, 23, 42, 0.8);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      [data-theme="light"] .navbar-glass {
+        background: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .theme-toggle {
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        z-index: 1000;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        color: var(--text-primary);
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.1) rotate(180deg);
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      @media (max-width: 768px) {
+        .theme-toggle {
+          top: 110px;
+          right: 20px;
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+        }
+      }
+      [data-theme="light"] {
+  --bg-primary: #ffffff;      /* full page background */
+  --bg-secondary: #f1f5f9;    /* card / section bg */
+  --text-primary: #0f172a;    /* very dark text */
+  --text-secondary: #475569;  /* muted gray text */
+  --accent-color: #6366f1;
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --hover-bg: rgba(99, 102, 241, 0.08);
+}
+
+/* Override dark-text classes inside light mode */
+[data-theme="light"] .text-white {
+  color: #0f172a !important;
+}
+[data-theme="light"] .text-slate-300 {
+  color: #334155 !important;
+}
+[data-theme="light"] .text-slate-400 {
+  color: #475569 !important;
+}
+
+/* Footer background change for light mode */
+[data-theme="light"] footer {
+  background: #f8fafc;  /* light gray */
+  color: #0f172a;
+  border-top: 1px solid #e2e8f0;
+}
+
+
+/* Light mode hero section (Privacy / Policy banner) */
+[data-theme="light"] section {
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 50%, #e0f2fe 100%);
+  /* very soft white → gray → blue gradient */
+  color: var(--text-primary); /* make sure text uses dark text */
+}
+
+/* Ensure gradient text stays visible in light mode */
+[data-theme="light"] .gradient-text {
+  background: linear-gradient(90deg, #6366f1, #9333ea, #f43f5e); /* Indigo → Purple → Pink */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+section {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Remove any gap between navbar and banner */
+section:first-of-type {
+  margin-top: 0;
+  padding-top: 2rem; /* keep your spacing */
+}
+
+
+[data-theme="light"] .navbar-glass {
+  border-bottom: 1px solid #e2e8f0; /* soft gray instead of black */
+}
+      /* Force overrides in light mode */
+[data-theme="light"] body {
+  background: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+</style>
+    
+
+  </head>
+  <body class="bg-dark text-white font-sans pt-24">
+    <nav class="fixed top-0 w-full z-50 navbar-glass shadow-xl p-4">
+      <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3 text-white font-bold text-lg mb-2 sm:mb-0">
+          <img
+            src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"
+            class="h-12 w-12 rounded-full object-cover ring-2 ring-primary/30" alt="Logo"
+          />
+         <span class="whitespace-nowrap gradient-text text-xl font-extrabold"> 100_DAYS_100_WEB_PROJECT </span>
+        </a>
+
+        <div class="flex gap-4">
+          <button id="hamburger-btn" class="md:hidden">
+            <svg
+              class="w-6 h-6 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+          </button>
+
+          <div
+            id="mobile-menu"
+            class="hidden md:flex absolute md:static top-16 left-0 w-full navbar-glass md:w-auto md:bg-transparent flex flex-col md:flex-row py-4 md:gap-x-6 md:py-0"
+          >
+            <a
+              href="index.html#projects"
+              class="nav-link flex-grow md:flex-grow-0 text-center text-white hover:text-primary font-semibold transition-colors px-4 py-2"
+              >Projects</a
+            >
+            <a
+              href="index.html#about"
+              class="nav-link flex-grow md:flex-grow-0 text-center text-white hover:text-primary font-semibold transition-colors px-4 py-2"
+              >About</a
+            >
+            <a
+              href="contributors.html"
+              class="nav-link flex-grow md:flex-grow-0 text-center text-white hover:text-primary font-semibold transition-colors px-4 py-2"
+              >Contributors</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="min-h-[50vh] flex flex-col justify-center items-center pt-10 text-center px-4">
+  <div class="container mx-auto">
+    <h1 class="text-4xl md:text-6xl font-black mb-4 leading-tight">
+      <span class="gradient-text">Privacy</span>
+      <br>
+      <span class="gradient-text">Policy</span>
+    </h1>
+    <p class="mt-4 text-slate-300 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+      Last Updated: <span id="currentDate"></span>
+    </p>
+  </div>
+</section>
+
+    
+    <section class="container mx-auto px-4 py-20">
+      <div class="glass-card rounded-2xl p-8 md:p-12">
+        <div class="prose prose-invert max-w-none">
+          <h2 class="text-3xl font-bold mb-6 gradient-text">1. Information We Collect</h2>
+          <p class="text-slate-300 mb-8 text-lg leading-relaxed">
+            Our website collects minimal information to provide you with the best experience. 
+            We may collect:
+          </p>
+          <ul class="text-slate-300 mb-8 text-lg list-disc list-inside space-y-4">
+            <li>Information you provide directly when using our AI chatbot feature</li>
+            <li>Anonymous usage statistics to improve our services</li>
+            <li>Cookies and similar technologies to enhance your browsing experience</li>
+            <li>API keys that you voluntarily provide for the AI chatbot functionality</li>
+          </ul>
+
+          <h2 class="text-3xl font-bold mb-6 gradient-text">2. How We Use Your Information</h2>
+          <p class="text-slate-300 mb-8 text-lg leading-relaxed">
+            We use the information we collect to:
+          </p>
+          <ul class="text-slate-300 mb-8 text-lg list-disc list-inside space-y-4">
+            <li>Provide, maintain, and improve our services</li>
+            <li>Respond to your questions and requests</li>
+            <li>Customize your experience with our AI chatbot</li>
+            <li>Analyze how users interact with our website</li>
+          </ul>
+
+          <h2 class="text-3xl font-bold mb-6 gradient-text">3. Data Storage and Security</h2>
+          <p class="text-slate-300 mb-8 text-lg leading-relaxed">
+            We implement appropriate security measures to protect your information. 
+            Your API keys are stored locally in your browser and are not transmitted 
+            to our servers. We do not store your chat conversations on our servers.
+          </p>
+
+          <h2 class="text-3xl font-bold mb-6 gradient-text">4. Third-Party Services</h2>
+          <p class="text-slate-300 mb-8 text-lg leading-relaxed">
+            Our AI chatbot feature uses Google's Gemini API. When you use this feature, 
+            your messages are sent directly to Google's servers. We encourage you to 
+            review Google's privacy policy to understand how they handle your data.
+          </p>
+
+          <h2 class="text-3xl font-bold mb-6 gradient-text">5. Your Rights</h2>
+          <p class="text-slate-300 mb-8 text-lg leading-relaxed">
+            You have the right to:
+          </p>
+          <ul class="text-slate-300 mb-8 text-lg list-disc list-inside space-y-4">
+            <li>Access the personal information we hold about you</li>
+            <li>Request correction or deletion of your information</li>
+            <li>Opt-out of certain data collection practices</li>
+            <li>Delete your locally stored API key at any time</li>
+          </ul>
+
+          <h2 class="text-3xl font-bold mb-6 gradient-text">6. Changes to This Policy</h2>
+          <p class="text-slate-300 mb-8 text-lg leading-relaxed">
+            We may update this privacy policy from time to time. We will notify you of 
+            any changes by posting the new policy on this page and updating the 
+            "Last Updated" date.
+          </p>
+
+          <h2 class="text-3xl font-bold mb-6 gradient-text">7. Contact Us</h2>
+          <p class="text-slate-300 mb-8 text-lg leading-relaxed">
+            If you have any questions about this Privacy Policy, please contact us at:
+            <a href="mailto:privacy@100dayswebprojects.com" class="text-primary hover:underline">privacy@100dayswebprojects.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white p-8 mt-20 border-t border-slate-800">
+      <div class="container mx-auto grid md:grid-cols-3 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold mb-6 gradient-text">100 Days Challenge</h2>
+          <p class="text-slate-300 mb-6 leading-relaxed text-lg">
+            This repository contains 100 web projects from basic to intermediate
+            using HTML, CSS, and JS. Each project is designed to teach specific
+            concepts and improve your coding skills.
+          </p>
+          <div class="flex gap-6">
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              class="text-pink-400 hover:text-pink-300 transition-colors text-2xl hover:scale-110 transform duration-300"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS"
+              target="_blank"
+              class="text-slate-300 hover:text-white transition-colors text-2xl hover:scale-110 transform duration-300"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/rutika-kengal-8085092b7"
+              target="_blank"
+              class="text-blue-400 hover:text-blue-300 transition-colors text-2xl hover:scale-110 transform duration-300"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
+        </div>
+        
+        <div>
+          <h2 class="text-2xl font-bold mb-6 gradient-text">Quick Links</h2>
+          <ul class="space-y-4">
+            <li>
+              <a
+                href="index.html"
+                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#about"
+                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
+                >About Challenge</a
+              >
+            </li>
+            <li>
+              <a
+                href="index.html#projects"
+                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
+                >Browse Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="contributors.html"
+                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
+                >Contributors</a
+              >
+            </li>
+            <li>
+              <a
+                href="terms.html"
+                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
+                >Terms & Conditions</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-6 gradient-text">Legal</h2>
+          <div class="flex flex-wrap gap-3 mb-8">
+            <a href="privacy.html" class="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium">Privacy Policy</a>
+            <a href="terms.html" class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:scale-105 transition-transform">Terms of Service</a>
+          </div>
+          <p class="text-slate-400 text-lg">
+            ©
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            100DAYS_WEBPROJECTS by
+            <a href="#" class="underline hover:text-white transition-colors gradient-text font-medium"
+              >Rutika Kengal</a
+            >
+            & Contributors
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <button id="themeToggle" class="theme-toggle">🌙</button>
+
+    <button
+      id="scrollBtn"
+      onclick="scrollToTop()"
+      class="fixed bottom-8 right-8 bg-gradient-to-r from-primary to-secondary text-white p-4 rounded-full shadow-2xl z-[60] btn-modern hidden hover:scale-110 transition-all duration-300"
+    >
+      <i class="fas fa-arrow-up text-xl"></i>
+    </button>
+
+    <script>
+      // Set current date
+      document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      });
+
+      // Scroll to top functionality
+      const scrollBtn = document.getElementById("scrollBtn");
+      window.onscroll = () => {
+        if (document.documentElement.scrollTop > 100)
+          scrollBtn.classList.remove("hidden");
+        else scrollBtn.classList.add("hidden");
+      };
+      
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // Theme toggle logic
+      const themeToggle = document.getElementById("themeToggle");
+      function setTheme(mode) {
+        if (mode === "light") {
+          document.documentElement.setAttribute("data-theme", "light");
+          themeToggle.textContent = "🌞";
+        } else {
+          document.documentElement.removeAttribute("data-theme");
+          themeToggle.textContent = "🌙";
+        }
+      }
+      
+      // Load theme from localStorage or default to dark
+      let currentTheme = localStorage.getItem("theme") || "dark";
+      setTheme(currentTheme);
+      
+      themeToggle.addEventListener("click", function () {
+        currentTheme = currentTheme === "dark" ? "light" : "dark";
+        setTheme(currentTheme);
+        localStorage.setItem("theme", currentTheme);
+      });
+    </script>
+  </body>
+</html>
