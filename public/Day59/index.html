@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Word Chain Challenge</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
+    body{
+      height:100vh;display:flex;justify-content:center;align-items:center;
+      background:radial-gradient(circle at top,#111,#000);
+      overflow:hidden;color:#fff;
+    }
+    body::before,body::after{
+      content:"";position:absolute;border-radius:50%;filter:blur(120px);opacity:.6;
+      animation:float 10s infinite alternate ease-in-out;
+    }
+    body::before{width:400px;height:400px;top:-100px;left:-100px;background:#ff007c;}
+    body::after{width:500px;height:500px;bottom:-150px;right:-150px;background:#00fff7;animation-delay:2s;}
+    @keyframes float{from{transform:translate(0,0);}to{transform:translate(50px,-30px);}}
+    .container{
+      z-index:2;width:90%;max-width:800px;background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.2);
+      border-radius:20px;padding:2rem;text-align:center;box-shadow:0 0 30px rgba(0,0,0,0.6);
+    }
+    h1{font-size:2.2rem;margin-bottom:.5rem;color:#00fff7;text-shadow:0 0 15px #00fff7;}
+
+    /* Rules box */
+    .rules {
+      margin: 1rem auto 2rem;
+      padding: 1rem;
+      background: rgba(0, 255, 247, 0.1);
+      border: 1px solid rgba(0, 255, 247, 0.3);
+      border-radius: 12px;
+      text-align: left;
+      font-size: 0.95rem;
+      line-height: 1.5rem;
+      max-width: 600px;
+    }
+    .rules h2 {
+      font-size: 1.2rem;
+      margin-bottom: .5rem;
+      color: #ffdd00;
+      text-align: center;
+    }
+    .rules ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .rules li::before {
+      content: "⚡ ";
+      color: #ff007c;
+    }
+
+    .game-info{display:flex;justify-content:space-between;margin-bottom:1.5rem;}
+    .player{flex:1;margin:0 .5rem;padding:1rem;background:rgba(255,255,255,0.1);border-radius:15px;box-shadow:inset 0 0 15px rgba(0,255,247,0.3);}
+    .player.active{border:2px solid #ff007c;box-shadow:0 0 20px #ff007c;}
+    .timer{font-size:1.4rem;color:#ffdd00;margin-bottom:1rem;}
+    input{
+      width:70%;padding:.8rem;border-radius:12px;border:none;outline:none;
+      font-size:1rem;background:rgba(255,255,255,0.15);color:#fff;margin-bottom:1rem;
+    }
+    input::placeholder{color:#ccc;}
+    button{
+      padding:.8rem 1.4rem;border:none;border-radius:12px;
+      background:linear-gradient(45deg,#ff007c,#00fff7);color:#000;font-weight:bold;
+      cursor:pointer;transition:transform .2s;
+    }
+    button:hover{transform:scale(1.05);}
+    .word-chain{margin-top:1.5rem;min-height:50px;font-size:1.2rem;line-height:1.6rem;}
+    .game-over{display:none;margin-top:2rem;font-size:1.5rem;color:#ffdd00;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔗 Word Chain Challenge</h1>
+
+    <!-- Rules Section -->
+    <div class="rules">
+      <h2>📜 Rules of the Game</h2>
+      <ul>
+        <li>Player 1 starts by entering any valid word.</li>
+        <li>Next player must enter a word starting with the <b>last letter</b> of the previous word.</li>
+        <li>No word can be repeated.</li>
+        <li>You have <b>10 seconds</b> to enter a word each turn.</li>
+        <li>If you run out of time or enter an invalid word, you lose!</li>
+      </ul>
+    </div>
+
+    <div class="game-info">
+      <div class="player" id="player1">Player 1<br><span id="score1">Score: 0</span></div>
+      <div class="player" id="player2">Player 2<br><span id="score2">Score: 0</span></div>
+    </div>
+
+    <div class="timer" id="timer">⏳ 10s</div>
+
+    <input type="text" id="wordInput" placeholder="Enter your word..." />
+    <button onclick="submitWord()">Submit</button>
+
+    <div class="word-chain" id="chain"></div>
+    <div class="game-over" id="gameOver"></div>
+  </div>
+
+  <script>
+    let players = [1, 2];
+    let currentPlayer = 0; // Player 1 starts
+    let scores = [0, 0];
+    let usedWords = [];
+    let lastLetter = "";
+    let timeLeft = 10;
+    let timer;
+
+    function startTurn() {
+      clearInterval(timer);
+      timeLeft = 10;
+      document.getElementById("timer").textContent = `⏳ ${timeLeft}s`;
+
+      document.querySelectorAll(".player").forEach((p, i) => {
+        p.classList.toggle("active", i === currentPlayer);
+      });
+
+      timer = setInterval(() => {
+        timeLeft--;
+        document.getElementById("timer").textContent = `⏳ ${timeLeft}s`;
+        if (timeLeft <= 0) {
+          endGame(`⏰ Player ${players[currentPlayer]} ran out of time!`);
+        }
+      }, 1000);
+    }
+
+    function submitWord() {
+      const input = document.getElementById("wordInput");
+      const word = input.value.trim().toLowerCase();
+      input.value = "";
+
+      if (!word) return;
+
+      if (usedWords.length > 0 && word[0] !== lastLetter) {
+        endGame(`❌ Player ${players[currentPlayer]} must start with "${lastLetter}"`);
+        return;
+      }
+
+      if (usedWords.includes(word)) {
+        endGame(`⚠️ Word "${word}" already used!`);
+        return;
+      }
+
+      usedWords.push(word);
+      scores[currentPlayer]++;
+      document.getElementById(`score${players[currentPlayer]}`).textContent = `Score: ${scores[currentPlayer]}`;
+      document.getElementById("chain").innerHTML += `<span>${word}</span> ➡️ `;
+
+      lastLetter = word[word.length - 1];
+      currentPlayer = (currentPlayer + 1) % players.length;
+      startTurn();
+    }
+
+    function endGame(message) {
+      clearInterval(timer);
+      document.getElementById("gameOver").style.display = "block";
+      document.getElementById("gameOver").textContent = `${message} 🎉`;
+      document.getElementById("wordInput").disabled = true;
+    }
+
+    startTurn();
+  </script>
+</body>
+</html>
+
+
+
