@@ -1,6 +1,6 @@
 const projects = [
   "Animated Landing Page",
-  "Advanced To-Do List",
+  "Advanced To-Do List", 
   "Weather Forecast App",
   "Jewellery-company landing page",
   "Random Image Generator",
@@ -55,19 +55,19 @@ const projects = [
   "BrainBuzz Quizz Website",
   "Code Editor",
 
-
-
   "Spotify Clone",
   "Plant Care Scheduler",
+
   "Mood Quote Poster",
   "Echo Chamber",
   "Flappy Bird",
+  "Typing Survival Game",
+  "Amazon Clone (Web-Page)",
+  "Adventure Flappy Bird",
+"Hacker Runner Game",
+
 
   // Add more project names as needed
-
-
- 
-
 
 ];
 

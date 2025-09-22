@@ -76,7 +76,7 @@
         --glass-border: rgba(0, 0, 0, 0.08);
         --hover-bg: rgba(99, 102, 241, 0.08);
       }
-
+     
       body {
         background: var(--bg-primary);
         color: var(--text-primary);
@@ -284,8 +284,9 @@
         flex-direction: column; /* Stack vertically on small screens */
         align-items: center;
         max-width: 500px;
-        margin: 2rem 0rem 3rem 35rem ;
+        margin: 2rem 0rem 3rem 35rem; /* Adjusted margin for better spacing */
       }
+      
       /* ... your existing CSS ... */
 
 @media (max-width: 767px) { /* Adjust for screens smaller than medium (768px) */
@@ -974,9 +975,50 @@
         background: var(--bg-secondary) !important;
         border-top-color: var(--glass-border) !important;
       }
+      }
+
+     .snake-dot{
+       position:fixed;left:0;top:0;width:14px;height:14px;
+       background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);
+       border-radius:50%;pointer-events:none;z-index:99999;
+       transform:translate(-50%,-50%);
+       box-shadow:0 0 10px rgba(240,147,251,.85),0 0 20px rgba(245,87,108,.85);
+       opacity:.95;will-change:left,top,opacity,transform;
+      }
+
+
     </style>
   </head>
   <body class="bg-dark text-white font-sans pt-24">
+    
+   <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.querySelector(".search-input");
+    const projectRows = document.querySelectorAll(".project-row");
+
+    // Store the original display style of each row
+    projectRows.forEach(row => {
+      row.dataset.originalDisplay = getComputedStyle(row).display;
+    });
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase().trim();
+
+      projectRows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        if (text.includes(query)) {
+          // Restore the original display style
+          row.style.display = row.dataset.originalDisplay;
+        } else {
+          row.style.display = "none";
+        }
+      });
+    });
+  });
+</script>
+
+
+
     <nav class="fixed top-0 w-full z-50 navbar-glass shadow-xl p-4">
       <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
         <a href="index.html" class="flex items-center gap-3 text-white font-bold text-lg mb-2 sm:mb-0">
@@ -1143,7 +1185,7 @@
     <section id="about" class="about-section py-24 mt-20">
       <div class="container mx-auto px-4 relative z-10">
         <div class="text-center mb-20">
-          <h2 class="text-5xl md:text-6xl font-bold mb-6">
+          <h2 class="Text-5xl md:text-6xl font-bold mb-6">
             <span class="gradient-text">About the</span> <span class="text-white">Challenge</span>
           </h2>
           <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-8"></div>
@@ -1678,6 +1720,59 @@
         window.floatingChatbot = new FloatingChatbot();
       }, 1000);
     </script>
+
+    <!-- Working Snake Cursor script (fully contained and safe) -->
+    <script>
+      /* Global snake cursor (works on any page) */
+(() => {
+  const isTouch = ("ontouchstart" in window) || navigator.maxTouchPoints > 0;
+  if (isTouch) return; // skip on touch devices
+
+  const tail = [];
+  const length = 18;
+  let mx = innerWidth / 2, my = innerHeight / 2;
+
+  for (let i = 0; i < length; i++) {
+    const d = document.createElement("div");
+    d.className = "snake-dot";
+    const size = Math.max(6, 14 - Math.floor(i * 0.45));
+    d.style.width = size + "px";
+    d.style.height = size + "px";
+    document.body.appendChild(d);
+    tail.push({ el: d, x: mx, y: my });
+  }
+
+  addEventListener("mousemove", e => { mx = e.clientX; my = e.clientY; });
+
+  function tick() {
+    let tx = mx, ty = my;
+    for (let i = 0; i < tail.length; i++) {
+      const t = tail[i];
+      t.x += (tx - t.x) * 0.28;
+      t.y += (ty - t.y) * 0.28;
+      t.el.style.left = t.x + "px";
+      t.el.style.top  = t.y + "px";
+      t.el.style.opacity = Math.max(0.08, 1 - i / tail.length);
+      const scale = 1 - i / (tail.length * 1.2);
+      t.el.style.transform = `translate(-50%,-50%) scale(${scale})`;
+      tx = t.x; ty = t.y;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  addEventListener("resize", () => {
+    const w = innerWidth, h = innerHeight;
+    tail.forEach(t => {
+      t.x = Math.min(Math.max(0, t.x), w);
+      t.y = Math.min(Math.max(0, t.y), h);
+    });
+  });
+})();
+
+    </script>
+
+    <!-- Keep including other scripts you referenced originally -->
     <script src="index.js"></script>
     <script src="script.js"></script>
   </body>

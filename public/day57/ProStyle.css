@@ -1,0 +1,128 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background-color: #EAEDED; font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif; }
+
+
+.navLogo{
+  height: 50px; width: 114px;
+  background-image: url(AmazonLogo.png);
+  background-size: contain; background-repeat: no-repeat; background-position: left center;
+  display: inline-block;
+}
+.navLogo:hover{ outline: 1px solid #fff; outline-offset: -2px; }
+
+.amz-topnav .form-select.amz-all{ max-width: 120px; border-radius: 4px 0 0 4px; background-color:#f3f3f3; }
+.amz-topnav .amz-input{ border-left: 0; border-right: 0; }
+.amz-topnav .amz-search-btn{
+  background:#febd69; border-color:#febd69; border-radius:0 4px 4px 0;
+}
+.amz-topnav .amz-search-btn:hover{ background:#f3a847; border-color:#f3a847; }
+
+
+.navDel{ color:#ccc; font-size:12px; line-height:1; }
+.navIndia{ color:#fff; font-size:14px; }
+.navFlag{
+  height:16px; width:21px; background-image:url(America_flag.png);
+  background-size:cover; display:inline-block;
+}
+
+
+.bg-amzBlue{ background:#232f3e; }
+.subnav-link{
+  color:#fff; text-decoration:none; padding:.25rem .5rem; border:1px solid transparent; border-radius:.25rem;
+  white-space: nowrap;
+}
+
+.langOptions{
+  background-color: #212529;
+  color : white;
+  border : 2px solid #212529;
+}
+
+#opt{
+  background-color : white;
+  color : black; 
+}
+
+.navAccLi{
+  background-color: #212529;
+  color : white;
+  margin-right : 1rem;
+  border : 2px solid #212529;
+
+}
+#op{
+  background-color : white;
+  color : black;
+}
+#o{
+  background-color :#f4c949;
+}
+#opti{
+  background-color : white;
+  color : black;
+}
+.subnav-link:hover{ border-color:#fff; }
+
+
+.imgHeading{
+  height: 320px;
+  background-image: url(Amazon_heading1.png);
+  background-size: cover; background-position: center;
+}
+
+
+.amz-info{ background:rgba(255,255,255,.9); border:1px solid #e3e6e6; }
+
+.amz-card .card-body{ padding: 16px; }
+.amz-card .card-title{ font-size:1.05rem; margin-bottom:.75rem; }
+.amz-card .tiles{
+  display:grid; grid-template-columns:1fr 1fr; gap:.5rem; margin-bottom:.75rem;
+}
+.amz-card .tile{
+  position:relative; padding-top:62%; /* tile ratio */
+  background-size:cover; background-position:center; border-radius:6px; overflow:hidden;
+}
+.amz-card .tile span{
+  position:absolute; left:6px; bottom:6px; font-size:.75rem; background:rgba(255,255,255,.92);
+  padding:.15rem .35rem; border-radius:.25rem;
+}
+.amz-card .see-more{ color:#007185; text-decoration:none; font-size:.9rem; }
+.amz-card .see-more:hover{ text-decoration:underline; }
+
+
+.amz-wide{ height:250px; border-radius:8px; background-size:cover; background-position:center; }
+.img9{ background-image:url(Ama_9.png); }
+.img10{ background-image:url(Ama_10.png); }
+
+
+.bothText{ background:#fff; border:1px solid #e3e6e6; color:#444; }
+.lastSecT{ font-weight:700; padding:10px; }
+.lastText{ padding:0 10px 10px; color:#555; }
+.lastBut{
+  background:#37475a; color:#fff; padding:12px 16px; cursor:pointer;
+}
+.lastBut:hover{ background:#485769; }
+
+
+.verText1234{ background:#232f3e; color:#ddd; display:flex; flex-wrap:wrap; gap:20px; padding:30px 20px; }
+.verText1,.verText2,.verText3,.verText4{ flex:1 1 220px; }
+.firstH,.secondH,.thirdH,.fourthH{ font-size:16px; font-weight:700; margin-bottom:10px; }
+.ver1,.ver2,.ver3,.ver4{ font-size:14px; margin-bottom:8px; cursor:pointer; }
+.ver1:hover,.ver2:hover,.ver3:hover,.ver4:hover{ text-decoration:underline; }
+
+
+@media (max-width: 1200px){
+  .imgHeading{ height: 280px; }
+}
+@media (max-width: 992px){
+  .imgHeading{ height: 240px; }
+}
+@media (max-width: 768px){
+  .imgHeading{ height: 200px; }
+  .amz-card .tile{ padding-top:60%; }
+}
+@media (max-width: 576px){
+  .amz-topnav .form-select.amz-all{ max-width: 90px; }
+  .amz-wide{ height: 200px; }
+  .verText1234{ flex-direction:column; }
+}

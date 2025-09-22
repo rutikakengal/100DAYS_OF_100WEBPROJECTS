@@ -1,10 +1,14 @@
+const { jsPDF } = window.jspdf;
 
-async function generatePDF() {
-  const { jsPDF } = window.jspdf;
-  const inputText = document.getElementById("text-input").value.trim();
+const generateBtn = document.getElementById("generate-btn");
+const clearBtn = document.getElementById("clear-btn");
+const textInput = document.getElementById("text-input");
+
+generateBtn.addEventListener("click", async () => {
+  const inputText = textInput.value.trim();
 
   if (!inputText) {
-    alert("Please enter some text!");
+    alert("⚠️ Please enter some text!");
     return;
   }
 
@@ -28,5 +32,10 @@ async function generatePDF() {
     y += 10;
   }
 
-  doc.save("text-to-pdf.pdf");
-}
+  doc.save("galactic-pdf.pdf");
+});
+
+clearBtn.addEventListener("click", () => {
+  textInput.value = "";
+});
+

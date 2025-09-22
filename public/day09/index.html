@@ -2,19 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>QR Code Generator</title>
+  <title>Neon QR Studio</title>
   <link rel="stylesheet" href="qr.css" />
 </head>
 <body>
-  <div class="generator-box">
-    <h2>QR Code Generator</h2>
-    <input type="text" id="qr-input" placeholder="Enter text or URL" />
-    <button id="generate-btn">Generate QR Code</button>
-    <div class="qr-output">
-      <img id="qr-img" src="" alt="QR Code will appear here" />
+  <div class="container">
+    <h1><span class="neon">Neon QR Studio</span></h1>
+    <p class="tagline">Design gorgeous QR codes with gradients, styles, and logos.</p>
+
+    <div class="studio">
+      <!-- Left Controls -->
+      <div class="controls">
+        <label>Content / URL</label>
+        <input type="text" id="qr-input" placeholder="Enter text or URL" />
+
+        <div class="slider-group">
+          <label>Size: <span id="size-label">250</span> px</label>
+          <input type="range" id="qr-size" min="100" max="400" value="250" />
+        </div>
+
+        <div class="slider-group">
+          <label>Margin: <span id="margin-label">10</span> px</label>
+          <input type="range" id="qr-margin" min="0" max="50" value="10" />
+        </div>
+
+        <label>Dot Style</label>
+        <select id="dot-style">
+          <option value="square">Square</option>
+          <option value="rounded" selected>Rounded</option>
+          <option value="dot">Dot</option>
+        </select>
+
+        <label>Foreground</label>
+        <input type="color" id="color-foreground" value="#00ffcc" />
+
+        <label>Background</label>
+        <input type="color" id="color-background" value="#0a0a0a" />
+
+        <button id="generate-btn">Generate</button>
+      </div>
+
+      <!-- Right Preview -->
+      <div class="preview">
+        <h3>Preview</h3>
+        <div class="qr-output">
+          <canvas id="qr-canvas"></canvas>
+        </div>
+        <div class="actions">
+          <button id="download-btn">Download PNG</button>
+        </div>
+      </div>
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
   <script src="qr.js"></script>
 </body>
 </html>

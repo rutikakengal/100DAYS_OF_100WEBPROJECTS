@@ -3,14 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Text to PDF Converter</title>
+  <title>Galactic PDF Weaver</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Text to PDF Converter</h1>
-    <textarea id="text-input" placeholder="Type your text here..."></textarea>
-    <button onclick="generatePDF()">Download PDF</button>
+    <h1 class="title">Galactic PDF Weaver</h1>
+    <p class="subtitle">Craft professional documents with cosmic elegance and a single touch.</p>
+
+    <textarea id="text-input" placeholder="Initiate text sequence..."></textarea>
+
+    <div class="buttons">
+      <button id="clear-btn">CLEAR</button>
+      <button id="generate-btn">WEAVE PDF</button>
+    </div>
   </div>
 
   <!-- jsPDF from CDN -->
@@ -18,3 +24,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
