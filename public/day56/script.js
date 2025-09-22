@@ -56,6 +56,7 @@ const finalScoreElement = document.getElementById('finalScore');
 const highScoreElement = document.getElementById('highScore');
 const restartBtn = document.getElementById('restartBtn');
 const pauseText = document.getElementById('pauseText');
+const pauseBtn = document.getElementById('pauseBtn');
 
 // Initialize game
 function init() {
@@ -89,6 +90,9 @@ function setupEventListeners() {
 
     // Restart button
     restartBtn.addEventListener('click', restartGame);
+
+    // Pause button
+    pauseBtn.addEventListener('click', togglePause);
 }
 
 function handleInput() {

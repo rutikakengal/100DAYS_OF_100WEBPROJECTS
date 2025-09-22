@@ -61,7 +61,7 @@ const projects = [
   "Plant Care Scheduler",
   "Mood Quote Poster",
   "Echo Chamber",
-
+  "Flappy Bird",
 
   // Add more project names as needed
 
