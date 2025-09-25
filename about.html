@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Terms of Service - 100_DAYS_100_WEB_PROJECTS</title>
+    <title>About - 100_DAYS_100_WEB_PROJECTS</title>
     <link rel="icon" href="100-days-100-webdev-projects-LOGO.png" type="image/png">
     <link
       rel="stylesheet"
@@ -270,23 +270,23 @@
         border-top-color: var(--glass-border) !important;
       }
       
-      .terms-section {
+      .policy-section {
         margin-bottom: 2rem;
       }
       
-      .terms-section h3 {
+      .policy-section h3 {
         margin-bottom: 1rem;
         font-weight: 600;
         color: var(--text-primary);
       }
       
-      .terms-section p, .terms-section li {
+      .policy-section p, .policy-section li {
         color: var(--text-secondary);
         line-height: 1.6;
         margin-bottom: 0.8rem;
       }
       
-      .terms-section ul {
+      .policy-section ul {
         list-style-type: disc;
         padding-left: 1.5rem;
         margin-bottom: 1rem;
@@ -297,6 +297,124 @@
         color: var(--text-secondary);
         margin-bottom: 2rem;
         text-align: center;
+      }
+
+      /* Stats Cards */
+      .stat-card {
+        backdrop-filter: blur(20px);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        color: var(--text-primary);
+      }
+
+      .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        border-color: var(--accent-color);
+      }
+
+      /* Progress Bar */
+      .progress-container {
+        width: 100%;
+        background-color: var(--glass-bg);
+        border-radius: 10px;
+        overflow: hidden;
+        height: 12px;
+        margin-top: 10px;
+      }
+
+      .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        border-radius: 10px;
+        transition: width 0.8s ease-in-out;
+      }
+
+      /* Feature Cards */
+      .feature-card {
+        backdrop-filter: blur(20px);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        color: var(--text-primary);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        border-color: var(--accent-color);
+      }
+
+      /* Timeline */
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .timeline::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        background: linear-gradient(to bottom, #667eea, #764ba2);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+        border-radius: 10px;
+      }
+
+      .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+        box-sizing: border-box;
+      }
+
+      .timeline-item:nth-child(odd) {
+        left: 0;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 50%;
+      }
+
+      .timeline-content {
+        padding: 20px 30px;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 10px;
+        position: relative;
+        backdrop-filter: blur(20px);
+      }
+
+      .timeline-item:nth-child(odd)::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: -10px;
+        background-color: #667eea;
+        border: 4px solid var(--bg-primary);
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .timeline-item:nth-child(even)::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: -10px;
+        background-color: #667eea;
+        border: 4px solid var(--bg-primary);
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
       }
 
       /* Scrollbar Styling */
@@ -793,6 +911,25 @@
           bottom: 15px;
           left: 15px;
         }
+        
+        .timeline::after {
+          left: 31px;
+        }
+        
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+        
+        .timeline-item:nth-child(even) {
+          left: 0;
+        }
+        
+        .timeline-item:nth-child(odd)::after,
+        .timeline-item:nth-child(even)::after {
+          left: 21px;
+        }
       }
 
       .snake-dot{
@@ -872,100 +1009,221 @@
     <section class="min-h-[40vh] flex flex-col justify-center items-center pt-5 text-center hero-bg relative px-4">
       <div class="container mx-auto relative z-10">
         <h1 class="text-4xl md:text-5xl font-black mb-6 leading-tight">
-          <span class="gradient-text">Terms of</span>
-          <span class="text-white">Service</span>
+          <span class="gradient-text">About the</span>
+          <span class="text-white">Challenge</span>
         </h1>
         <p class="mt-6 text-slate-300 text-xl md:text-2xl max-w-2xl mx-auto hero-subtitle font-light leading-relaxed">
-          Please read these terms and conditions carefully before using our website.
+          Embark on an incredible journey of creativity and skill development through 100 unique web projects.
         </p>
       </div>
     </section>
     
-    <section class="container mx-auto px-4 py-4">
+    <section class="container mx-auto px-4 py-12">
       <div class="glass-card rounded-2xl p-8 md:p-12 overflow-hidden">
-        <div class="last-updated" id="lastUpdated"></div>
-
-<script>
-  const today = new Date();
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  document.getElementById('lastUpdated').textContent = `Last Updated: ${today.toLocaleDateString('en-US', options)}`;
-</script>
-
-        
-        <div class="terms-section">
-          <h3 class="text-2xl font-bold gradient-text">1. Acceptance of Terms</h3>
-          <p>By accessing and using the 100 Days of Web Projects website, you accept and agree to be bound by the terms and provision of this agreement.</p>
-          <p>If you do not agree to abide by these terms, please do not use this site.</p>
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div>
+            <h2 class="text-3xl font-bold mb-6 gradient-text">Our Mission</h2>
+            <p class="text-slate-300 text-lg mb-6">
+              Build 100 amazing web projects to master HTML, CSS, and JavaScript through hands-on practice and real-world applications.
+            </p>
+            <p class="text-slate-300 text-lg">
+              This challenge is designed to take you from beginner to proficient web developer by building practical projects that solve real problems and showcase modern web development techniques.
+            </p>
+          </div>
+          <div class="flex justify-center items-center">
+            <div class="relative w-64 h-64">
+              <div class="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full opacity-20 animate-pulse"></div>
+              <div class="absolute inset-4 bg-gradient-to-r from-secondary to-accent rounded-full opacity-30 animate-pulse" style="animation-delay: 1s;"></div>
+              <div class="absolute inset-8 bg-gradient-to-r from-accent to-primary rounded-full opacity-40 animate-pulse" style="animation-delay: 2s;"></div>
+              <div class="absolute inset-12 bg-dark rounded-full flex items-center justify-center">
+                <span class="text-4xl font-bold gradient-text">100</span>
+              </div>
+            </div>
+          </div>
         </div>
         
-        <div class="terms-section">
-          <h3 class="text-2xl font-bold gradient-text">2. Use License</h3>
-          <p>Permission is granted to temporarily use the materials (information or software) on 100 Days of Web Projects' website for personal, non-commercial transitory viewing only.</p>
-          <p>This is the grant of a license, not a transfer of title, and under this license you may not:</p>
-          <ul>
-            <li>Modify or copy the materials;</li>
-            <li>Use the materials for any commercial purpose, or for any public display (commercial or non-commercial);</li>
-            <li>Attempt to decompile or reverse engineer any software contained on 100 Days of Web Projects' website;</li>
-            <li>Remove any copyright or other proprietary notations from the materials; or</li>
-            <li>Transfer the materials to another person or "mirror" the materials on any other server.</li>
-          </ul>
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <div class="feature-card rounded-xl p-6">
+            <div class="text-4xl mb-4 gradient-text">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Skill Development</h3>
+            <p class="text-slate-300">
+              From basic to intermediate level projects, each designed to challenge and improve your web development skills progressively.
+            </p>
+          </div>
+          
+          <div class="feature-card rounded-xl p-6">
+            <div class="text-4xl mb-4 gradient-text">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Community</h3>
+            <p class="text-slate-300">
+              Join a growing community of developers, contribute to projects, and learn together in this collaborative journey.
+            </p>
+          </div>
+          
+          <div class="feature-card rounded-xl p-6">
+            <div class="text-4xl mb-4 gradient-text">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Real Projects</h3>
+            <p class="text-slate-300">
+              Build practical, portfolio-worthy projects that demonstrate your skills to potential employers and clients.
+            </p>
+          </div>
         </div>
         
-        <div class="terms-section">
-          <h3 class="text-2xl font-bold gradient-text">3. User Contributions</h3>
-          <p>Users may contribute projects, code, or other content to this website. By contributing content, you grant us a perpetual, worldwide, non-exclusive, royalty-free license to use, reproduce, modify, adapt, publish, translate, and distribute your contribution.</p>
-          <p>You represent and warrant that:</p>
-          <ul>
-            <li>You own or have the necessary rights to the content you contribute</li>
-            <li>The content is accurate and not misleading</li>
-            <li>Your contribution does not violate the privacy rights, publicity rights, copyrights, contract rights, or any other rights of any person</li>
-          </ul>
+        <h2 class="text-3xl font-bold mb-8 text-center gradient-text">Challenge Statistics</h2>
+        <div class="grid md:grid-cols-4 gap-6 mb-12">
+          <div class="stat-card rounded-xl p-6 text-center">
+            
+            <div class="text-4xl font-bold mb-2 gradient-text">59</div>
+            <div class="text-slate-300">Projects Completed</div>
+            <div class="progress-container mt-4">
+              <div class="progress-bar" style="width: 59%"></div>
+            </div>
+          </div>
+          
+          <div class="stat-card rounded-xl p-6 text-center">
+            <div class="text-4xl font-bold mb-2 gradient-text">100</div>
+            <div class="text-slate-300">Total Goal</div>
+            <div class="progress-container mt-4">
+              <div class="progress-bar" style="width: 100%"></div>
+            </div>
+          </div>
+          
+          <div class="stat-card rounded-xl p-6 text-center">
+            <div class="text-4xl font-bold mb-2 gradient-text">3</div>
+            <div class="text-slate-300">Technologies</div>
+            <div class="flex justify-center mt-4 space-x-2">
+              <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">HTML</span>
+              <span class="px-3 py-1 bg-secondary/20 text-secondary rounded-full text-sm">CSS</span>
+              <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-sm">JS</span>
+            </div>
+          </div>
+          
+          <div class="stat-card rounded-xl p-6 text-center">
+            <div class="text-4xl font-bold mb-2 gradient-text">∞</div>
+            <div class="text-slate-300">Learning</div>
+            <div class="mt-4">
+              <i class="fas fa-infinity text-3xl opacity-50"></i>
+            </div>
+          </div>
         </div>
         
-        <div class="terms-section">
-          <h3 class="text-2xl font-bold gradient-text">4. Disclaimer</h3>
-          <p>The materials on 100 Days of Web Projects' website are provided on an 'as is' basis. 100 Days of Web Projects makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
-          <p>Further, 100 Days of Web Projects does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its website or otherwise relating to such materials or on any sites linked to this site.</p>
+        <h2 class="text-3xl font-bold mb-8 text-center gradient-text">Challenge Timeline</h2>
+        <div class="timeline mb-12">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3 class="text-xl font-bold mb-2">Week 1-2: Fundamentals</h3>
+              <p class="text-slate-300">Basic HTML structure, CSS styling, and simple JavaScript interactions.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3 class="text-xl font-bold mb-2">Week 3-4: Intermediate Concepts</h3>
+              <p class="text-slate-300">CSS Flexbox, Grid, animations, and DOM manipulation with JavaScript.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3 class="text-xl font-bold mb-2">Week 5-6: Advanced Techniques</h3>
+              <p class="text-slate-300">API integration, local storage, and more complex JavaScript applications.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3 class="text-xl font-bold mb-2">Week 7-8: Portfolio Projects</h3>
+              <p class="text-slate-300">Complete web applications that showcase your skills and can be added to your portfolio.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3 class="text-xl font-bold mb-2">Week 9-10: Advanced Topics</h3>
+              <p class="text-slate-300">Exploring modern frameworks, libraries, and advanced web development concepts.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3 class="text-xl font-bold mb-2">Week 11-12: Final Projects</h3>
+              <p class="text-slate-300">Complex, multi-feature applications that demonstrate mastery of web development.</p>
+            </div>
+          </div>
         </div>
         
-        <div class="terms-section">
-          <h3 class="text-2xl font-bold gradient-text">5. Limitations</h3>
-          <p>In no event shall 100 Days of Web Projects or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on 100 Days of Web Projects' website, even if 100 Days of Web Projects or a 100 Days of Web Projects authorized representative has been notified orally or in writing of the possibility of such damage.</p>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">What You'll Learn</h2>
+            <ul class="text-slate-300 space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <span>Responsive web design principles</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <span>Modern CSS techniques including Flexbox and Grid</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <span>JavaScript fundamentals and advanced concepts</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <span>DOM manipulation and event handling</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <span>API integration and asynchronous JavaScript</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <span>Web performance optimization techniques</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check text-primary mr-2 mt-1"></i>
+                <span>Version control with Git and GitHub</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h2 class="text-2xl font-bold mb-4 gradient-text">Who Is This For?</h2>
+            <ul class="text-slate-300 space-y-2">
+              <li class="flex items-start">
+                <i class="fas fa-user text-secondary mr-2 mt-1"></i>
+                <span>Beginners who want to learn web development from scratch</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-user-graduate text-secondary mr-2 mt-1"></i>
+                <span>Students looking to build a strong portfolio of projects</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-briefcase text-secondary mr-2 mt-1"></i>
+                <span>Professionals transitioning to web development careers</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-code text-secondary mr-2 mt-1"></i>
+                <span>Developers wanting to strengthen their frontend skills</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-lightbulb text-secondary mr-2 mt-1"></i>
+                <span>Anyone passionate about creating interactive web experiences</span>
+              </li>
+            </ul>
+          </div>
         </div>
         
-        <div class="terms-section">
-          <h3 class="text-2xl font-bold gradient-text">6. Accuracy of Materials</h3>
-          <p>The materials appearing on 100 Days of Web Projects' website could include technical, typographical, or photographic errors. 100 Days of Web Projects does not warrant that any of the materials on its website are accurate, complete or current. 100 Days of Web Projects may make changes to the materials contained on its website at any time without notice. However, 100 Days of Web Projects does not make any commitment to update the materials.</p>
-        </div>
-        
-        <div class="terms-section">
-          <h3 class="text-2xl font-bold gradient-text">7. Links</h3>
-          <p>100 Days of Web Projects has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by 100 Days of Web Projects of the site. Use of any such linked website is at the user's own risk.</p>
-        </div>
-        
-        <div class="terms-section">
-          <h3 class="text-2xl font-bold gradient-text">8. Modifications</h3>
-          <p>100 Days of Web Projects may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.</p>
-        </div>
-        
-        <div class="terms-section">
-          <h3 class="text-2xl font-bold gradient-text">9. Governing Law</h3>
-          <p>These terms and conditions are governed by and construed in accordance with the laws of India and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.</p>
-        </div>
-        
-        <div class="terms-section">
-          <h3 class="text-2xl font-bold gradient-text">10. Contact Information</h3>
-          <p>If you have any questions about these Terms of Service, please contact us:</p>
-          <ul>
-            <li>By email: terms@100dayswebprojects.com</li>
-            <li>By visiting this page on our website: <a href="contact.html" class="text-primary underline">Contact Us</a></li>
-          </ul>
+        <div class="mt-12 text-center">
+          <a href="index.html#projects" class="btn-modern text-white font-bold py-3 px-8 rounded-full inline-block">
+            <i class="fas fa-code mr-2"></i> Start Exploring Projects
+          </a>
         </div>
       </div>
     </section>
 
-   <footer class="bg-slate-900 text-white p-8 mt-5 border-t border-slate-800">
-      <div class="container mx-auto grid md:grid-cols-3 gap-12 text-white">
+    <footer class="bg-slate-900 text-white p-8 mt-5 border-t border-slate-800">
+      <div class="container mx-auto grid md:grid-cols-3 gap-12">
         <div>
           <h2 class="text-2xl font-bold mb-6 gradient-text">100 Days Challenge</h2>
           <p class="text-slate-300 mb-6 leading-relaxed text-lg">
@@ -1469,6 +1727,9 @@
           });
         });
       })();
+
+      
     </script>
+    <script src="index.js"></script>
   </body>
 </html>
