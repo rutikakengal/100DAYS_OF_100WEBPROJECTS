@@ -68,11 +68,12 @@ const projects = [
   "Amazon Clone (Web-Page)",
   "Adventure Flappy Bird",
 
-  "Word Chain Challenge",
+ 
 
 
 "Hacker Runner Game",
-  "Background Cleaner"
+  "Background Cleaner",
+  "Word Chain Challenge",
 
 
 
