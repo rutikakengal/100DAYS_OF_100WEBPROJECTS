@@ -1,262 +1,305 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contributors | 100 Days of Web Projects</title>
-    <link rel="icon" href="100-days-100-webdev-projects-LOGO.png" type="image/png">
+    <link
+      rel="icon"
+      href="100-days-100-webdev-projects-LOGO.png"
+      type="image/png"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#6366f1",
-                        secondary: "#8b5cf6",
-                        accent: "#06b6d4",
-                        dark: "#0f172a",
-                        surface: "#1e293b",
-                    },
-                    fontFamily: {
-                        sans: ["Inter", "sans-serif"],
-                    },
-                    animation: {
-                        'gradient': 'gradient 8s linear infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                        'pulse-slow': 'pulse 3s ease-in-out infinite',
-                    }
-                },
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366f1",
+              secondary: "#8b5cf6",
+              accent: "#06b6d4",
+              dark: "#0f172a",
+              surface: "#1e293b",
             },
-        };
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            animation: {
+              gradient: "gradient 8s linear infinite",
+              float: "float 6s ease-in-out infinite",
+              glow: "glow 2s ease-in-out infinite alternate",
+              "pulse-slow": "pulse 3s ease-in-out infinite",
+            },
+          },
+        },
+      };
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <style>
-        :root {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-color: #6366f1;
-            --glass-bg: rgba(255, 255, 255, 0.08);
-            --glass-border: rgba(255, 255, 255, 0.12);
-            --hover-bg: rgba(99, 102, 241, 0.1);
+      :root {
+        --bg-primary: #0f172a;
+        --bg-secondary: #1e293b;
+        --text-primary: #f8fafc;
+        --text-secondary: #94a3b8;
+        --accent-color: #6366f1;
+        --glass-bg: rgba(255, 255, 255, 0.08);
+        --glass-border: rgba(255, 255, 255, 0.12);
+        --hover-bg: rgba(99, 102, 241, 0.1);
+      }
+
+      [data-theme="light"] {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8fafc;
+        --text-primary: #1e293b;
+        --text-secondary: #64748b;
+        --accent-color: #6366f1;
+        --glass-bg: rgba(255, 255, 255, 0.9);
+        --glass-border: rgba(0, 0, 0, 0.08);
+        --hover-bg: rgba(99, 102, 241, 0.08);
+      }
+
+      body {
+        background: var(--bg-primary);
+        color: var(
+          --text-primary
+        ); /* Apply text-primary here for base text color */
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-x: hidden;
+      }
+
+      .hero-bg {
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.1) 0%,
+          rgba(139, 92, 246, 0.1) 50%,
+          rgba(6, 182, 212, 0.1) 100%
+        );
+        position: relative;
+      }
+
+      .hero-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at 20% 50%,
+            rgba(99, 102, 241, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(139, 92, 246, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 80%,
+            rgba(6, 182, 212, 0.3) 0%,
+            transparent 50%
+          );
+        animation: float 8s ease-in-out infinite;
+      }
+
+      .glass-card {
+        backdrop-filter: blur(20px);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .glass-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        border-color: var(--accent-color);
+      }
+
+      .contributor-card {
+        backdrop-filter: blur(20px);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contributor-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(99, 102, 241, 0.1),
+          transparent
+        );
+        transition: left 0.6s;
+      }
+
+      .contributor-card:hover::before {
+        left: 100%;
+      }
+
+      .contributor-card:hover {
+        transform: translateY(-12px) scale(1.02);
+        box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.3);
+        border-color: var(--accent-color);
+      }
+
+      .skeleton {
+        background: linear-gradient(
+          90deg,
+          rgba(99, 102, 241, 0.1) 25%,
+          rgba(139, 92, 246, 0.2) 50%,
+          rgba(99, 102, 241, 0.1) 75%
+        );
+        background-size: 400% 100%;
+        animation: shimmer 1.5s infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: 100% 50%;
         }
 
-        [data-theme="light"] {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --accent-color: #6366f1;
-            --glass-bg: rgba(255, 255, 255, 0.9);
-            --glass-border: rgba(0, 0, 0, 0.08);
-            --hover-bg: rgba(99, 102, 241, 0.08);
+        100% {
+          background-position: 0 50%;
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
         }
 
-        body {
-            background: var(--bg-primary);
-            color: var(--text-primary); /* Apply text-primary here for base text color */
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow-x: hidden;
+        33% {
+          transform: translateY(-20px) rotate(2deg);
         }
 
-        .hero-bg {
-            background: linear-gradient(135deg,
-                    rgba(99, 102, 241, 0.1) 0%,
-                    rgba(139, 92, 246, 0.1) 50%,
-                    rgba(6, 182, 212, 0.1) 100%);
-            position: relative;
+        66% {
+          transform: translateY(-10px) rotate(-1deg);
         }
+      }
 
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.3) 0%, transparent 50%);
-            animation: float 8s ease-in-out infinite;
-        }
+      .navbar-glass {
+        backdrop-filter: blur(20px);
+        background: rgba(15, 23, 42, 0.8);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
 
-        .glass-card {
-            backdrop-filter: blur(20px);
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+      [data-theme="light"] .navbar-glass {
+        background: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        color: var(--bg-primary);
+      }
 
-        .glass-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            border-color: var(--accent-color);
-        }
+      .nav-link {
+        position: relative;
+        transition: all 0.3s ease;
+        color: var(--text-primary);
+      }
 
-        .contributor-card {
-            backdrop-filter: blur(20px);
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 50%;
+        background: var(--accent-color);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
 
-        .contributor-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
-            transition: left 0.6s;
-        }
+      .nav-link:hover::after {
+        width: 100%;
+      }
 
-        .contributor-card:hover::before {
-            left: 100%;
-        }
+      .theme-toggle {
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        z-index: 1000;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+      }
+      /* Snake cursor dots */
+      .snake-dot {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 14px;
+        height: 14px;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 99999;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 10px rgba(240, 147, 251, 0.85),
+          0 0 20px rgba(245, 87, 108, 0.85);
+        opacity: 0.95;
+        will-change: left, top, opacity, transform;
+      }
 
-        .contributor-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.3);
-            border-color: var(--accent-color);
-        }
+      .theme-toggle:hover {
+        transform: scale(1.1) rotate(180deg);
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+      }
 
-        .skeleton {
-            background: linear-gradient(90deg,
-                    rgba(99, 102, 241, 0.1) 25%,
-                    rgba(139, 92, 246, 0.2) 50%,
-                    rgba(99, 102, 241, 0.1) 75%);
-            background-size: 400% 100%;
-            animation: shimmer 1.5s infinite;
-        }
+      .gradient-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
-        @keyframes shimmer {
-            0% {
-                background-position: 100% 50%;
-            }
+      .error-card {
+        background: linear-gradient(
+          135deg,
+          rgba(239, 68, 68, 0.1) 0%,
+          rgba(239, 68, 68, 0.05) 100%
+        );
+        border: 1px solid rgba(239, 68, 68, 0.2);
+      }
 
-            100% {
-                background-position: 0 50%;
-            }
-        }
+      .loading-pulse {
+        animation: pulse-slow 2s ease-in-out infinite;
+      }
 
-        @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
+      /* --- FIXES START HERE --- */
 
-            33% {
-                transform: translateY(-20px) rotate(2deg);
-            }
-
-            66% {
-                transform: translateY(-10px) rotate(-1deg);
-            }
-        }
-
-        .navbar-glass {
-            backdrop-filter: blur(20px);
-            background: rgba(15, 23, 42, 0.8);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        [data-theme="light"] .navbar-glass {
-            background: rgba(255, 255, 255, 0.9);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            color: var(--bg-primary);
-        }
-
-        .nav-link {
-            position: relative;
-            transition: all 0.3s ease;
-            color: var(--text-primary);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 50%;
-            background: var(--accent-color);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            z-index: 1000;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-        }
-        /* Snake cursor dots */
-         .snake-dot{
-             position:fixed;left:0;top:0;width:14px;height:14px;
-             background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);
-             border-radius:50%;pointer-events:none;z-index:99999;
-             transform:translate(-50%,-50%);
-             box-shadow:0 0 10px rgba(240,147,251,.85),0 0 20px rgba(245,87,108,.85);
-              opacity:.95;will-change:left,top,opacity,transform;
-            }
-
-
-        .theme-toggle:hover {
-            transform: scale(1.1) rotate(180deg);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .error-card {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
-            border: 1px solid rgba(239, 68, 68, 0.2);
-        }
-
-        .loading-pulse {
-            animation: pulse-slow 2s ease-in-out infinite;
-        }
-
-        /* --- FIXES START HERE --- */
-
-        /* Remove specific Tailwind color overrides for text that should use CSS variables */
-        /* These rules are no longer needed as the base elements will use --text-primary or --text-secondary by default */
-        /*
+      /* Remove specific Tailwind color overrides for text that should use CSS variables */
+      /* These rules are no longer needed as the base elements will use --text-primary or --text-secondary by default */
+      /*
         [data-theme="light"] .text-white {
             color: var(--text-primary) !important;
         }
@@ -266,362 +309,506 @@
         }
         */
 
-        /* Explicitly set color for elements that might inherit dark mode colors */
-        [data-theme="light"] h1,
-        [data-theme="light"] h2,
-        [data-theme="light"] h3,
-        [data-theme="light"] p,
-        [data-theme="light"] span,
-        [data-theme="light"] a,
-        [data-theme="light"] div:not(.gradient-text):not(.text-primary):not(.text-secondary):not(.text-accent) {
-            color: var(--text-primary);
+      /* Explicitly set color for elements that might inherit dark mode colors */
+      [data-theme="light"] h1,
+      [data-theme="light"] h2,
+      [data-theme="light"] h3,
+      [data-theme="light"] p,
+      [data-theme="light"] span,
+      [data-theme="light"] a,
+      [data-theme="light"]
+        div:not(.gradient-text):not(.text-primary):not(.text-secondary):not(
+          .text-accent
+        ) {
+        color: var(--text-primary);
+      }
+
+      /* Ensure social media icons retain their specific colors in light mode but use a fallback for general icons */
+      [data-theme="light"] .fas,
+      [data-theme="light"] .fab {
+        color: var(--text-primary); /* Default for general icons */
+      }
+
+      /* Re-apply specific icon colors */
+      [data-theme="light"] .fab.fa-instagram {
+        color: #e1306c; /* Instagram brand color */
+      }
+
+      [data-theme="light"] .fab.fa-github {
+        color: #333; /* Darker GitHub icon for light mode */
+      }
+
+      [data-theme="light"] .fab.fa-linkedin {
+        color: #0077b5; /* LinkedIn brand color */
+      }
+
+      [data-theme="light"] .hero-subtitle {
+        color: var(--text-secondary) !important;
+      }
+
+      [data-theme="light"] .contributor-card {
+        box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      [data-theme="light"] .contributor-card:hover {
+        box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.25);
+      }
+
+      /* Comprehensive footer styling for light mode */
+      [data-theme="light"] footer {
+        background: linear-gradient(
+          135deg,
+          var(--bg-secondary) 0%,
+          #e2e8f0 100%
+        ) !important;
+        border-top: 1px solid var(--glass-border) !important;
+        color: var(--text-primary) !important;
+        position: relative;
+      }
+
+      /* Add subtle top gradient blend for seamless transition */
+      [data-theme="light"] footer::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 0;
+        right: 0;
+        height: 20px;
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          var(--bg-secondary) 100%
+        );
+        pointer-events: none;
+      }
+
+      /* Footer text colors in light mode */
+      [data-theme="light"] footer .text-white {
+        color: var(--text-primary) !important;
+      }
+
+      [data-theme="light"] footer .text-slate-300 {
+        color: var(--text-secondary) !important;
+      }
+
+      [data-theme="light"] footer .text-slate-400 {
+        color: var(--text-secondary) !important;
+      }
+
+      /* Footer gradient text in light mode */
+      [data-theme="light"] footer .gradient-text {
+        background: linear-gradient(
+          135deg,
+          #667eea 0%,
+          #764ba2 100%
+        ) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+      }
+
+      /* Footer links and social icons in light mode */
+      [data-theme="light"] footer a {
+        color: var(--text-secondary) !important;
+      }
+
+      [data-theme="light"] footer a:hover {
+        color: var(--accent-color) !important;
+      }
+
+      /* Footer technology badges in light mode */
+      [data-theme="light"] footer .bg-gradient-to-r {
+        opacity: 0.9;
+      }
+
+      /* --- FIXES END HERE --- */
+
+      .btn-modern {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-modern::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .btn-modern:hover::before {
+        left: 100%;
+      }
+
+      .btn-modern:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.4);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* NEW: Mobile menu specific styles */
+      .mobile-menu-hide {
+        transform: translateX(100%);
+        /* Start off-screen to the right */
+        pointer-events: none;
+        /* Disable interactions when hidden */
+      }
+
+      .mobile-menu-show {
+        transform: translateX(0);
+        /* Slide in to fully visible */
+        pointer-events: auto;
+        /* Enable interactions when shown */
+      }
+
+      @media (max-width: 767px) {
+        /* Adjust for screens smaller than medium (768px) */
+        .hero-bg {
+          padding-top: 5rem;
+          /* Add some top padding for smaller screens */
+          padding-bottom: 5rem;
+          /* Add some bottom padding for smaller screens */
         }
 
-        /* Ensure social media icons retain their specific colors in light mode but use a fallback for general icons */
-        [data-theme="light"] .fas,
-        [data-theme="light"] .fab {
-            color: var(--text-primary); /* Default for general icons */
+        .hero-bg h1 {
+          font-size: 3.5rem;
+          /* Adjust heading size for smaller screens */
         }
 
-        /* Re-apply specific icon colors */
-        [data-theme="light"] .fab.fa-instagram {
-            color: #E1306C; /* Instagram brand color */
+        .hero-bg p {
+          font-size: 1.125rem;
+          /* Adjust paragraph size for smaller screens */
         }
 
-        [data-theme="light"] .fab.fa-github {
-            color: #333; /* Darker GitHub icon for light mode */
+        .search-container {
+          margin: 2rem auto 3rem auto;
+          /* Center the search container */
+          max-width: 90%;
+          /* Make it take up more width on smaller screens */
         }
 
-        [data-theme="light"] .fab.fa-linkedin {
-            color: #0077B5; /* LinkedIn brand color */
+        .random-btn {
+          margin-left: 0 !important;
+          /* Remove left margin on small screens */
         }
 
-        [data-theme="light"] .hero-subtitle {
-            color: var(--text-secondary) !important;
+        .tag-filter {
+          width: calc(50% - 0.5rem);
+          /* Make tags two per row on smaller screens, accounting for gap */
+          text-align: center;
         }
 
-        [data-theme="light"] .contributor-card {
-            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        .theme-toggle {
+          top: 110px;
+          /* Adjust top position for smaller screens */
+          right: 20px;
+          /* Move to the left side for better accessibility on small screens */
+          left: auto;
+          /* Remove right positioning */
+          width: 50px;
+          /* Slightly smaller button for small screens */
+          height: 50px;
+          /* Slightly smaller button for small screens */
+          font-size: 20px;
+          /* Smaller icon size */
         }
-
-        [data-theme="light"] .contributor-card:hover {
-            box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.25);
-        }
-
-        /* Adjust footer text colors for light mode to ensure visibility */
-        [data-theme="light"] footer {
-            background-color: var(--bg-secondary); /* Use light secondary background */
-            color: var(--text-primary); /* Use light primary text color */
-            border-top: 1px solid var(--glass-border);
-        }
-
-        [data-theme="light"] footer .text-slate-300 {
-            color: var(--text-secondary) !important;
-        }
-
-        [data-theme="light"] footer .text-slate-400 {
-            color: var(--text-secondary) !important;
-        }
-
-
-        /* --- FIXES END HERE --- */
-
-
-        .btn-modern {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-modern::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn-modern:hover::before {
-            left: 100%;
-        }
-
-        .btn-modern:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.4);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* NEW: Mobile menu specific styles */
-        .mobile-menu-hide {
-            transform: translateX(100%);
-            /* Start off-screen to the right */
-            pointer-events: none;
-            /* Disable interactions when hidden */
-        }
-
-        .mobile-menu-show {
-            transform: translateX(0);
-            /* Slide in to fully visible */
-            pointer-events: auto;
-            /* Enable interactions when shown */
-        }
-
-        @media (max-width: 767px) {
-            /* Adjust for screens smaller than medium (768px) */
-            .hero-bg {
-                padding-top: 5rem;
-                /* Add some top padding for smaller screens */
-                padding-bottom: 5rem;
-                /* Add some bottom padding for smaller screens */
-            }
-
-            .hero-bg h1 {
-                font-size: 3.5rem;
-                /* Adjust heading size for smaller screens */
-            }
-
-            .hero-bg p {
-                font-size: 1.125rem;
-                /* Adjust paragraph size for smaller screens */
-            }
-
-            .search-container {
-                margin: 2rem auto 3rem auto;
-                /* Center the search container */
-                max-width: 90%;
-                /* Make it take up more width on smaller screens */
-            }
-
-            .random-btn {
-                margin-left: 0 !important;
-                /* Remove left margin on small screens */
-            }
-
-            .tag-filter {
-                width: calc(50% - 0.5rem);
-                /* Make tags two per row on smaller screens, accounting for gap */
-                text-align: center;
-            }
-
-            .theme-toggle {
-                top: 110px;
-                /* Adjust top position for smaller screens */
-                right: 20px;
-                /* Move to the left side for better accessibility on small screens */
-                left: auto;
-                /* Remove right positioning */
-                width: 50px;
-                /* Slightly smaller button for small screens */
-                height: 50px;
-                /* Slightly smaller button for small screens */
-                font-size: 20px;
-                /* Smaller icon size */
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body class="min-h-screen transition-all font-sans">
-
+  <body class="min-h-screen transition-all font-sans">
     <nav class="fixed top-0 w-full z-50 navbar-glass shadow-xl p-4">
-        <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 font-bold text-lg mb-2 sm:mb-0" style="color: var(--text-primary);">
-                <img
-                    src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"
-                    class="h-12 w-12 rounded-full object-cover ring-2 ring-primary/30"
-                    alt="Logo"
-                />
-                <span class="whitespace-nowrap gradient-text text-xl font-extrabold"> 100_DAYS_100_WEB_PROJECT </span>
-            </a>
-            <span class="whitespace-nowrap gradient-text text-xl font-extrabold"><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 50 50" fill="#6c65c5">
-    <path d="M 25 1.0507812 C 24.7825 1.0507812 24.565859 1.1197656 24.380859 1.2597656 L 1.3808594 19.210938 C 0.95085938 19.550938 0.8709375 20.179141 1.2109375 20.619141 C 1.5509375 21.049141 2.1791406 21.129062 2.6191406 20.789062 L 4 19.710938 L 4 46 C 4 46.55 4.45 47 5 47 L 19 47 L 19 29 L 31 29 L 31 47 L 45 47 C 45.55 47 46 46.55 46 46 L 46 19.710938 L 47.380859 20.789062 C 47.570859 20.929063 47.78 21 48 21 C 48.3 21 48.589063 20.869141 48.789062 20.619141 C 49.129063 20.179141 49.049141 19.550938 48.619141 19.210938 L 25.619141 1.2597656 C 25.434141 1.1197656 25.2175 1.0507812 25 1.0507812 z M 35 5 L 35 6.0507812 L 41 10.730469 L 41 5 L 35 5 z"></path>
-</svg></a></span>
-
-
-        </div>
+      <div
+        class="container mx-auto flex flex-col sm:flex-row items-center justify-between"
+      >
+        <a
+          href="index.html"
+          class="flex items-center gap-3 font-bold text-lg mb-2 sm:mb-0"
+          style="color: var(--text-primary)"
+        >
+          <img
+            src="https://i.pinimg.com/736x/1c/54/f7/1c54f7b06d7723c21afc5035bf88a5ef.jpg"
+            class="h-12 w-12 rounded-full object-cover ring-2 ring-primary/30"
+            alt="Logo"
+          />
+          <span class="whitespace-nowrap gradient-text text-xl font-extrabold">
+            100_DAYS_100_WEB_PROJECT
+          </span>
+        </a>
+        <span class="whitespace-nowrap gradient-text text-xl font-extrabold"
+          ><a href="index.html"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="40"
+              height="40"
+              viewBox="0 0 50 50"
+              fill="#6c65c5"
+            >
+              <path
+                d="M 25 1.0507812 C 24.7825 1.0507812 24.565859 1.1197656 24.380859 1.2597656 L 1.3808594 19.210938 C 0.95085938 19.550938 0.8709375 20.179141 1.2109375 20.619141 C 1.5509375 21.049141 2.1791406 21.129062 2.6191406 20.789062 L 4 19.710938 L 4 46 C 4 46.55 4.45 47 5 47 L 19 47 L 19 29 L 31 29 L 31 47 L 45 47 C 45.55 47 46 46.55 46 46 L 46 19.710938 L 47.380859 20.789062 C 47.570859 20.929063 47.78 21 48 21 C 48.3 21 48.589063 20.869141 48.789062 20.619141 C 49.129063 20.179141 49.049141 19.550938 48.619141 19.210938 L 25.619141 1.2597656 C 25.434141 1.1197656 25.2175 1.0507812 25 1.0507812 z M 35 5 L 35 6.0507812 L 41 10.730469 L 41 5 L 35 5 z"
+              ></path></svg></a
+        ></span>
+      </div>
     </nav>
-
 
     <button id="themeToggle" class="theme-toggle">🌙</button>
 
-    <section class="min-h-screen flex flex-col justify-center items-center text-center hero-bg relative pt-24 px-4">
-        <div class="container mx-auto relative z-10">
-            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
-                <span class="gradient-text">AMAZING</span>
-                <br>
-                <span style="color: var(--text-primary);">CONTRIBUTORS</span>
-            </h1>
-            <p class="mt-6 text-xl md:text-2xl max-w-2xl mx-auto hero-subtitle font-light leading-relaxed"
-                style="color: var(--text-secondary);">
-                Meet the incredible developers who are making this
-                <span class="text-primary font-medium">100-day challenge</span>
-                a reality through their contributions and creativity!
-            </p>
+    <section
+      class="min-h-screen flex flex-col justify-center items-center text-center hero-bg relative pt-24 px-4"
+    >
+      <div class="container mx-auto relative z-10">
+        <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+          <span class="gradient-text">AMAZING</span>
+          <br />
+          <span style="color: var(--text-primary)">CONTRIBUTORS</span>
+        </h1>
+        <p
+          class="mt-6 text-xl md:text-2xl max-w-2xl mx-auto hero-subtitle font-light leading-relaxed"
+          style="color: var(--text-secondary)"
+        >
+          Meet the incredible developers who are making this
+          <span class="text-primary font-medium">100-day challenge</span>
+          a reality through their contributions and creativity!
+        </p>
 
-            <div class="mt-12">
-                <div class="flex flex-wrap justify-center gap-4">
-                    <div class="glass-card px-8 py-4 rounded-full">
-                        <span class="text-2xl font-bold text-primary" id="contributorCount">Loading...</span>
-                        <span class="ml-2" style="color: var(--text-secondary);">Contributors</span>
-                    </div>
-                    <div class="glass-card px-8 py-4 rounded-full">
-                        <span class="text-2xl font-bold text-secondary">100</span>
-                        <span class="ml-2" style="color: var(--text-secondary);">Days Goal</span>
-                    </div>
-                    <div class="glass-card px-8 py-4 rounded-full">
-                        <span class="text-2xl font-bold text-accent">∞</span>
-                        <span class="ml-2" style="color: var(--text-secondary);">Impact</span>
-                    </div>
-                </div>
+        <div class="mt-12">
+          <div class="flex flex-wrap justify-center gap-4">
+            <div class="glass-card px-8 py-4 rounded-full">
+              <span
+                class="text-2xl font-bold text-primary"
+                id="contributorCount"
+                >Loading...</span
+              >
+              <span class="ml-2" style="color: var(--text-secondary)"
+                >Contributors</span
+              >
             </div>
+            <div class="glass-card px-8 py-4 rounded-full">
+              <span class="text-2xl font-bold text-secondary">100</span>
+              <span class="ml-2" style="color: var(--text-secondary)"
+                >Days Goal</span
+              >
+            </div>
+            <div class="glass-card px-8 py-4 rounded-full">
+              <span class="text-2xl font-bold text-accent">∞</span>
+              <span class="ml-2" style="color: var(--text-secondary)"
+                >Impact</span
+              >
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <section class="py-20 px-4 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">
-                <span class="gradient-text">Our</span> <span style="color: var(--text-primary);">Heroes</span>
-            </h2>
-            <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-8"></div>
-            <p class="text-xl max-w-2xl mx-auto leading-relaxed" style="color: var(--text-secondary);">
-                Every line of code, every bug fix, and every feature is a step forward in our collective journey.
-            </p>
-        </div>
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+          <span class="gradient-text">Our</span>
+          <span style="color: var(--text-primary)">Heroes</span>
+        </h2>
+        <div
+          class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-8"
+        ></div>
+        <p
+          class="text-xl max-w-2xl mx-auto leading-relaxed"
+          style="color: var(--text-secondary)"
+        >
+          Every line of code, every bug fix, and every feature is a step forward
+          in our collective journey.
+        </p>
+      </div>
 
-        <div id="contributors" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            <template id="skeleton">
-                <div class="contributor-card rounded-2xl h-80 skeleton loading-pulse"></div>
-            </template>
-        </div>
+      <div
+        id="contributors"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+      >
+        <template id="skeleton">
+          <div
+            class="contributor-card rounded-2xl h-80 skeleton loading-pulse"
+          ></div>
+        </template>
+      </div>
     </section>
 
     <section class="py-20 px-4 max-w-4xl mx-auto text-center">
-        <div class="glass-card p-8 md:p-12 rounded-3xl">
-            <h3 class="text-3xl md:text-4xl font-bold mb-6 gradient-text">
-                Want to Join Our Community?
-            </h3>
-            <p class="text-lg md:text-xl mb-8 leading-relaxed" style="color: var(--text-secondary);">
-                Contribute to our projects, share your ideas, and be part of this amazing journey!
-            </p>
-            <a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS" target="_blank"
-                class="btn-modern text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3">
-                <i class="fab fa-github text-xl"></i>
-                Start Contributing
-            </a>
-        </div>
+      <div class="glass-card p-8 md:p-12 rounded-3xl">
+        <h3 class="text-3xl md:text-4xl font-bold mb-6 gradient-text">
+          Want to Join Our Community?
+        </h3>
+        <p
+          class="text-lg md:text-xl mb-8 leading-relaxed"
+          style="color: var(--text-secondary)"
+        >
+          Contribute to our projects, share your ideas, and be part of this
+          amazing journey!
+        </p>
+        <a
+          href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS"
+          target="_blank"
+          class="btn-modern text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3"
+        >
+          <i class="fab fa-github text-xl"></i>
+          Start Contributing
+        </a>
+      </div>
     </section>
 
     <footer class="bg-slate-900 text-white p-8 mt-20 border-t border-slate-800">
-        <div class="container mx-auto grid md:grid-cols-3 gap-12">
-            <div>
-                <h2 class="text-2xl font-bold mb-6 gradient-text">100 Days Challenge</h2>
-                <p class="text-slate-300 mb-6 leading-relaxed text-lg">
-                    This repository contains 100 web projects from basic to intermediate
-                    using HTML, CSS, and JS. Each project is designed to teach specific
-                    concepts and improve your coding skills.
-                </p>
-                <div class="flex gap-6">
-                    <a href="https://www.instagram.com/" target="_blank"
-                        class="text-pink-400 hover:text-pink-300 transition-colors text-2xl hover:scale-110 transform duration-300">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS" target="_blank"
-                        class="text-slate-300 hover:text-white transition-colors text-2xl hover:scale-110 transform duration-300">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/rutika-kengal-8085092b7" target="_blank"
-                        class="text-blue-400 hover:text-blue-300 transition-colors text-2xl hover:scale-110 transform duration-300">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div>
-                <h2 class="text-2xl font-bold mb-6 gradient-text">Quick Links</h2>
-                <ul class="space-y-4">
-                    <li>
-                        <a href="#projects"
-                            class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block">Browse
-                            Projects</a>
-                    </li>
-                    <li>
-                        <a href="#about"
-                            class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block">About
-                            Challenge</a>
-                    </li>
-                    <li>
-                        <a href="contributors.html"
-                            class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block">Contributors</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS"
-                            class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block">GitHub
-                            Repository</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div>
-                <h2 class="text-2xl font-bold mb-6 gradient-text">Technologies</h2>
-                <div class="flex flex-wrap gap-3 mb-8">
-                    <span
-                        class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium">HTML5</span>
-                    <span
-                        class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium">CSS3</span>
-                    <span
-                        class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-4 py-2 rounded-full text-sm font-medium">JavaScript</span>
-                    <span
-                        class="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-full text-sm font-medium">Responsive</span>
-                </div>
-                <p class="text-slate-400 text-lg">
-                    ©
-                    <script>
-                        document.write(new Date().getFullYear());
-                    </script>
-                    100DAYS_WEBPROJECTS by
-                    <a href="#" class="underline hover:text-white transition-colors gradient-text font-medium">Rutika
-                        Kengal</a>
-                    & Contributors
-                </p>
-            </div>
+      <div class="container mx-auto grid md:grid-cols-3 gap-12">
+        <div>
+          <h2 class="text-2xl font-bold mb-6 gradient-text">
+            100 Days Challenge
+          </h2>
+          <p class="text-slate-300 mb-6 leading-relaxed text-lg">
+            This repository contains 100 web projects from basic to intermediate
+            using HTML, CSS, and JS. Each project is designed to teach specific
+            concepts and improve your coding skills.
+          </p>
+          <div class="flex gap-6">
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              class="text-pink-400 hover:text-pink-300 transition-colors text-2xl hover:scale-110 transform duration-300"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS"
+              target="_blank"
+              class="text-slate-300 hover:text-white transition-colors text-2xl hover:scale-110 transform duration-300"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/rutika-kengal-8085092b7"
+              target="_blank"
+              class="text-blue-400 hover:text-blue-300 transition-colors text-2xl hover:scale-110 transform duration-300"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
         </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-6 gradient-text">Quick Links</h2>
+          <ul class="space-y-4">
+            <li>
+              <a
+                href="#projects"
+                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
+                >Browse Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="#about"
+                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
+                >About Challenge</a
+              >
+            </li>
+            <li>
+              <a
+                href="contributors.html"
+                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
+                >Contributors</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/rutikakengal/100DAYS_OF_100WEBPROJECTS"
+                class="text-slate-300 hover:text-white transition-colors text-lg hover:translate-x-2 transform duration-300 inline-block"
+                >GitHub Repository</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-6 gradient-text">Technologies</h2>
+          <div class="flex flex-wrap gap-3 mb-8">
+            <span
+              class="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium"
+              >HTML5</span
+            >
+            <span
+              class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium"
+              >CSS3</span
+            >
+            <span
+              class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-4 py-2 rounded-full text-sm font-medium"
+              >JavaScript</span
+            >
+            <span
+              class="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-2 rounded-full text-sm font-medium"
+              >Responsive</span
+            >
+          </div>
+          <p class="text-slate-400 text-lg">
+            ©
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            100DAYS_WEBPROJECTS by
+            <a
+              href="#"
+              class="underline hover:text-white transition-colors gradient-text font-medium"
+              >Rutika Kengal</a
+            >
+            & Contributors
+          </p>
+        </div>
+      </div>
     </footer>
 
-    <button id="scrollBtn" onclick="scrollToTop()"
-        class="fixed bottom-8 right-8 bg-gradient-to-r from-primary to-secondary text-white p-4 rounded-full shadow-2xl z-[60] btn-modern hidden hover:scale-110 transition-all duration-300">
-        <i class="fas fa-arrow-up text-xl"></i>
+    <button
+      id="scrollBtn"
+      onclick="scrollToTop()"
+      class="fixed bottom-8 right-8 bg-gradient-to-r from-primary to-secondary text-white p-4 rounded-full shadow-2xl z-[60] btn-modern hidden hover:scale-110 transition-all duration-300"
+    >
+      <i class="fas fa-arrow-up text-xl"></i>
     </button>
 
     <script>
-        const container = document.getElementById('contributors');
-        const skeletonTemplate = document.getElementById('skeleton');
-        const CACHE_KEY = 'github_contributors';
-        const CACHE_TIME = 1000 * 60 * 60; // 1 hour
-        const REPO_API = 'https://api.github.com/repos/rutikakengal/100DAYS_OF_100WEBPROJECTS/contributors';
+      const container = document.getElementById("contributors");
+      const skeletonTemplate = document.getElementById("skeleton");
+      const CACHE_KEY = "github_contributors";
+      const CACHE_TIME = 1000 * 60 * 60; // 1 hour
+      const REPO_API =
+        "https://api.github.com/repos/rutikakengal/100DAYS_OF_100WEBPROJECTS/contributors";
 
-        function showSkeletons(count = 8) {
-            container.innerHTML = '';
-            for (let i = 0; i < count; i++) {
-                container.appendChild(skeletonTemplate.content.cloneNode(true));
-            }
+      function showSkeletons(count = 8) {
+        container.innerHTML = "";
+        for (let i = 0; i < count; i++) {
+          container.appendChild(skeletonTemplate.content.cloneNode(true));
         }
+      }
 
-        function renderContributors(data) {
-            container.innerHTML = '';
-            document.getElementById('contributorCount').textContent = data.length;
+      function renderContributors(data) {
+        container.innerHTML = "";
+        document.getElementById("contributorCount").textContent = data.length;
 
-            data.forEach((user, index) => {
-                const card = document.createElement('div');
-                card.className = 'contributor-card p-8 rounded-2xl text-center transition-all duration-500';
-                card.style.animationDelay = `${index * 0.1}s`;
-                card.innerHTML = `
+        data.forEach((user, index) => {
+          const card = document.createElement("div");
+          card.className =
+            "contributor-card p-8 rounded-2xl text-center transition-all duration-500";
+          card.style.animationDelay = `${index * 0.1}s`;
+          card.innerHTML = `
                     <div class="relative mb-6">
                         <img src="${user.avatar_url}" alt="${user.login}"
                              class="w-24 h-24 rounded-full mx-auto border-4 border-primary/30 shadow-lg object-cover"
@@ -642,12 +829,12 @@
                         View Profile
                     </a>
                 `;
-                container.appendChild(card);
-            });
-        }
+          container.appendChild(card);
+        });
+      }
 
-        function renderErrorUI() {
-            container.innerHTML = `
+      function renderErrorUI() {
+        container.innerHTML = `
                 <div class="col-span-full">
                     <div class="error-card p-12 rounded-3xl text-center max-w-md mx-auto">
                         <div class="text-6xl mb-6 opacity-60">⚠️</div>
@@ -664,143 +851,152 @@
                     </div>
                 </div>
             `;
-            document.getElementById('contributorCount').textContent = '?';
+        document.getElementById("contributorCount").textContent = "?";
+      }
+
+      async function fetchContributors() {
+        showSkeletons();
+
+        // Check cache first
+        const cached = localStorage.getItem(CACHE_KEY);
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (Date.now() - parsed.timestamp < CACHE_TIME) {
+            renderContributors(parsed.data);
+            return;
+          }
         }
 
-        async function fetchContributors() {
-            showSkeletons();
+        // Fetch from GitHub API
+        try {
+          const response = await fetch(REPO_API);
+          if (!response.ok) throw new Error("GitHub API failed");
+          const contributors = await response.json();
 
-            // Check cache first
-            const cached = localStorage.getItem(CACHE_KEY);
-            if (cached) {
-                const parsed = JSON.parse(cached);
-                if (Date.now() - parsed.timestamp < CACHE_TIME) {
-                    renderContributors(parsed.data);
-                    return;
-                }
-            }
+          // Cache the data
+          localStorage.setItem(
+            CACHE_KEY,
+            JSON.stringify({
+              timestamp: Date.now(),
+              data: contributors,
+            })
+          );
 
-            // Fetch from GitHub API
-            try {
-                const response = await fetch(REPO_API);
-                if (!response.ok) throw new Error('GitHub API failed');
-                const contributors = await response.json();
-
-                // Cache the data
-                localStorage.setItem(CACHE_KEY, JSON.stringify({
-                    timestamp: Date.now(),
-                    data: contributors
-                }));
-
-                renderContributors(contributors);
-            } catch (err) {
-                console.warn('GitHub API fetch failed:', err);
-                renderErrorUI();
-            }
+          renderContributors(contributors);
+        } catch (err) {
+          console.warn("GitHub API fetch failed:", err);
+          renderErrorUI();
         }
+      }
 
-        // Start loading
-        fetchContributors();
+      // Start loading
+      fetchContributors();
 
-        const scrollBtn = document.getElementById("scrollBtn");
-        window.onscroll = () => {
-            if (document.documentElement.scrollTop > 100)
-                scrollBtn.classList.remove("hidden");
-            else scrollBtn.classList.add("hidden");
-        };
+      const scrollBtn = document.getElementById("scrollBtn");
+      window.onscroll = () => {
+        if (document.documentElement.scrollTop > 100)
+          scrollBtn.classList.remove("hidden");
+        else scrollBtn.classList.add("hidden");
+      };
 
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: "smooth" });
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      const themeToggle = document.getElementById("themeToggle");
+      function setTheme(mode) {
+        if (mode === "light") {
+          document.documentElement.setAttribute("data-theme", "light");
+          themeToggle.textContent = "🌞";
+        } else {
+          document.documentElement.removeAttribute("data-theme");
+          themeToggle.textContent = "🌙";
         }
+      }
 
-        const themeToggle = document.getElementById("themeToggle");
-        function setTheme(mode) {
-            if (mode === "light") {
-                document.documentElement.setAttribute("data-theme", "light");
-                themeToggle.textContent = "🌞";
-            } else {
-                document.documentElement.removeAttribute("data-theme");
-                themeToggle.textContent = "🌙";
-            }
-        }
+      let currentTheme = localStorage.getItem("theme") || "dark";
+      setTheme(currentTheme);
 
-        let currentTheme = localStorage.getItem("theme") || "dark";
+      themeToggle.addEventListener("click", () => {
+        currentTheme = currentTheme === "dark" ? "light" : "dark";
         setTheme(currentTheme);
+        localStorage.setItem("theme", currentTheme);
+      });
 
-        themeToggle.addEventListener("click", () => {
-            currentTheme = currentTheme === "dark" ? "light" : "dark";
-            setTheme(currentTheme);
-            localStorage.setItem("theme", currentTheme);
-        });
+      // Mobile menu functionality
+      const mobileMenuButton = document.getElementById("mobileMenuButton");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const closeMobileMenu = document.getElementById("closeMobileMenu");
 
-        // Mobile menu functionality
-        const mobileMenuButton = document.getElementById('mobileMenuButton');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const closeMobileMenu = document.getElementById('closeMobileMenu');
+      function toggleMobileMenu() {
+        // Toggle the visibility classes for smooth transition
+        mobileMenu.classList.toggle("mobile-menu-hide");
+        mobileMenu.classList.toggle("mobile-menu-show");
+      }
 
-        function toggleMobileMenu() {
-            // Toggle the visibility classes for smooth transition
-            mobileMenu.classList.toggle('mobile-menu-hide');
-            mobileMenu.classList.toggle('mobile-menu-show');
-        }
+      // mobileMenuButton.addEventListener('click', toggleMobileMenu); // commented out as button is not present in provided code
+      // closeMobileMenu.addEventListener('click', toggleMobileMenu); // commented out as button is not present in provided code
 
-        // mobileMenuButton.addEventListener('click', toggleMobileMenu); // commented out as button is not present in provided code
-        // closeMobileMenu.addEventListener('click', toggleMobileMenu); // commented out as button is not present in provided code
-
-        // Add event listeners to navigation links within the mobile menu
-        document.querySelectorAll('#mobileMenu .nav-link').forEach(link => {
-            link.addEventListener('click', toggleMobileMenu);
-        });
+      // Add event listeners to navigation links within the mobile menu
+      document.querySelectorAll("#mobileMenu .nav-link").forEach((link) => {
+        link.addEventListener("click", toggleMobileMenu);
+      });
     </script>
     <script>
-    // Snake Cursor Script
-    (() => {
-      const isTouch = ("ontouchstart" in window) || navigator.maxTouchPoints > 0;
-      if (isTouch) return;
+      // Snake Cursor Script
+      (() => {
+        const isTouch =
+          "ontouchstart" in window || navigator.maxTouchPoints > 0;
+        if (isTouch) return;
 
-      const tail = [];
-      const length = 18;
-      let mx = innerWidth / 2, my = innerHeight / 2;
+        const tail = [];
+        const length = 18;
+        let mx = innerWidth / 2,
+          my = innerHeight / 2;
 
-      for (let i = 0; i < length; i++) {
-        const d = document.createElement("div");
-        d.className = "snake-dot";
-        const size = Math.max(6, 14 - Math.floor(i * 0.45));
-        d.style.width = size + "px";
-        d.style.height = size + "px";
-        document.body.appendChild(d);
-        tail.push({ el: d, x: mx, y: my });
-      }
+        for (let i = 0; i < length; i++) {
+          const d = document.createElement("div");
+          d.className = "snake-dot";
+          const size = Math.max(6, 14 - Math.floor(i * 0.45));
+          d.style.width = size + "px";
+          d.style.height = size + "px";
+          document.body.appendChild(d);
+          tail.push({ el: d, x: mx, y: my });
+        }
 
-      addEventListener("mousemove", e => { mx = e.clientX; my = e.clientY; });
+        addEventListener("mousemove", (e) => {
+          mx = e.clientX;
+          my = e.clientY;
+        });
 
-      function tick() {
-        let tx = mx, ty = my;
-        for (let i = 0; i < tail.length; i++) {
-          const t = tail[i];
-          t.x += (tx - t.x) * 0.28;
-          t.y += (ty - t.y) * 0.28;
-          t.el.style.left = t.x + "px";
-          t.el.style.top = t.y + "px";
-          t.el.style.opacity = Math.max(0.08, 1 - i / tail.length);
-          const scale = 1 - i / (tail.length * 1.2);
-          t.el.style.transform = `translate(-50%,-50%) scale(${scale})`;
-          tx = t.x; ty = t.y;
+        function tick() {
+          let tx = mx,
+            ty = my;
+          for (let i = 0; i < tail.length; i++) {
+            const t = tail[i];
+            t.x += (tx - t.x) * 0.28;
+            t.y += (ty - t.y) * 0.28;
+            t.el.style.left = t.x + "px";
+            t.el.style.top = t.y + "px";
+            t.el.style.opacity = Math.max(0.08, 1 - i / tail.length);
+            const scale = 1 - i / (tail.length * 1.2);
+            t.el.style.transform = `translate(-50%,-50%) scale(${scale})`;
+            tx = t.x;
+            ty = t.y;
+          }
+          requestAnimationFrame(tick);
         }
         requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
 
-      addEventListener("resize", () => {
-        const w = innerWidth, h = innerHeight;
-        tail.forEach(t => {
-          t.x = Math.min(Math.max(0, t.x), w);
-          t.y = Math.min(Math.max(0, t.y), h);
+        addEventListener("resize", () => {
+          const w = innerWidth,
+            h = innerHeight;
+          tail.forEach((t) => {
+            t.x = Math.min(Math.max(0, t.x), w);
+            t.y = Math.min(Math.max(0, t.y), h);
+          });
         });
-      });
-    })();
-  </script>
-
-</body>
-
+      })();
+    </script>
+  </body>
 </html>
