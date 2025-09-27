@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BGCleaner</title>
+    <link rel="shortcut icon" href="icons/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sec1">
+        <img src="icons/favicon.png" alt="favicon">
+        <h1>Auto BG-Remover</h1>
+    </div>
+    <div class="main">
+        <div class="sec2-1">
+           <div class="animation">
+            <div class="image1"><img src="icons/withbg.jpg" alt="withbg" id="withbg"></div>
+            <div class="image2"><img src="icons/withoutbg.png" alt="withoutbg" id="withoutbg"></div>
+           </div>
+           <div class="text">Remove Image Background & Download in PNG</div>
+        </div>
+        <div class="sec2-2">
+            <div class="upload">
+                <div class="inner-upload">
+                   <img src="" alt="" id="input-image"> 
+                   <input type="file" id="filepicker" hidden>
+                   <div class="place-holder">
+                        <img src="icons/add.svg" alt="" id="addsvg">
+                        <span id="text">Upload Image</span>
+                   </div>
+                </div>
+                <button id="upload-btn">Upload</button>
+            </div> 
+            <img src="icons/loading.gif" alt="" id="loading">
+        </div>
+        <div class="sec2-3">
+            <div class="upload">
+                <div class="inner-upload">
+                   <img src="" alt="" id="generated-image"> 
+                </div>
+                <div class="buttons">
+                   <button id="download-btn">Download in PNG</button>
+                   <button id="reset-btn">Reset</button>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -65,6 +65,8 @@ const projects = [
   "Amazon Clone (Web-Page)",
   "Adventure Flappy Bird",
   "Hacker Runner Game",
+  "Background Cleaner"
+
 ];
 
 // ---------------- Helper Function ----------------
