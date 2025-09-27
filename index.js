@@ -61,20 +61,21 @@ const projects = [
   "Mood Quote Poster",
   "Echo Chamber",
 
-  
-  
-
   "Typing Survival Game",
   "Amazon Clone (Web-Page)",
   "Adventure Flappy Bird",
-"Hacker Runner Game",
+  "Hacker Runner Game",
   "Background Cleaner"
-
-
-  // Add more project names as needed
 
 ];
 
+// ---------------- Helper Function ----------------
+function scrollToProjects() {
+  const projectSection = document.getElementById("projects");
+  projectSection.scrollIntoView({ behavior: "smooth" });
+}
+
+// ---------------- Mobile Menu ----------------
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
@@ -82,11 +83,12 @@ hamburgerBtn.addEventListener('click', () => {
   mobileMenu.classList.toggle('hidden');
 });
 
+// ---------------- Project Table ----------------
 const tableBody = document.getElementById("tableBody");
 const projectCount = document.getElementById("projectCount");
 projectCount.textContent = projects.length;
 
-// --- Random Project Button Functionality ---
+// ---------------- Random Project Button ----------------
 const randomBtn = document.getElementById("randomProjectBtn");
 let showingRandom = false;
 let lastRandomIndex = null;
@@ -102,6 +104,8 @@ randomBtn.addEventListener("click", () => {
     randomBtn.textContent = " Random";
     showingRandom = false;
     lastRandomIndex = null;
+
+    scrollToProjects(); // scroll after restoring
     return;
   }
 
@@ -113,8 +117,20 @@ randomBtn.addEventListener("click", () => {
   }
   randomBtn.textContent = " Show All";
   showingRandom = true;
+
+  scrollToProjects(); // scroll after showing random
 });
 
+// ---------------- All Projects Filter ----------------
+document.querySelectorAll(".tag-filter").forEach((btn) => {
+  if (btn.getAttribute("data-tag") === "all") {
+    btn.addEventListener("click", () => {
+      scrollToProjects();
+    });
+  }
+});
+
+// ---------------- Populate Project Table ----------------
 projects.forEach((name, index) => {
   const day = `Day ${String(index + 1).padStart(2, "0")}`;
   let link;
