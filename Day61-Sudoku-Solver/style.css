@@ -1,0 +1,179 @@
+:root {
+    --background-color: #121212;
+    --container-bg: #1e1e1e;
+    --cell-bg: #2d2d2d;
+    --cell-focus-bg: #3a3a3a;
+    --border-color: #3a3a3a;
+    --text-color: #e0e0e0;
+    --primary-color: #bb86fc;
+    --pre-filled-color: #a0a0a0;
+    --solution-color: #03dac6;
+    --error-color: #cf6679;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    background-color: var(--container-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    text-align: center;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+#sudoku-board {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(30px, 1fr));
+    grid-template-rows: repeat(9, minmax(30px, 1fr));
+    border: 3px solid var(--primary-color);
+    border-radius: 8px;
+    gap: 2px;
+    background-color: var(--border-color);
+    margin-bottom: 1.5rem;
+    max-width: 400px;
+    width: 90vw;
+    aspect-ratio: 1 / 1;
+}
+
+.sudoku-cell {
+    width: 92%;
+    height: 92%;
+    text-align: center;
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    background-color: var(--cell-bg);
+    color: var(--text-color);
+    caret-color: var(--primary-color);
+    transition: background-color 0.2s ease;
+}
+
+.sudoku-cell:focus {
+    outline: none;
+    background-color: var(--cell-focus-bg);
+    box-shadow: inset 0 0 0 2px var(--primary-color);
+}
+
+/* Distinguish 3x3 subgrids */
+.sudoku-cell:nth-child(9n) {
+    border-right: none;
+}
+.sudoku-cell:nth-child(3n):not(:nth-child(9n)) {
+    border-right: 2px solid var(--primary-color);
+}
+
+.sudoku-cell:nth-child(n+19):nth-child(-n+27),
+.sudoku-cell:nth-child(n+46):nth-child(-n+54) {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+// ... existing code ...
+    margin-bottom: 1rem;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid var(--primary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+    color: var(--container-bg);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pre-filled {
+    color: var(--pre-filled-color);
+    font-weight: 700;
+}
+
+.solution-cell {
+    color: var(--solution-color);
+    font-weight: 700;
+    animation: pop-in 0.3s ease-out;
+}
+
+.invalid-cell {
+    background-color: var(--error-color);
+    color: var(--container-bg);
+}
+
+#message-area {
+    height: 24px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+footer {
+    margin-top: 2rem;
+    color: var(--pre-filled-color);
+    font-size: 0.9rem;
+}
+
+@keyframes pop-in {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.shake-board {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+/* Remove arrows from number inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+    
