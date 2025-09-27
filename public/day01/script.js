@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', function() {
         navMenu.classList.toggle('active');
     });
 
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if (hamburger.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    });
+
     // Smooth Scrolling for Navigation Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -70,45 +80,17 @@ document.addEventListener('DOMContentLoaded', function() {
         launchButton.addEventListener('click', launchRocket);
     }
 
-    // Animated Counter for Stats
-    function animateCounter(element, target, duration = 2000) {
-        let start = 0;
-        const increment = target / (duration / 16);
-        
-        function updateCounter() {
-            start += increment;
-            if (start < target) {
-                element.textContent = Math.floor(start);
-                requestAnimationFrame(updateCounter);
-            } else {
-                element.textContent = target;
-            }
-        }
-        updateCounter();
-    }
-
     // Intersection Observer for Animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver(function(entries) {
+    const observer = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Add animation class
                 entry.target.classList.add('animate');
                 
-                // Handle counter animations
-                if (entry.target.classList.contains('stats')) {
-                    const statNumbers = entry.target.querySelectorAll('.stat-number');
-                    statNumbers.forEach(stat => {
-                        const target = parseInt(stat.getAttribute('data-target'));
-                        animateCounter(stat, target);
-                    });
-                }
-                
-                // Handle feature cards staggered animation
                 if (entry.target.classList.contains('features')) {
                     const cards = entry.target.querySelectorAll('.feature-card');
                     cards.forEach((card, index) => {
@@ -118,12 +100,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         }, index * 200);
                     });
                 }
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Observe sections for animations
-    const sections = document.querySelectorAll('.features, .stats');
+    const sections = document.querySelectorAll('.features');
     sections.forEach(section => {
         observer.observe(section);
     });
@@ -131,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Button Click Effects
     document.querySelectorAll('.btn').forEach(button => {
         button.addEventListener('click', function(e) {
-            // Create ripple effect
             const ripple = document.createElement('span');
             const rect = this.getBoundingClientRect();
             const size = Math.max(rect.width, rect.height);
@@ -165,125 +146,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Add dynamic particles to hero section
-    function createParticles() {
-        const hero = document.querySelector('.hero');
-        const particlesContainer = document.createElement('div');
-        particlesContainer.className = 'particles';
-        particlesContainer.style.cssText = `
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        `;
-        
-        for (let i = 0; i < 50; i++) {
-            const particle = document.createElement('div');
-            particle.style.cssText = `
-                position: absolute;
-                width: 2px;
-                height: 2px;
-                background: rgba(255, 255, 255, 0.5);
-                border-radius: 50%;
-                left: ${Math.random() * 100}%;
-                top: ${Math.random() * 100}%;
-                animation: twinkle ${2 + Math.random() * 3}s infinite;
-            `;
-            particlesContainer.appendChild(particle);
-        }
-        
-        hero.appendChild(particlesContainer);
-    }
-
-    // Add twinkle animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes twinkle {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
-        }
-        
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(0);
-            animation: rippleEffect 0.6s ease-out;
-            pointer-events: none;
-        }
-        
-        @keyframes rippleEffect {
-            to {
-                transform: scale(2);
-                opacity: 0;
-            }
-        }
-        
-        .hamburger.active .bar:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-        
-        .hamburger.active .bar:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active .bar:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-        
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background-color: white;
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                padding: 2rem 0;
-            }
-            
-            .nav-menu.active {
-                left: 0;
-            }
-            
-            .nav-link {
-                padding: 1rem 0;
-                display: block;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-
-    // Initialize particles
-    createParticles();
-
-    // Add scroll reveal animation for elements
-    function revealOnScroll() {
-        const reveals = document.querySelectorAll('.feature-card, .stat-item');
-        
-        reveals.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-            
-            if (elementTop < window.innerHeight - elementVisible) {
-                element.classList.add('active');
-            }
-        });
-    }
-
-    window.addEventListener('scroll', revealOnScroll);
-
     // Add loading animation
     window.addEventListener('load', function() {
         document.body.classList.add('loaded');
         
-        // Stagger animation for hero elements
         const heroElements = document.querySelectorAll('.hero-content > *');
         heroElements.forEach((element, index) => {
             setTimeout(() => {
@@ -291,59 +157,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.style.transform = 'translateY(0)';
             }, index * 200);
         });
-    });
-
-    // Add cursor trail effect (optional)
-    let mouseX = 0, mouseY = 0;
-    let trail = [];
-
-    document.addEventListener('mousemove', function(e) {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-
-    function createTrail() {
-        if (trail.length > 10) {
-            trail[0].remove();
-            trail.shift();
-        }
-
-        const dot = document.createElement('div');
-        dot.style.cssText = `
-            position: fixed;
-            width: 4px;
-            height: 4px;
-            background: rgba(52, 152, 219, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            left: ${mouseX}px;
-            top: ${mouseY}px;
-            animation: trailFade 1s ease-out forwards;
-        `;
-
-        document.body.appendChild(dot);
-        trail.push(dot);
-    }
-
-    // Add trail fade animation
-    const trailStyle = document.createElement('style');
-    trailStyle.textContent = `
-        @keyframes trailFade {
-            0% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: scale(0); }
-        }
-    `;
-    document.head.appendChild(trailStyle);
-
-    // Create trail on mouse move (throttled)
-    let trailTimeout;
-    document.addEventListener('mousemove', function() {
-        if (!trailTimeout) {
-            trailTimeout = setTimeout(() => {
-                createTrail();
-                trailTimeout = null;
-            }, 50);
-        }
     });
 });
