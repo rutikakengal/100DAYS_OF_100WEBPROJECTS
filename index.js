@@ -86,6 +86,24 @@ const tableBody = document.getElementById("tableBody");
 const projectCount = document.getElementById("projectCount");
 projectCount.textContent = projects.length;
 
+// -- Search Functionality -- 
+
+const searchBar = document.getElementById("searchInput");
+
+searchBar.addEventListener("input", () => {
+  const searchTerm = searchBar.value.toLowerCase();
+  const rows = tableBody.getElementsByTagName("tr");
+
+  for (let i = 0; i < rows.length; i++) {
+    const name = rows[i].getElementsByTagName("td")[1].textContent.toLowerCase();
+    if (name.includes(searchTerm)) {
+      rows[i].style.display = "";
+    } else {
+      rows[i].style.display = "none";
+    }
+  }
+});
+
 // --- Random Project Button Functionality ---
 const randomBtn = document.getElementById("randomProjectBtn");
 let showingRandom = false;
