@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Chain Game</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .game {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      width: 380px;
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+    .rules {
+      background: rgba(0,0,0,0.2);
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 13px;
+      margin-bottom: 15px;
+      line-height: 1.4;
+      animation: fadeIn 1.5s ease;
+    }
+    .info {
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    input {
+      padding: 12px;
+      width: calc(100% - 24px);
+      margin-bottom: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+    button {
+      padding: 10px 14px;
+      background: #ff7675;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+    }
+    button:hover {
+      background: #d63031;
+      transform: scale(1.05);
+    }
+    .timer {
+      font-weight: bold;
+      margin: 12px 0;
+      font-size: 20px;
+      color: #ffeaa7;
+      transition: all 0.3s;
+    }
+    .timer.low {
+      color: #ff3838;
+      animation: pulse 1s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    .used-words {
+      margin-top: 15px;
+      font-size: 14px;
+      max-height: 100px;
+      overflow-y: auto;
+      text-align: left;
+      animation: fadeIn 1s ease;
+    }
+    .used-words span {
+      display: inline-block;
+      margin: 2px 4px;
+      padding: 4px 8px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 6px;
+      transition: transform 0.3s;
+    }
+    .used-words span:last-child {
+      background: #00cec9;
+      transform: scale(1.1);
+    }
+    .winner {
+      margin-top: 18px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #f6e58d;
+      animation: fadeIn 1s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="game">
+    <h1>Word Chain Game</h1>
+    <div class="rules">
+      Rules:<br>
+      1️⃣ Each word must start with the last letter of the previous word.<br>
+      2️⃣ No word can be repeated.<br>
+      3️⃣ You have 10 seconds per turn.<br>
+      4️⃣ First mistake → you lose!
+    </div>
+    <div class="info" id="turnInfo">Click Start to begin</div>
+    <div class="timer" id="timer">10</div>
+    <input type="text" id="wordInput" placeholder="Enter a word" disabled>
+    <button id="submitBtn" disabled>Submit</button>
+    <button id="startBtn">Start Game</button>
+    <div class="used-words" id="usedWords"></div>
+    <div class="winner" id="winner"></div>
+  </div>
+
+  <script>
+    const turnInfo = document.getElementById("turnInfo");
+    const timerEl = document.getElementById("timer");
+    const wordInput = document.getElementById("wordInput");
+    const submitBtn = document.getElementById("submitBtn");
+    const startBtn = document.getElementById("startBtn");
+    const usedWordsDiv = document.getElementById("usedWords");
+    const winnerEl = document.getElementById("winner");
+
+    let players = ["Player 1", "Player 2"];
+    let scores = [0, 0];
+    let usedWords = [];
+    let currentPlayer = 0;
+    let lastWord = "";
+    let timeLeft = 10;
+    let timer;
+
+    function startGame() {
+      scores = [0, 0];
+      usedWords = [];
+      currentPlayer = 0;
+      lastWord = "";
+      winnerEl.textContent = "";
+      wordInput.disabled = false;
+      submitBtn.disabled = false;
+      updateInfo();
+      updateUsedWords();
+      startTurn();
+    }
+
+    function startTurn() {
+      clearInterval(timer);
+      timeLeft = 10;
+      updateTimer();
+      timer = setInterval(() => {
+        timeLeft--;
+        updateTimer();
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          endGame(`${players[currentPlayer]} ran out of time!`);
+        }
+      }, 1000);
+    }
+
+    function updateTimer() {
+      timerEl.textContent = timeLeft;
+      timerEl.classList.toggle("low", timeLeft <= 3);
+    }
+
+    function submitWord() {
+      const word = wordInput.value.trim().toLowerCase();
+      if (!word) return;
+      if (usedWords.includes(word)) {
+        endGame(`${players[currentPlayer]} repeated a word!`);
+        return;
+      }
+      if (lastWord && word[0] !== lastWord.slice(-1)) {
+        endGame(`${players[currentPlayer]} used wrong starting letter!`);
+        return;
+      }
+      usedWords.push(word);
+      scores[currentPlayer]++;
+      lastWord = word;
+      updateUsedWords();
+      switchPlayer();
+    }
+
+    function switchPlayer() {
+      currentPlayer = (currentPlayer + 1) % players.length;
+      wordInput.value = "";
+      updateInfo();
+      startTurn();
+    }
+
+    function updateInfo() {
+      turnInfo.textContent = `${players[currentPlayer]}'s turn`;
+    }
+
+    function updateUsedWords() {
+      usedWordsDiv.innerHTML = "<b>Used Words:</b><br>" + 
+        usedWords.map(w => `<span>${w}</span>`).join(" ");
+    }
+
+    function endGame(message) {
+      clearInterval(timer);
+      wordInput.disabled = true;
+      submitBtn.disabled = true;
+      winnerEl.textContent = message + 
+        ` | Scores → ${players[0]}: ${scores[0]}, ${players[1]}: ${scores[1]}`;
+    }
+
+    submitBtn.addEventListener("click", submitWord);
+    wordInput.addEventListener("keydown", e => {
+      if (e.key === "Enter") submitWord();
+    });
+    startBtn.addEventListener("click", startGame);
+  </script>
+</body>
+</html>
+
