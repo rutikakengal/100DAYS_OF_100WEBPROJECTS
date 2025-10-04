@@ -1,0 +1,395 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Netflix Sans", "Helvetica Neue", "Segoe UI", Roboto, Ubuntu, sans-serif;
+}
+
+body{
+    background-color: black;
+}
+
+.main{
+    background-image: url(assets/images/bg.jpg);
+    background-position: center center;
+    background-size: max(1200px, 100vw);
+    background-repeat: no-repeat;
+    height: 90vh;
+    position: relative;
+}
+
+.main .box{
+    height: 90vh;
+    width: 100%;
+    opacity: 0.72;
+    background-color: black;
+    position: absolute;
+    top: 0;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    width: 75vw;
+    margin: auto;
+    margin-top: -5px;
+    justify-content: space-between;
+    height: 100px;
+
+}
+
+nav span img{
+    color: red;
+    width: 155px;
+    position: relative;
+    z-index: 10;
+}
+
+nav button{
+    position: relative;
+    z-index: 10;
+}
+
+.nav-buttons{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.head{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 100px);
+    position: relative;
+    gap: 23px;
+    padding: 0 30px;
+}
+
+.head> :nth-child(1){
+    font-family: "Helvetica Neue";
+    font-weight: 900;
+    font-size: 48px;
+    text-align: center;
+}
+
+.head> :nth-child(2){
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+}
+
+.head> :nth-child(3){
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+}
+
+.separation{
+    background-color: rgb(46, 44, 44);
+    position: relative;
+    height: 7px;
+    z-index: 20;
+}
+
+.btn {
+    padding: 5px 15px;
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(248, 243, 243, 0.021);
+    border-radius: 4px;
+    border: 1px solid rgb(133, 132, 132);
+    cursor: pointer;
+}
+
+.btn-trans{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-red {
+    background-color: red;
+    color: white;
+    padding: 15px 27px;
+    font-size: 24px;
+    border-radius: 4px;
+    font-weight: 500;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.btn-red-sm {
+    background-color: red;
+    color: white;
+    border: none;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.main input {
+    padding: 19px 225px 19px 15px;
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+    background-color: rgba(23, 23, 23, 0.7);
+    border: 1px solid rgba(246, 238, 238, 0.5);
+}
+
+input::placeholder{
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(167, 165, 165);
+}
+
+.box1{
+    display: flex;
+    margin: 70px 155px;
+    align-items: center;
+    max-height: 400px;
+
+}
+
+.headbox{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100% - 100px);
+    gap: 23px;
+    width: 70vw;
+    margin: auto;
+}
+
+.headbox> :nth-child(1){
+    font-weight: 900;
+    font-size: 48px;
+    text-align: left;
+}
+
+.headbox> :nth-child(2){
+    font-weight: 400;
+    font-size: 24px;
+    text-align: left;
+}
+
+.imgbox{
+    position: relative;
+    top: 20px;
+}
+
+.imgbox img{
+    position: relative;
+    top: 105px;
+    z-index: 10;
+}
+
+.imgbox .vid1{
+    position: relative;
+    bottom: 223px;
+    left: 69px;
+    width: 393px;
+}
+
+.imgbox .vid2{
+    position: relative;
+    width: 393px;
+    bottom: 320px;
+    left: 116px;
+}
+
+.displaybox{
+    display: flex;
+    flex-direction: row;
+    border-radius: 25px;
+    border: 2px white;
+    background-color: rgb(255 255 255 / 17%);;
+    width: 291px;
+    height: 71px;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    left: 160px;
+    bottom: 85px;
+}
+
+.text .first{
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+
+.text .second{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(0, 113, 235);
+}
+
+.qaa{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.qaa .head{
+    padding: 62px 0px 10px 0px;
+    font-weight: 900;
+    font-family: "Netflix Sans";
+    font-size: 48px;
+}
+
+.faq{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 74vw;
+    height: 27px;
+    background-color: rgb(43, 43, 43);
+    padding: 27px 21px 27px 26px;
+    margin: auto;
+}
+
+.faq span{
+    font-size: 24px;
+    color: white;
+
+}
+
+.email{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 23px;
+    padding: 50px 30px;
+}
+
+.email span{
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin: auto;
+    margin-top: 60px;
+    width: 70vw;
+}
+
+.footer> :nth-child(1){
+    align-self: left;
+    margin-left: -747px;
+}
+.grid{
+    display: grid;
+    width: 70vw;
+    grid-template-columns: auto auto auto auto;
+    align-self: flex-start;
+    /* margin-top: 60px; */
+    margin-bottom: 60px;
+}
+
+.grid ul{
+    list-style: none;
+}
+
+.grid ul li{
+    padding: 10px;
+}
+
+@media screen and (max-width: 1300px) {
+
+    nav{
+        max-width: 90vw;
+    }
+
+    .first {
+        flex-wrap: wrap;
+    }
+
+    .secImg img {
+        width: 305px;
+    }
+
+    .secImg video {
+        width: 305px;
+    }
+
+    .head> :nth-child(1) {
+        font-size: 32px;
+    }
+
+    .head> :nth-child(2) {
+        font-size: 18px;
+    }
+
+    .head> :nth-child(3) {
+        font-size: 18px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .faq h2 {
+        text-align: center;
+        font-size: 32px;
+    }
+
+    footer {
+        max-width: 90vw;
+        padding: 75px 0;
+    }
+
+    .footer-item{
+        align-items: center;
+    }
+ 
+
+}
+
+
+
+@media screen and (max-width: 1300px) {
+
+    .footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+}
+
+
+.footer a {
+    font-size: 14px;
+    color: white;
+}
+
+.footer-item {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+}
+
+
