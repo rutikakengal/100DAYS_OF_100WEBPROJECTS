@@ -1,0 +1,291 @@
+/* --- Base CSS Variables and Default Theme (Tired/Dark Blueish Gray) --- */
+:root {
+    /* Default theme */
+    --main-bg: #9b59b6; 
+    --secondary-bg: #bdc3c7; 
+    --text-color: #f8f8ff; 
+    --primary-color: #3498db; 
+    --secondary-accent: #f1c40f; 
+    --wave-duration: 25s;
+    --wave-opacity: 0.7;
+    --base-brightness: 1; /* Default: Full brightness */
+    --base-contrast: 1;  /* Default: Full contrast */
+}
+
+/* --- Dark Mode Variables (Toggled via JS) --- */
+.dark-mode {
+    --main-bg: #1f2a35;
+    --secondary-bg: #2c3e50;
+    --text-color: #f3f3f3;
+    --primary-color: #e74c3c; 
+    --secondary-accent: #f1c40f;
+    --base-brightness: 0.8; /* Slightly dim the background */
+    --base-contrast: 1.1;  /* Increase contrast for deep blacks */
+}
+
+/* --- Mood-Specific Variables (Shuttle Colors & Backgrounds) --- */
+.happy { --main-bg: #ffaa00; --secondary-bg: #ffcc00; --text-color: #333; --primary-color: #ff6600; --secondary-accent: #f06292; }
+.sad { --main-bg: #4a638c; --secondary-bg: #8c98a7; --text-color: f8f8ff; --primary-color: #5c6bc0; --secondary-accent: #95a5a6; }
+.energetic { --main-bg: #ff4136; --secondary-bg: #ff7f77; --text-color: #ffffff; --primary-color: #ffcc11; --secondary-accent: #3498db; }
+.relaxed { --main-bg: #1abc9c; --secondary-bg: #e6f7f4; --text-color: #2c3e50; --primary-color: #2ecc71; --secondary-accent: #1abc9c; }
+.angry { --main-bg: #8b0000; --secondary-bg: #c0392b; --text-color: #ffffff; --primary-color: #ff4500; --secondary-accent: #ffcc11; }
+.focused { --main-bg: #1a237e; --secondary-bg: #5c6bc0; --text-color: #e8eaf6; --primary-color: #00bcd4; --secondary-accent: #00897b; }
+.tired { --main-bg: #526372; --secondary-bg: #80909c; --text-color: #ffffff; --primary-color: #f1c40f; --secondary-accent: #34495e; }
+.neutral { --main-bg: #b2dfdb; --secondary-bg: #e0f2f1; --text-color: #004d40; --primary-color: #00897b; --secondary-accent: #4db6ac; }
+
+
+/* --- General Styling and Base Layout --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.8s ease-in-out, color 0.8s ease-in-out; 
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden; /* Crucial for mobile: prevents horizontal scroll */
+}
+
+/* --- Dynamic Wavy Background (Remains fixed and fluid) --- */
+#dynamic-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(135deg, var(--main-bg), var(--secondary-bg));
+    background-size: 400% 400%;
+    animation: waveColorShift var(--wave-duration) ease infinite alternate;
+    transition: background 0.8s ease-in-out, filter 0.8s ease-in-out; 
+    
+    /* Apply brightness/contrast based on the mood/dark mode variables */
+    filter: brightness(var(--base-brightness)) contrast(var(--base-contrast));
+}
+#dynamic-bg::before { /* Wave SVG animation properties */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: var(--wave-opacity);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='white' fill-opacity='1' d='M0,160L48,154.7C96,149,192,139,288,149.3C384,160,480,192,576,213.3C672,235,768,245,864,218.7C960,192,1056,128,1152,106.7C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom / cover;
+    mix-blend-mode: soft-light;
+    animation: waveShift 40s ease-in-out infinite alternate;
+}
+@keyframes waveColorShift { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+@keyframes waveShift { from { transform: translateX(0); } to { transform: translateX(-5%); } }
+
+
+/* --- Header Layout (Responsive Setup) --- */
+header {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5px; 
+    background: rgba(0, 0, 0, 0.1); 
+    backdrop-filter: blur(2px);
+}
+#logo { font-size: 1.8em; font-weight: 700; color: var(--text-color); }
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 15px; 
+    opacity: 0.7;
+    padding: 5px 10px;
+    transition: opacity 0.3s, color 0.3s, background 0.3s;
+}
+
+/* --- Content Wrapper (Free Design, Fluid Width) --- */
+#content-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 90%; 
+    max-width: 1000px;
+    margin: 120px auto 40px; 
+    text-align: center;
+}
+
+/* Page Transitions */
+.page-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+    position: absolute; 
+    width: 100%; /* Fill container width */
+    visibility: hidden;
+}
+.page-content.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    position: relative;
+}
+
+/* --- Mood Selector and Emojis --- */
+#mood-selector {
+    margin-bottom: 40px;
+}
+#mood-selector button {
+    background: none;
+    border: none;
+    font-size: 3.5em;
+    margin: 0 0.8vw; 
+    cursor: pointer;
+    opacity: 0.8;
+    transition: transform 0.2s, opacity 0.2s;
+    padding: 5px;
+}
+
+/* --- Auxiliary Controls (Shuffle, Theme, Dropdown) --- */
+#auxiliary-controls-group {
+    display: flex;
+    flex-direction: column; /* Default: Stack vertically on mobile */
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+#optional-controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+#optional-controls button, 
+.auto-refresh-text select { /* Secondary Button Style */
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 25px; 
+    background-color: var(--secondary-accent); 
+    color: white; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s, transform 0.1s;
+    font-weight: 600;
+}
+.auto-refresh-text select { appearance: none; min-width: 100px; padding-right: 15px; padding-left: 15px; cursor: pointer; }
+
+
+/* --- Music Player Controls (Main Functionality) --- */
+#music-player {
+    margin-top: 50px;
+    background: rgba(0, 0, 0, 0.1); 
+    padding: 20px;
+    border-radius: 15px;
+    display: inline-block; 
+    max-width: 90%; 
+    min-width: 500px;
+}
+
+/* New: Audio Controls Container */
+#audio-controls-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+/* 1. Track Controls (Play/Forward/Backward/Track Bar) */
+#track-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Player Primary Buttons (Circular, Distinct) */
+/* Apply to all track buttons and mute toggle */
+#play-pause, #mute-toggle, #backward-track, #forward-track {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; 
+    border: none;
+    font-size: 1.2em;
+    margin: 0;
+    background-color: var(--primary-color);
+    color: white; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0; 
+    cursor: pointer;
+}
+
+/* Size adjustment for forward/backward track buttons */
+#backward-track, #forward-track {
+    width: 40px;
+    height: 40px;
+    font-size: 1em;
+    opacity: 0.8;
+}
+
+/* ======================================================= */
+/* --- MEDIA QUERIES FOR MOBILE OPTIMIZATION (<= 767px) --- */
+/* ======================================================= */
+
+@media (max-width: 767px) {
+    
+    /* Header optimization: Stacks the links below the logo */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 5%;
+    }
+    #logo {
+        margin-bottom: 10px;
+    }
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding-top: 5px;
+    }
+    nav a {
+        margin: 0;
+        padding: 5px;
+        font-size: 0.85em; /* Smaller text for links */
+        white-space: nowrap;
+    }
+
+    /* Content push down past the stacked header */
+    #content-wrapper {
+        margin-top: 150px; 
+    }
+    
+    /* Main Headings */
+    h1#current-mood-text {
+        font-size: 1.8em;
+    }
+
+    /* Shrink Emojis for better fitting on small screens */
+    #mood-selector button {
+        font-size: 2.5em;
+        margin: 0 3px;
+    }
+
+    /* Auxiliary Buttons (Shuffle, Theme Toggle) stretch full width */
+    #optional-controls {
+        flex-direction: column;
+        width: 80%; /* Center the group */
+        max-width: 300px;
+        margin: auto;
+    }
+    #optional-controls button {
+        width: 100%;
+    }
+}
+
+/* Tablet Layout adjustments (Min 768px, Max 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Header spacing is comfortable */
+    header {
+        padding: 20px 3%;
+    }
+    
+    /* Auxiliary controls side-by-side */
+    #auxiliary-controls-group {
+        flex-direction: row; 
+        justify-content: center;
+        gap: 20px;
+    }
+}
