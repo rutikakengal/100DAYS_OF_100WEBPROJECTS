@@ -1,436 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typing Speed Checker</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: #333;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        .container {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            width: 100%;
-            max-width: 800px;
-            padding: 30px;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            color: #7f8c8d;
-            font-size: 1.1rem;
-        }
-        
-        .stats-container {
-            display: flex;
-            justify-content: space-between;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .stat-box {
-            text-align: center;
-            flex: 1;
-        }
-        
-        .stat-value {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #3498db;
-        }
-        
-        .stat-label {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-        }
-        
-        .text-container {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            font-size: 1.2rem;
-            min-height: 150px;
-            border: 2px solid #e9ecef;
-        }
-        
-        .text-display {
-            color: #2c3e50;
-        }
-        
-        .input-container {
-            margin-bottom: 20px;
-        }
-        
-        textarea {
-            width: 100%;
-            height: 120px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            padding: 15px;
-            font-size: 1.1rem;
-            resize: none;
-            transition: border-color 0.3s;
-        }
-        
-        textarea:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-        
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 12px 25px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        button:hover {
-            background-color: #2980b9;
-        }
-        
-        button:disabled {
-            background-color: #bdc3c7;
-            cursor: not-allowed;
-        }
-        
-        .results {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            margin-top: 20px;
-            display: none;
-        }
-        
-        .results h2 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-        
-        .results-stats {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
-        
-        .result-box {
-            text-align: center;
-        }
-        
-        .result-value {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #2ecc71;
-        }
-        
-        .result-label {
-            font-size: 1rem;
-            color: #7f8c8d;
-        }
-        
-        .correct {
-            color: #2ecc71;
-            background-color: rgba(46, 204, 113, 0.1);
-        }
-        
-        .incorrect {
-            color: #e74c3c;
-            background-color: rgba(231, 76, 60, 0.1);
-            text-decoration: underline;
-        }
-        
-        .current {
-            background-color: #3498db;
-            color: white;
-            padding: 0 2px;
-            border-radius: 3px;
-        }
-        
-        @media (max-width: 600px) {
-            .stats-container, .results-stats {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .container {
-                padding: 20px 15px;
-            }
-            
-            h1 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Splitter</title>
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <h1>Typing Speed Checker</h1>
-            <p class="subtitle">Test and improve your typing speed in 60 seconds</p>
-        </header>
-        
-        <div class="stats-container">
-            <div class="stat-box">
-                <div class="stat-value" id="timer">60</div>
-                <div class="stat-label">Seconds</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-value" id="wpm">0</div>
-                <div class="stat-label">Words Per Minute</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-value" id="accuracy">100%</div>
-                <div class="stat-label">Accuracy</div>
-            </div>
-        </div>
-        
-        <div class="text-container">
-            <div class="text-display" id="text-display"></div>
-        </div>
-        
-        <div class="input-container">
-            <textarea id="text-input" placeholder="Start typing here..."></textarea>
-        </div>
-        
-        <div class="controls">
-            <button id="start-btn">Start Test</button>
-            <button id="restart-btn" disabled>Restart</button>
-        </div>
-        
-        <div class="results" id="results">
-            <h2>Test Complete!</h2>
-            <div class="results-stats">
-                <div class="result-box">
-                    <div class="result-value" id="final-wpm">0</div>
-                    <div class="result-label">WPM</div>
-                </div>
-                <div class="result-box">
-                    <div class="result-value" id="final-accuracy">100%</div>
-                    <div class="result-label">Accuracy</div>
-                </div>
-            </div>
-            <button id="try-again-btn">Try Again</button>
-        </div>
+  <div class="container">
+    <!-- Dark Mode Toggle -->
+    <div class="mode-toggle">
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider round"></span>
+      </label>
+      <span>Dark Mode</span>
     </div>
 
-    <script>
-        // DOM Elements
-        const textDisplay = document.getElementById('text-display');
-        const textInput = document.getElementById('text-input');
-        const timerDisplay = document.getElementById('timer');
-        const wpmDisplay = document.getElementById('wpm');
-        const accuracyDisplay = document.getElementById('accuracy');
-        const startBtn = document.getElementById('start-btn');
-        const restartBtn = document.getElementById('restart-btn');
-        const results = document.getElementById('results');
-        const finalWpm = document.getElementById('final-wpm');
-        const finalAccuracy = document.getElementById('final-accuracy');
-        const tryAgainBtn = document.getElementById('try-again-btn');
+    <h1>💸 Expense Splitter</h1>
 
-        // Game state
-        let timer;
-        let timeLeft = 60;
-        let isPlaying = false;
-        let startTime;
-        let correctChars = 0;
-        let totalChars = 0;
-        let currentParagraph = '';
+    <!-- Input Section -->
+    <div class="input-section">
+      <input type="text" id="name" placeholder="Enter Name" />
+      <input type="number" id="amount" placeholder="Enter Amount" />
+      <select id="category">
+        <option value="Food">🍔 Food</option>
+        <option value="Travel">✈️ Travel</option>
+        <option value="Shopping">🛍️ Shopping</option>
+        <option value="Rent">🏠 Rent</option>
+        <option value="Others">💡 Others</option>
+      </select>
+      <input type="number" id="percentage" placeholder="Share %" min="0" max="100" />
+      <button id="add-btn">Add Expense</button>
+    </div>
 
-        // Sample paragraphs for the typing test
-        const paragraphs = [
-            "The quick brown fox jumps over the lazy dog. This sentence contains every letter in the English alphabet, making it perfect for typing practice.",
-            "Programming is the process of creating a set of instructions that tell a computer how to perform a task. Programming can be done using many programming languages.",
-            "The future belongs to those who believe in the beauty of their dreams. Always remember that you are capable of achieving great things in your life.",
-            "Technology is best when it brings people together. The internet has revolutionized communication and made the world a smaller place for everyone.",
-            "Learning to code is learning to create and innovate. With programming skills, you can build websites, apps, and software that solve real-world problems."
-        ];
+    <!-- Expense List Section -->
+    <div class="list-section">
+      <h2>Expense List</h2>
+      <input type="text" id="search" placeholder="Search name or category..." />
+      <ul id="expense-list"></ul>
+    </div>
 
-        // Initialize the game
-        function init() {
-            // Generate a random paragraph
-            currentParagraph = getRandomParagraph();
-            displayParagraph(currentParagraph);
-            
-            // Reset game state
-            timeLeft = 60;
-            correctChars = 0;
-            totalChars = 0;
-            isPlaying = false;
-            
-            // Update UI
-            timerDisplay.textContent = timeLeft;
-            wpmDisplay.textContent = '0';
-            accuracyDisplay.textContent = '100%';
-            textInput.value = '';
-            textInput.disabled = true;
-            startBtn.disabled = false;
-            restartBtn.disabled = true;
-            results.style.display = 'none';
-        }
+    <!-- Result Section -->
+    <div class="result-section">
+      <h2>Result</h2>
+      <select id="splitMode">
+        <option value="equal">Equal Split</option>
+        <option value="percentage">By Percentage</option>
+        <option value="amount">By Contribution</option>
+      </select>
+      <button id="calculate-btn">Calculate Split</button>
+      <button id="reset-btn">Reset</button>
+      <button id="export-btn">Export CSV</button>
+      <button id="pdf-btn">Download PDF</button>
 
-        // Get a random paragraph from the list
-        function getRandomParagraph() {
-            const randomIndex = Math.floor(Math.random() * paragraphs.length);
-            return paragraphs[randomIndex];
-        }
+      <div id="output"></div>
+      <canvas id="summaryChart" width="400" height="300"></canvas>
+    </div>
+  </div>
 
-        // Display the paragraph with proper formatting
-        function displayParagraph(text) {
-            textDisplay.innerHTML = '';
-            text.split('').forEach(char => {
-                const charSpan = document.createElement('span');
-                charSpan.innerText = char;
-                textDisplay.appendChild(charSpan);
-            });
-        }
+  <!-- Toast Notification -->
+  <div id="toast" aria-live="polite"></div>
 
-        // Start the typing test
-        function startGame() {
-            if (isPlaying) return;
-            
-            isPlaying = true;
-            startTime = new Date();
-            textInput.disabled = false;
-            textInput.focus();
-            startBtn.disabled = true;
-            restartBtn.disabled = false;
-            
-            // Start the timer
-            timer = setInterval(updateTimer, 1000);
-            
-            // Calculate WPM and accuracy in real-time
-            setInterval(updateStats, 500);
-        }
-
-        // Update the timer
-        function updateTimer() {
-            timeLeft--;
-            timerDisplay.textContent = timeLeft;
-            
-            if (timeLeft <= 0) {
-                endGame();
-            }
-        }
-
-        // Update WPM and accuracy in real-time
-        function updateStats() {
-            if (!isPlaying) return;
-            
-            const elapsedTime = (new Date() - startTime) / 1000 / 60; // in minutes
-            const wordsTyped = correctChars / 5;
-            const currentWpm = Math.round(wordsTyped / elapsedTime);
-            
-            wpmDisplay.textContent = isFinite(currentWpm) ? currentWpm : 0;
-            
-            const accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 100;
-            accuracyDisplay.textContent = `${accuracy}%`;
-        }
-
-        // End the game and show results
-        function endGame() {
-            clearInterval(timer);
-            isPlaying = false;
-            textInput.disabled = true;
-            
-            // Calculate final stats
-            const elapsedTime = 1; // 1 minute
-            const wordsTyped = correctChars / 5;
-            const finalWpmValue = Math.round(wordsTyped / elapsedTime);
-            const finalAccuracyValue = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 100;
-            
-            // Display final results
-            finalWpm.textContent = finalWpmValue;
-            finalAccuracy.textContent = `${finalAccuracyValue}%`;
-            results.style.display = 'block';
-        }
-
-        // Handle user input
-        function handleInput() {
-            if (!isPlaying) return;
-            
-            const inputArray = textInput.value.split('');
-            const paragraphArray = currentParagraph.split('');
-            const displaySpans = textDisplay.querySelectorAll('span');
-            
-            // Reset correct characters count
-            correctChars = 0;
-            totalChars = inputArray.length;
-            
-            // Update character styling
-            paragraphArray.forEach((char, index) => {
-                const span = displaySpans[index];
-                
-                if (index < inputArray.length) {
-                    if (char === inputArray[index]) {
-                        span.className = 'correct';
-                        correctChars++;
-                    } else {
-                        span.className = 'incorrect';
-                    }
-                } else if (index === inputArray.length) {
-                    span.className = 'current';
-                } else {
-                    span.className = '';
-                }
-            });
-            
-            // Check if user has completed the paragraph
-            if (inputArray.length >= paragraphArray.length) {
-                // Generate a new paragraph
-                currentParagraph = getRandomParagraph();
-                displayParagraph(currentParagraph);
-                textInput.value = '';
-                totalChars = 0;
-            }
-        }
-
-        // Event Listeners
-        startBtn.addEventListener('click', startGame);
-        restartBtn.addEventListener('click', init);
-        tryAgainBtn.addEventListener('click', init);
-        textInput.addEventListener('input', handleInput);
-
-        // Initialize the game when page loads
-        window.addEventListener('load', init);
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>

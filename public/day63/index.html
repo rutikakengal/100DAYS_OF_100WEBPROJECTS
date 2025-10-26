@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Splitter</title>
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Dark Mode Toggle -->
+    <div class="mode-toggle">
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider round"></span>
+      </label>
+      <span>Dark Mode</span>
+    </div>
+
+    <h1>💸 Expense Splitter</h1>
+
+    <!-- Input Section -->
+    <div class="input-section">
+      <input type="text" id="name" placeholder="Enter Name" />
+      <input type="number" id="amount" placeholder="Enter Amount" />
+      <select id="category">
+        <option value="Food">🍔 Food</option>
+        <option value="Travel">✈️ Travel</option>
+        <option value="Shopping">🛍️ Shopping</option>
+        <option value="Rent">🏠 Rent</option>
+        <option value="Others">💡 Others</option>
+      </select>
+      <input type="number" id="percentage" placeholder="Share %" min="0" max="100" />
+      <button id="add-btn">Add Expense</button>
+    </div>
+
+    <!-- Expense List Section -->
+    <div class="list-section">
+      <h2>Expense List</h2>
+      <input type="text" id="search" placeholder="Search name or category..." />
+      <ul id="expense-list"></ul>
+    </div>
+
+    <!-- Result Section -->
+    <div class="result-section">
+      <h2>Result</h2>
+      <select id="splitMode">
+        <option value="equal">Equal Split</option>
+        <option value="percentage">By Percentage</option>
+        <option value="amount">By Contribution</option>
+      </select>
+      <button id="calculate-btn">Calculate Split</button>
+      <button id="reset-btn">Reset</button>
+      <button id="export-btn">Export CSV</button>
+      <button id="pdf-btn">Download PDF</button>
+
+      <div id="output"></div>
+      <canvas id="summaryChart" width="400" height="300"></canvas>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

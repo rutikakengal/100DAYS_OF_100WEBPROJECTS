@@ -70,8 +70,8 @@ const projects = [
 "Hacker Runner Game",
   "Background Cleaner",
   "Sudoku Solver",
-
 "Typing Speed Checker",
+"Expense Splitter",
   // Add more project names as needed
 
 ];

@@ -1,0 +1,371 @@
+/* =======================================
+   🌈 GLOBAL STYLES
+======================================= */
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #333;
+}
+
+/* =======================================
+   📦 MAIN CONTAINER
+======================================= */
+.container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.9rem;
+  font-weight: 600;
+}
+
+/* =======================================
+   🌙 DARK MODE TOGGLE
+======================================= */
+.mode-toggle {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.4s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #6c63ff;
+}
+
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+/* =======================================
+   ✏️ INPUT SECTION
+======================================= */
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.input-section input,
+.input-section select {
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: #fff;
+  color: inherit;
+  outline: none;
+}
+
+/* Style for the date input (consistent with others) */
+#date {
+  color: #7c7979;
+  font-family: inherit;
+}
+
+.input-section button {
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border: none;
+  background: #764ba2;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 0.6rem;
+  align-self: flex-end;
+  box-shadow: 0 5px 15px rgba(118, 75, 162, 0.3);
+}
+
+.input-section button:hover {
+  background: #667eea;
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* =======================================
+   🧾 EXPENSE LIST
+======================================= */
+.list-section {
+  margin-top: 1.5rem;
+}
+
+.list-section h2 {
+  text-align: center;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+#search {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+  outline: none;
+  font-size: 1rem;
+}
+
+#expense-list {
+  list-style: none;
+  padding: 0;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+#expense-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f7f7ff;
+  margin-bottom: 0.6rem;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  animation: fadeSlideIn 0.4s forwards;
+}
+
+.date {
+  font-size: 0.75rem;
+  color: #efebeb;
+  margin-left: 8px;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =======================================
+   ⚙️ ACTION BUTTONS
+======================================= */
+.buttons {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.buttons button {
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.buttons button.delete {
+  background: #ff6b6b;
+  color: #fff;
+}
+
+.buttons button.edit {
+  background: #339af0;
+  color: #fff;
+}
+
+.buttons button:hover {
+  transform: scale(1.1);
+  opacity: 0.85;
+}
+
+/* =======================================
+   📊 RESULT SECTION
+======================================= */
+.result-section {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.result-section h2 {
+  margin-bottom: 0.8rem;
+}
+
+.result-section button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 0.3rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+#calculate-btn {
+  background: #ff6b6b;
+}
+
+#calculate-btn:hover {
+  background: #fa5252;
+  transform: scale(1.05);
+}
+
+#reset-btn {
+  background: #6c757d;
+}
+
+#reset-btn:hover {
+  background: #495057;
+  transform: scale(1.05);
+}
+
+#export-btn {
+  background: #51cf66;
+}
+
+#export-btn:hover {
+  background: #40c057;
+  transform: scale(1.05);
+}
+
+#pdf-btn {
+  background: #6c63ff;
+}
+
+#pdf-btn:hover {
+  background: #574ae2;
+  transform: scale(1.05);
+}
+
+#output {
+  margin-top: 1rem;
+  font-weight: 500;
+  min-height: 40px;
+}
+
+/* =======================================
+   📈 CHART CANVAS
+======================================= */
+canvas {
+  max-width: 100%;
+  margin-top: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* =======================================
+   🔔 TOAST NOTIFICATION
+======================================= */
+#toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #6c63ff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 15px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.5s ease;
+  z-index: 10;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =======================================
+   🌘 DARK MODE STYLES
+======================================= */
+body.dark {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+body.dark .container {
+  background: #1e1e1e;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+body.dark input,
+body.dark select {
+  background: #2b2b2b;
+  color: #e0e0e0;
+  border: 1px solid #555;
+}
+
+body.dark #expense-list li {
+  background: #2b2b2b;
+  color: #e0e0e0;
+}
+
+/* Smooth mode switching */
+body,
+body * {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =======================================
+   📱 RESPONSIVE DESIGN
+======================================= */
+@media (max-width: 600px) {
+  .container {
+    padding: 1.2rem;
+  }
+
+  .input-section input,
+  .input-section select,
+  .input-section button,
+  .result-section button {
+    width: 100%;
+  }
+}
