@@ -60,6 +60,7 @@ const projects = [
 
   "Mood Quote Poster",
   "Echo Chamber",
+  "Pomodoro timer",
 
   
   
