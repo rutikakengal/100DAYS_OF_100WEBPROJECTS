@@ -41,6 +41,17 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // Check for duplicate tasks
+        const tasks = getTasks();
+        const isDuplicate = tasks.some(task => 
+            task.text.toLowerCase() === taskText.toLowerCase() && !task.completed
+        );
+        
+        if (isDuplicate) {
+            showAlert('This task already exists in your active tasks!');
+            return;
+        }
+
         const task = {
             id: Date.now(),
             text: taskText,
@@ -54,32 +65,42 @@ document.addEventListener('DOMContentLoaded', function() {
         saveTask(task);
         taskInput.value = '';
         dueDate.value = '';
+        prioritySelect.value = 'medium';
         updateTaskCount();
+        
+        // Apply current filter to show/hide new task
+        filterTasks();
     }
 
     function createTaskElement(task) {
         const li = document.createElement('li');
+        li.dataset.id = task.id; // FIX: Add data-id attribute
         if (task.completed) li.classList.add('completed');
 
         const priorityClass = `priority-${task.priority}`;
 
+        // Check if task is overdue
+        const isOverdue = task.dueDate && !task.completed && 
+                         new Date(task.dueDate) < new Date().setHours(0, 0, 0, 0);
+
         li.innerHTML = `
             <div class="task-content">
-                <span class="task-text">${task.text}</span>
+                <span class="task-text">${escapeHtml(task.text)}</span>
                 <div class="task-details">
                     <span class="task-priority ${priorityClass}">
                         ${task.priority.charAt(0).toUpperCase() + task.priority.slice(1)} Priority
                     </span>
                     ${task.dueDate ? `
-                        <span class="task-due">
+                        <span class="task-due ${isOverdue ? 'overdue' : ''}">
                             <i class="far fa-calendar-alt"></i>
                             ${new Date(task.dueDate).toLocaleDateString()}
+                            ${isOverdue ? '<span class="overdue-badge">Overdue</span>' : ''}
                         </span>
                     ` : ''}
                 </div>
             </div>
             <div class="task-actions">
-                <button class="complete-btn" title="Complete">
+                <button class="complete-btn" title="${task.completed ? 'Mark as incomplete' : 'Mark as complete'}">
                     <i class="fas fa-check"></i>
                 </button>
                 <button class="edit-btn" title="Edit">
@@ -98,8 +119,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         completeBtn.addEventListener('click', function() {
             li.classList.toggle('completed');
-            updateTaskStatus(task.id, li.classList.contains('completed'));
+            const isCompleted = li.classList.contains('completed');
+            updateTaskStatus(task.id, isCompleted);
             updateTaskCount();
+            
+            // Update button title
+            completeBtn.title = isCompleted ? 'Mark as incomplete' : 'Mark as complete';
+            
+            // Reapply filter to handle completed/active filter views
+            setTimeout(() => filterTasks(), 300);
         });
 
         editBtn.addEventListener('click', function() {
@@ -107,15 +135,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         deleteBtn.addEventListener('click', function() {
-            li.classList.add('deleting');
-            setTimeout(() => {
-                removeTask(task.id);
-                li.remove();
-                updateTaskCount();
-            }, 300);
+            if (confirm('Are you sure you want to delete this task?')) {
+                li.classList.add('deleting');
+                setTimeout(() => {
+                    removeTask(task.id);
+                    li.remove();
+                    updateTaskCount();
+                }, 300);
+            }
         });
 
         taskList.appendChild(li);
+    }
+
+    // FIX: Escape HTML to prevent XSS attacks
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 
     function editTask(id, li) {
@@ -123,9 +160,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentText = taskText.textContent;
         const newText = prompt('Edit your task:', currentText);
 
-        if (newText !== null && newText.trim() !== '') {
-            taskText.textContent = newText.trim();
-            updateTaskText(id, newText.trim());
+        if (newText !== null && newText.trim() !== '' && newText.trim() !== currentText) {
+            const trimmedText = newText.trim();
+            
+            // Check for duplicates
+            const tasks = getTasks();
+            const isDuplicate = tasks.some(task => 
+                task.text.toLowerCase() === trimmedText.toLowerCase() && 
+                task.id !== id && 
+                !task.completed
+            );
+            
+            if (isDuplicate) {
+                showAlert('A task with this name already exists!');
+                return;
+            }
+            
+            taskText.textContent = trimmedText;
+            updateTaskText(id, trimmedText);
         }
     }
 
@@ -144,6 +196,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 task.style.display = 'none';
             }
         });
+        
+        updateTaskCount();
     }
 
     function clearCompletedTasks() {
@@ -153,67 +207,131 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        if (confirm('Are you sure you want to clear all completed tasks?')) {
+        if (confirm(`Are you sure you want to clear ${completedTasks.length} completed task${completedTasks.length > 1 ? 's' : ''}?`)) {
             completedTasks.forEach(task => {
-                const id = parseInt(task.dataset.id);
+                const id = parseInt(task.dataset.id); // FIX: Now properly reads data-id
                 removeTask(id);
                 task.classList.add('deleting');
                 setTimeout(() => task.remove(), 300);
             });
-            updateTaskCount();
+            setTimeout(() => updateTaskCount(), 350);
         }
     }
 
     function updateTaskCount() {
-        const totalTasks = document.querySelectorAll('li').length;
-        const completedTasks = document.querySelectorAll('li.completed').length;
-        const activeTasks = totalTasks - completedTasks;
+        // Count only visible tasks based on current filter
+        const allTasks = document.querySelectorAll('li');
+        const completedTasks = document.querySelectorAll('li.completed');
+        const totalTasks = allTasks.length;
+        const activeTasks = totalTasks - completedTasks.length;
 
-        taskCount.textContent = `${activeTasks} ${activeTasks === 1 ? 'task' : 'tasks'} remaining`;
+        if (currentFilter === 'all') {
+            taskCount.textContent = `${activeTasks} ${activeTasks === 1 ? 'task' : 'tasks'} remaining`;
+        } else if (currentFilter === 'active') {
+            taskCount.textContent = `${activeTasks} active ${activeTasks === 1 ? 'task' : 'tasks'}`;
+        } else if (currentFilter === 'completed') {
+            taskCount.textContent = `${completedTasks.length} completed ${completedTasks.length === 1 ? 'task' : 'tasks'}`;
+        }
     }
 
-    // LocalStorage functions
+    // LocalStorage functions with error handling
     function saveTask(task) {
-        const tasks = getTasks();
-        tasks.push(task);
-        localStorage.setItem('tasks', JSON.stringify(tasks));
+        try {
+            const tasks = getTasks();
+            tasks.push(task);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        } catch (e) {
+            console.error('Failed to save task:', e);
+            showAlert('Failed to save task. Storage might be full.');
+        }
     }
 
     function getTasks() {
-        return JSON.parse(localStorage.getItem('tasks')) || [];
+        try {
+            return JSON.parse(localStorage.getItem('tasks')) || [];
+        } catch (e) {
+            console.error('Failed to load tasks:', e);
+            return [];
+        }
     }
 
     function loadTasks() {
         const tasks = getTasks();
+        
+        // Sort tasks: incomplete first, then by priority, then by due date
+        tasks.sort((a, b) => {
+            if (a.completed !== b.completed) {
+                return a.completed ? 1 : -1;
+            }
+            
+            const priorityOrder = { high: 0, medium: 1, low: 2 };
+            if (priorityOrder[a.priority] !== priorityOrder[b.priority]) {
+                return priorityOrder[a.priority] - priorityOrder[b.priority];
+            }
+            
+            if (a.dueDate && b.dueDate) {
+                return new Date(a.dueDate) - new Date(b.dueDate);
+            }
+            
+            return 0;
+        });
+        
         tasks.forEach(task => createTaskElement(task));
         updateTaskCount();
     }
 
     function updateTaskStatus(id, completed) {
-        const tasks = getTasks();
-        const taskIndex = tasks.findIndex(task => task.id === id);
-        if (taskIndex !== -1) {
-            tasks[taskIndex].completed = completed;
-            localStorage.setItem('tasks', JSON.stringify(tasks));
+        try {
+            const tasks = getTasks();
+            const taskIndex = tasks.findIndex(task => task.id === id);
+            if (taskIndex !== -1) {
+                tasks[taskIndex].completed = completed;
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+            }
+        } catch (e) {
+            console.error('Failed to update task status:', e);
         }
     }
 
     function updateTaskText(id, newText) {
-        const tasks = getTasks();
-        const taskIndex = tasks.findIndex(task => task.id === id);
-        if (taskIndex !== -1) {
-            tasks[taskIndex].text = newText;
-            localStorage.setItem('tasks', JSON.stringify(tasks));
+        try {
+            const tasks = getTasks();
+            const taskIndex = tasks.findIndex(task => task.id === id);
+            if (taskIndex !== -1) {
+                tasks[taskIndex].text = newText;
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+            }
+        } catch (e) {
+            console.error('Failed to update task text:', e);
         }
     }
 
     function removeTask(id) {
-        let tasks = getTasks();
-        tasks = tasks.filter(task => task.id !== id);
-        localStorage.setItem('tasks', JSON.stringify(tasks));
+        try {
+            let tasks = getTasks();
+            tasks = tasks.filter(task => task.id !== id);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        } catch (e) {
+            console.error('Failed to remove task:', e);
+        }
     }
 
     function showAlert(message) {
         alert(message);
+    }
+    
+    // Check for overdue tasks on load
+    checkOverdueTasks();
+    
+    function checkOverdueTasks() {
+        const tasks = getTasks();
+        const today = new Date().setHours(0, 0, 0, 0);
+        const overdueTasks = tasks.filter(task => 
+            task.dueDate && !task.completed && new Date(task.dueDate) < today
+        );
+        
+        if (overdueTasks.length > 0) {
+            console.log(`You have ${overdueTasks.length} overdue task(s)`);
+        }
     }
 });
