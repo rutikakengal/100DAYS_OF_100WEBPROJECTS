@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunscreen Photostability Checker</title>
+    <link rel="canonical" href="https://ismysunscreenstable.netlify.app/">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="/" class="logo"><img src = "download-removebg-preview.png" height="50"></a>
+      <div class="logo">SunNotScreen</div>
+      <div class = "hamburger" id="hamburger">
+      ☰
+      </div>
+      <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#photostability">Photostability</a></li>
+      <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="container container2">
+      <h1>Sun, No Screen?</h1>
+      <textarea
+        id="ingredients"
+        placeholder=" Paste your ingredient list here..."
+      ></textarea>
+      <div class="button-wrapper">
+        <button class="button" onclick="checkPhotostability()">Check</button>
+      </div>
+      <div id="result"></div>
+      </div>
+    </div>
+    <div class="info-wrapper">
+    <section id="how-it-works" class="how-it-works-section">
+      <div class="container container3">
+      <h2>How It Works?</h2>
+       <ol>
+    <li>
+      <strong>Paste your sunscreen’s ingredient list</strong> into the input box above. You can copy it directly from the product label or website.
+    </li>
+    <li>
+      <strong>Click “Check”</strong> to analyze the ingredients and see if the sunscreen’s formula contains stable or unstable UV filters.
+    </li>
+    <li>
+      <strong>Get instant feedback</strong> with clear recommendations about photostability, helping you choose sunscreens that protect you better.
+    </li>
+    <li>
+      <strong>Learn more about ingredients</strong> with explanations and tips on how different filters interact or affect stability.
+    </li>
+  </ol>
+  </div>
+      <section id="photostability" class="info-section">
+      <div class="container container4">
+      <h2>What is Photostability?</h2>
+      <p>
+    Photostability refers to the ability of sunscreen ingredients to remain stable and effective when exposed to sunlight.  
+    Some UV filters break down quickly in sunlight, reducing the sunscreen’s protection, while others stay stable and keep protecting your skin for longer.  
+    Understanding photostability helps you choose sunscreens that offer reliable protection throughout your time in the sun & help you save your precious skin and money.
+
+    Read more at: <a href="https://www.reddit.com/r/IndianSkincareAddicts/comments/y1uw6p/psa_before_buying_a_sunscreen_check_if_its/" class="resource">Link</a> 
+  </p>
+    </section>
+    <div class="container contact">
+    <section id="contact" class="contact-section">
+  <h2 class="us">Contact Us</h2>
+  <form id="contactForm" action="https://formspree.io/f/mdkdkeab" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your name" required />
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Your email" required />
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+
+    <div class="button-wrapper">
+    <button type="submit" class="button">Send</button>
+    </div>
+  </form>
+  </div>
+  <p id="formResponse" aria-live="polite"></p>
+</section>
+    <footer class="footer">
+      <div class="socials">
+    <a href="https://github.com/sumve/ismysunscreenstable" target="_blank" rel="noopener noreferrer"><img src="github.png" alt="GitHub" /></a>
+    <a href="https://linkedin.com/in/sumedha-verma" target="_blank" rel="noopener noreferrer"><img src="linkedin.png" alt="LinkedIn" /></a>
+    <a href="https://www.instagram.com/sumvidk/" target="_blank" rel="noopener noreferrer"><img src="instagram.png" alt="Instagram" /></a>
+  </div>
+      <p>&copy; 2025 SunNotScreen. Built with ☀️ by SumV.</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
