@@ -7,27 +7,50 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Rock Paper Scissors ✊✋✌️</h1>
+ <div class="container">
 
-    <div class="scoreboard">
-      <p>Player: <span id="player-score">0</span></p>
-      <p>Computer: <span id="computer-score">0</span></p>
+    <div id="mode-selection" class="screen active">
+      <h1>Rock Paper Scissors ✊✋✌️</h1>
+      <h2>Choose Game Mode</h2>
+      <div class="mode-buttons">
+        <button class="mode-btn" data-mode="vs-computer">🖥️ Play vs Computer</button>
+        <button class="mode-btn" data-mode="two-player">👥 2-Player Mode</button>
+      </div>
     </div>
 
-    <div class="choices">
-      <button class="choice" data-choice="rock">✊ Rock</button>
-      <button class="choice" data-choice="paper">✋ Paper</button>
-      <button class="choice" data-choice="scissors">✌️ Scissors</button>
-    </div>
+    <div id="game-screen" class="screen">
+      <div class="header">
+        <button id="back-btn" class="back-button">← Back to Home</button>
+        <h1>Rock Paper Scissors ✊✋✌️</h1>
+      </div>
 
-    <div class="result">
-      <h2 id="winner">Make your move!</h2>
-      <p id="player-choice">You: -</p>
-      <p id="computer-choice">CPU: -</p>
+      <div class="scoreboard">
+        <p><span id="player1-label">Player 1</span>: <span id="player1-score">0</span></p>
+        <p><span id="player2-label">Computer</span>: <span id="player2-score">0</span></p>
+      </div>
+
+      <div id="turn-indicator" class="turn-indicator hidden">
+        <h3 id="current-player">Player 1's Turn</h3>
+      </div>
+
+      <div class="choices">
+        <button class="choice" data-choice="rock">✊ Rock</button>
+        <button class="choice" data-choice="paper">✋ Paper</button>
+        <button class="choice" data-choice="scissors">✌️ Scissors</button>
+      </div>
+
+      <div class="result">
+        <h2 id="winner">Make your move!</h2>
+        <p id="player1-choice">Player 1: -</p>
+        <p id="player2-choice">Player 2: -</p>
+        <p id="win-note" class="small-note hidden">⚠️ First player to reach 10 points wins the game.</p>
+      </div>
+
+      <div id="continue-section" class="continue-section hidden">
+        <button id="continue-btn" class="continue-btn">Continue to Next Round</button>
+      </div>
     </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
