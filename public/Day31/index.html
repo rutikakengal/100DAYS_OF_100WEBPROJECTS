@@ -3,25 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Typing Speed Test</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h1>Typing Speed Test</h1>
 
+        <!-- Timer Mode -->
+        <label for="timeMode">Choose Timer:</label>
+        <select id="timeMode">
+            <option value="60">1 Minute</option>
+            <option value="120">2 Minutes</option>
+            <option value="300">5 Minutes</option>
+        </select>
+
+        <!-- Quote Section -->
         <div class="quote" id="quoteDisplay"></div>
 
+        <!-- Typing Box -->
         <textarea id="quoteInput" placeholder="Start typing here..." autofocus></textarea>
 
+        <!-- Progress Bar -->
+        <div class="progress">
+            <div id="progressBar"></div>
+        </div>
+
+        <!-- Stats -->
         <div class="stats">
             <p>Time: <span id="timer">0</span>s</p>
             <p>WPM: <span id="wpm">0</span></p>
             <p>Accuracy: <span id="accuracy">100%</span></p>
         </div>
 
+        <!-- Buttons -->
         <button id="restart">Restart</button>
         <button id="finish">Finish</button>
+        <button id="darkModeToggle">🌙 Toggle Dark Mode</button>
+
+        <!-- Leaderboard -->
+        <div class="leaderboard">
+            <h2>Leaderboard (Local)</h2>
+            <ul id="leaderboardList"></ul>
+        </div>
     </div>
 
     <script src="script.js"></script>
