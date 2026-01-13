@@ -60,10 +60,7 @@ const projects = [
 
   "Mood Quote Poster",
   "Echo Chamber",
-
-  
-  
-
+  "Flappy Bird",
   "Typing Survival Game",
   "Amazon Clone (Web-Page)",
   "Adventure Flappy Bird",
