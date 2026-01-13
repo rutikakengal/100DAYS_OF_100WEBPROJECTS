@@ -7,15 +7,17 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  
-  <button id="startBtn">Start Game</button>
 
-  <div id="hud">
-    <div id="score">0</div>
-    <div id="level">Level 1</div>
+  <div class="game-container">
+    <div id="hud">
+      <div id="score">0</div>
+      <div id="level">Level 1</div>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
   </div>
 
-  <canvas id="gameCanvas"></canvas>
+  <button id="startBtn">Start Game</button>
 
   <div id="scoreBoard" class="hidden">
     <h2>🏆 Scoreboard</h2>

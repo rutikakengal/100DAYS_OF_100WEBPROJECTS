@@ -241,7 +241,7 @@ function updateBird() {
   }
   if (bird.y - bird.radius < 0) {
     bird.y = bird.radius;
-    bird.velocity = 0;
+    gameOver = true;
   }
 }
 
