@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sikkim Adventures</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <nav
+      id="main-navbar"
+      class="navbar navbar-expand-lg glass-navbar fixed-top"
+    >
+      <div class="container">
+        <!-- Brand -->
+        <a class="navbar-brand fw-bold text-white" href="#"
+          ><img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749553891/adventure_4_life_final_logo_page-0001-removebg-preview_eoqoui.png"
+            alt=""
+        /></a>
+
+        <!-- Toggler -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-white"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                Tracking & Hiking Trips
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="./Kerala.html">Kerala</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./ladakh.html">Ladakh</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./Sikkim.html">Sikkim</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./Uttrakhand.html"
+                    >Uttrakhand</a
+                  >
+                </li>
+                <!-- <li><a class="dropdown-item" href="#">Ladakh</a></li> -->
+                <li>
+                  <a class="dropdown-item" href="./Meghalaya.html">Meghalaya</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./Himachal.html"
+                    >Himachal Pradesh</a
+                  >
+                </li>
+                <!-- Add more as needed -->
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./index.html#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./index.html#gallery"
+                >Gallery</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-white"
+                href="./contact.html"
+                target="_blank"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="header">
+      <div class="header-image-container">
+        <img
+          src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749543497/gaurav-bagdi--umeutkfZew-unsplash_tu4ewk.jpg"
+          alt="Sikkim landscape"
+          class="header-image"
+        />
+        <div class="header-overlay">
+          <h1>Sikkim Adventures</h1>
+          <p>Trekking through the Eastern Himalayas</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="adventure-description">
+      <h2>Trekking & Exploration in Sikkim</h2>
+      <p>
+        Nestled in the Eastern Himalayas, Sikkim offers surreal landscapes,
+        alpine lakes, sacred monasteries, and exhilarating trekking trails. From
+        Dzongri to Goechala, it's an adventurer's paradise.
+      </p>
+    </section>
+
+    <section class="gallery">
+      <h2>Adventure Highlights</h2>
+      <div class="card-grid">
+        <!-- Dzongri Trek Card -->
+        <div class="card">
+          <img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749547795/dizon_mgv5eu.jpg"
+            alt="Dzongri Trek"
+          />
+          <h3>Dzongri Trek</h3>
+          <p>
+            Short yet stunning trek through rhododendron forests to majestic
+            mountain views.
+          </p>
+          <a href="#"><button onclick="openDzongri()">5 days</button></a>
+        </div>
+
+        <!-- Dzongri Modal -->
+        <div id="dzongri-modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeDzongri()">&times;</span>
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749547795/dizon_mgv5eu.jpg"
+              alt="Dzongri Trek"
+              class="modal-img"
+            />
+            <h2>Dzongri Trek – 5 Days</h2>
+            <p>
+              <strong>Description:</strong> Ideal for those with limited time,
+              the Dzongri Trek offers Himalayan views without the longer
+              commitment of Goechala.
+            </p>
+            <h3>Itinerary:</h3>
+            <ul>
+              <li>Day 1: Yuksom to Tshoka</li>
+              <li>Day 2: Tshoka to Dzongri</li>
+              <li>Day 3: Explore Dzongri La</li>
+              <li>Day 4: Return to Tshoka</li>
+              <li>Day 5: Back to Yuksom</li>
+            </ul>
+            <h3>Inclusions:</h3>
+            <ul>
+              <li>Guides and porters</li>
+              <li>Tents/guesthouse stay</li>
+              <li>All meals during trek</li>
+            </ul>
+            <p>
+              Perfect for intermediate trekkers seeking scenic mountain
+              experiences.
+            </p>
+            <a
+              href="https://wa.me/919876543210?text=Interested in Dzongri Trek"
+            >
+              <button class="book-btn">Book Now</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Goechala Trek -->
+        <div class="card">
+          <img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749456050/Picture_291_dt2dgi.jpg"
+            alt="Goechala Trek"
+          />
+          <h3>Goechala Trek</h3>
+          <p>
+            Epic journey to a high Himalayan pass with views of Kanchenjunga.
+          </p>
+          <a href="#"><button onclick="openGoechala()">10 days</button></a>
+        </div>
+
+        <!-- Goechala Modal -->
+        <div id="goechala-modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeGoechala()">&times;</span>
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749456050/Picture_291_dt2dgi.jpg"
+              alt="Goechala Trek"
+              class="modal-img"
+            />
+            <h2>Goechala Trek – 10 Days</h2>
+            <p>
+              <strong>Description:</strong> A high-altitude trek offering
+              jaw-dropping views of Mt. Kanchenjunga.
+            </p>
+            <h3>Itinerary Highlights:</h3>
+            <ul>
+              <li>
+                Yuksom – Tshoka – Dzongri – Thansing – Lamuney – Goechala
+                Viewpoint
+              </li>
+            </ul>
+            <h3>Inclusions:</h3>
+            <ul>
+              <li>Experienced guides & porters</li>
+              <li>Tent accommodation</li>
+              <li>Meals & permits</li>
+            </ul>
+            <p>A true Himalayan adventure for experienced trekkers.</p>
+            <a
+              href="https://wa.me/919876543210?text=Interested in Goechala Trek"
+            >
+              <button class="book-btn">Book Now</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Green Lake Trek -->
+        <div class="card">
+          <img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749548032/green_lake_xkivee.webp"
+            alt="Green Lake Trek"
+          />
+          <h3>Green Lake Trek</h3>
+          <p>
+            Less-traveled trail to a mystical glacial lake near Mt. Kanchenjunga
+            base.
+          </p>
+          <a href="#"><button onclick="openGreenLake()">12 days</button></a>
+        </div>
+
+        <!-- Green Lake Modal -->
+        <div id="greenlake-modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeGreenLake()">&times;</span>
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749548032/green_lake_xkivee.webp"
+              alt="Green Lake Trek"
+              class="modal-img"
+            />
+            <h2>Green Lake Trek – 12 Days</h2>
+            <p>
+              <strong>Description:</strong> Offbeat trek to the alpine Green
+              Lake, offering solitude and mountain drama.
+            </p>
+            <h3>Inclusions:</h3>
+            <ul>
+              <li>All logistics and permits</li>
+              <li>Tent camping</li>
+              <li>Meals and experienced guides</li>
+            </ul>
+            <p>Ideal for seasoned trekkers looking for raw Himalayan beauty.</p>
+            <a
+              href="https://wa.me/919876543210?text=Interested in Green Lake Trek"
+            >
+              <button class="book-btn">Book Now</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Barsey Rhododendron Trek -->
+        <div class="card">
+          <img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749548098/Rhododendron-Sanctuary-Barsey_pstixc.jpg"
+            alt="Barsey Trek"
+          />
+          <h3>Barsey Rhododendron Trek</h3>
+          <p>
+            Springtime trek through colorful rhododendron forests and alpine
+            views.
+          </p>
+          <a href="#"><button onclick="openBarsey()">4 days</button></a>
+        </div>
+
+       
+        <div id="barsey-modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeBarsey()">&times;</span>
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749548098/Rhododendron-Sanctuary-Barsey_pstixc.jpg"
+              alt="Barsey Trek"
+              class="modal-img"
+            />
+            <h2>Barsey Rhododendron Trek – 4 Days</h2>
+            <p>
+              <strong>Description:</strong> A scenic trek through the Barsey
+              Rhododendron Sanctuary, offering breathtaking views of blooming
+              rhododendrons and the Kangchenjunga range.
+            </p>
+            <h3>Itinerary:</h3>
+            <ul>
+              <li>
+                Day 1: Drive from Gangtok to Hilley, trek to Barsey, and settle
+                into eco-camp.
+              </li>
+              <li>
+                Day 2: Explore the sanctuary, witness vibrant rhododendron
+                blooms, and enjoy panoramic mountain views.
+              </li>
+              <li>
+                Day 3: Trek to nearby viewpoints, spot rare birds, and visit
+                local villages.
+              </li>
+              <li>
+                Day 4: Return trek to Hilley, drive back to Gangtok, and
+                conclude the journey.
+              </li>
+            </ul>
+            <h3>Inclusions:</h3>
+            <ul>
+              <li>Eco-camp stay for a comfortable experience in nature.</li>
+              <li>
+                Experienced guide for navigation and insights into flora and
+                fauna.
+              </li>
+              <li>Meals featuring local delicacies.</li>
+              <li>Permits & logistics for hassle-free trekking.</li>
+              <li>Entry fees for the sanctuary.</li>
+              <li>Safety equipment (first aid kit, trekking poles).</li>
+            </ul>
+            <p>Perfect short trek during spring with rich flora and fauna.</p>
+            <a
+              href="https://wa.me/919876543210?text=Interested in Barsey Rhododendron Trek"
+            >
+              <button class="book-btn">Book Now</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-section">
+      <div class="footer-container">
+        <div class="footer-about">
+          <a class="navbar-brand fw-bold text-white" href="#"
+            ><img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749553891/adventure_4_life_final_logo_page-0001-removebg-preview_eoqoui.png"
+              alt=""
+          /></a>
+          <p>
+            Your trusted partner in traveling, trekking, and hiking adventures.
+            Explore the world with us!
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.html#gallery">Gallery</a></li>
+            <li><a href="./index.html#about">About</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p>Email: info@adventure.com</p>
+          <p>Phone: +91 12345 67890</p>
+          <p>Address: Noida, Uttar Pradesh, India</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Adventure4Life. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

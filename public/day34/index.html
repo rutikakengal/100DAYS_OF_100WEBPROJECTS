@@ -1,5 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hiking Website</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://console.cloudinary.com/app/c-77dcec051717d18f1861b2902633a9/assets/media_library/search?q=&view_mode=mosaic"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <!-- Navigation Bar -->
+    <nav
+      id="main-navbar"
+      class="navbar navbar-expand-lg glass-navbar fixed-top"
+    >
+      <div class="container">
+        <!-- Brand -->
+        <a class="navbar-brand fw-bold text-white" href="#"
+          ><img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749553891/adventure_4_life_final_logo_page-0001-removebg-preview_eoqoui.png"
+            alt=""
+        /></a>
+
+        <!-- Toggler -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+       
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-white"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                Tracking & Hiking Trips
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="./Kerala.html">Kerala</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./ladakh.html">Ladakh</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./Sikkim.html">Sikkim</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./Uttrakhand.html"
+                    >Uttrakhand</a
+                  >
+                </li>
+                <!-- <li><a class="dropdown-item" href="#">Ladakh</a></li> -->
+                <li>
+                  <a class="dropdown-item" href="./Meghalaya.html">Meghalaya</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./Himachal.html"
+                    >Himachal Pradesh</a
+                  >
+                </li>
+                <!-- Add more as needed -->
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#Home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#gallery">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-white"
+                href="./contact.html"
+                target="_blank"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="Home" class="hero-section">
+      <div class="hero-overlay">
+        <div class="hero-content text-center text-white">
+          <h1 class="heading">Adventure Awaits</h1>
+          <div class="word-box" id="changingword"></div>
+          <p>Unleash your wild side with breathtaking treks and hikes</p>
+          <a
+            href="https://wa.me/1234567890"
+            class="btn btn-outline-light btn-lg mt-3"
+            >Book Your Journey</a
+          >
+        </div>
+      </div>
+    </section>
+    <section id="gallery" class="gallery-section">
+      <div class="gallery-grid">
+        <a href="kerala.html" class="gallery-link">
+          <div class="gallery-item">
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749456042/04960035_xkd2bv.jpg"
+              alt="Kerala"
+            />
+            <div class="gallery-overlay">
+              <h3>Kerala</h3>
+              <p>
+                Known as "God’s Own Country," Kerala offers serene backwaters,
+                lush greenery, and rich culture.
+              </p>
+            </div>
+          </div>
+        </a>
+        <a
+          href="ladakh.html"
+          target="_blank"
+          style="text-decoration: none; color: inherit"
+        >
+          <div class="gallery-item">
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749543496/darshan-chudasama-peYcTee_bss-unsplash_pf0iwv.jpg"
+              alt="Ladakh"
+            />
+            <div class="gallery-overlay">
+              <h3>Ladakh</h3>
+              <p>
+                A breathtaking Himalayan desert with stunning landscapes and
+                Buddhist monasteries.
+              </p>
+            </div>
+          </div>
+        </a>
+        <a
+          href="Uttrakhand.html"
+          target="_blank"
+          style="text-decoration: none; color: inherit"
+        >
+          <div class="gallery-item">
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749456042/04970025_xmuwhm.jpg"
+              alt="Uttrakhand"
+            />
+            <div class="gallery-overlay">
+              <h3>Uttrakhand</h3>
+              <p>
+                Home to the Himalayas, spiritual retreats, and adventure sports
+                amidst nature.
+              </p>
+            </div>
+          </div>
+        </a>
+        <a
+          href="Sikkim.html"
+          target="_blank"
+          style="text-decoration: none; color: inherit"
+        >
+          <div class="gallery-item">
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749543497/gaurav-bagdi--umeutkfZew-unsplash_tu4ewk.jpg"
+              alt="Sikkim"
+            />
+            <div class="gallery-overlay">
+              <h3>Sikkim</h3>
+              <p>
+                A peaceful Himalayan state famous for monasteries, trekking
+                trails, and vibrant culture.
+              </p>
+            </div>
+          </div>
+        </a>
+        <a
+          href="Meghalaya.html"
+          target="_blank"
+          style="text-decoration: none; color: inherit"
+        >
+          <div class="gallery-item">
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749543498/nvr-endng-anupam-EUwzrxkJAAY-unsplash_g3rmja.jpg"
+              alt="Meghalaya"
+            />
+            <div class="gallery-overlay">
+              <h3>Meghalaya</h3>
+              <p>
+                Known for its living root bridges, waterfalls, and mist-covered
+                hills.
+              </p>
+            </div>
+          </div>
+        </a>
+        <a
+          href="Himachal.html"
+          target="_blank"
+          style="text-decoration: none; color: inherit"
+        >
+          <div class="gallery-item">
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749543496/rishabh-pandoh-m1PFxGQ-5x0-unsplash_b3fcon.jpg"
+              alt="Himachal Pradesh"
+            />
+            <div class="gallery-overlay">
+              <h3>Himachal Pradesh</h3>
+              <p>
+                Popular for hill stations, adventure sports, and scenic mountain
+                views.
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+    <section id="about" class="about-section">
+      <div class="about-container">
+        <div class="about-text">
+          <h2>About Adventure4Life</h2>
+          <p>
+            At <strong>Adventure4Life</strong>, we are passionate about
+            exploring the great outdoors and connecting you with nature’s best
+            trails. Whether you're into traveling, trekking, or hiking, we
+            provide tailored adventures that inspire, challenge, and rejuvenate
+            your spirit.
+          </p>
+          <p>
+            Join us to experience breathtaking landscapes, expert-guided trails,
+            and unforgettable journeys that bring you closer to the heart of
+            nature. Adventure4Life is your trusted partner for every adventure
+            seeker looking to explore life to the fullest.
+          </p>
+        </div>
+        <div class="about-slider">
+          <div class="slides">
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749456045/Picture_081_moghzs.jpg"
+              alt="Adventure Image 1"
+            />
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749456052/P1040993_dgpet4.jpg"
+              alt="Adventure Image 2"
+            />
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749456053/Picture_380_ovtfz0.jpg"
+              alt="Adventure Image 3"
+            />
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749456046/Picture_100_tybyiq.jpg"
+              alt="Adventure Image 3"
+            />
+          </div>
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="contact-section">
+      <div class="contact-form">
+        <h2>Get in touch</h2>
+        <form id="contactForm" action="#" method="POST">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            required
+          />
+
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your email"
+            required
+          />
+
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Write your message here..."
+            rows="5"
+            required
+          ></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer-section">
+      <div class="footer-container">
+        <div class="footer-about">
+          <a class="navbar-brand fw-bold text-white" href="#"
+            ><img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749553891/adventure_4_life_final_logo_page-0001-removebg-preview_eoqoui.png"
+              alt=""
+          /></a>
+          <p>
+            Your trusted partner in traveling, trekking, and hiking adventures.
+            Explore the world with us!
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#Home">Home</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p>Email: info@adventure.com</p>
+          <p>Phone: +91 12345 67890</p>
+          <p>Address: Noida, Uttar Pradesh, India</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Adventure4Life. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+=======
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -31,4 +392,5 @@
   <script src="script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
+
 </html>

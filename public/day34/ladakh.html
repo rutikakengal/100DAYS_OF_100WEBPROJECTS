@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ladakh Adventures</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <nav
+      id="main-navbar"
+      class="navbar navbar-expand-lg glass-navbar fixed-top"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold text-white" href="#"
+          ><img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749553891/adventure_4_life_final_logo_page-0001-removebg-preview_eoqoui.png"
+            alt=""
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-white"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                Tracking & Hiking Trips
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="./Kerala.html">Kerala</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./ladakh.html">Ladakh</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./Sikkim.html">Sikkim</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./Uttrakhand.html"
+                    >Uttrakhand</a
+                  >
+                </li>
+                <!-- <li><a class="dropdown-item" href="#">Ladakh</a></li> -->
+                <li>
+                  <a class="dropdown-item" href="./Meghalaya.html">Meghalaya</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./Himachal.html"
+                    >Himachal Pradesh</a
+                  >
+                </li>
+                <!-- <li><a class="dropdown-item" href="#">Sikkim</a></li> -->
+                <!-- Add more as needed -->
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./index.html#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./index.html#gallery"
+                >Gallery</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-white"
+                href="./contact.html"
+                target="_blank"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="header">
+      <div class="header-image-container">
+        <img
+          src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749543496/darshan-chudasama-peYcTee_bss-unsplash_pf0iwv.jpg"
+          alt="Ladakh landscape"
+          class="header-image"
+        />
+        <div class="header-overlay">
+          <h1>Ladakh Adventures</h1>
+          <p>Conquer the heights, embrace the silence</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="adventure-description">
+      <h2>Trekking & Exploration in Ladakh</h2>
+      <p>
+        Ladakh offers an unparalleled adventure through high-altitude deserts,
+        monasteries, frozen rivers, and majestic Himalayan ranges. From the
+        legendary Chadar Trek to the tranquil Nubra Valley, experience nature's
+        raw beauty.
+      </p>
+    </section>
+
+    <section class="gallery">
+      <h2>Adventure Highlights</h2>
+      <div class="card-grid">
+        <!-- Chadar Trek -->
+        <div class="card">
+          <img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749549636/chadar_u5vsei.png"
+            alt="Chadar Trek"
+          />
+          <h3>Chadar Frozen River Trek</h3>
+          <p>
+            Walk across a frozen river surrounded by towering cliffs of ice.
+          </p>
+          <a href="#"><button onclick=" openChadarDetails()">9 days</button></a>
+        </div>
+
+        <div id="chadar-modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeChadarDetails()">&times;</span>
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749549636/chadar_u5vsei.png"
+              alt="Chadar Trek"
+              class="modal-img"
+            />
+            <h2>Chadar Trek – 9 Days</h2>
+            <p>
+              <strong>Description:</strong> A surreal winter expedition over the
+              frozen Zanskar River in Ladakh, famed for its icy terrain and
+              ancient trails.
+            </p>
+            <h3>Itinerary:</h3>
+            <ul>
+              <li>Day 1: Arrival in Leh</li>
+              <li>Day 2-3: Acclimatization</li>
+              <li>Day 4-7: Trek across frozen Zanskar</li>
+              <li>Day 8: Return to Leh</li>
+              <li>Day 9: Departure</li>
+            </ul>
+            <h3>Inclusions:</h3>
+            <ul>
+              <li>Permits & guide</li>
+              <li>Winter gear rental</li>
+              <li>Meals & tents</li>
+            </ul>
+            <p>
+              A once-in-a-lifetime icy trek for thrill-seekers and
+              photographers.
+            </p>
+            <a
+              href="https://wa.me/919876543210?text=Interested%20in%20Chadar%20Trek"
+            >
+              <button class="book-btn">Book Now</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Markha Valley -->
+        <div class="card">
+          <img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749549634/markha_fefayc.webp"
+            alt="Markha Valley"
+          />
+          <h3>Markha Valley Trek</h3>
+          <p>
+            Traverse ancient villages, rivers, and high passes in this scenic
+            trek.
+          </p>
+          <a href="#"><button onclick="openMarkhaDetails()">7 days</button></a>
+        </div>
+
+        <div id="markha-modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeMarkhaDetails()">&times;</span>
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749549634/markha_fefayc.webp"
+              alt="Markha Valley"
+              class="modal-img"
+            />
+            <h2>Markha Valley Trek – 7 Days</h2>
+            <p>
+              <strong>Description:</strong> A breathtaking trail through the
+              Hemis National Park and over high-altitude passes.
+            </p>
+            <h3>Itinerary:</h3>
+            <ul>
+              <li>Day 1: Leh to Chilling</li>
+              <li>Day 2-6: Trek via Markha, Thachungtse, Nimaling</li>
+              <li>Day 7: Return to Leh</li>
+            </ul>
+            <h3>Inclusions:</h3>
+            <ul>
+              <li>All permits & camping gear</li>
+              <li>Support crew & meals</li>
+            </ul>
+            <p>
+              Perfect for trekkers looking for culture, wildlife, and alpine
+              beauty.
+            </p>
+            <a
+              href="https://wa.me/919876543210?text=Interested%20in%20Markha%20Valley%20Trek"
+            >
+              <button class="book-btn">Book Now</button>
+            </a>
+          </div>
+        </div>
+
+        
+        <div class="card">
+          <img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749549788/nubra_rtz14o.jpg"
+            alt="Nubra Valley"
+          />
+          <h3>Nubra Valley Exploration</h3>
+          <p>
+            Experience dunes, monasteries, and camel rides in a cold desert.
+          </p>
+          <a href="#"><button onclick="openNubraDetails()">5 days</button></a>
+        </div>
+
+        <div id="nubra-modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeNubraDetails()">&times;</span>
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749549788/nubra_rtz14o.jpg"
+              alt="Nubra Valley"
+              class="modal-img"
+            />
+            <h2>Nubra Valley Exploration – 5 Days</h2>
+            <p>
+              <strong>Description:</strong> A road trip to the northernmost
+              valley of India, famous for double-humped camels, Diskit
+              Monastery, and Pangong Lake add-ons.
+            </p>
+            <h3>Itinerary:</h3>
+            <ul>
+              <li>Day 1: Leh to Diskit</li>
+              <li>Day 2: Hunder & camel ride</li>
+              <li>Day 3: Visit monasteries</li>
+              <li>Day 4: Optional Pangong Lake</li>
+              <li>Day 5: Return to Leh</li>
+            </ul>
+            <h3>Inclusions:</h3>
+            <ul>
+              <li>Transport & accommodation</li>
+              <li>Meals and local guide</li>
+            </ul>
+            <p>A gentle yet magical journey through Ladakh’s cultural side.</p>
+            <a
+              href="https://wa.me/919876543210?text=Interested%20in%20Nubra%20Valley%20Trip"
+            >
+              <button class="book-btn">Book Now</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-section">
+      <div class="footer-container">
+        <div class="footer-about">
+          <a class="navbar-brand fw-bold text-white" href="#"
+            ><img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749553891/adventure_4_life_final_logo_page-0001-removebg-preview_eoqoui.png"
+              alt=""
+          /></a>
+          <p>
+            Explore high-altitude adventures with expert-led trips to Ladakh,
+            the Himalayas, and beyond.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#Home">Home</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p>Email: info@adventure.com</p>
+          <p>Phone: +91 12345 67890</p>
+          <p>Address: Noida, Uttar Pradesh, India</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Adventure4Life. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -33,6 +33,8 @@ const projects = [
   "Typing Speed Test webapp ",
   "Startup Name Generator Web App",
   "",
+
+  "Adventure4Life",
   "Recipe Finder",
   "Snake Game ",
  "Hangman Game",

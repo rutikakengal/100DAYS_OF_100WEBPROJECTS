@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kerala Adventures</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <nav
+      id="main-navbar"
+      class="navbar navbar-expand-lg glass-navbar fixed-top"
+    >
+      <div class="container">
+        <!-- Brand -->
+                <a class="navbar-brand fw-bold text-white" href="#"
+          ><img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749553891/adventure_4_life_final_logo_page-0001-removebg-preview_eoqoui.png"
+            alt=""
+        /></a>
+
+        <!-- Toggler -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle text-white"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                Tracking & Hiking Trips
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="./Kerala.html">Kerala</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./ladakh.html">Ladakh</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./Sikkim.html">Sikkim</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./Uttrakhand.html"
+                    >Uttrakhand</a
+                  >
+                </li>
+                <!-- <li><a class="dropdown-item" href="#">Ladakh</a></li> -->
+                <li>
+                  <a class="dropdown-item" href="./Meghalaya.html">Meghalaya</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="./Himachal.html"
+                    >Himachal Pradesh</a
+                  >
+                </li>
+                <!-- <li><a class="dropdown-item" href="#">Sikkim</a></li> -->
+                <!-- Add more as needed -->
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./index.html#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./index.html#gallery">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="./contact.html" target="_blank"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="header">
+      <div class="header-image-container">
+        <img
+          src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749456042/04960035_xkd2bv.jpg"
+          alt="Kerala landscape"
+          class="header-image"
+        />
+        <div class="header-overlay">
+          <h1>Kerala Adventures</h1>
+          <p>Explore hiking, trekking, and more in God’s Own Country</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="adventure-description">
+      <h2>Hiking & Trekking in Kerala</h2>
+      <p>
+        Kerala, nestled in the Western Ghats, offers some of the most
+        breathtaking trekking routes in India. Whether it's walking through the
+        misty hills of Munnar, exploring ancient Edakkal Caves in Wayanad, or
+        venturing into the jungles of Thekkady — every step is an adventure.
+      </p>
+    </section>
+
+    <section class="gallery">
+      <h2>Adventure Highlights</h2>
+      <div class="card-grid">
+        <!-- Trip Card -->
+        <div class="card">
+          <img src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749543493/munnar-trekking-800x385_lyfybn.jpg" alt="Munnar Hiking" />
+          <h3>Munnar Hiking</h3>
+          <p>
+            Walk through rolling tea gardens and scenic viewpoints in Munnar's
+            cool hills.
+          </p>
+          <a href="#"><button onclick="openTripDetails()">6 days</button></a>
+        </div>
+
+        <!-- Trip Details Modal -->
+        <!-- munnar hiking -->
+        <div id="trip-modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeTripDetails()">&times;</span>
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749543493/munnar-trekking-800x385_lyfybn.jpg"
+              alt="Munnar Hiking"
+              class="modal-img"
+            />
+            <h2>Munnar Hiking – 6 Days</h2>
+            <p>
+              <strong>Description:</strong> Explore the serene landscapes, tea
+              plantations, and forest trails of Munnar in this 6-day hiking
+              adventure.
+            </p>
+
+            <h3>Itinerary:</h3>
+            <ul>
+              <li>Day 1: Arrival and orientation</li>
+              <li>Day 2: Tea plantation hike</li>
+              <li>Day 3: Meesapulimala trek</li>
+              <li>Day 4: Wildlife sanctuary visit</li>
+              <li>Day 5: Cultural exploration</li>
+              <li>Day 6: Departure</li>
+            </ul>
+
+            <h3>Inclusions:</h3>
+            <ul>
+              <li>Accommodation</li>
+              <li>All meals</li>
+              <li>Guided treks</li>
+              <li>Transportation</li>
+            </ul>
+
+            <h3>Conclusion:</h3>
+            <p>
+              This trek offers a perfect balance of adventure, nature, and
+              culture in the breathtaking hills of Munnar.
+            </p>
+
+            <a
+              href="https://wa.me/919876543210?text=Hi%2C%20I%20am%20interested%20in%20the%20Munnar%20Hiking%20(6%20Days)%20trip.%20Please%20share%20more%20details."
+              target="_blank"
+            >
+              <button class="book-btn">Book Now</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Wayanad Card -->
+        <div class="card">
+          <img src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749543493/Wayanad_ilents.jpg" alt="Wayanad Trek" />
+          <h3>Wayanad Trek</h3>
+          <p>
+            Discover waterfalls, caves, and tropical forests on this lush green
+            trek.
+          </p>
+          <a href="#"><button onclick="openWayanadDetails()">7 days</button></a>
+        </div>
+
+        <!-- Wayanad Modal -->
+        <div id="wayanad-modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeWayanadDetails()">&times;</span>
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749543493/Wayanad_ilents.jpg"
+              alt="Wayanad Trek"
+              class="modal-img"
+            />
+            <h2>Wayanad Trek – 7 Days</h2>
+            <p>
+              <strong>Description:</strong> Embark on an unforgettable journey
+              through Wayanad's misty hills, lush forests, and historic caves.
+            </p>
+
+            <h3>Itinerary:</h3>
+            <ul>
+              <li>Day 1: Arrival in Wayanad & Orientation</li>
+              <li>Day 2: Edakkal Caves and heritage sites</li>
+              <li>Day 3: Soochipara Waterfalls</li>
+              <li>Day 4: Chembra Peak rainforest trek</li>
+              <li>Day 5: Village walk and cuisine tour</li>
+              <li>Day 6: Leisure and local nature tour</li>
+              <li>Day 7: Departure</li>
+            </ul>
+
+            <h3>Inclusions:</h3>
+            <ul>
+              <li>6 nights camp/lodging</li>
+              <li>Meals during the trek</li>
+              <li>Certified local guide</li>
+              <li>Transportation & entry fees</li>
+            </ul>
+
+            <h3>Conclusion:</h3>
+            <p>
+              Ideal for nature lovers and adventure seekers, this trek offers an
+              immersive escape in Kerala’s wild beauty.
+            </p>
+
+            <a
+               href="https://wa.me/919876543210?text=Hi%2C%20I%20am%20interested%20in%20the%20Wayanad%20Trek%20(7%20Days)%20trip.%20Please%20share%20more%20details."
+              target="_blank">
+              <button class="book-btn">Book Now</button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Periyar Trip Card -->
+        <div class="card">
+          <img src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749543494/periyar_vfc50j.jpg" alt="Periyar Adventure" />
+          <h3>Periyar Wildlife Adventure</h3>
+          <p>
+            Go bamboo rafting, jungle trekking, and spot wildlife in the Periyar
+            Tiger Reserve.
+          </p>
+          <a href="#"><button onclick="openPeriyarDetails()">6 days</button></a>
+        </div>
+
+        <!-- Periyar Modal -->
+        <div id="periyar-modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closePeriyarDetails()">&times;</span>
+            <img
+              src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749543494/periyar_vfc50j.jpg"
+              alt="Periyar Adventure"
+              class="modal-img"
+            />
+            <h2>Periyar Wildlife Adventure – 6 Days</h2>
+            <p>
+              <strong>Description:</strong> Dive deep into Kerala’s famed
+              Periyar Tiger Reserve. Enjoy thrilling jungle treks, bamboo
+              rafting, and immersive wildlife experiences.
+            </p>
+
+            <h3>Itinerary:</h3>
+            <ul>
+              <li>Day 1: Arrival and orientation</li>
+              <li>Day 2: Guided jungle walk & night camping</li>
+              <li>Day 3: Bamboo rafting and lake exploration</li>
+              <li>Day 4: Wildlife safari and bird watching</li>
+              <li>Day 5: Cultural tour of tribal villages</li>
+              <li>Day 6: Departure</li>
+            </ul>
+
+            <h3>Inclusions:</h3>
+            <ul>
+              <li>Accommodation in eco-lodges</li>
+              <li>All meals included</li>
+              <li>Park entry & activity fees</li>
+              <li>Expert forest guide and transport</li>
+            </ul>
+
+            <h3>Conclusion:</h3>
+            <p>
+              This adventure is perfect for those seeking a raw and rich
+              wildlife experience in the heart of Kerala’s jungles.
+            </p>
+
+            <a
+              href="https://wa.me/919876543210?text=Hi%2C%20I%20am%20interested%20in%20the%20Periyar%20Wildlife%20Adventure%20(6%20Days)%20trip.%20Please%20share%20more%20details."
+              target="_blank"
+            >
+              <button class="book-btn">Book Now</button>
+            </a>
+          </div>
+        </div>
+
+ <!-- Agastyarkoodam Trip Card -->
+<div class="card">
+  <img src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749543493/Agastyarkoodam_y6zgpt.jpg" alt="Agastyarkoodam Peak" />
+  <h3>Agastyarkoodam Peak</h3>
+  <p>
+    Trek to one of the highest peaks in Kerala, sacred and full of rare biodiversity.
+  </p>
+  <a href="#"><button onclick="openAgastyarDetails()">8 days</button></a>
+</div>
+
+
+<div id="agastyar-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeAgastyarDetails()">&times;</span>
+    <img src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749543493/Agastyarkoodam_y6zgpt.jpg" alt="Agastyarkoodam Peak" class="modal-img" />
+    <h2>Agastyarkoodam Peak Trek – 8 Days</h2>
+    <p>
+      <strong>Description:</strong> Challenge yourself with an epic trek to Agastyarkoodam — a UNESCO Biosphere Reserve known for sacred legends, rare herbs, and untouched forest trails.
+    </p>
+
+    <h3>Itinerary:</h3>
+    <ul>
+      <li>Day 1: Arrival and orientation in Trivandrum</li>
+      <li>Day 2: Permit formalities and cultural tour</li>
+      <li>Day 3: Transfer to base camp</li>
+      <li>Day 4: Trek to Athirumala</li>
+      <li>Day 5: Summit Agastyarkoodam and return to base</li>
+      <li>Day 6: Rest and visit nearby tribal areas</li>
+      <li>Day 7: Visit Neyyar Dam and relax</li>
+      <li>Day 8: Departure</li>
+    </ul>
+
+    <h3>Inclusions:</h3>
+    <ul>
+      <li>Permit handling & entry fees</li>
+      <li>Accommodation and meals</li>
+      <li>Certified local guide and support staff</li>
+      <li>Transport from Trivandrum</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>
+      A spiritually enriching and physically rewarding trek, Agastyarkoodam is a must-do for serious trekkers and nature lovers.
+    </p>
+
+    <a
+      href="https://wa.me/919876543210?text=Hi%2C%20I%20am%20interested%20in%20the%20Agastyarkoodam%20Peak%20Trek%20(8%20Days)%20trip.%20Please%20share%20more%20details."
+      target="_blank"
+    >
+      <button class="book-btn">Book Now</button>
+    </a>
+  </div>
+</div>
+
+    </section>
+
+    <footer class="footer-section">
+      <div class="footer-container">
+        <div class="footer-about">
+          <a class="navbar-brand fw-bold text-white" href="#"
+          ><img
+            src="https://res.cloudinary.com/dka3hts4i/image/upload/v1749553891/adventure_4_life_final_logo_page-0001-removebg-preview_eoqoui.png"
+            alt=""
+        /></a>
+          <p>
+            Your trusted partner in traveling, trekking, and hiking adventures.
+            Explore the world with us!
+          </p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+              <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./index.html#gallery">Gallery</a></li>
+                <li><a href="./index.html#about">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+              </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p>Email: info@adventure.com</p>
+          <p>Phone: +91 12345 67890</p>
+          <p>Address: Noida, Uttar Pradesh, India</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Adventure4Life. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
