@@ -1,0 +1,198 @@
+.booking{
+  min-height: calc(100vh - 78px);
+  display: grid;
+  place-items: center;
+  padding: 60px 8%;
+  background:
+    radial-gradient(1200px 600px at 70% 20%, rgba(141,189,107,0.08), transparent 60%),
+    radial-gradient(900px 500px at 20% 80%, rgba(255,255,255,0.06), transparent 55%),
+    var(--cyber-black);
+}
+
+.booking-card{
+  width: min(720px, 100%);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 34px;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.55);
+  backdrop-filter: blur(10px);
+}
+
+.booking-title{
+  font-family: var(--font-slogan);
+  letter-spacing: 1px;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+}
+
+.booking-subtitle{
+  margin-top: 8px;
+  opacity: 0.75;
+  font-size: 0.95rem;
+}
+
+.booking-service{
+  margin-top: 22px;
+  padding: 18px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.25);
+
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.label{
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.value{
+  margin-top: 6px;
+  font-weight: 700;
+}
+
+.price-box .value{
+  color: var(--cyber-green);
+  font-family: var(--font-slogan);
+  font-size: 1.25rem;
+}
+
+.booking-form{
+  margin-top: 22px;
+  display: grid;
+  gap: 14px;
+}
+
+.field label{
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+.field input,
+.field select,
+.field textarea{
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.05);
+  color: var(--white);
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  border-color: rgba(141,189,107,0.55);
+  box-shadow: 0 0 0 4px rgba(141,189,107,0.15);
+}
+
+.field-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.actions{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-secondary{
+  text-decoration: none;
+  color: var(--white);
+  opacity: 0.9;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+}
+
+.btn-book{
+  cursor: pointer;
+  border: none;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: var(--cyber-green);
+  color: #0e130a;
+  transition: transform .15s ease, filter .15s ease;
+}
+
+.btn-book:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.tiny{
+  margin-top: 14px;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.date-wrap{
+  position: relative;
+}
+
+.date-placeholder{
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.55;
+  pointer-events: none;
+  font-size: 0.95rem;
+}
+
+.date-wrap input[type="date"]:valid + .date-placeholder{
+  display: none;
+}
+
+.date-wrap input[type="date"]::-webkit-calendar-picker-indicator{
+  filter: invert(1);
+  opacity: 0.95;
+  cursor: pointer;
+}
+
+.field-error {
+  min-height: 16px;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.field.is-invalid .field-error {
+  opacity: 1;
+}
+
+.field.is-invalid input,
+.field.is-invalid select,
+.field.is-invalid textarea {
+  border-color: rgba(255, 80, 80, 0.9) !important;
+  box-shadow: 0 0 0 3px rgba(255, 80, 80, 0.18) !important;
+}
+
+.field.is-valid input,
+.field.is-valid select,
+.field.is-valid textarea {
+  border-color: rgba(141, 189, 107, 0.9) !important;
+  box-shadow: 0 0 0 3px rgba(141, 189, 107, 0.14) !important;
+}
+
+
+
+@media (max-width: 720px){
+  .booking-card{ padding: 22px; }
+  .field-row{ grid-template-columns: 1fr; }
+  .actions{ flex-direction: column; align-items: stretch; }
+}

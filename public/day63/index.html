@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberCut | Day 63</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body id="top">
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="img/logo barber.webp" alt="CyberCut Logo" />
+    </div>
+
+    <!-- HAMBURGER (aparece só no mobile via CSS) -->
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="mobileMenu">
+      <ul>
+        <li><a href="#top">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#services">SERVICE</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+
+      <div class="hero-text-stack">
+        <h1><span>UPGRADE</span> <br /> YOUR LOOK</h1>
+        <h2 class="highlight">PATCH YOUR <br /> <span>STYLE</span></h2>
+
+        <!-- INFO BLOCK (DESKTOP ONLY) -->
+        <div class="hero-info hero-info--desktop">
+          <p class="open">NOW OPEN</p>
+
+          <p>Monday to Friday</p>
+          <p>9AM to 7PM</p>
+
+          <p class="address">
+            📍 <strong>CyberCut Barbershop</strong> <br />
+            742 Evergreen Street <br />
+            Brooklyn, NY
+          </p>
+
+          <p class="walkins">Walk-ins welcome. Appointments recommended.</p>
+        </div>
+
+        <a href="#services" class="btn-primary">BOOK A CHAIR</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- (opcional) Âncoras futuras: deixa pronto pro menu -->
+  <section id="about" style="display:none;"></section>
+  <section id="faq" style="display:none;"></section>
+
+  <section id="services" class="services-section">
+    <div class="services-title">
+      <h2>OUR SERVICES</h2>
+      <p>CHOOSE YOUR STYLE OR TALK TO OUR BARBERS</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- BUZZ CUT -->
+      <a class="service-link" href="booking.html?service=Buzz%20Cut&price=25">
+        <div class="service-card">
+          <div class="service-img">
+            <img src="img/BUZZ_CUT.webp" alt="Buzz Cut" />
+          </div>
+          <h3>BUZZ CUT</h3>
+          <p class="price">$25</p>
+          <p class="desc">Clean and sharp look.</p>
+        </div>
+      </a>
+
+      <!-- FADE -->
+      <a class="service-link" href="booking.html?service=Fade%20%26%20Style&price=40">
+        <div class="service-card highlighted">
+          <div class="service-img">
+            <img src="img/FADE_STYLE.webp" alt="Fade Style" />
+          </div>
+          <h3>FADE & STYLE</h3>
+          <p class="price">$40</p>
+          <p class="desc">Modern gradient fade.</p>
+        </div>
+      </a>
+
+      <!-- BEARD -->
+      <a class="service-link" href="booking.html?service=Beard%20Trim&price=20">
+        <div class="service-card">
+          <div class="service-img">
+            <img src="img/BEARD_TRIM.webp" alt="Beard Trim" />
+          </div>
+          <h3>BEARD TRIM</h3>
+          <p class="price">$20</p>
+          <p class="desc">Professional line up.</p>
+        </div>
+      </a>
+
+      <!-- CUSTOM CUT -->
+      <a class="service-link" href="booking.html?service=Custom%20Cut">
+        <div class="service-card custom">
+          <div class="service-img">
+            <img src="img/menlonely.webp" alt="Custom Cut" />
+          </div>
+          <h3>CUSTOM CUT</h3>
+          <p class="price">VARIES</p>
+          <p class="desc">Talk to our barber.</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- MOBILE ONLY: INFO BLOCK (NO FINAL DO SITE) -->
+  <section class="hero-info-section hero-info-section--mobile" id="contact">
+    <div class="hero-info hero-info--mobile">
+      <p class="open">NOW OPEN</p>
+
+      <p>Monday to Friday</p>
+      <p>9AM to 7PM</p>
+
+      <p class="address">
+        📍 <strong>CyberCut Barbershop</strong> <br />
+        742 Evergreen Street <br />
+        Brooklyn, NY
+      </p>
+
+      <p class="walkins">Walk-ins welcome. Appointments recommended.</p>
+    </div>
+  </section>
+
+  <!-- JS do hamburger -->
+  <script>
+    const toggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".navbar nav");
+
+    if (toggle && nav) {
+      function closeMenu() {
+        document.body.classList.remove("nav-open");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+
+      toggle.addEventListener("click", () => {
+        const isOpen = document.body.classList.toggle("nav-open");
+        toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+
+      // Fecha ao clicar em qualquer link do menu
+      nav.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", closeMenu);
+      });
+
+      // Fecha ao clicar fora
+      document.addEventListener("click", (e) => {
+        if (!document.body.classList.contains("nav-open")) return;
+        const insideNavbar = e.target.closest(".navbar");
+        if (!insideNavbar) closeMenu();
+      });
+
+      // Fecha com ESC
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+    }
+  </script>
+
+</body>
+</html>

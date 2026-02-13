@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberCut | Booking</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="booking.css" />
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVBAR
+       ========================= -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="img/logo barber.webp" alt="CyberCut Logo"/>
+      </a>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="index.html#services">SERVICES</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- =========================
+       BOOKING
+       ========================= -->
+  <main class="booking">
+    <section class="booking-card">
+
+      <h1 class="booking-title">BOOK YOUR CHAIR</h1>
+      <p class="booking-subtitle">
+        Pick a date and time — we’ll confirm with you.
+      </p>
+
+      <!-- =========================
+           SELECTED SERVICE
+           ========================= -->
+      <div class="booking-service">
+        <div>
+          <p class="label">Selected Service</p>
+          <p id="selectedService" class="value">—</p>
+        </div>
+
+        <div class="price-box">
+          <p class="label">Price</p>
+          <p id="selectedPrice" class="value">$—</p>
+        </div>
+      </div>
+
+      <!-- =========================
+           FORM
+           ========================= -->
+      <form id="bookingForm" class="booking-form" novalidate>
+
+        <div class="field">
+  <label for="name">Your Name</label>
+  <input
+    id="name"
+    name="name"
+    type="text"
+    placeholder="John Doe"
+    required
+    aria-describedby="nameError"
+  />
+  <p class="field-error" id="nameError" aria-live="polite"></p>
+</div>
+
+
+        <div class="field">
+  <label for="date">Date</label>
+  <input
+    id="date"
+    name="date"
+    type="text"
+    placeholder="DD/MM/YYYY"
+    required
+    aria-describedby="dateError"
+  />
+  <p class="field-error" id="dateError" aria-live="polite"></p>
+</div>
+
+
+          <div class="field">
+  <label for="time">Time</label>
+  <select id="time" name="time" required aria-describedby="timeError"></select>
+  <p class="field-error" id="timeError" aria-live="polite"></p>
+</div>
+
+
+        <div class="field">
+          <label for="notes">Notes (optional)</label>
+          <textarea
+            id="notes"
+            name="notes"
+            rows="3"
+            placeholder="Any details you want us to know?"
+          ></textarea>
+        </div>
+
+        <!-- =========================
+             ACTIONS
+             ========================= -->
+        <div class="actions">
+          <a class="btn-secondary" href="index.html#services">Back</a>
+          <button class="btn-book" type="submit">CONFIRM ON WHATSAPP</button>
+        </div>
+
+      </form>
+
+      <p class="tiny">
+        By confirming, you’ll be redirected to WhatsApp with a pre-filled message.
+      </p>
+
+    </section>
+  </main>
+
+  <!-- =========================
+       SCRIPTS
+       ========================= -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="booking.js"></script>
+
+</body>
+</html>
